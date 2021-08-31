@@ -39,7 +39,10 @@ export class MshSection extends SectionBase {
         this.configService,
         9,
         'sections.msh.9.name',
-        [ ]),
+        [
+          new StringField(1, 'sections.msh.9.1.name'),
+          new StringField(2, 'sections.msh.9.2.name')
+        ]),
       new StringField(10, 'sections.msh.10.name')
     ];
   }

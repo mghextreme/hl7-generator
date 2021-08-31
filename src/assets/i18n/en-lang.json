@@ -36,7 +36,13 @@
         "name": "Date/Time of Message"
       },
       "9": {
-        "name": "Message Type"
+        "name": "Message Type",
+        "1": {
+          "name": "Message Type"
+        },
+        "2": {
+          "name": "Event"
+        }
       },
       "10": {
         "name": "Message Control ID"
@@ -76,13 +82,71 @@
           "name": "Assigning Facility"
         }
       },
+      "5": {
+        "name": "Patient Name",
+        "tags": "patient name",
+        "1": {
+          "name": "Family Name"
+        },
+        "2": {
+          "name": "Given Name"
+        },
+        "3": {
+          "name": "Middle Names"
+        },
+        "4": {
+          "name": "Suffix"
+        },
+        "5": {
+          "name": "Prefix"
+        }
+      },
       "7": {
         "name": "Date of Birth",
         "tags": "birth, date of birth, birthdate"
       },
+      "8": {
+        "name": "Administrative Sex",
+        "tags": "sex, gender"
+      },
+      "10": {
+        "name": "Race",
+        "tags": "race, color"
+      },
+      "11": {
+        "name": "Patient Address",
+        "tags": "patient address",
+        "1": {
+          "name": "Street"
+        },
+        "3": {
+          "name": "City"
+        },
+        "4": {
+          "name": "State or Province"
+        },
+        "5": {
+          "name": "Zip or Postal Code"
+        },
+        "6": {
+          "name": "Country"
+        }
+      },
+      "16": {
+        "name": "Marital Status",
+        "tags": "marital status"
+      },
       "18": {
         "name": "Patient Account Number",
         "tags": "pan, account number, patient account number"
+      },
+      "19": {
+        "name": "SSN",
+        "tags": "ssn, social security number, national identifier, national id"
+      },
+      "22": {
+        "name": "Ethnic Group",
+        "tags": "ethnic group, ethnicity"
       }
     },
     "pv1": {
