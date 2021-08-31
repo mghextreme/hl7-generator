@@ -6,6 +6,7 @@ import { ISection } from './section.interface';
 export abstract class SectionBase implements ISection {
   id: number;
   fields: IField[] = [];
+  expanded: boolean;
 
   constructor(
     readonly configService: MessageConfigurationService,
@@ -14,6 +15,7 @@ export abstract class SectionBase implements ISection {
   ) {
     this.id = Date.now();
     this.type = type;
+    this.expanded = true;
 
     this.setFields(this.configService);
 

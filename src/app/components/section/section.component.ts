@@ -20,6 +20,14 @@ export class SectionComponent {
     this.change.emit();
   }
 
+  public handleExpand() {
+    this.section.expanded = true;
+  }
+
+  public handleCollapse() {
+    this.section.expanded = false;
+  }
+
   public handleAddField(number: number) {
     const fields = this.section.fields.filter(f => f.number === number);
     fields.forEach(f => f.expanded = true);

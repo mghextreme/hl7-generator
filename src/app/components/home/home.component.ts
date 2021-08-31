@@ -32,9 +32,9 @@ export class HomeComponent {
 
     const bits = this.hl7.split('\n');
     bits.forEach(b => {
+      b = b.trim();
       try {
-        let firstPipe = b.indexOf('|');
-        let type = b.substring(0, firstPipe);
+        let type = b.substring(0, 3);
         let newSection: ISection;
 
         switch (type) {
@@ -47,6 +47,7 @@ export class HomeComponent {
           case SectionType.PV1:
             newSection = new PV1Section(this.configService, b);
             break;
+          default: return;
         }
 
         this.sections.push(newSection);
@@ -67,7 +68,7 @@ export class HomeComponent {
   }
 
   private generateHl7(): void {
-    this.expectedHl7 = _.join(this.sections.map(s => s.toString()), '\n');
+    this.expectedHl7 = _.join(this.sections.map(s => s.toString()), '\r\n');
     this.hl7 = this.expectedHl7;
   }
 

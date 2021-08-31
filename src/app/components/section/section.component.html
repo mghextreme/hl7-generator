@@ -1,14 +1,15 @@
 <div class="pid-section p-2">
   <div class="header d-flex align-items-center">
     <h5 class="mr-auto">{{ section.type }} - {{ 'sections.' + section.type.toLowerCase() + '.title' | translate }}</h5>
-    <button pButton type="button" icon="pi pi-chevron-down" [title]="'action.expand' | translate" (click)="handleExpand()" class="mr-2"></button>
+    <button *ngIf="!section.expanded" pButton type="button" icon="pi pi-chevron-down" [title]="'action.expand' | translate" (click)="handleExpand()" class="mr-2"></button>
+    <button *ngIf="section.expanded" pButton type="button" icon="pi pi-chevron-up" [title]="'action.collapse' | translate" (click)="handleCollapse()" class="ui-button-secondary mr-2"></button>
     <button pButton type="button" icon="pi pi-trash" [title]="'action.remove' | translate" (click)="handleRemove()" class="ui-button-danger mr-0"></button>
   </div>
-  <div class="fields">
+  <div class="fields" *ngIf="section.expanded">
     <div class="field" *ngFor="let field of section.fields">
       <div class="header p-1">
         <button *ngIf="!field.expanded" pButton type="button" icon="pi pi-plus" [title]="'action.add' | translate" (click)="handleAddField(field.number)" class="ui-button-success mr-3"></button>
-        <button *ngIf="field.expanded" pButton type="button" icon="pi pi-chevron-up" [title]="'action.remove' | translate" (click)="handleRemoveField(field.number)" class="ui-button-secondary mr-3"></button>
+        <button *ngIf="field.expanded" pButton type="button" icon="pi pi-chevron-up" [title]="'action.remove' | translate" (click)="handleRemoveField(field.number)" class="ui-button-secondary mr-3" [disabled]="field.required"></button>
         <span class="tag mr-2">{{ section.type }}.{{ field.number }}</span>
         <span class="name">{{ field.i18n | translate }}</span>
       </div>

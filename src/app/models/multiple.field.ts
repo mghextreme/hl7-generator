@@ -29,10 +29,10 @@ export class MultipleField implements IField {
     if (value instanceof String || typeof(value) === 'string') {
 
       let bits = value.split(this.configService.subSplitChar);
-      for (let i = 1; i < bits.length; i++) {
+      for (let i = 0; i < bits.length; i++) {
         let bit = bits[i];
         if (bit.length > 0) {
-          let fields = this.subfields.filter(f => f.number === i);
+          let fields = this.subfields.filter(f => f.number === i + 1);
           fields.forEach(f => f.setValue(bit));
         }
       }

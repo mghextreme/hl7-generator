@@ -9,13 +9,28 @@ export class StringField implements IField {
   required: boolean;
   value?: string;
 
+  minLength?: number;
+  maxLength?: number;
+
   constructor(
     number: number,
-    i18n: string
+    i18n: string,
+    readonly defaultValue: string = ''
   ) {
     this.type = FieldType.String;
     this.number = number;
     this.i18n = i18n;
+
+    if (defaultValue !== undefined &&
+        defaultValue !== null &&
+        defaultValue.length) {
+      this.value = this.defaultValue;
+    }
+  }
+
+  public init(init?: Partial<StringField>): StringField {
+    Object.assign(this, init);
+    return this;
   }
 
   public hasValue(): boolean {
@@ -29,6 +44,12 @@ export class StringField implements IField {
   }
 
   public toString(): string {
-    return this.value;
+    return this.isValid() ? this.value : this.defaultValue;
+  }
+
+  private isValid(): boolean {
+    return this.hasValue() &&
+           (this.minLength === undefined || this.value.length > this.minLength) &&
+           (this.maxLength === undefined || this.value.length > this.maxLength);
   }
 }

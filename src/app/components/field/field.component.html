@@ -1,6 +1,6 @@
 <div class="field" [ngSwitch]="field.type">
   <div *ngSwitchCase="'string'">
-    <input pInputText [(ngModel)]="field.value" type="text" (onchange)="handleChange()" />
+    <input pInputText [(ngModel)]="field.value" type="text" (onchange)="handleChange()" [minlength]="field.minLength" [maxlength]="field.minLength" />
   </div>
   <div *ngSwitchCase="'date'">
     <p-calendar [(ngModel)]="field.value" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2050" (onSelect)="handleChange()" (onChange)="handleChange()"></p-calendar>

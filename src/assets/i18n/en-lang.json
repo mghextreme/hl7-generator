@@ -2,7 +2,10 @@
   "app-title": "HL7 Generator",
   "actions": {
     "add": "Add",
-    "parse": "Parse"
+    "remove": "Remove",
+    "parse": "Parse",
+    "expand": "Expand",
+    "collapse": "Collapse"
   },
   "titles": {
     "sections": "Sections",
@@ -10,7 +13,34 @@
   },
   "sections": {
     "msh": {
-      "title": "Message Header"
+      "title": "Message Header",
+      "1": {
+        "name": "Field Separator"
+      },
+      "2": {
+        "name": "Encoding Characters"
+      },
+      "3": {
+        "name": "Sending Application"
+      },
+      "4": {
+        "name": "Sending Facility"
+      },
+      "5": {
+        "name": "Receiving Application"
+      },
+      "6": {
+        "name": "Receiving Facility"
+      },
+      "7": {
+        "name": "Date/Time of Message"
+      },
+      "9": {
+        "name": "Message Type"
+      },
+      "10": {
+        "name": "Message Control ID"
+      }
     },
     "pid": {
       "title": "Patient Identification",
