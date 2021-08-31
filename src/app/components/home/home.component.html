@@ -14,10 +14,8 @@
 
     <h4 class="mt-4 mb-2">{{ 'titles.sections' | translate }}</h4>
     <div class="sections">
-      <div class="section" *ngFor="let item of sections" [ngSwitch]="item.type">
-        <pid-section *ngSwitchCase="'PID'" [section]="item" (remove)="handleRemoveSection($event)" (change)="handleChangeSection($event)"></pid-section>
-        <msh-section *ngSwitchCase="'MSH'" [section]="item" (remove)="handleRemoveSection($event)" (change)="handleChangeSection($event)"></msh-section>
-        <div *ngSwitchDefault>(unidentified section)</div>
+      <div class="section" *ngFor="let item of sections">
+        <section [section]="item" (remove)="handleRemoveSection($event)" (change)="handleChangeSection($event)"></section>
       </div>
     </div>
   </div>

@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { PidSection } from 'app/models';
+import { ISection } from 'app/models';
 
 @Component({
-  selector: 'pid-section',
-  templateUrl: './pid-section.component.html',
-  styleUrls: ['./pid-section.component.scss']
+  selector: 'section',
+  templateUrl: './section.component.html',
+  styleUrls: ['./section.component.scss']
 })
-export class PidSectionComponent {
-  @Input() section: PidSection;
+export class SectionComponent {
+  @Input() section: ISection;
 
   @Output() remove = new EventEmitter<number>();
   @Output() change = new EventEmitter<void>();

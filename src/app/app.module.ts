@@ -24,8 +24,7 @@ import { appRoutes, pagesComponents } from './app.routes';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { MshSectionComponent } from './components/sections/msh-section/msh-section.component';
-import { PidSectionComponent } from './components/sections/pid-section/pid-section.component';
+import { SectionComponent } from './components/section/section.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '-lang.json');
@@ -34,8 +33,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    MshSectionComponent,
-    PidSectionComponent,
+    SectionComponent,
     ...pagesComponents
   ],
   imports: [
