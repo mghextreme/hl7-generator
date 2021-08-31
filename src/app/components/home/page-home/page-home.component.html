@@ -1,0 +1,29 @@
+<div class="row mb-3">
+  <nav class="col navbar navbar-light bg-light justify-content-center">
+    <a class="navbar-brand" href="#">HL7 Generator</a>
+  </nav>
+</div>
+
+<div class="row">
+  <div class="col">
+    <h5 class="mb-2">Add</h5>
+    <div class="add">
+      <button pButton type="button" icon="pi pi-plus" label="PID" (click)="addSection('PID')"></button>
+    </div>
+
+    <h5 class="mt-4 mb-2">Sections</h5>
+    <div class="sections">
+      <div class="section" *ngFor="let item of sections">
+        <div [ngSwitch]="item.type">
+          <pid-section *ngSwitchCase="'PID'">Any</pid-section>
+          <h1 *ngSwitchDefault>Other</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <h5 class="mb-2">HL7 Message</h5>
+    <textarea pInputTextarea class="hl7-textarea form-control mb-2" autoResize="autoResize" [(ngModel)]="hl7"></textarea>
+    <button pButton type="button" icon="pi pi-eject" label="Parse" (click)="parseHl7()" [disabled]="hl7 === expectedHl7"></button>
+  </div>
+</div>
