@@ -7,6 +7,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { InputTextModule } from 'primeng/inputtext';
@@ -23,6 +24,7 @@ import { appRoutes, pagesComponents } from './app.routes';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { MshSectionComponent } from './components/sections/msh-section/msh-section.component';
 import { PidSectionComponent } from './components/sections/pid-section/pid-section.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -32,6 +34,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    MshSectionComponent,
     PidSectionComponent,
     ...pagesComponents
   ],
@@ -50,6 +53,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HttpClientModule,
     AutoCompleteModule,
     ButtonModule,
+    CalendarModule,
     SplitButtonModule,
     InputSwitchModule,
     InputTextModule,

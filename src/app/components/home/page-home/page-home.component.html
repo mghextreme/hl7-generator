@@ -1,29 +1,29 @@
 <div class="row mb-3">
   <nav class="col navbar navbar-light bg-light justify-content-center">
-    <a class="navbar-brand" href="#">HL7 Generator</a>
+    <a class="navbar-brand" href="#">{{ 'app-title' | translate }}</a>
   </nav>
 </div>
 
 <div class="row">
   <div class="col">
-    <h5 class="mb-2">Add</h5>
+    <h4 class="mb-2">{{ 'actions.add' | translate }}</h4>
     <div class="add">
-      <button pButton type="button" icon="pi pi-plus" label="PID" (click)="addSection('PID')"></button>
+      <button pButton type="button" icon="pi pi-plus" label="MSH" [title]="'sections.msh.title' | translate" (click)="addSection('MSH')" class="mr-2"></button>
+      <button pButton type="button" icon="pi pi-plus" label="PID" [title]="'sections.pid.title' | translate" (click)="addSection('PID')" class="mr-2"></button>
     </div>
 
-    <h5 class="mt-4 mb-2">Sections</h5>
+    <h4 class="mt-4 mb-2">{{ 'titles.sections' | translate }}</h4>
     <div class="sections">
-      <div class="section" *ngFor="let item of sections">
-        <div [ngSwitch]="item.type">
-          <pid-section *ngSwitchCase="'PID'">Any</pid-section>
-          <h1 *ngSwitchDefault>Other</h1>
-        </div>
+      <div class="section" *ngFor="let item of sections" [ngSwitch]="item.type">
+        <pid-section *ngSwitchCase="'PID'" [section]="item" (remove)="handleRemoveSection($event)" (change)="handleChangeSection($event)"></pid-section>
+        <msh-section *ngSwitchCase="'MSH'" [section]="item" (remove)="handleRemoveSection($event)" (change)="handleChangeSection($event)"></msh-section>
+        <div *ngSwitchDefault>(unidentified section)</div>
       </div>
     </div>
   </div>
   <div class="col">
-    <h5 class="mb-2">HL7 Message</h5>
+    <h4 class="mb-2">{{ 'titles.hl7-message' | translate }}</h4>
     <textarea pInputTextarea class="hl7-textarea form-control mb-2" autoResize="autoResize" [(ngModel)]="hl7"></textarea>
-    <button pButton type="button" icon="pi pi-eject" label="Parse" (click)="parseHl7()" [disabled]="hl7 === expectedHl7"></button>
+    <button pButton type="button" icon="pi pi-eject" [label]="'actions.parse' | translate" (click)="parseHl7()" [disabled]="hl7 === expectedHl7"></button>
   </div>
 </div>

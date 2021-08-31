@@ -1,7 +1,19 @@
 {
   "app-title": "Gerador HL7",
-  "menu": {
-    "home": "Início",
-    "sign-out": "Sair"
+  "actions": {
+    "add": "Adicionar",
+    "parse": "Interpretar"
+  },
+  "titles": {
+    "sections": "Seções",
+    "hl7-message": "Mensagem HL7"
+  },
+  "sections": {
+    "msh": {
+      "title": "Cabeçalho da Mensagem"
+    },
+    "pid": {
+      "title": "Identificação do Paciente"
+    }
   }
 }

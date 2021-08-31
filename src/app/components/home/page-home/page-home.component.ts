@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ISection, PidSection, SectionType } from 'app/models';
+import { ISection, MshSection, PidSection, SectionType } from 'app/models';
 
 @Component({
   templateUrl: './page-home.component.html',
@@ -11,15 +11,28 @@ export class PageHomeComponent {
   hl7: string = '';
   expectedHl7: string = '';
 
-  addSection(type: SectionType) {
+  public addSection(type: SectionType) {
     switch (type) {
+      case SectionType.MSH: this.sections.push(new MshSection()); break;
       case SectionType.PID: this.sections.push(new PidSection()); break;
     }
 
     this.generateHl7();
   }
 
-  generateHl7(): void {
+  public parseHl7(): void {
+    console.error('TODO');
+  }
+
+  public handleRemoveSection(sectionId: number): void {
+    this.sections = this.sections.filter(s => s.id !== sectionId);
+  }
+
+  public handleChangeSection(): void {
+    this.generateHl7();
+  }
+
+  private generateHl7(): void {
     this.expectedHl7 = '';
 
     for (let i = 0; i < this.sections.length; i++) {
@@ -27,10 +40,6 @@ export class PageHomeComponent {
     }
 
     this.hl7 = this.expectedHl7;
-  }
-
-  parseHl7(): void {
-    console.error('TODO');
   }
 
 }

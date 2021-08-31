@@ -1,0 +1,17 @@
+.fields .field {
+  .header {
+    & > button {
+      font-size: 0.7em;
+    }
+
+    .tag {
+      display: inline-block;
+      min-width: 65px;
+      font-weight: bold;
+    }
+  }
+
+  & + .field {
+    border-top: 1px solid #eee;
+  }
+}

@@ -1,7 +1,31 @@
 {
   "app-title": "HL7 Generator",
-  "menu": {
-    "home": "Home",
-    "sign-out": "Sign out"
+  "actions": {
+    "add": "Add",
+    "parse": "Parse"
+  },
+  "titles": {
+    "sections": "Sections",
+    "hl7-message": "HL7 Message"
+  },
+  "sections": {
+    "msh": {
+      "title": "Message Header"
+    },
+    "pid": {
+      "title": "Patient Identification",
+      "2": {
+        "name": "Patient ID",
+        "tags": "patient id"
+      },
+      "3": {
+        "name": "Patient Identifier List",
+        "tags": "pid, patient id, patient identifier, identifier"
+      },
+      "7": {
+        "name": "Date of Birth",
+        "tags": "birth, date of birth, birthdate"
+      }
+    }
   }
 }
