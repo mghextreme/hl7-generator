@@ -11,6 +11,10 @@
     }
   }
 
+  .content {
+    padding-left: 2.8rem !important;
+  }
+
   & + .field {
     border-top: 1px solid #eee;
   }

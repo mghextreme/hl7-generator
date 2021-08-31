@@ -3,5 +3,6 @@ export enum FieldType {
   Number = 'number',
   Date = 'date',
   DateTime = 'datetime',
-  Options = 'options'
+  Options = 'options',
+  Multiple = 'multiple'
 }

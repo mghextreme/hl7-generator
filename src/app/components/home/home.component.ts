@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ISection, MshSection, PidSection, PV1Section, SectionType } from 'app/models';
+import { MessageConfigurationService } from 'app/services';
+import _ from 'lodash';
 
 @Component({
   templateUrl: './home.component.html',
@@ -11,11 +13,15 @@ export class HomeComponent {
   hl7: string = '';
   expectedHl7: string = '';
 
+  constructor(
+    private readonly configService: MessageConfigurationService
+  ) { }
+
   public addSection(type: SectionType) {
     switch (type) {
-      case SectionType.MSH: this.sections.push(new MshSection()); break;
-      case SectionType.PID: this.sections.push(new PidSection()); break;
-      case SectionType.PV1: this.sections.push(new PV1Section()); break;
+      case SectionType.MSH: this.sections.push(new MshSection(this.configService)); break;
+      case SectionType.PID: this.sections.push(new PidSection(this.configService)); break;
+      case SectionType.PV1: this.sections.push(new PV1Section(this.configService)); break;
     }
 
     this.generateHl7();
@@ -33,13 +39,13 @@ export class HomeComponent {
 
         switch (type) {
           case SectionType.MSH:
-            newSection = new MshSection(b);
+            newSection = new MshSection(this.configService, b);
             break;
           case SectionType.PID:
-            newSection = new PidSection(b);
+            newSection = new PidSection(this.configService, b);
             break;
           case SectionType.PV1:
-            newSection = new PV1Section(b);
+            newSection = new PV1Section(this.configService, b);
             break;
         }
 
@@ -61,12 +67,7 @@ export class HomeComponent {
   }
 
   private generateHl7(): void {
-    this.expectedHl7 = '';
-
-    for (let i = 0; i < this.sections.length; i++) {
-      this.expectedHl7 += this.sections[i].toString() + '\n';
-    }
-
+    this.expectedHl7 = _.join(this.sections.map(s => s.toString()), '\n');
     this.hl7 = this.expectedHl7;
   }
 

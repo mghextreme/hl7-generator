@@ -14,10 +14,10 @@ export class DateTimeField implements IField {
     number: number,
     i18n: string
   ) {
-    this.type = FieldType.Date;
+    this.type = FieldType.DateTime;
     this.number = number;
     this.i18n = i18n;
-    this.value = new Date();
+    this.value = new Date(new Date().setSeconds(0));
   }
 
   public hasValue(): boolean {

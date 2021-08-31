@@ -20,7 +20,16 @@
       },
       "3": {
         "name": "Patient Identifier List",
-        "tags": "pid, identifier, patient id, patient identifier"
+        "tags": "pid, identifier, patient id, patient identifier",
+        "1": {
+          "name": "Id"
+        },
+        "4": {
+          "name": "Assigning Authority"
+        },
+        "6": {
+          "name": "Assigning Facility"
+        }
       },
       "7": {
         "name": "Date of Birth",

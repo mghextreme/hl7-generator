@@ -12,14 +12,8 @@
         <span class="tag mr-2">{{ section.type }}.{{ field.number }}</span>
         <span class="name">{{ field.i18n | translate }}</span>
       </div>
-      <div class="content p-1" *ngIf="field.expanded" [ngSwitch]="field.type">
-        <div *ngSwitchCase="'string'">
-          <input pInputText [(ngModel)]="field.value" type="text" (onchange)="handleChange()" />
-        </div>
-        <div *ngSwitchCase="'date'">
-          <p-calendar [(ngModel)]="field.value" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2050" (onSelect)="handleChange()" (onChange)="handleChange()"></p-calendar>
-        </div>
-        <div *ngSwitchDefault>(unidentified type)</div>
+      <div class="content p-1" *ngIf="field.expanded">
+        <field [field]="field" (change)="handleChange()"></field>
       </div>
     </div>
   </div>

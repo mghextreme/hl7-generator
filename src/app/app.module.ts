@@ -17,6 +17,7 @@ import { ListboxModule } from 'primeng/listbox';
 import { DropdownModule } from 'primeng/dropdown';
 
 import { ConfirmationService } from 'primeng/api';
+import { MessageConfigurationService } from './services/message-configuration.service';
 
 import { AppComponent } from './app.component';
 
@@ -25,6 +26,7 @@ import { appRoutes, pagesComponents } from './app.routes';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { SectionComponent } from './components/section/section.component';
+import { FieldComponent } from './components/field/field.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '-lang.json');
@@ -34,6 +36,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   declarations: [
     AppComponent,
     SectionComponent,
+    FieldComponent,
     ...pagesComponents
   ],
   imports: [
@@ -68,7 +71,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     })
   ],
   providers: [
-    ConfirmationService
+    ConfirmationService,
+    MessageConfigurationService
   ],
   bootstrap: [AppComponent],
   exports: [RouterModule]

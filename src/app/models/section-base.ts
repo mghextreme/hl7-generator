@@ -1,19 +1,26 @@
+import { MessageConfigurationService } from 'app/services';
 import { IField } from './fields';
 import { SectionType } from './section-type.enum';
 import { ISection } from './section.interface';
 
 export abstract class SectionBase implements ISection {
-  type: SectionType;
   id: number;
+  fields: IField[] = [];
 
-  abstract fields: IField[];
-
-  constructor(type: SectionType, text: string = '') {
+  constructor(
+    readonly configService: MessageConfigurationService,
+    readonly type: SectionType,
+    text: string = ''
+  ) {
     this.id = Date.now();
     this.type = type;
 
+    this.setFields(this.configService);
+
     this.parse(text);
   }
+
+  protected abstract setFields(configService: MessageConfigurationService): void;
 
   public toString(): string {
     let result = this.type.toString();
@@ -23,20 +30,20 @@ export abstract class SectionBase implements ISection {
       let cur = this.fields[i];
       if (cur.expanded &&
           cur.hasValue()) {
-          result += '|'.repeat(cur.number - lastIndex);
+          result += this.configService.splitChar.repeat(cur.number - lastIndex);
           lastIndex = cur.number;
 
           result += cur.toString();
       }
     }
 
-    return result + '|';
+    return result + this.configService.splitChar;
   }
 
   public parse(text: string): void {
     if (text === null || text.length === 0) return;
 
-    let bits = text.split('|');
+    let bits = text.split(this.configService.splitChar);
     for (let i = 1; i < bits.length; i++) {
       let bit = bits[i];
       if (bit.length > 0) {

@@ -1,3 +1,4 @@
+import { MessageConfigurationService } from 'app/services';
 import { IField } from './field.interface';
 import { SectionType } from './section-type.enum';
 
