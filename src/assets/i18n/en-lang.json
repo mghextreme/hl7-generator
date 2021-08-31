@@ -30,6 +30,21 @@
         "name": "Patient Account Number",
         "tags": "pan, account number, patient account number"
       }
+    },
+    "pv1": {
+      "title": "Patient visit",
+      "36": {
+        "name": "Discharge Disposition",
+        "tags": "discharge disposition"
+      },
+      "44": {
+        "name": "Admit Date/Time",
+        "tags": "admit date time, admit datetime, admit date"
+      },
+      "45": {
+        "name": "Discharge Date/Time",
+        "tags": "discharge date time, discharge datetime, discharge date"
+      }
     }
   }
 }

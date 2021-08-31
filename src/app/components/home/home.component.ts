@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ISection, MshSection, PidSection, SectionType } from 'app/models';
+import { ISection, MshSection, PidSection, PV1Section, SectionType } from 'app/models';
 
 @Component({
   templateUrl: './home.component.html',
@@ -15,6 +15,7 @@ export class HomeComponent {
     switch (type) {
       case SectionType.MSH: this.sections.push(new MshSection()); break;
       case SectionType.PID: this.sections.push(new PidSection()); break;
+      case SectionType.PV1: this.sections.push(new PV1Section()); break;
     }
 
     this.generateHl7();
@@ -36,6 +37,9 @@ export class HomeComponent {
             break;
           case SectionType.PID:
             newSection = new PidSection(b);
+            break;
+          case SectionType.PV1:
+            newSection = new PV1Section(b);
             break;
         }
 
