@@ -21,11 +21,35 @@ export class PageHomeComponent {
   }
 
   public parseHl7(): void {
-    console.error('TODO');
+    this.sections = [];
+
+    const bits = this.hl7.split('\n');
+    bits.forEach(b => {
+      try {
+        let firstPipe = b.indexOf('|');
+        let type = b.substring(0, firstPipe);
+        let newSection: ISection;
+
+        switch (type) {
+          case SectionType.MSH:
+            newSection = new MshSection(b);
+            break;
+          case SectionType.PID:
+            newSection = new PidSection(b);
+            break;
+        }
+
+        this.sections.push(newSection);
+      }
+      catch (err) {
+        console.error(err);
+      }
+    });
   }
 
   public handleRemoveSection(sectionId: number): void {
     this.sections = this.sections.filter(s => s.id !== sectionId);
+    this.generateHl7();
   }
 
   public handleChangeSection(): void {

@@ -20,11 +20,15 @@
       },
       "3": {
         "name": "Patient Identifier List",
-        "tags": "pid, patient id, patient identifier, identifier"
+        "tags": "pid, identifier, patient id, patient identifier"
       },
       "7": {
         "name": "Date of Birth",
         "tags": "birth, date of birth, birthdate"
+      },
+      "18": {
+        "name": "Patient Account Number",
+        "tags": "pan, account number, patient account number"
       }
     }
   }

@@ -9,5 +9,7 @@ export interface IField {
 
   hasValue(): boolean;
 
+  setValue(value: any): void;
+
   toString(): string;
 }

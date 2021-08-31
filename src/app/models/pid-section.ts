@@ -9,7 +9,8 @@ export class PidSection implements ISection {
   fields: IField[] = [
     new StringField(2, 'sections.pid.2.name'),
     new StringField(3, 'sections.pid.3.name'),
-    new DateField(7, 'sections.pid.7.name')
+    new DateField(7, 'sections.pid.7.name'),
+    new StringField(18, 'sections.pid.18.name')
   ];
 
   constructor(text: string = '') {
@@ -40,6 +41,16 @@ export class PidSection implements ISection {
   public parse(text: string): void {
     if (text === null || text.length === 0) return;
 
-    console.error('TODO');
+    let bits = text.split('|');
+    for (let i = 1; i < bits.length; i++) {
+      let bit = bits[i];
+      if (bit.length > 0) {
+        let fields = this.fields.filter(f => f.number === i);
+        fields.forEach(f => {
+          f.expanded = true;
+          f.setValue(bit);
+        });
+      }
+    }
   }
 }

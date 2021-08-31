@@ -24,6 +24,10 @@ export class StringField implements IField {
            this.value !== '';
   }
 
+  public setValue(value: any): void {
+    this.value = value.toString();
+  }
+
   public toString(): string {
     return this.value;
   }
