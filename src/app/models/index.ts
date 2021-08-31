@@ -1,4 +1,5 @@
 export * from './msh-section';
+export * from './obx-section';
 export * from './option.interface';
 export * from './pid-section';
 export * from './pv1-section';

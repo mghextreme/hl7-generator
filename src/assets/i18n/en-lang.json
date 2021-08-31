@@ -42,6 +42,21 @@
         "name": "Message Control ID"
       }
     },
+    "obx": {
+      "title": "Observation/Result",
+      "3": {
+        "name": "Observation Identifier",
+        "1": {
+          "name": "Identifier"
+        },
+        "2": {
+          "name": "Text"
+        }
+      },
+      "5": {
+        "name": "Observation Value"
+      }
+    },
     "pid": {
       "title": "Patient Identification",
       "2": {
@@ -72,6 +87,22 @@
     },
     "pv1": {
       "title": "Patient visit",
+      "3": {
+        "name": "Assigned Patient Location",
+        "tags": "assigned patient location, unit, room, bed",
+        "1": {
+          "name": "Point of Care"
+        },
+        "2": {
+          "name": "Room"
+        },
+        "3": {
+          "name": "Bed"
+        },
+        "4": {
+          "name": "Facility"
+        }
+      },
       "36": {
         "name": "Discharge Disposition",
         "tags": "discharge disposition"

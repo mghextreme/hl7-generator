@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ISection, MshSection, PidSection, PV1Section, SectionType } from 'app/models';
+import { ISection, MshSection, ObxSection, PidSection, PV1Section, SectionType } from 'app/models';
 import { MessageConfigurationService } from 'app/services';
 import _ from 'lodash';
 
@@ -20,6 +20,7 @@ export class HomeComponent {
   public addSection(type: SectionType) {
     switch (type) {
       case SectionType.MSH: this.sections.push(new MshSection(this.configService)); break;
+      case SectionType.OBX: this.sections.push(new ObxSection(this.configService)); break;
       case SectionType.PID: this.sections.push(new PidSection(this.configService)); break;
       case SectionType.PV1: this.sections.push(new PV1Section(this.configService)); break;
     }
@@ -33,6 +34,11 @@ export class HomeComponent {
     const bits = this.hl7.split('\n');
     bits.forEach(b => {
       b = b.trim();
+
+      if (b.endsWith('\\r')) {
+        b = b.substring(0, b.length - 2);
+      }
+
       try {
         let type = b.substring(0, 3);
         let newSection: ISection;
@@ -40,6 +46,9 @@ export class HomeComponent {
         switch (type) {
           case SectionType.MSH:
             newSection = new MshSection(this.configService, b);
+            break;
+          case SectionType.OBX:
+            newSection = new ObxSection(this.configService, b);
             break;
           case SectionType.PID:
             newSection = new PidSection(this.configService, b);
@@ -68,7 +77,7 @@ export class HomeComponent {
   }
 
   private generateHl7(): void {
-    this.expectedHl7 = _.join(this.sections.map(s => s.toString()), '\r\n');
+    this.expectedHl7 = _.join(this.sections.map(s => s.toString() + '\\r'), '\r\n');
     this.hl7 = this.expectedHl7;
   }
 
