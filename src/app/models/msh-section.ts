@@ -54,7 +54,7 @@ export class MshSection extends SectionBase {
 
     let lastIndex = 2;
     for (let i = 2; i < this.fields.length; i++) {
-      let cur = this.fields[i];
+      const cur = this.fields[i];
       if (cur.expanded &&
           cur.hasValue()) {
           result += this.configService.splitChar.repeat(cur.number - lastIndex);
@@ -68,7 +68,9 @@ export class MshSection extends SectionBase {
   }
 
   public parse(text: string): void {
-    if (text === null || text.length === 0) return;
+    if (text === null || text.length === 0) {
+      return;
+    }
 
     const splitChar = text.substring(3, 1);
     const subSplitChar = text.substring(4, 1);
@@ -77,11 +79,11 @@ export class MshSection extends SectionBase {
     this.configService.subSplitChar = subSplitChar;
 
     text = text.substring(4);
-    let bits = text.split(this.configService.splitChar);
+    const bits = text.split(this.configService.splitChar);
     for (let i = 0; i < bits.length; i++) {
-      let bit = bits[i];
+      const bit = bits[i];
       if (bit.length > 0) {
-        let field = this.getField(i + 2);
+        const field = this.getField(i + 2);
         if (field) {
           field.setValue(bit);
         }

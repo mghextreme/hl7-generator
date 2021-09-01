@@ -31,7 +31,7 @@ export class MultipleField implements IField {
 
   public setValue(value: any): void {
     if (value instanceof String || typeof(value) === 'string') {
-      let bits = value.split(this.configService.subSplitChar);
+      const bits = value.split(this.configService.subSplitChar);
       this.setValueFromArray(bits);
     } else if (value instanceof Array) {
       this.setValueFromArray(value);
@@ -47,7 +47,7 @@ export class MultipleField implements IField {
     let lastIndex = 1;
 
     for (let i = 0; i < this.subfields.length; i++) {
-      let cur = this.subfields[i];
+      const cur = this.subfields[i];
       if (cur.hasValue()) {
           result += this.configService.subSplitChar.repeat(cur.number - lastIndex);
           lastIndex = cur.number;
@@ -61,7 +61,7 @@ export class MultipleField implements IField {
 
   private setValueFromArray(values: any[]): void {
     for (let i = 0; i < values.length; i++) {
-      let field = this.getField(i + 1);
+      const field = this.getField(i + 1);
       if (field) {
         field.setValue(values[i]);
       }

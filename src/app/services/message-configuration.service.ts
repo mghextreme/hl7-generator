@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class MessageConfigurationService {
 
-  private _splitChar: string = '|';
-  private _subSplitChar: string = '^';
+  private _splitChar = '|';
+  private _subSplitChar = '^';
 
   get splitChar(): string {
     return this._splitChar;

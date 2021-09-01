@@ -17,20 +17,20 @@ export class PidSection extends SectionBase {
   }
 
   public generateData(): void {
-    let uniq = faker.datatype.number({ min: 10000, max: 99999 });
+    const uniq = faker.datatype.number({ min: 10000, max: 99999 });
     this.getField(2).setValue('ID-' + uniq);
     this.getField(3).setValue([
-      'PID' + uniq,,,
-      'authority',,
+      'PID' + uniq, , ,
+      'authority', ,
       'facility' ]);
     this.getField(5).setValue([
       faker.name.lastName(),
       faker.name.firstName(),
       faker.datatype.boolean() ? faker.name.firstName() : '',
-      faker.datatype.number(8) == 1 ? faker.name.suffix() : '']);
+      faker.datatype.number(8) === 1 ? faker.name.suffix() : '']);
     this.getField(7).setValue(faker.date.past(80));
     this.getField(11).setValue([
-      faker.address.streetAddress(),,
+      faker.address.streetAddress(), ,
       faker.address.cityName(),
       faker.address.state(),
       faker.address.zipCode()]);

@@ -17,7 +17,7 @@ export class SectionComponent {
   }
 
   public handleGenerateData(): void {
-    let anySection = this.section as any;
+    const anySection = this.section as any;
     if (anySection.generateData) {
       anySection.generateData();
     }
@@ -38,7 +38,7 @@ export class SectionComponent {
   public handleAddField(number: number) {
     const field = this.section.getField(number);
     if (field) {
-      field.expanded = true
+      field.expanded = true;
     }
     this.change.emit();
   }

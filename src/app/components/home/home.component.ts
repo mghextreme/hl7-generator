@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
 export class HomeComponent {
 
   sections: ISection[] = [];
-  hl7: string = '';
-  expectedHl7: string = '';
+  hl7 = '';
+  expectedHl7 = '';
 
   constructor(
     private readonly configService: MessageConfigurationService,
@@ -46,7 +46,7 @@ export class HomeComponent {
       }
 
       try {
-        let type = b.substring(0, 3);
+        const type = b.substring(0, 3);
         let newSection: ISection;
 
         switch (type) {
