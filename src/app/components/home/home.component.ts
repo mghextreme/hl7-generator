@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Clipboard as MyClipboard } from '@angular/cdk/clipboard';
 import { ISection, MshSection, ObxSection, PidSection, PV1Section, SectionType } from 'app/models';
 import { MessageConfigurationService } from 'app/services';
 import _ from 'lodash';
@@ -14,10 +15,11 @@ export class HomeComponent {
   expectedHl7: string = '';
 
   constructor(
-    private readonly configService: MessageConfigurationService
+    private readonly configService: MessageConfigurationService,
+    private readonly clipboard: MyClipboard
   ) { }
 
-  public addSection(type: SectionType) {
+  public addSection(type: string) {
     switch (type) {
       case SectionType.MSH: this.sections.push(new MshSection(this.configService)); break;
       case SectionType.OBX: this.sections.push(new ObxSection(this.configService)); break;
@@ -65,6 +67,10 @@ export class HomeComponent {
         console.error(err);
       }
     });
+  }
+
+  public copyHl7ToClipboard(): void {
+    this.clipboard.copy(this.hl7);
   }
 
   public handleRemoveSection(sectionId: number): void {

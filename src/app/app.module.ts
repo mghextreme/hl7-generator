@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
@@ -49,6 +50,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ),
     BrowserModule,
     BrowserAnimationsModule,
+    ClipboardModule,
     CommonModule,
     FormsModule,
     HttpClientModule,

@@ -5,7 +5,8 @@
     "remove": "Remove",
     "parse": "Parse",
     "expand": "Expand",
-    "collapse": "Collapse"
+    "collapse": "Collapse",
+    "copy-to-clipboard": "Copy to Clipboard"
   },
   "titles": {
     "sections": "Sections",

@@ -17,13 +17,16 @@
     <h4 class="mt-4 mb-2">{{ 'titles.sections' | translate }}</h4>
     <div class="sections">
       <div class="section" *ngFor="let item of sections">
-        <section [section]="item" (remove)="handleRemoveSection($event)" (change)="handleChangeSection($event)"></section>
+        <section [section]="item" (remove)="handleRemoveSection($event)" (change)="handleChangeSection()"></section>
       </div>
     </div>
   </div>
   <div class="col">
     <h4 class="mb-2">{{ 'titles.hl7-message' | translate }}</h4>
     <textarea pInputTextarea class="hl7-textarea form-control mb-2" autoResize="autoResize" [(ngModel)]="hl7"></textarea>
-    <button pButton type="button" icon="pi pi-eject" [label]="'actions.parse' | translate" (click)="parseHl7()" [disabled]="hl7 === expectedHl7"></button>
+    <div class="actions">
+      <button pButton type="button" icon="pi pi-eject" [label]="'actions.parse' | translate" (click)="parseHl7()" [disabled]="hl7 === expectedHl7" class="mr-2"></button>
+      <button pButton type="button" icon="pi pi-clone" [label]="'actions.copy-to-clipboard' | translate" (click)="copyHl7ToClipboard()" class="mr-2"></button>
+    </div>
   </div>
 </div>
