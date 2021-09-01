@@ -26,6 +26,7 @@ import { appRoutes, pagesComponents } from './app.routes';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { SectionComponent } from './components/section/section.component';
 import { FieldComponent } from './components/field/field.component';
 
@@ -36,6 +37,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    PageHeaderComponent,
     SectionComponent,
     FieldComponent,
     ...pagesComponents

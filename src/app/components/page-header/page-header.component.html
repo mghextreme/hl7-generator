@@ -1,0 +1,20 @@
+<div class="row mb-3">
+  <nav class="col navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" [routerLink]="['/']">{{ 'app-title' | translate }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item px-3 configuration">
+          <button pButton type="button" icon="pi pi-cog" [title]="'configuration.title' | translate" (click)="handleConfigure()"></button>
+        </li>
+        <li class="nav-item px-3 lang-select">
+          <select #langSelect (change)="translate.use(langSelect.value)" class="form-control">
+            <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
