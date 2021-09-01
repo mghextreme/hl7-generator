@@ -81,11 +81,10 @@ export class MshSection extends SectionBase {
     for (let i = 0; i < bits.length; i++) {
       let bit = bits[i];
       if (bit.length > 0) {
-        let fields = this.fields.filter(f => f.number === i + 2);
-        fields.forEach(f => {
-          f.expanded = true;
-          f.setValue(bit);
-        });
+        let field = this.getField(i + 2);
+        if (field) {
+          field.setValue(bit);
+        }
       }
     }
 

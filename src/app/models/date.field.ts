@@ -31,6 +31,10 @@ export class DateField implements IField {
     } else if (value instanceof String || typeof(value) === 'string') {
       this.value = moment(value.toString(), 'YYYYMMDD').toDate();
     }
+
+    if (this.hasValue()) {
+      this.expanded = true;
+    }
   }
 
   public toString(): string {

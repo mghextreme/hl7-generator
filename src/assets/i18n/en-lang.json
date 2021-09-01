@@ -24,16 +24,20 @@
         "tags": "encoding characters"
       },
       "3": {
-        "name": "Sending Application"
+        "name": "Sending Application",
+        "tags": "sending application"
       },
       "4": {
-        "name": "Sending Facility"
+        "name": "Sending Facility",
+        "tags": "sending facility"
       },
       "5": {
-        "name": "Receiving Application"
+        "name": "Receiving Application",
+        "tags": "receiving application"
       },
       "6": {
-        "name": "Receiving Facility"
+        "name": "Receiving Facility",
+        "tags": "receiving facility"
       },
       "7": {
         "name": "Date/Time of Message",
@@ -41,13 +45,14 @@
       },
       "9": {
         "name": "Message Type",
+        "tags": "message type",
         "1": {
           "name": "Message Type",
           "tags": "message type"
         },
         "2": {
-          "name": "Event",
-          "tags": "event"
+          "name": "Trigger Event",
+          "tags": "trigger event, message event"
         }
       },
       "10": {

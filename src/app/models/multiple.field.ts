@@ -25,18 +25,20 @@ export class MultipleField implements IField {
     return _.some(this.subfields, f => f.hasValue());
   }
 
+  public getField(number: number): IField {
+    return _.find(this.subfields, f => f.number === number);
+  }
+
   public setValue(value: any): void {
     if (value instanceof String || typeof(value) === 'string') {
-
       let bits = value.split(this.configService.subSplitChar);
-      for (let i = 0; i < bits.length; i++) {
-        let bit = bits[i];
-        if (bit.length > 0) {
-          let fields = this.subfields.filter(f => f.number === i + 1);
-          fields.forEach(f => f.setValue(bit));
-        }
-      }
+      this.setValueFromArray(bits);
+    } else if (value instanceof Array) {
+      this.setValueFromArray(value);
+    }
 
+    if (this.hasValue()) {
+      this.expanded = true;
     }
   }
 
@@ -55,5 +57,14 @@ export class MultipleField implements IField {
     }
 
     return result;
+  }
+
+  private setValueFromArray(values: any[]): void {
+    for (let i = 0; i < values.length; i++) {
+      let field = this.getField(i + 1);
+      if (field) {
+        field.setValue(values[i]);
+      }
+    }
   }
 }

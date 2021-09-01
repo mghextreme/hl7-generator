@@ -41,6 +41,10 @@ export class StringField implements IField {
 
   public setValue(value: any): void {
     this.value = value.toString();
+
+    if (this.hasValue()) {
+      this.expanded = true;
+    }
   }
 
   public toString(): string {

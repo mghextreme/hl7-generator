@@ -1,5 +1,5 @@
 import { MessageConfigurationService } from 'app/services';
-import { DateTimeField, StringField } from './fields';
+import { StringField } from './fields';
 import { MultipleField } from './multiple.field';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';

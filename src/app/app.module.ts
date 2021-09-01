@@ -18,7 +18,7 @@ import { ListboxModule } from 'primeng/listbox';
 import { DropdownModule } from 'primeng/dropdown';
 
 import { ConfirmationService } from 'primeng/api';
-import { MessageConfigurationService } from './services/message-configuration.service';
+import { MessageConfigurationService } from './services';
 
 import { AppComponent } from './app.component';
 

@@ -16,6 +16,13 @@ export class SectionComponent {
     this.remove.emit(this.section.id);
   }
 
+  public handleGenerateData(): void {
+    let anySection = this.section as any;
+    if (anySection.generateData) {
+      anySection.generateData();
+    }
+  }
+
   public handleChange() {
     this.change.emit();
   }
@@ -29,8 +36,10 @@ export class SectionComponent {
   }
 
   public handleAddField(number: number) {
-    const fields = this.section.fields.filter(f => f.number === number);
-    fields.forEach(f => f.expanded = true);
+    const field = this.section.getField(number);
+    if (field) {
+      field.expanded = true
+    }
     this.change.emit();
   }
 

@@ -1,7 +1,8 @@
 import { MessageConfigurationService } from 'app/services';
-import { DateField, IField, MultipleField, StringField } from './fields';
+import { DateField, MultipleField, StringField } from './fields';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
+import faker from 'faker';
 
 export class PidSection extends SectionBase {
 
@@ -13,6 +14,28 @@ export class PidSection extends SectionBase {
       configService,
       SectionType.PID,
       text);
+  }
+
+  public generateData(): void {
+    let uniq = faker.datatype.number({ min: 10000, max: 99999 });
+    this.getField(2).setValue('ID-' + uniq);
+    this.getField(3).setValue([
+      'PID' + uniq,,,
+      'authority',,
+      'facility' ]);
+    this.getField(5).setValue([
+      faker.name.lastName(),
+      faker.name.firstName(),
+      faker.datatype.boolean() ? faker.name.firstName() : '',
+      faker.datatype.number(8) == 1 ? faker.name.suffix() : '']);
+    this.getField(7).setValue(faker.date.past(80));
+    this.getField(11).setValue([
+      faker.address.streetAddress(),,
+      faker.address.cityName(),
+      faker.address.state(),
+      faker.address.zipCode()]);
+    this.getField(18).setValue('PAN' + uniq);
+    this.getField(19).setValue(faker.finance.routingNumber());
   }
 
   protected setFields(configService: MessageConfigurationService) {

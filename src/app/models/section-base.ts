@@ -2,6 +2,7 @@ import { MessageConfigurationService } from 'app/services';
 import { IField } from './fields';
 import { SectionType } from './section-type.enum';
 import { ISection } from './section.interface';
+import _ from 'lodash';
 
 export abstract class SectionBase implements ISection {
   id: number;
@@ -9,8 +10,8 @@ export abstract class SectionBase implements ISection {
   expanded: boolean;
 
   constructor(
-    readonly configService: MessageConfigurationService,
-    readonly type: SectionType,
+    protected readonly configService: MessageConfigurationService,
+    public readonly type: SectionType,
     text: string = ''
   ) {
     this.id = Date.now();
@@ -23,6 +24,10 @@ export abstract class SectionBase implements ISection {
   }
 
   protected abstract setFields(configService: MessageConfigurationService): void;
+
+  public getField(number: number): IField {
+    return _.find(this.fields, f => f.number === number);
+  }
 
   public toString(): string {
     let result = this.type.toString();
@@ -49,11 +54,10 @@ export abstract class SectionBase implements ISection {
     for (let i = 1; i < bits.length; i++) {
       let bit = bits[i];
       if (bit.length > 0) {
-        let fields = this.fields.filter(f => f.number === i);
-        fields.forEach(f => {
-          f.expanded = true;
-          f.setValue(bit);
-        });
+        let field = this.getField(i);
+        if (field) {
+          field.setValue(bit);
+        }
       }
     }
 
