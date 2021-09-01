@@ -21,12 +21,12 @@ export class ObxSection extends SectionBase {
       new MultipleField(
         this.configService,
         3,
-        'sections.obx.3.name',
+        'sections.obx.3',
         [
-          new StringField(1, 'sections.obx.3.1.name'),
-          new StringField(2, 'sections.obx.3.2.name')
+          new StringField(1, 'sections.obx.3.1'),
+          new StringField(2, 'sections.obx.3.2')
         ]),
-      new StringField(5, 'sections.obx.5.name')
+      new StringField(5, 'sections.obx.5')
     ];
   }
 }

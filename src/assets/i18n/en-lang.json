@@ -15,10 +15,12 @@
     "msh": {
       "title": "Message Header",
       "1": {
-        "name": "Field Separator"
+        "name": "Field Separator",
+        "tags": "field separator"
       },
       "2": {
-        "name": "Encoding Characters"
+        "name": "Encoding Characters",
+        "tags": "encoding characters"
       },
       "3": {
         "name": "Sending Application"
@@ -33,34 +35,42 @@
         "name": "Receiving Facility"
       },
       "7": {
-        "name": "Date/Time of Message"
+        "name": "Date/Time of Message",
+        "tags": "message date time, message datetime, message timestamp"
       },
       "9": {
         "name": "Message Type",
         "1": {
-          "name": "Message Type"
+          "name": "Message Type",
+          "tags": "message type"
         },
         "2": {
-          "name": "Event"
+          "name": "Event",
+          "tags": "event"
         }
       },
       "10": {
-        "name": "Message Control ID"
+        "name": "Message Control ID",
+        "tags": "message control identifier, control id"
       }
     },
     "obx": {
       "title": "Observation/Result",
       "3": {
         "name": "Observation Identifier",
+        "tags": "observation identifier",
         "1": {
-          "name": "Identifier"
+          "name": "Identifier",
+          "tags": "identifier"
         },
         "2": {
-          "name": "Text"
+          "name": "Text",
+          "tags": "text"
         }
       },
       "5": {
-        "name": "Observation Value"
+        "name": "Observation Value",
+        "tags": "observation value"
       }
     },
     "pid": {
@@ -73,32 +83,40 @@
         "name": "Patient Identifier List",
         "tags": "pid, identifier, patient id, patient identifier",
         "1": {
-          "name": "Id"
+          "name": "Id",
+          "tags": "id"
         },
         "4": {
-          "name": "Assigning Authority"
+          "name": "Assigning Authority",
+          "tags": "assigning authority"
         },
         "6": {
-          "name": "Assigning Facility"
+          "name": "Assigning Facility",
+          "tags": "assigning facility"
         }
       },
       "5": {
         "name": "Patient Name",
         "tags": "patient name",
         "1": {
-          "name": "Family Name"
+          "name": "Family Name",
+          "tags": "last name, family name, surname"
         },
         "2": {
-          "name": "Given Name"
+          "name": "Given Name",
+          "tags": "given name, first name"
         },
         "3": {
-          "name": "Middle Names"
+          "name": "Middle Names",
+          "tags": "middle names, middle initials, other names"
         },
         "4": {
-          "name": "Suffix"
+          "name": "Suffix",
+          "tags": "suffix"
         },
         "5": {
-          "name": "Prefix"
+          "name": "Prefix",
+          "tags": "prefix"
         }
       },
       "7": {
@@ -117,19 +135,24 @@
         "name": "Patient Address",
         "tags": "patient address",
         "1": {
-          "name": "Street"
+          "name": "Street",
+          "tags": "street, road"
         },
         "3": {
-          "name": "City"
+          "name": "City",
+          "tags": "city"
         },
         "4": {
-          "name": "State or Province"
+          "name": "State or Province",
+          "tags": "state, province"
         },
         "5": {
-          "name": "Zip or Postal Code"
+          "name": "Zip or Postal Code",
+          "tags": "zip code, postal code"
         },
         "6": {
-          "name": "Country"
+          "name": "Country",
+          "tags": "country, nation"
         }
       },
       "16": {
@@ -155,16 +178,20 @@
         "name": "Assigned Patient Location",
         "tags": "assigned patient location, unit, room, bed",
         "1": {
-          "name": "Point of Care"
+          "name": "Point of Care",
+          "tags": "point of care, unit"
         },
         "2": {
-          "name": "Room"
+          "name": "Room",
+          "tags": "room"
         },
         "3": {
-          "name": "Bed"
+          "name": "Bed",
+          "tags": "bed"
         },
         "4": {
-          "name": "Facility"
+          "name": "Facility",
+          "tags": "facility, hospital"
         }
       },
       "36": {

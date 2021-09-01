@@ -11,7 +11,7 @@
         <button *ngIf="!field.expanded" pButton type="button" icon="pi pi-plus" [title]="'action.add' | translate" (click)="handleAddField(field.number)" class="ui-button-success mr-3"></button>
         <button *ngIf="field.expanded" pButton type="button" icon="pi pi-chevron-up" [title]="'action.remove' | translate" (click)="handleRemoveField(field.number)" class="ui-button-secondary mr-3" [disabled]="field.required"></button>
         <span class="tag mr-2">{{ section.type }}.{{ field.number }}</span>
-        <span class="name">{{ field.i18n | translate }}</span>
+        <span class="name">{{ field.i18n + '.name' | translate }}</span>
       </div>
       <div class="content p-1" *ngIf="field.expanded">
         <field [field]="field" (change)="handleChange()"></field>

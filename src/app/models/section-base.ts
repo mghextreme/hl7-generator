@@ -56,5 +56,7 @@ export abstract class SectionBase implements ISection {
         });
       }
     }
+
+    this.expanded = false;
   }
 }

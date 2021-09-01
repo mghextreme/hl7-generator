@@ -18,32 +18,32 @@ export class MshSection extends SectionBase {
 
   protected setFields(configService: MessageConfigurationService): void {
     this.fields = [
-      new StringField(1, 'sections.msh.1.name', '|').init({
+      new StringField(1, 'sections.msh.1', '|').init({
         required: true,
         expanded: true,
         minLength: 1,
         maxLength: 1
       }),
-      new StringField(2, 'sections.msh.2.name', '^\\&').init({
+      new StringField(2, 'sections.msh.2', '^\\&').init({
         required: true,
         expanded: true,
         minLength: 4,
         maxLength: 4
       }),
-      new StringField(3, 'sections.msh.3.name'),
-      new StringField(4, 'sections.msh.4.name'),
-      new StringField(5, 'sections.msh.5.name'),
-      new StringField(6, 'sections.msh.6.name'),
-      new DateTimeField(7, 'sections.msh.7.name'),
+      new StringField(3, 'sections.msh.3'),
+      new StringField(4, 'sections.msh.4'),
+      new StringField(5, 'sections.msh.5'),
+      new StringField(6, 'sections.msh.6'),
+      new DateTimeField(7, 'sections.msh.7'),
       new MultipleField(
         this.configService,
         9,
-        'sections.msh.9.name',
+        'sections.msh.9',
         [
-          new StringField(1, 'sections.msh.9.1.name'),
-          new StringField(2, 'sections.msh.9.2.name')
+          new StringField(1, 'sections.msh.9.1'),
+          new StringField(2, 'sections.msh.9.2')
         ]),
-      new StringField(10, 'sections.msh.10.name')
+      new StringField(10, 'sections.msh.10')
     ];
   }
 
@@ -88,5 +88,7 @@ export class MshSection extends SectionBase {
         });
       }
     }
+
+    this.expanded = false;
   }
 }
