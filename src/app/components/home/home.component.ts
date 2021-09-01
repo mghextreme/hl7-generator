@@ -3,6 +3,8 @@ import { Clipboard as MyClipboard } from '@angular/cdk/clipboard';
 import { ISection, MshSection, ObxSection, PidSection, PV1Section, SectionType } from 'app/models';
 import { MessageConfigurationService } from 'app/services';
 import _ from 'lodash';
+import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './home.component.html',
@@ -16,7 +18,9 @@ export class HomeComponent {
 
   constructor(
     private readonly configService: MessageConfigurationService,
-    private readonly clipboard: MyClipboard
+    private readonly clipboard: MyClipboard,
+    private readonly router: Router,
+    readonly translate: TranslateService
   ) { }
 
   public addSection(type: string) {
@@ -80,6 +84,10 @@ export class HomeComponent {
 
   public handleChangeSection(): void {
     this.generateHl7();
+  }
+
+  public handleConfigure(): void {
+    this.router.navigate(['configuration']);
   }
 
   private generateHl7(): void {
