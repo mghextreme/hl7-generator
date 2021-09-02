@@ -12,6 +12,27 @@
 
     <h4 class="mt-4 mb-2">{{ 'titles.sections' | translate }}</h4>
     <div class="sections">
+      <div class="input-group filter px-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="pi pi-filter"></i>
+          </div>
+        </div>
+        <p-autoComplete #filterBar
+          (window:keydown.control.space)="handleFocusHotkey($event)"
+          [(ngModel)]="selection" [suggestions]="filteredItems"
+          [size]="60" [minLength]="2" [forceSelection]="true" [completeOnFocus]="true"
+          inputStyleClass="filter-bar" field="title"
+          [placeholder]="'actions.filter' | translate"
+          (completeMethod)="filterItems($event)" (onSelect)="handleSelection($event)">
+          <ng-template let-item pTemplate="item">
+            <div class="filter-item">
+              <span [innerHTML]="item.id"></span>
+              <small [innerHTML]="item.title"></small>
+            </div>
+          </ng-template>
+        </p-autoComplete>
+      </div>
       <div class="section" *ngFor="let item of sections">
         <section [section]="item" (remove)="handleRemoveSection($event)" (change)="handleChangeSection()"></section>
       </div>

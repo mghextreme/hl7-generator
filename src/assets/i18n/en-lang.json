@@ -6,7 +6,8 @@
     "parse": "Parse",
     "expand": "Expand",
     "collapse": "Collapse",
-    "copy-to-clipboard": "Copy to Clipboard"
+    "copy-to-clipboard": "Copy to Clipboard",
+    "filter": "Filter"
   },
   "titles": {
     "sections": "Sections",

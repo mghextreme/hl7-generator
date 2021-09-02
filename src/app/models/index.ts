@@ -1,3 +1,4 @@
+export * from './field-search-result';
 export * from './msh-section';
 export * from './obx-section';
 export * from './option.interface';

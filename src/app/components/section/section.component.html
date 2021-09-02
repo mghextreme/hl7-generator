@@ -1,7 +1,7 @@
 <div class="pid-section p-2">
   <div class="header d-flex align-items-center">
     <h5 class="mr-auto">{{ section.type }} - {{ 'sections.' + section.type.toLowerCase() + '.title' | translate }}</h5>
-    <button *ngIf="$any(section).generateData" pButton type="button" icon="pi pi-palette" [title]="'action.generate-data' | translate" (click)="handleGenerateData()" class="ui-button-warning mr-2"></button>
+    <button *ngIf="$any(section).generateData" pButton type="button" icon="pi pi-refresh" [title]="'action.generate-data' | translate" (click)="handleGenerateData()" class="ui-button-warning mr-2"></button>
     <button *ngIf="!section.expanded" pButton type="button" icon="pi pi-chevron-down" [title]="'action.expand' | translate" (click)="handleExpand()" class="mr-2"></button>
     <button *ngIf="section.expanded" pButton type="button" icon="pi pi-chevron-up" [title]="'action.collapse' | translate" (click)="handleCollapse()" class="ui-button-secondary mr-2"></button>
     <button pButton type="button" icon="pi pi-trash" [title]="'action.remove' | translate" (click)="handleRemove()" class="ui-button-danger mr-0"></button>

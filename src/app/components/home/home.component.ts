@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Clipboard as MyClipboard } from '@angular/cdk/clipboard';
-import { ISection, MshSection, ObxSection, PidSection, PV1Section, SectionType } from 'app/models';
-import { MessageConfigurationService } from 'app/services';
+import { AutoComplete } from 'primeng/autocomplete';
+import { FieldSearchResult, ISection, MshSection, ObxSection, PidSection, PV1Section, SectionType } from 'app/models';
+import { FieldSearchService, MessageConfigurationService } from 'app/services';
 import _ from 'lodash';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  providers: [
+    FieldSearchService
+  ]
 })
 export class HomeComponent {
 
@@ -15,11 +19,20 @@ export class HomeComponent {
   hl7 = '';
   expectedHl7 = '';
 
+  selection: FieldSearchResult;
+  filteredItems: FieldSearchResult[];
+
+  @ViewChild('filterBar', { static: false }) filterBar: AutoComplete;
+
   constructor(
     private readonly configService: MessageConfigurationService,
+    private readonly fieldSearch: FieldSearchService,
     private readonly clipboard: MyClipboard,
     readonly translate: TranslateService
-  ) { }
+  ) {
+    this.selection = null;
+    this.filteredItems = [];
+  }
 
   public addSection(type: string) {
     switch (type) {
@@ -29,6 +42,7 @@ export class HomeComponent {
       case SectionType.PV1: this.sections.push(new PV1Section(this.configService)); break;
     }
 
+    this.updateFilter();
     this.generateHl7();
   }
 
@@ -69,6 +83,8 @@ export class HomeComponent {
         console.error(err);
       }
     });
+
+    this.updateFilter();
   }
 
   public copyHl7ToClipboard(): void {
@@ -87,6 +103,30 @@ export class HomeComponent {
   private generateHl7(): void {
     this.expectedHl7 = _.join(this.sections.map(s => s.toString() + '\\r'), '\r\n');
     this.hl7 = this.expectedHl7;
+  }
+
+  public filterItems(event: any) {
+    this.filteredItems = this.fieldSearch.search(event.query);
+  }
+
+  public handleSelection(event: FieldSearchResult) {
+    this.goTo(event.parentId, event.fieldNumber);
+    this.filterBar.writeValue(null);
+  }
+
+  public handleFocusHotkey(event: Event) {
+    this.filterBar.focusInput();
+  }
+
+  private updateFilter() {
+    this.fieldSearch.updateFields(this.sections);
+  }
+
+  private goTo(parentId: number, fieldNumber: number) {
+    const section = _.find(this.sections, s => s.id === parentId);
+    if (section) {
+      section.expanded = true;
+    }
   }
 
 }
