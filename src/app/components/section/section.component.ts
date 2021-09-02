@@ -20,6 +20,7 @@ export class SectionComponent {
     const anySection = this.section as any;
     if (anySection.generateData) {
       anySection.generateData();
+      this.change.emit();
     }
   }
 

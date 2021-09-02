@@ -2,6 +2,8 @@ import { MessageConfigurationService } from 'app/services';
 import { DateTimeField, MultipleField, StringField } from './fields';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
+import faker from 'faker';
+import moment from 'moment';
 
 export class PV1Section extends SectionBase {
 
@@ -13,6 +15,18 @@ export class PV1Section extends SectionBase {
       configService,
       SectionType.PV1,
       text);
+  }
+
+  public generateData(): void {
+    const admitDate = faker.date.between(moment().subtract(2, 'year').toDate(), moment().subtract(1, 'hour').toDate());
+    this.getField(44).setValue(admitDate);
+
+    if (faker.datatype.boolean()) {
+      this.getField(36).setValue(
+        faker.random.arrayElement(
+          this.configService.retrieveCollection('PV1.36')));
+      this.getField(45).setValue(faker.date.between(admitDate, new Date()));
+    }
   }
 
   protected setFields(configService: MessageConfigurationService): void {

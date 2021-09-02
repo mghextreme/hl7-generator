@@ -10,7 +10,12 @@
   },
   "titles": {
     "sections": "Sections",
-    "hl7-message": "HL7 Message"
+    "hl7-message": "HL7 Message",
+    "configuration": "Configuration"
+  },
+  "configuration": {
+    "stored-values": "Stored Values",
+    "list-of-options": "List of Options"
   },
   "sections": {
     "msh": {

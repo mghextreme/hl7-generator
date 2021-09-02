@@ -1,1 +1,89 @@
 <page-header></page-header>
+
+<div class="row">
+  <h4 class="col-12 mb-2">{{ 'titles.configuration' | translate }}</h4>
+  <div class="w-100"></div>
+  <div class="col">
+    <h5 class="mb-2">{{ 'configuration.stored-values' | translate }}</h5>
+    <div class="form-group row">
+      <label for="msh-1" class="col-md-1 col-form-label"><b>MSH.1</b></label>
+      <label for="msh-1" class="col-md-3 col-form-label">{{ 'sections.msh.1.name' | translate }}</label>
+      <div class="col-md-8">
+        <input pInputText [(ngModel)]="msh_1" type="text" name="msh-1" minlength="1" maxlength="1" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="msh-2" class="col-md-1 col-form-label"><b>MSH.2</b></label>
+      <label for="msh-2" class="col-md-3 col-form-label">{{ 'sections.msh.2.name' | translate }}</label>
+      <div class="col-md-8">
+        <input pInputText [(ngModel)]="msh_2" type="text" name="msh-2" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="msh-3" class="col-md-1 col-form-label"><b>MSH.3</b></label>
+      <label for="msh-3" class="col-md-3 col-form-label">{{ 'sections.msh.3.name' | translate }}</label>
+      <div class="col-md-8">
+        <input pInputText [(ngModel)]="msh_3" type="text" name="msh-3" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="msh-5" class="col-md-1 col-form-label"><b>MSH.5</b></label>
+      <label for="msh-5" class="col-md-3 col-form-label">{{ 'sections.msh.5.name' | translate }}</label>
+      <div class="col-md-8">
+        <input pInputText [(ngModel)]="msh_5" type="text" name="msh-5" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="pid-3-4" class="col-md-1 col-form-label"><b>PID.3.4</b></label>
+      <label for="pid-3-4" class="col-md-3 col-form-label">{{ 'sections.pid.3.4.name' | translate }}</label>
+      <div class="col-md-8">
+        <input pInputText [(ngModel)]="pid_3_4" type="text" name="pid-3-4" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="pid-3-6" class="col-md-1 col-form-label"><b>PID.3.6</b></label>
+      <label for="pid-3-6" class="col-md-3 col-form-label">{{ 'sections.pid.3.6.name' | translate }}</label>
+      <div class="col-md-8">
+        <input pInputText [(ngModel)]="pid_3_6" type="text" name="pid-3-6" />
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <h5 class="mb-2">{{ 'configuration.list-of-options' | translate }}</h5>
+    <div class="form-group row">
+      <label for="pid-8" class="col-md-1 col-form-label"><b>PID.8</b></label>
+      <label for="pid-8" class="col-md-3 col-form-label">{{ 'sections.pid.8.name' | translate }}</label>
+      <div class="col-md-8">
+        <p-chips [(ngModel)]="pid_8" separator="," inputId="pid-8"></p-chips>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="pid-10" class="col-md-1 col-form-label"><b>PID.10</b></label>
+      <label for="pid-10" class="col-md-3 col-form-label">{{ 'sections.pid.10.name' | translate }}</label>
+      <div class="col-md-8">
+        <p-chips [(ngModel)]="pid_10" separator="," inputId="pid-10"></p-chips>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="pid-16" class="col-md-1 col-form-label"><b>PID.16</b></label>
+      <label for="pid-16" class="col-md-3 col-form-label">{{ 'sections.pid.16.name' | translate }}</label>
+      <div class="col-md-8">
+        <p-chips [(ngModel)]="pid_16" separator="," inputId="pid-16"></p-chips>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="pid-22" class="col-md-1 col-form-label"><b>PID.22</b></label>
+      <label for="pid-22" class="col-md-3 col-form-label">{{ 'sections.pid.22.name' | translate }}</label>
+      <div class="col-md-8">
+        <p-chips [(ngModel)]="pid_22" separator="," inputId="pid-22"></p-chips>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="pv1-36" class="col-md-1 col-form-label"><b>PV1.36</b></label>
+      <label for="pv1-36" class="col-md-3 col-form-label">{{ 'sections.pv1.36.name' | translate }}</label>
+      <div class="col-md-8">
+        <p-chips [(ngModel)]="pv1_36" separator="," inputId="pv1-36"></p-chips>
+      </div>
+    </div>
+  </div>
+</div>

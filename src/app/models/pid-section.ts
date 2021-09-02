@@ -3,6 +3,7 @@ import { DateField, MultipleField, StringField } from './fields';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
 import faker from 'faker';
+import moment from 'moment';
 
 export class PidSection extends SectionBase {
 
@@ -21,21 +22,34 @@ export class PidSection extends SectionBase {
     this.getField(2).setValue('ID-' + uniq);
     this.getField(3).setValue([
       'PID' + uniq, , ,
-      'authority', ,
-      'facility' ]);
+      this.configService.retrieve('PID.3.4'), ,
+      this.configService.retrieve('PID.3.6') ]);
     this.getField(5).setValue([
       faker.name.lastName(),
       faker.name.firstName(),
       faker.datatype.boolean() ? faker.name.firstName() : '',
       faker.datatype.number(8) === 1 ? faker.name.suffix() : '']);
-    this.getField(7).setValue(faker.date.past(80));
+    this.getField(7).setValue(
+      faker.date.past(75, moment().subtract(5, 'year').toDate()));
+    this.getField(8).setValue(
+      faker.random.arrayElement(
+        this.configService.retrieveCollection('PID.8')));
+    this.getField(10).setValue(
+      faker.random.arrayElement(
+        this.configService.retrieveCollection('PID.10')));
     this.getField(11).setValue([
       faker.address.streetAddress(), ,
       faker.address.cityName(),
       faker.address.state(),
       faker.address.zipCode()]);
+    this.getField(16).setValue(
+      faker.random.arrayElement(
+        this.configService.retrieveCollection('PID.16')));
     this.getField(18).setValue('PAN' + uniq);
     this.getField(19).setValue(faker.finance.routingNumber());
+    this.getField(22).setValue(
+      faker.random.arrayElement(
+        this.configService.retrieveCollection('PID.22')));
   }
 
   protected setFields(configService: MessageConfigurationService) {

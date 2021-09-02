@@ -3,6 +3,7 @@ import { SectionType } from './section-type.enum';
 import { SectionBase } from './section-base';
 import { DateTimeField, StringField } from './fields';
 import { MultipleField } from './multiple.field';
+import faker from 'faker';
 
 export class MshSection extends SectionBase {
 
@@ -18,13 +19,13 @@ export class MshSection extends SectionBase {
 
   protected setFields(configService: MessageConfigurationService): void {
     this.fields = [
-      new StringField(1, 'sections.msh.1', '|').init({
+      new StringField(1, 'sections.msh.1', configService.retrieve('MSH.1')).init({
         required: true,
         expanded: true,
         minLength: 1,
         maxLength: 1
       }),
-      new StringField(2, 'sections.msh.2', '^\\&').init({
+      new StringField(2, 'sections.msh.2', configService.retrieve('MSH.2')).init({
         required: true,
         expanded: true,
         minLength: 4,
@@ -69,6 +70,7 @@ export class MshSection extends SectionBase {
 
   public parse(text: string): void {
     if (text === null || text.length === 0) {
+      this.loadDefaultValues();
       return;
     }
 
@@ -91,5 +93,14 @@ export class MshSection extends SectionBase {
     }
 
     this.expanded = false;
+  }
+
+  private loadDefaultValues() {
+    this.getField(1).setValue(this.configService.retrieve('MSH.1'));
+    this.getField(2).setValue(this.configService.retrieve('MSH.2'));
+    this.getField(3).setValue(this.configService.retrieve('MSH.3'));
+    this.getField(5).setValue(this.configService.retrieve('MSH.5'));
+    this.getField(7).setValue(new Date());
+    this.getField(10).setValue(faker.datatype.uuid().replace(/-/g, ''));
   }
 }

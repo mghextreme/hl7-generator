@@ -14,6 +14,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CheckboxModule } from 'primeng/checkbox';
+import { ChipsModule } from 'primeng/chips';
 import { ListboxModule } from 'primeng/listbox';
 import { DropdownModule } from 'primeng/dropdown';
 
@@ -59,6 +60,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AutoCompleteModule,
     ButtonModule,
     CalendarModule,
+    ChipsModule,
     SplitButtonModule,
     InputSwitchModule,
     InputTextModule,

@@ -40,6 +40,11 @@ export class StringField implements IField {
   }
 
   public setValue(value: any): void {
+    if (value === null ||
+        value === undefined) {
+      value = '';
+    }
+
     this.value = value.toString();
 
     if (this.hasValue()) {

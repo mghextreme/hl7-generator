@@ -16,3 +16,28 @@
     font-size: 0.98em;
   }
 }
+
+.ui-inputtext {
+  width: 100%;
+}
+
+::ng-deep {
+  p-chips {
+    display: block;
+    width: 100%;
+
+    .ui-chips.ui-widget {
+      width: 100%;
+
+      & > .ui-inputtext {
+        width: 100%;
+        padding-bottom: 0.143em;
+
+        .ui-chips-token,
+        .ui-chips-input-token {
+          margin-bottom: 0.286em;
+        }
+      }
+    }
+  }
+}
