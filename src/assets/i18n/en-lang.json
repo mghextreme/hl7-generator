@@ -208,7 +208,7 @@
       },
       "36": {
         "name": "Discharge Disposition",
-        "tags": "discharge disposition"
+        "tags": "discharge disposition, discharge location"
       },
       "44": {
         "name": "Admit Date/Time",

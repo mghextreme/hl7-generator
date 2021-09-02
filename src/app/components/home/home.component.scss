@@ -1,10 +1,28 @@
+#home {
+  height: 100vh;
+  overflow: hidden;
+
+  & > .row {
+    max-height: calc(100vh - 70px);
+
+    & > .col {
+      max-height: 100%;
+    }
+  }
+}
+
 .hl7-textarea {
   min-height: 200px;
   width: 100%;
 }
 
-.sections .section {
-  border-bottom: 1px solid #ddd;
+.sections {
+  position: relative;
+  overflow-y: auto;
+
+  .section {
+    border-bottom: 1px solid #ddd;
+  }
 }
 
 .actions button {

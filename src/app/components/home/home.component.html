@@ -1,17 +1,17 @@
-<page-header></page-header>
+<div id="home" class="d-flex flex-column align-items-stretch">
+  <page-header></page-header>
 
-<div class="row">
-  <div class="col">
-    <h4 class="mb-2">{{ 'actions.add' | translate }}</h4>
-    <div class="add">
-      <button pButton type="button" icon="pi pi-plus" label="MSH" [title]="'sections.msh.title' | translate" (click)="addSection('MSH')" class="mr-2"></button>
-      <button pButton type="button" icon="pi pi-plus" label="OBX" [title]="'sections.obx.title' | translate" (click)="addSection('OBX')" class="mr-2"></button>
-      <button pButton type="button" icon="pi pi-plus" label="PID" [title]="'sections.pid.title' | translate" (click)="addSection('PID')" class="mr-2"></button>
-      <button pButton type="button" icon="pi pi-plus" label="PV1" [title]="'sections.pv1.title' | translate" (click)="addSection('PV1')" class="mr-2"></button>
-    </div>
+  <div class="row">
+    <div class="col d-flex flex-column justify-content-start">
+      <h4 class="mb-2">{{ 'actions.add' | translate }}</h4>
+      <div class="add">
+        <button pButton type="button" icon="pi pi-plus" label="MSH" [title]="'sections.msh.title' | translate" (click)="addSection('MSH')" class="mr-2"></button>
+        <button pButton type="button" icon="pi pi-plus" label="OBX" [title]="'sections.obx.title' | translate" (click)="addSection('OBX')" class="mr-2"></button>
+        <button pButton type="button" icon="pi pi-plus" label="PID" [title]="'sections.pid.title' | translate" (click)="addSection('PID')" class="mr-2"></button>
+        <button pButton type="button" icon="pi pi-plus" label="PV1" [title]="'sections.pv1.title' | translate" (click)="addSection('PV1')" class="mr-2"></button>
+      </div>
 
-    <h4 class="mt-4 mb-2">{{ 'titles.sections' | translate }}</h4>
-    <div class="sections">
+      <h4 class="mt-4 mb-2">{{ 'titles.sections' | translate }}</h4>
       <div class="input-group filter px-2">
         <div class="input-group-prepend">
           <div class="input-group-text">
@@ -33,17 +33,19 @@
           </ng-template>
         </p-autoComplete>
       </div>
-      <div class="section" *ngFor="let item of sections">
-        <section [section]="item" (remove)="handleRemoveSection($event)" (change)="handleChangeSection()"></section>
+      <div #sectionsPanel class="sections flex-fill">
+        <div class="section" *ngFor="let item of sections">
+          <section [section]="item" (remove)="handleRemoveSection($event)" (change)="handleChangeSection()"></section>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col">
-    <h4 class="mb-2">{{ 'titles.hl7-message' | translate }}</h4>
-    <textarea pInputTextarea class="hl7-textarea form-control mb-2" autoResize="autoResize" [(ngModel)]="hl7"></textarea>
-    <div class="actions">
-      <button pButton type="button" icon="pi pi-eject" [label]="'actions.parse' | translate" (click)="parseHl7()" [disabled]="hl7 === expectedHl7" class="mr-2"></button>
-      <button pButton type="button" icon="pi pi-clone" [label]="'actions.copy-to-clipboard' | translate" (click)="copyHl7ToClipboard()" class="mr-2"></button>
+    <div class="col">
+      <h4 class="mb-2">{{ 'titles.hl7-message' | translate }}</h4>
+      <textarea pInputTextarea class="hl7-textarea form-control mb-2" autoResize="autoResize" [(ngModel)]="hl7"></textarea>
+      <div class="actions">
+        <button pButton type="button" icon="pi pi-eject" [label]="'actions.parse' | translate" (click)="parseHl7()" [disabled]="hl7 === expectedHl7" class="mr-2"></button>
+        <button pButton type="button" icon="pi pi-clone" [label]="'actions.copy-to-clipboard' | translate" (click)="copyHl7ToClipboard()" class="mr-2"></button>
+      </div>
     </div>
   </div>
 </div>

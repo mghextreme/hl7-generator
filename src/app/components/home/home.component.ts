@@ -1,6 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Clipboard as MyClipboard } from '@angular/cdk/clipboard';
 import { AutoComplete } from 'primeng/autocomplete';
+import { ScrollPanel } from 'primeng/scrollpanel';
 import { FieldSearchResult, ISection, MshSection, ObxSection, PidSection, PV1Section, SectionType } from 'app/models';
 import { FieldSearchService, MessageConfigurationService } from 'app/services';
 import _ from 'lodash';
@@ -23,6 +24,7 @@ export class HomeComponent {
   filteredItems: FieldSearchResult[];
 
   @ViewChild('filterBar', { static: false }) filterBar: AutoComplete;
+  @ViewChild('sectionsPanel', { static: false }) sectionsPanel: ElementRef;
 
   constructor(
     private readonly configService: MessageConfigurationService,
@@ -126,7 +128,23 @@ export class HomeComponent {
     const section = _.find(this.sections, s => s.id === parentId);
     if (section) {
       section.expanded = true;
+      section.getField(fieldNumber).expanded = true;
+
+      setTimeout(() => this.scrollTo(parentId, fieldNumber), 100);
+      setTimeout(() => this.focusInto(section, fieldNumber), 150);
     }
+  }
+
+  private scrollTo(parentId: number, fieldNumber: number) {
+    let sectionEl = document.querySelector(`.pid-section[data-section-id='${parentId}']`);
+    let fieldEl = sectionEl.querySelector(`.field[data-field-number='${fieldNumber}']`);
+
+    let fieldPos = (fieldEl as any).offsetTop;
+    this.sectionsPanel.nativeElement.scrollTop = fieldPos - 20;
+  }
+
+  private focusInto(section: ISection, fieldNumber: number): void {
+    // TODO
   }
 
 }
