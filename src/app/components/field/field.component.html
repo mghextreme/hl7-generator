@@ -3,10 +3,10 @@
     <input pInputText [(ngModel)]="$any(field).value" type="text" (onchange)="handleChange()" [minlength]="$any(field).minLength" [maxlength]="$any(field).minLength" />
   </div>
   <div *ngSwitchCase="'date'">
-    <p-calendar [(ngModel)]="$any(field).value" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2050" (onSelect)="handleChange()" (onChange)="handleChange()"></p-calendar>
+    <p-calendar [(ngModel)]="$any(field).value" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2050" (onSelect)="handleChange()" (onChange)="handleChange()" appendTo="body"></p-calendar>
   </div>
   <div *ngSwitchCase="'datetime'">
-    <p-calendar [(ngModel)]="$any(field).value" [monthNavigator]="true" [yearNavigator]="true" [showTime]="true" yearRange="1900:2050" (onSelect)="handleChange()" (onChange)="handleChange()"></p-calendar>
+    <p-calendar [(ngModel)]="$any(field).value" [monthNavigator]="true" [yearNavigator]="true" [showTime]="true" yearRange="1900:2050" (onSelect)="handleChange()" (onChange)="handleChange()" appendTo="body"></p-calendar>
   </div>
   <div *ngSwitchCase="'multiple'">
     <div class="row row-cols-3 subfield py-1" *ngFor="let subfield of $any(field).subfields">
