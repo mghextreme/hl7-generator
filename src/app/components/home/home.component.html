@@ -5,6 +5,7 @@
     <div class="col d-flex flex-column justify-content-start">
       <h4 class="mb-2">{{ 'actions.add' | translate }}</h4>
       <div class="add">
+        <button pButton type="button" icon="pi pi-plus" label="MRG" [title]="'sections.mrg.title' | translate" (click)="addSection('MRG')" class="mr-2"></button>
         <button pButton type="button" icon="pi pi-plus" label="MSH" [title]="'sections.msh.title' | translate" (click)="addSection('MSH')" class="mr-2"></button>
         <button pButton type="button" icon="pi pi-plus" label="OBX" [title]="'sections.obx.title' | translate" (click)="addSection('OBX')" class="mr-2"></button>
         <button pButton type="button" icon="pi pi-plus" label="PID" [title]="'sections.pid.title' | translate" (click)="addSection('PID')" class="mr-2"></button>

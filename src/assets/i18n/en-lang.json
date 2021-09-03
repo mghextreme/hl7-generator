@@ -19,6 +19,57 @@
     "list-of-options": "List of Options"
   },
   "sections": {
+    "mrg": {
+      "title": "Merge patient information",
+      "1": {
+        "name": "Prior Patient Identifier List",
+        "tags": "prior pid, prior identifier, prior patient id, prior patient identifier, previous pid, previous identifier, previous patient id, previous patient identifier",
+        "1": {
+          "name": "Id",
+          "tags": "id"
+        },
+        "4": {
+          "name": "Assigning Authority",
+          "tags": "assigning authority"
+        },
+        "6": {
+          "name": "Assigning Facility",
+          "tags": "assigning facility"
+        }
+      },
+      "3": {
+        "name": "Prior Patient Account Number",
+        "tags": "prior pan, prior account number, prior patient account number, previous pan, previous account number, previous patient account number"
+      },
+      "4": {
+        "name": "Prior Patient ID",
+        "tags": "prior patient id, previous patient id"
+      },
+      "7": {
+        "name": "Prior Patient Name",
+        "tags": "previous patient name, prior patient name",
+        "1": {
+          "name": "Family Name",
+          "tags": "last name, family name, surname"
+        },
+        "2": {
+          "name": "Given Name",
+          "tags": "given name, first name"
+        },
+        "3": {
+          "name": "Middle Names",
+          "tags": "middle names, middle initials, other names"
+        },
+        "4": {
+          "name": "Suffix",
+          "tags": "suffix"
+        },
+        "5": {
+          "name": "Prefix",
+          "tags": "prefix"
+        }
+      }
+    },
     "msh": {
       "title": "Message Header",
       "1": {

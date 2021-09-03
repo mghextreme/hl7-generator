@@ -1,8 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Clipboard as MyClipboard } from '@angular/cdk/clipboard';
 import { AutoComplete } from 'primeng/autocomplete';
-import { ScrollPanel } from 'primeng/scrollpanel';
-import { FieldSearchResult, ISection, MshSection, ObxSection, PidSection, PV1Section, SectionType } from 'app/models';
+import { FieldSearchResult, ISection, MrgSection, MshSection, ObxSection, PidSection, PV1Section, SectionType } from 'app/models';
 import { FieldSearchService, MessageConfigurationService } from 'app/services';
 import _ from 'lodash';
 import { TranslateService } from '@ngx-translate/core';
@@ -38,6 +37,7 @@ export class HomeComponent {
 
   public addSection(type: string) {
     switch (type) {
+      case SectionType.MRG: this.sections.push(new MrgSection(this.configService)); break;
       case SectionType.MSH: this.sections.push(new MshSection(this.configService)); break;
       case SectionType.OBX: this.sections.push(new ObxSection(this.configService)); break;
       case SectionType.PID: this.sections.push(new PidSection(this.configService)); break;
@@ -64,6 +64,9 @@ export class HomeComponent {
         let newSection: ISection;
 
         switch (type) {
+          case SectionType.MRG:
+            newSection = new MrgSection(this.configService, b);
+            break;
           case SectionType.MSH:
             newSection = new MshSection(this.configService, b);
             break;
