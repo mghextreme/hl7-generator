@@ -1,23 +1,20 @@
 import moment from 'moment';
 import { FieldType } from './field-type.enum';
-import { IField } from './field.interface';
+import { BaseField } from './base-field';
 
-export class DateTimeField implements IField {
-  number: number;
-  i18n: string;
-  type: FieldType;
-  expanded: boolean;
-  required: boolean;
+export class DateTimeField extends BaseField<DateTimeField> {
   value?: Date;
 
   constructor(
     number: number,
     i18n: string
   ) {
-    this.type = FieldType.DateTime;
-    this.number = number;
-    this.i18n = i18n;
-    this.value = new Date(new Date().setSeconds(0));
+    super(
+      FieldType.DateTime,
+      number,
+      i18n);
+
+      this.value = new Date(new Date().setSeconds(0));
   }
 
   public hasValue(): boolean {

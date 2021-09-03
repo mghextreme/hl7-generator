@@ -7,9 +7,15 @@ export interface IField {
   expanded: boolean;
   required: boolean;
 
+  init(init?: Partial<IField>): IField;
+
+  valueGenerator?: (field: IField) => void;
+
   hasValue(): boolean;
 
   setValue(value: any): void;
+
+  generate(): void;
 
   toString(): string;
 }

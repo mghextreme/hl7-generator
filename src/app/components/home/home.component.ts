@@ -93,7 +93,7 @@ export class HomeComponent {
     this.clipboard.copy(this.hl7);
   }
 
-  public handleRemoveSection(sectionId: number): void {
+  public handleRemoveSection(sectionId: string): void {
     this.sections = this.sections.filter(s => s.id !== sectionId);
     this.generateHl7();
   }
@@ -124,7 +124,7 @@ export class HomeComponent {
     this.fieldSearch.updateFields(this.sections);
   }
 
-  private goTo(parentId: number, fieldNumber: number) {
+  private goTo(parentId: string, fieldNumber: number) {
     const section = _.find(this.sections, s => s.id === parentId);
     if (section) {
       section.expanded = true;
@@ -135,7 +135,7 @@ export class HomeComponent {
     }
   }
 
-  private scrollTo(parentId: number, fieldNumber: number) {
+  private scrollTo(parentId: string, fieldNumber: number) {
     let sectionEl = document.querySelector(`.pid-section[data-section-id='${parentId}']`);
     let fieldEl = sectionEl.querySelector(`.field[data-field-number='${fieldNumber}']`);
 

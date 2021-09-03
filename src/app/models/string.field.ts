@@ -1,12 +1,7 @@
 import { FieldType } from './field-type.enum';
-import { IField } from './field.interface';
+import { BaseField } from './base-field';
 
-export class StringField implements IField {
-  number: number;
-  i18n: string;
-  type: FieldType;
-  expanded: boolean;
-  required: boolean;
+export class StringField extends BaseField<StringField> {
   value?: string;
 
   minLength?: number;
@@ -17,20 +12,16 @@ export class StringField implements IField {
     i18n: string,
     readonly defaultValue: string = ''
   ) {
-    this.type = FieldType.String;
-    this.number = number;
-    this.i18n = i18n;
+    super(
+      FieldType.String,
+      number,
+      i18n);
 
     if (defaultValue !== undefined &&
         defaultValue !== null &&
-        defaultValue.length) {
+        defaultValue.length > 0) {
       this.value = this.defaultValue;
     }
-  }
-
-  public init(init?: Partial<StringField>): StringField {
-    Object.assign(this, init);
-    return this;
   }
 
   public hasValue(): boolean {

@@ -2,6 +2,10 @@
   .header {
     & > button {
       font-size: 0.7em;
+
+      &.generate-field[disabled] {
+        visibility: hidden;
+      }
     }
 
     .tag {

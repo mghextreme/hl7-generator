@@ -1,22 +1,19 @@
 import moment from 'moment';
 import { FieldType } from './field-type.enum';
-import { IField } from './field.interface';
+import { BaseField } from './base-field';
 
-export class DateField implements IField {
-  number: number;
-  i18n: string;
-  type: FieldType;
-  expanded: boolean;
-  required: boolean;
+export class DateField extends BaseField<DateField> {
   value?: Date;
 
   constructor(
     number: number,
     i18n: string
   ) {
-    this.type = FieldType.Date;
-    this.number = number;
-    this.i18n = i18n;
+    super(
+      FieldType.Date,
+      number,
+      i18n);
+
     this.value = new Date();
   }
 

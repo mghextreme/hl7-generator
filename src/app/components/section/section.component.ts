@@ -9,7 +9,7 @@ import { ISection } from 'app/models';
 export class SectionComponent {
   @Input() section: ISection;
 
-  @Output() remove = new EventEmitter<number>();
+  @Output() remove = new EventEmitter<string>();
   @Output() change = new EventEmitter<void>();
 
   public handleRemove(): void {
@@ -21,6 +21,13 @@ export class SectionComponent {
     if (anySection.generateData) {
       anySection.generateData();
       this.change.emit();
+    }
+  }
+
+  public handleGenerateFieldData(fieldNumber: number) {
+    const field = this.section.getField(fieldNumber);
+    if (field && field.generate) {
+      field.generate();
     }
   }
 

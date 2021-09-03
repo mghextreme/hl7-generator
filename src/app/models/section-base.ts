@@ -3,9 +3,10 @@ import { IField } from './fields';
 import { SectionType } from './section-type.enum';
 import { ISection } from './section.interface';
 import _ from 'lodash';
+import faker from 'faker';
 
 export abstract class SectionBase implements ISection {
-  id: number;
+  id: string;
   fields: IField[] = [];
   expanded: boolean;
 
@@ -14,7 +15,7 @@ export abstract class SectionBase implements ISection {
     public readonly type: SectionType,
     text: string = ''
   ) {
-    this.id = Date.now();
+    this.id = faker.datatype.uuid();
     this.type = type;
     this.expanded = true;
 

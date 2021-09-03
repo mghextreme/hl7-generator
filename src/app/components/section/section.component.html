@@ -9,8 +9,9 @@
   <div class="fields" *ngIf="section.expanded">
     <div class="field" *ngFor="let field of section.fields" [attr.data-field-number]="field.number">
       <div class="header p-1">
-        <button *ngIf="!field.expanded" pButton type="button" icon="pi pi-plus" [title]="'action.add' | translate" (click)="handleAddField(field.number)" class="ui-button-success mr-3"></button>
-        <button *ngIf="field.expanded" pButton type="button" icon="pi pi-chevron-up" [title]="'action.remove' | translate" (click)="handleRemoveField(field.number)" class="ui-button-secondary mr-3" [disabled]="field.required"></button>
+        <button *ngIf="!field.expanded" pButton type="button" icon="pi pi-plus" [title]="'action.add' | translate" (click)="handleAddField(field.number)" class="ui-button-success mr-1"></button>
+        <button *ngIf="field.expanded" pButton type="button" icon="pi pi-chevron-up" [title]="'action.remove' | translate" (click)="handleRemoveField(field.number)" class="ui-button-secondary mr-1" [disabled]="field.required"></button>
+        <button pButton type="button" icon="pi pi-refresh" [title]="'action.generate-data' | translate" (click)="handleGenerateFieldData(field.number)" class="generate-field ui-button-warning mr-3" [disabled]="!field.valueGenerator"></button>
         <span class="tag mr-2">{{ section.type }}.{{ field.number }}</span>
         <span class="name">{{ field.i18n + '.name' | translate }}</span>
       </div>

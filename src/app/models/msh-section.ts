@@ -35,7 +35,9 @@ export class MshSection extends SectionBase {
       new StringField(4, 'sections.msh.4'),
       new StringField(5, 'sections.msh.5'),
       new StringField(6, 'sections.msh.6'),
-      new DateTimeField(7, 'sections.msh.7'),
+      new DateTimeField(7, 'sections.msh.7').init({ valueGenerator: (f) => {
+        f.setValue(new Date());
+      }}),
       new MultipleField(
         this.configService,
         9,
@@ -44,7 +46,9 @@ export class MshSection extends SectionBase {
           new StringField(1, 'sections.msh.9.1'),
           new StringField(2, 'sections.msh.9.2')
         ]),
-      new StringField(10, 'sections.msh.10')
+      new StringField(10, 'sections.msh.10').init({ valueGenerator: (f) => {
+        f.setValue(faker.datatype.uuid().replace(/-/g, ''));
+      }})
     ];
   }
 
@@ -100,7 +104,7 @@ export class MshSection extends SectionBase {
     this.getField(2).setValue(this.configService.retrieve('MSH.2'));
     this.getField(3).setValue(this.configService.retrieve('MSH.3'));
     this.getField(5).setValue(this.configService.retrieve('MSH.5'));
-    this.getField(7).setValue(new Date());
-    this.getField(10).setValue(faker.datatype.uuid().replace(/-/g, ''));
+    this.getField(7).generate();
+    this.getField(10).generate();
   }
 }

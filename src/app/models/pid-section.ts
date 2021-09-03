@@ -18,38 +18,15 @@ export class PidSection extends SectionBase {
   }
 
   public generateData(): void {
+    this.fields.forEach((f) => f.generate());
+
     const uniq = faker.datatype.number({ min: 10000, max: 99999 });
     this.getField(2).setValue('ID-' + uniq);
     this.getField(3).setValue([
       'PID' + uniq, , ,
       this.configService.retrieve('PID.3.4'), ,
       this.configService.retrieve('PID.3.6') ]);
-    this.getField(5).setValue([
-      faker.name.lastName(),
-      faker.name.firstName(),
-      faker.datatype.boolean() ? faker.name.firstName() : '',
-      faker.datatype.number(8) === 1 ? faker.name.suffix() : '']);
-    this.getField(7).setValue(
-      faker.date.past(75, moment().subtract(5, 'year').toDate()));
-    this.getField(8).setValue(
-      faker.random.arrayElement(
-        this.configService.retrieveCollection('PID.8')));
-    this.getField(10).setValue(
-      faker.random.arrayElement(
-        this.configService.retrieveCollection('PID.10')));
-    this.getField(11).setValue([
-      faker.address.streetAddress(), ,
-      faker.address.cityName(),
-      faker.address.state(),
-      faker.address.zipCode()]);
-    this.getField(16).setValue(
-      faker.random.arrayElement(
-        this.configService.retrieveCollection('PID.16')));
     this.getField(18).setValue('PAN' + uniq);
-    this.getField(19).setValue(faker.finance.routingNumber());
-    this.getField(22).setValue(
-      faker.random.arrayElement(
-        this.configService.retrieveCollection('PID.22')));
   }
 
   protected setFields(configService: MessageConfigurationService) {
@@ -76,10 +53,27 @@ export class PidSection extends SectionBase {
           new StringField(4, 'sections.pid.5.4'),
           new StringField(5, 'sections.pid.5.5')
         ]
-      ),
-      new DateField(7, 'sections.pid.7'),
-      new StringField(8, 'sections.pid.8'),
-      new StringField(10, 'sections.pid.10'),
+      ).init({ valueGenerator: (f) => {
+        f.setValue([
+          faker.name.lastName(),
+          faker.name.firstName(),
+          faker.datatype.boolean() ? faker.name.firstName() : '',
+          faker.datatype.number(8) === 1 ? faker.name.suffix() : ''])
+      }}),
+      new DateField(7, 'sections.pid.7').init({ valueGenerator: (f) => {
+        f.setValue(
+          faker.date.past(75, moment().subtract(5, 'year').toDate()))
+      }}),
+      new StringField(8, 'sections.pid.8').init({ valueGenerator: (f) => {
+        f.setValue(
+          faker.random.arrayElement(
+            this.configService.retrieveCollection('PID.8')));
+      }}),
+      new StringField(10, 'sections.pid.10').init({ valueGenerator: (f) => {
+        f.setValue(
+          faker.random.arrayElement(
+            this.configService.retrieveCollection('PID.10')));
+      }}),
       new MultipleField(
         configService,
         11,
@@ -91,11 +85,27 @@ export class PidSection extends SectionBase {
           new StringField(5, 'sections.pid.11.5'),
           new StringField(6, 'sections.pid.11.6')
         ]
-      ),
-      new StringField(16, 'sections.pid.16'),
+      ).init({ valueGenerator: (f) => {
+        f.setValue([
+          faker.address.streetAddress(), ,
+          faker.address.cityName(),
+          faker.address.state(),
+          faker.address.zipCode()]);
+      }}),
+      new StringField(16, 'sections.pid.16').init({ valueGenerator: (f) => {
+        f.setValue(
+          faker.random.arrayElement(
+            this.configService.retrieveCollection('PID.16')));
+      }}),
       new StringField(18, 'sections.pid.18'),
-      new StringField(19, 'sections.pid.19'),
-      new StringField(22, 'sections.pid.22')
+      new StringField(19, 'sections.pid.19').init({ valueGenerator: (f) => {
+        f.setValue(faker.finance.routingNumber());
+      }}),
+      new StringField(22, 'sections.pid.22').init({ valueGenerator: (f) => {
+        f.setValue(
+          faker.random.arrayElement(
+            this.configService.retrieveCollection('PID.22')));
+      }})
     ];
   }
 }

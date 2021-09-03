@@ -2,13 +2,9 @@ import _ from 'lodash';
 import { MessageConfigurationService } from 'app/services';
 import { FieldType } from './field-type.enum';
 import { IField } from './field.interface';
+import { BaseField } from './base-field';
 
-export class MultipleField implements IField {
-  number: number;
-  i18n: string;
-  type: FieldType;
-  expanded: boolean;
-  required: boolean;
+export class MultipleField extends BaseField<MultipleField> {
 
   constructor(
     private readonly configService: MessageConfigurationService,
@@ -16,9 +12,10 @@ export class MultipleField implements IField {
     i18n: string,
     private subfields: IField[]
   ) {
-    this.type = FieldType.Multiple;
-    this.number = number;
-    this.i18n = i18n;
+    super(
+      FieldType.Multiple,
+      number,
+      i18n);
   }
 
   public hasValue(): boolean {

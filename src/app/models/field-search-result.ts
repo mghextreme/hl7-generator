@@ -1,5 +1,5 @@
 export class FieldSearchResult {
-  parentId: number;
+  parentId: string;
   parentTitle: string;
   fieldNumber: number;
   id: string;
