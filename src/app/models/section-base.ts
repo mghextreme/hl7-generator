@@ -38,14 +38,14 @@ export abstract class SectionBase implements ISection {
       const cur = this.fields[i];
       if (cur.expanded &&
           cur.hasValue()) {
-          result += this.configService.splitChar.repeat(cur.number - lastIndex);
+          result += this.configService.fieldSeparator.repeat(cur.number - lastIndex);
           lastIndex = cur.number;
 
           result += cur.toString();
       }
     }
 
-    return result + this.configService.splitChar;
+    return result + this.configService.fieldSeparator;
   }
 
   public parse(text: string): void {
@@ -53,7 +53,7 @@ export abstract class SectionBase implements ISection {
       return;
     }
 
-    const bits = text.split(this.configService.splitChar);
+    const bits = text.split(this.configService.fieldSeparator);
     for (let i = 1; i < bits.length; i++) {
       const bit = bits[i];
       if (bit.length > 0) {

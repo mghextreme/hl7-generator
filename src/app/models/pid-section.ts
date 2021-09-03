@@ -38,8 +38,26 @@ export class PidSection extends SectionBase {
         'sections.pid.3',
         [
           new StringField(1, 'sections.pid.3.1'),
-          new StringField(4, 'sections.pid.3.4'),
-          new StringField(6, 'sections.pid.3.6')
+          new MultipleField(
+            configService,
+            4,
+            'sections.pid.3.4',
+            [
+              new StringField(1, 'sections.pid.3.4.1', this.configService.retrieve('PID.3.4.1')),
+              new StringField(2, 'sections.pid.3.4.2', this.configService.retrieve('PID.3.4.2'))
+            ]).init({
+              level: 2
+            }),
+          new MultipleField(
+            configService,
+            6,
+            'sections.pid.3.6',
+            [
+              new StringField(1, 'sections.pid.3.6.1', this.configService.retrieve('PID.3.6.1')),
+              new StringField(2, 'sections.pid.3.6.2', this.configService.retrieve('PID.3.6.2'))
+            ]).init({
+              level: 2
+            })
         ]
       ),
       new MultipleField(

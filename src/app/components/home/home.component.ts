@@ -106,7 +106,7 @@ export class HomeComponent {
   }
 
   private generateHl7(): void {
-    this.expectedHl7 = _.join(this.sections.map(s => s.toString() + '\\r'), '\r\n');
+    this.expectedHl7 = _.join(this.sections.map(s => s.toString() + this.configService.escapeCharacter + 'r'), '\r\n');
     this.hl7 = this.expectedHl7;
   }
 

@@ -30,11 +30,23 @@
         },
         "4": {
           "name": "Assigning Authority",
-          "tags": "assigning authority"
+          "tags": "assigning authority",
+          "1": {
+            "name": "Namespace ID"
+          },
+          "2": {
+            "name": "Universal ID"
+          }
         },
         "6": {
           "name": "Assigning Facility",
-          "tags": "assigning facility"
+          "tags": "assigning facility",
+          "1": {
+            "name": "Namespace ID"
+          },
+          "2": {
+            "name": "Universal ID"
+          }
         }
       },
       "3": {
@@ -78,7 +90,19 @@
       },
       "2": {
         "name": "Encoding Characters",
-        "tags": "encoding characters"
+        "tags": "encoding characters",
+        "1": {
+          "name": "Component Separator"
+        },
+        "2": {
+          "name": "Field Repeat Separator"
+        },
+        "3": {
+          "name": "Escape Character"
+        },
+        "4": {
+          "name": "Subcomponent Separator"
+        }
       },
       "3": {
         "name": "Sending Application",
@@ -151,11 +175,23 @@
         },
         "4": {
           "name": "Assigning Authority",
-          "tags": "assigning authority"
+          "tags": "assigning authority",
+          "1": {
+            "name": "Namespace ID"
+          },
+          "2": {
+            "name": "Universal ID"
+          }
         },
         "6": {
           "name": "Assigning Facility",
-          "tags": "assigning facility"
+          "tags": "assigning facility",
+          "1": {
+            "name": "Namespace ID"
+          },
+          "2": {
+            "name": "Universal ID"
+          }
         }
       },
       "5": {

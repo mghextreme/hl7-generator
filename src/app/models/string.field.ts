@@ -49,7 +49,7 @@ export class StringField extends BaseField<StringField> {
 
   private isValid(): boolean {
     return this.hasValue() &&
-           (this.minLength === undefined || this.value.length > this.minLength) &&
-           (this.maxLength === undefined || this.value.length > this.maxLength);
+           (this.minLength === undefined || this.value.length >= this.minLength) &&
+           (this.maxLength === undefined || this.value.length >= this.maxLength);
   }
 }

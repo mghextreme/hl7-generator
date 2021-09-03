@@ -9,11 +9,16 @@ import { MessageConfigurationService } from 'app/services';
 export class ConfigurationComponent {
 
   _msh_1 = '';
-  _msh_2 = '';
+  _msh_2_1 = '';
+  _msh_2_2 = '';
+  _msh_2_3 = '';
+  _msh_2_4 = '';
   _msh_3 = '';
   _msh_5 = '';
-  _pid_3_4 = '';
-  _pid_3_6 = '';
+  _pid_3_4_1 = '';
+  _pid_3_4_2 = '';
+  _pid_3_6_1 = '';
+  _pid_3_6_2 = '';
 
   _pid_8: string[] = [];
   _pid_10: string[] = [];
@@ -26,11 +31,16 @@ export class ConfigurationComponent {
     readonly translate: TranslateService
   ) {
     this._msh_1 = configService.retrieve('MSH.1');
-    this._msh_2 = configService.retrieve('MSH.2');
+    this._msh_2_1 = configService.retrieve('MSH.2.1');
+    this._msh_2_2 = configService.retrieve('MSH.2.2');
+    this._msh_2_3 = configService.retrieve('MSH.2.3');
+    this._msh_2_4 = configService.retrieve('MSH.2.4');
     this._msh_3 = configService.retrieve('MSH.3');
     this._msh_5 = configService.retrieve('MSH.5');
-    this._pid_3_4 = configService.retrieve('PID.3.4');
-    this._pid_3_6 = configService.retrieve('PID.3.6');
+    this._pid_3_4_1 = configService.retrieve('PID.3.4.1');
+    this._pid_3_4_2 = configService.retrieve('PID.3.4.2');
+    this._pid_3_6_1 = configService.retrieve('PID.3.6.1');
+    this._pid_3_6_2 = configService.retrieve('PID.3.6.2');
 
     this._pid_8 = configService.retrieveCollection('PID.8');
     this._pid_10 = configService.retrieveCollection('PID.10');
@@ -47,12 +57,36 @@ export class ConfigurationComponent {
     }
   }
 
-  get msh_2(): string { return this._msh_2; }
-  set msh_2(value: string) {
-    if (value === this._msh_2) { return; }
+  get msh_2_1(): string { return this._msh_2_1; }
+  set msh_2_1(value: string) {
+    if (value === this._msh_2_1) { return; }
 
-    this._msh_2 = value;
-    this.configService.store('MSH.2', this.msh_2);
+    this._msh_2_1 = value;
+    this.configService.store('MSH.2.1', this.msh_2_1);
+  }
+
+  get msh_2_2(): string { return this._msh_2_2; }
+  set msh_2_2(value: string) {
+    if (value === this._msh_2_2) { return; }
+
+    this._msh_2_2 = value;
+    this.configService.store('MSH.2.2', this.msh_2_2);
+  }
+
+  get msh_2_3(): string { return this._msh_2_3; }
+  set msh_2_3(value: string) {
+    if (value === this._msh_2_3) { return; }
+
+    this._msh_2_3 = value;
+    this.configService.store('MSH.2.3', this.msh_2_3);
+  }
+
+  get msh_2_4(): string { return this._msh_2_4; }
+  set msh_2_4(value: string) {
+    if (value === this._msh_2_4) { return; }
+
+    this._msh_2_4 = value;
+    this.configService.store('MSH.2.4', this.msh_2_4);
   }
 
   get msh_3(): string { return this._msh_3; }
@@ -71,20 +105,36 @@ export class ConfigurationComponent {
     this.configService.store('MSH.5', this.msh_5);
   }
 
-  get pid_3_4(): string { return this._pid_3_4; }
-  set pid_3_4(value: string) {
-    if (value === this._pid_3_4) { return; }
+  get pid_3_4_1(): string { return this._pid_3_4_1; }
+  set pid_3_4_1(value: string) {
+    if (value === this._pid_3_4_1) { return; }
 
-    this._pid_3_4 = value;
-    this.configService.store('PID.3.4', this.pid_3_4);
+    this._pid_3_4_1 = value;
+    this.configService.store('PID.3.4.1', this.pid_3_4_1);
   }
 
-  get pid_3_6(): string { return this._pid_3_6; }
-  set pid_3_6(value: string) {
-    if (value === this._pid_3_6) { return; }
+  get pid_3_4_2(): string { return this._pid_3_4_2; }
+  set pid_3_4_2(value: string) {
+    if (value === this._pid_3_4_2) { return; }
 
-    this._pid_3_6 = value;
-    this.configService.store('PID.3.6', this.pid_3_6);
+    this._pid_3_4_2 = value;
+    this.configService.store('PID.3.4.2', this.pid_3_4_2);
+  }
+
+  get pid_3_6_1(): string { return this._pid_3_6_1; }
+  set pid_3_6_1(value: string) {
+    if (value === this._pid_3_6_1) { return; }
+
+    this._pid_3_6_1 = value;
+    this.configService.store('PID.3.6.1', this.pid_3_6_1);
+  }
+
+  get pid_3_6_2(): string { return this._pid_3_6_2; }
+  set pid_3_6_2(value: string) {
+    if (value === this._pid_3_6_2) { return; }
+
+    this._pid_3_6_2 = value;
+    this.configService.store('PID.3.6.2', this.pid_3_6_2);
   }
 
   get pid_8(): string[] { return this._pid_8; }

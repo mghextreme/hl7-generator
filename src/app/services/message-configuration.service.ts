@@ -5,31 +5,62 @@ import { Injectable } from '@angular/core';
 })
 export class MessageConfigurationService {
 
-  private _splitChar;
-  private _subSplitChar;
+  private _fieldSeparator;
+  private _componentSeparator;
+  private _subComponentSeparator;
+  private _fieldRepeatSeparator;
+  private _escapeCharacter;
 
   constructor(){
-    this._splitChar = this.retrieve('MSH.1') ?? '|';
-    this._subSplitChar = this.retrieve('subSliptChar') ?? '^';
+    this._fieldSeparator = this.retrieve('MSH.1') ?? '|';
+    this._componentSeparator = this.retrieve('MSH.2.1') ?? '^';
+    this._fieldRepeatSeparator = this.retrieve('MSH.2.2') ?? '~';
+    this._escapeCharacter = this.retrieve('MSH.2.3') ?? '\\';
+    this._subComponentSeparator = this.retrieve('MSH.2.4') ?? '&';
   }
 
-  get splitChar(): string {
-    return this._splitChar;
+  get fieldSeparator(): string {
+    return this._fieldSeparator;
   }
-  set splitChar(char: string) {
+  set fieldSeparator(char: string) {
     if (char !== null && char !== undefined && char.length === 1) {
-      this._splitChar = char;
-      this.store('MSH.1', this._splitChar);
+      this._fieldSeparator = char;
     }
   }
 
-  get subSplitChar(): string {
-    return this._subSplitChar;
+  get componentSeparator(): string {
+    return this._componentSeparator;
   }
-  set subSplitChar(char: string) {
+  set componentSeparator(char: string) {
     if (char !== null && char !== undefined && char.length === 1) {
-      this._subSplitChar = char;
-      this.store('subSliptChar', this._subSplitChar);
+      this._componentSeparator = char;
+    }
+  }
+
+  get fieldRepeatSeparator(): string {
+    return this._fieldRepeatSeparator;
+  }
+  set fieldRepeatSeparator(char: string) {
+    if (char !== null && char !== undefined && char.length === 1) {
+      this._fieldRepeatSeparator = char;
+    }
+  }
+
+  get escapeCharacter(): string {
+    return this._escapeCharacter;
+  }
+  set escapeCharacter(char: string) {
+    if (char !== null && char !== undefined && char.length === 1) {
+      this._escapeCharacter = char;
+    }
+  }
+
+  get subComponentSeparator(): string {
+    return this._subComponentSeparator;
+  }
+  set subComponentSeparator(char: string) {
+    if (char !== null && char !== undefined && char.length === 1) {
+      this._subComponentSeparator = char;
     }
   }
 
