@@ -22,10 +22,7 @@ export class PidSection extends SectionBase {
 
     const uniq = faker.datatype.number({ min: 10000, max: 99999 });
     this.getField(2).setValue('ID-' + uniq);
-    this.getField(3).setValue([
-      'PID' + uniq, , ,
-      this.configService.retrieve('PID.3.4'), ,
-      this.configService.retrieve('PID.3.6') ]);
+    (this.getField(3) as MultipleField).getField(1).setValue('PID' + uniq);
     this.getField(18).setValue('PAN' + uniq);
   }
 

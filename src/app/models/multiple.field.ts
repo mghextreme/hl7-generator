@@ -30,7 +30,7 @@ export class MultipleField extends BaseField<MultipleField> {
 
   public setValue(value: any): void {
     if (value instanceof String || typeof(value) === 'string') {
-      const bits = value.split(this.configService.componentSeparator);
+      const bits = value.split(this.getSplitCharacter());
       this.setValueFromArray(bits);
     } else if (value instanceof Array) {
       this.setValueFromArray(value);
@@ -49,11 +49,7 @@ export class MultipleField extends BaseField<MultipleField> {
     let result = '';
     let lastIndex = 1;
 
-    let separator: string;
-    switch (this.level) {
-      case 2: separator = this.configService.subComponentSeparator; break;
-      default: separator = this.configService.componentSeparator; break;
-    }
+    let separator = this.getSplitCharacter();
 
     for (let i = 0; i < field.subfields.length; i++) {
       const cur = field.subfields[i];
@@ -66,6 +62,13 @@ export class MultipleField extends BaseField<MultipleField> {
     }
 
     return result;
+  }
+
+  private getSplitCharacter(): string {
+    switch (this.level) {
+      case 2: return this.configService.subComponentSeparator;
+      default: return this.configService.componentSeparator;
+    }
   }
 
   private setValueFromArray(values: any[]): void {
