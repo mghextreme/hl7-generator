@@ -48,9 +48,12 @@ export class MshSection extends SectionBase {
       new StringField(4, 'sections.msh.4'),
       new StringField(5, 'sections.msh.5'),
       new StringField(6, 'sections.msh.6'),
-      new DateTimeField(7, 'sections.msh.7').init({ valueGenerator: (f) => {
-        f.setValue(new Date());
-      }}),
+      new DateTimeField(7, 'sections.msh.7').init({
+        includeSeconds: true,
+        valueGenerator: (f) => {
+          f.setValue(new Date());
+        }
+      }),
       new MultipleField(
         this.configService,
         9,

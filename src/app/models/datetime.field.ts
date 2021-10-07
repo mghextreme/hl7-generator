@@ -4,6 +4,7 @@ import { BaseField } from './base-field';
 
 export class DateTimeField extends BaseField<DateTimeField> {
   value?: Date;
+  includeSeconds = false;
 
   constructor(
     number: number,
@@ -40,6 +41,6 @@ export class DateTimeField extends BaseField<DateTimeField> {
       this.value.getDate().toString().padStart(2, '0') +
       this.value.getHours().toString().padStart(2, '0') +
       this.value.getMinutes().toString().padStart(2, '0') +
-      this.value.getSeconds().toString().padStart(2, '0');
+      (this.includeSeconds ? this.value.getSeconds().toString().padStart(2, '0') : '');
   }
 }
