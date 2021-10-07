@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
+import { SelectItem } from 'primeng/api/selectitem';
+import moment from 'moment';
 
 @Component({
   templateUrl: './configuration.component.html',
@@ -48,6 +50,9 @@ export class ConfigurationComponent {
     this._pid_22 = configService.retrieveCollection('PID.22');
     this._pv1_36 = configService.retrieveCollection('PV1.36');
   }
+
+  get timezone(): string { return this.configService.timezone; }
+  set timezone(value: string) { this.configService.timezone = value; }
 
   get msh_1(): string { return this._msh_1; }
   set msh_1(value: string) {
@@ -175,6 +180,12 @@ export class ConfigurationComponent {
 
     this._pv1_36 = value;
     this.configService.storeCollection('PV1.36', this._pv1_36);
+  }
+
+  get timezonesList(): SelectItem[] {
+    return moment.tz
+      .names()
+      .map((tz: string) => { return { label: tz, value: tz }});
   }
 
 }

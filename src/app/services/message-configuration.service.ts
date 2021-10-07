@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class MessageConfigurationService {
 
+  private _timezone;
   private _fieldSeparator;
   private _componentSeparator;
   private _subComponentSeparator;
@@ -12,6 +13,7 @@ export class MessageConfigurationService {
   private _escapeCharacter;
 
   constructor(){
+    this._timezone = this.retrieve('timezone') ?? 'UTC';
     this._fieldSeparator = this.retrieve('MSH.1') ?? '|';
     this._componentSeparator = this.retrieve('MSH.2.1') ?? '^';
     this._fieldRepeatSeparator = this.retrieve('MSH.2.2') ?? '~';
@@ -61,6 +63,16 @@ export class MessageConfigurationService {
   set subComponentSeparator(char: string) {
     if (char !== null && char !== undefined && char.length === 1) {
       this._subComponentSeparator = char;
+    }
+  }
+
+  get timezone(): string {
+    return this._timezone;
+  }
+  set timezone(text: string) {
+    if (text !== null && text !== undefined && text !== this._timezone) {
+      this._timezone = text;
+      this.store('timezone', this._timezone);
     }
   }
 

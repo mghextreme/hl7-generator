@@ -99,6 +99,13 @@
     </div>
   </div>
   <div class="col">
+    <h5 class="mb-2">{{ 'configuration.timezone' | translate }}</h5>
+    <div class="form-group row">
+      <label for="timezone" class="col-md-4 col-form-label">{{ 'configuration.fields.timezone' | translate }}</label>
+      <div class="col-md-8">
+        <p-dropdown [options]="timezonesList" [(ngModel)]="timezone" [filter]="true"></p-dropdown>
+      </div>
+    </div>
     <h5 class="mb-2">{{ 'configuration.list-of-options' | translate }}</h5>
     <div class="form-group row">
       <label for="pid-8" class="col-md-1 col-form-label"><b>PID.8</b></label>

@@ -3,7 +3,7 @@ import { DateTimeField, MultipleField, StringField } from './fields';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
 import faker from 'faker';
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 export class PV1Section extends SectionBase {
 
@@ -40,15 +40,16 @@ export class PV1Section extends SectionBase {
             this.configService.retrieveCollection('PV1.36')));
       }}),
       new DateTimeField(44, 'sections.pv1.44').init({ valueGenerator: (f) => {
-        this.getField(44).setValue(
-          faker.date.between(
-            moment().subtract(2, 'year').toDate(),
-            moment().subtract(1, 'hour').toDate()))
+        const tz = configService.timezone;
+        const from = moment.tz(tz).local(true).subtract(2, 'year');
+        const to = moment.tz(tz).local(true).subtract(1, 'hour');
+        this.getField(44).setValue(faker.date.between(from.toDate(), to.toDate()));
       }}),
       new DateTimeField(45, 'sections.pv1.45').init({ valueGenerator: (f) => {
+        const tz = configService.timezone;
         const admitField = this.getField(44);
-        const admitDate = (admitField as DateTimeField).value ?? moment().subtract(1, 'month').toDate();
-        f.setValue(faker.date.between(admitDate, new Date()));
+        const admitDate = (admitField as DateTimeField).value ?? moment.tz(tz).local(true).subtract(1, 'month').toDate();
+        f.setValue(faker.date.between(admitDate, moment.tz(tz).local(true).toDate()));
       }})
     ];
   }

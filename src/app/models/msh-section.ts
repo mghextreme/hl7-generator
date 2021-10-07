@@ -4,6 +4,7 @@ import { SectionBase } from './section-base';
 import { DateTimeField, StringField } from './fields';
 import { MultipleField } from './multiple.field';
 import faker from 'faker';
+import moment from 'moment-timezone';
 
 export class MshSection extends SectionBase {
 
@@ -35,14 +36,14 @@ export class MshSection extends SectionBase {
           new StringField(3, 'sections.msh.2.3').init({ minLength: 1, maxLength: 1 }),
           new StringField(4, 'sections.msh.2.4').init({ minLength: 1, maxLength: 1 })
         ]).init({
-        required: true,
-        expanded: true,
-        customToString: (field: MultipleField): string => {
-          return field.getField(1).toString() +
-            field.getField(2).toString() +
-            field.getField(3).toString().repeat(2) +
-            field.getField(4).toString();
-        }
+          required: true,
+          expanded: true,
+          customToString: (field: MultipleField): string => {
+            return field.getField(1).toString() +
+              field.getField(2).toString() +
+              field.getField(3).toString().repeat(2) +
+              field.getField(4).toString();
+          }
       }),
       new StringField(3, 'sections.msh.3'),
       new StringField(4, 'sections.msh.4'),
@@ -51,7 +52,7 @@ export class MshSection extends SectionBase {
       new DateTimeField(7, 'sections.msh.7').init({
         includeSeconds: true,
         valueGenerator: (f) => {
-          f.setValue(new Date());
+          f.setValue(moment.tz(configService.timezone).local(true).toDate());
         }
       }),
       new MultipleField(

@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IField } from 'app/models/fields';
+import { MessageConfigurationService } from 'app/services';
+import moment from 'moment-timezone';
 
 @Component({
   selector: 'field',
@@ -11,7 +13,13 @@ export class FieldComponent {
 
   @Output() change = new EventEmitter<void>();
 
+  constructor(private configService: MessageConfigurationService) { }
+
   public handleChange() {
     this.change.emit();
+  }
+
+  public setNow() {
+    this.field.setValue(moment.tz(this.configService.timezone).local(true).toDate());
   }
 }
