@@ -28,6 +28,7 @@ export class SectionComponent {
     const field = this.section.getField(fieldNumber);
     if (field && field.generate) {
       field.generate();
+      this.change.emit();
     }
   }
 
