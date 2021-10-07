@@ -7,3 +7,4 @@ export * from './pid-section';
 export * from './pv1-section';
 export * from './section-type.enum';
 export * from './section.interface';
+export * from './template';

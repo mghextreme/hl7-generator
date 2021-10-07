@@ -17,6 +17,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { ChipsModule } from 'primeng/chips';
 import { ListboxModule } from 'primeng/listbox';
 import { DropdownModule } from 'primeng/dropdown';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { TableModule } from 'primeng/table';
 
 import { ConfirmationService } from 'primeng/api';
 import { MessageConfigurationService } from './services';
@@ -30,6 +32,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { SectionComponent } from './components/section/section.component';
 import { FieldComponent } from './components/field/field.component';
+import { EditTemplate } from './components/edit-template/edit-template.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '-lang.json');
@@ -41,6 +44,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     PageHeaderComponent,
     SectionComponent,
     FieldComponent,
+    EditTemplate,
     ...pagesComponents
   ],
   imports: [
@@ -68,6 +72,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CheckboxModule,
     ListboxModule,
     DropdownModule,
+    DynamicDialogModule,
+    TableModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -78,6 +84,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   providers: [
     ConfirmationService,
+    DialogService,
     MessageConfigurationService
   ],
   bootstrap: [AppComponent],

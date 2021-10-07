@@ -2,18 +2,23 @@
   "app-title": "HL7 Generator",
   "actions": {
     "add": "Add",
+    "edit": "Edit",
     "remove": "Remove",
     "parse": "Parse",
     "expand": "Expand",
     "collapse": "Collapse",
     "copy-to-clipboard": "Copy to Clipboard",
     "filter": "Filter",
-    "now": "Now"
+    "now": "Now",
+    "load": "Load",
+    "save": "Save",
+    "save-as-template": "Save as Template"
   },
   "titles": {
     "sections": "Sections",
     "hl7-message": "HL7 Message",
-    "configuration": "Configuration"
+    "configuration": "Configuration",
+    "templates": "Templates"
   },
   "configuration": {
     "stored-values": "Stored Values",
@@ -22,6 +27,12 @@
     "fields": {
       "timezone": "Select Timezone"
     }
+  },
+  "templates": {
+    "title": "Title",
+    "content": "HL7 content",
+    "add": "Add template",
+    "edit": "Edit template"
   },
   "sections": {
     "mrg": {

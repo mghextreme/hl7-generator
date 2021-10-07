@@ -46,7 +46,18 @@
       <div class="actions">
         <button pButton type="button" icon="pi pi-eject" [label]="'actions.parse' | translate" (click)="parseHl7()" [disabled]="hl7 === expectedHl7" class="mr-2"></button>
         <button pButton type="button" icon="pi pi-clone" [label]="'actions.copy-to-clipboard' | translate" (click)="copyHl7ToClipboard()" class="mr-2"></button>
+        <button pButton type="button" icon="pi pi-download" [label]="'actions.save-as-template' | translate" (click)="saveAsTemplate()" class="mr-2 ui-button-success"></button>
       </div>
+      <h4 class="mb-2 mt-4">{{ 'titles.templates' | translate }}</h4>
+      <p-table [value]="templates" [paginator]="true" [rows]="15">
+        <ng-template pTemplate="body" let-rowData>
+          <tr>
+            <td>{{ rowData.title }}</td>
+            <td width="60"><button pButton type="button" icon="pi pi-pencil" [title]="'actions.edit' | translate" (click)="editTemplate(rowData)" class="ui-button-warning"></button></td>
+            <td width="60"><button pButton type="button" icon="pi pi-upload" [title]="'actions.load' | translate" (click)="loadTemplate(rowData)"></button></td>
+          </tr>
+        </ng-template>
+      </p-table>
     </div>
   </div>
 </div>

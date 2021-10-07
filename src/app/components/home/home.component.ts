@@ -1,10 +1,12 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { Clipboard as MyClipboard } from '@angular/cdk/clipboard';
 import { AutoComplete } from 'primeng/autocomplete';
-import { FieldSearchResult, ISection, MrgSection, MshSection, ObxSection, PidSection, PV1Section, SectionType } from 'app/models';
-import { FieldSearchService, MessageConfigurationService } from 'app/services';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { FieldSearchResult, ISection, MrgSection, MshSection, ObxSection, PidSection, PV1Section, SectionType, Template } from 'app/models';
+import { FieldSearchService, MessageConfigurationService,TemplateService } from 'app/services';
 import _ from 'lodash';
 import { TranslateService } from '@ngx-translate/core';
+import { EditTemplate } from '../edit-template/edit-template.component';
 
 @Component({
   templateUrl: './home.component.html',
@@ -13,7 +15,7 @@ import { TranslateService } from '@ngx-translate/core';
     FieldSearchService
   ]
 })
-export class HomeComponent {
+export class HomeComponent implements OnDestroy {
 
   sections: ISection[] = [];
   hl7 = '';
@@ -22,6 +24,9 @@ export class HomeComponent {
   selection: FieldSearchResult;
   filteredItems: FieldSearchResult[];
 
+  templates: Template[];
+  ref: DynamicDialogRef;
+
   @ViewChild('filterBar', { static: false }) filterBar: AutoComplete;
   @ViewChild('sectionsPanel', { static: false }) sectionsPanel: ElementRef;
 
@@ -29,10 +34,14 @@ export class HomeComponent {
     private readonly configService: MessageConfigurationService,
     private readonly fieldSearch: FieldSearchService,
     private readonly clipboard: MyClipboard,
+    private readonly dialogService: DialogService,
+    private readonly templateService: TemplateService,
     readonly translate: TranslateService
   ) {
     this.selection = null;
     this.filteredItems = [];
+
+    this.refreshTemplates();
   }
 
   public addSection(type: string) {
@@ -123,6 +132,48 @@ export class HomeComponent {
     this.filterBar.focusInput();
   }
 
+  public saveAsTemplate() {
+    this.ref = this.dialogService.open(EditTemplate, {
+      header: this.translate.instant('templates.add'),
+      width: '50%',
+      contentStyle: { 'max-height': '500px', 'overflow': 'auto', 'padding': '0' },
+      data: {
+        isNew: true,
+        hl7: this.hl7
+      }
+    });
+
+    this.ref.onClose.subscribe(() => {
+      this.refreshTemplates();
+    });
+  }
+
+  public editTemplate(template: Template) {
+    this.ref = this.dialogService.open(EditTemplate, {
+      header: this.translate.instant('templates.edit'),
+      width: '50%',
+      contentStyle: { 'max-height': '500px', 'overflow': 'auto', 'padding': '0' },
+      data: {
+        isNew: false,
+        title: template.title,
+        hl7: template.content
+      }
+    });
+
+    this.ref.onClose.subscribe(() => {
+      this.refreshTemplates();
+    });
+  }
+
+  public loadTemplate(template: Template) {
+    this.hl7 = template.content;
+    this.parseHl7();
+  }
+
+  private refreshTemplates(): void {
+    this.templates = this.templateService.getAll();
+  }
+
   private updateFilter() {
     this.fieldSearch.updateFields(this.sections);
   }
@@ -148,6 +199,10 @@ export class HomeComponent {
 
   private focusInto(section: ISection, fieldNumber: number): void {
     // TODO
+  }
+
+  ngOnDestroy() {
+    this.ref.close();
   }
 
 }

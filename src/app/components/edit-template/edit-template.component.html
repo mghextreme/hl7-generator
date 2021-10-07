@@ -1,0 +1,17 @@
+<div class="edit-template">
+  <div class="form-group row">
+    <label for="title" class="col-md-3 col-form-label">{{ 'templates.title' | translate }}</label>
+    <div class="col-md-9">
+      <input pInputText [(ngModel)]="template.title" type="text" name="title" minlength="3" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="content" class="col-md-3 col-form-label">{{ 'templates.content' | translate }}</label>
+    <div class="col-md-9">
+      <textarea pInputTextarea class="form-control" autoResize="autoResize" [(ngModel)]="template.content" name="content"></textarea>
+    </div>
+  </div>
+  <div class="actions text-right">
+    <button pButton type="button" icon="pi pi-download" [label]="'actions.save' | translate" (click)="save()" class="mr-2"></button>
+  </div>
+</div>
