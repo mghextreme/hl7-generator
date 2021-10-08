@@ -54,8 +54,9 @@
         <ng-template pTemplate="body" let-rowData>
           <tr>
             <td>{{ rowData.title }}</td>
-            <td width="60"><button pButton type="button" icon="pi pi-pencil" [title]="'actions.edit' | translate" (click)="editTemplate(rowData)" class="ui-button-warning"></button></td>
-            <td width="60"><button pButton type="button" icon="pi pi-upload" [title]="'actions.load' | translate" (click)="loadTemplate(rowData)"></button></td>
+            <td width="58"><button pButton type="button" icon="pi pi-upload" [title]="'actions.load' | translate" (click)="loadTemplate(rowData)"></button></td>
+            <td width="58"><button pButton type="button" icon="pi pi-pencil" [title]="'actions.edit' | translate" (click)="editTemplate(rowData)" class="ui-button-warning"></button></td>
+            <td width="58"><button pButton type="button" icon="pi pi-trash" [title]="'actions.remove' | translate" (click)="deleteTemplate(rowData)" class="ui-button-danger"></button></td>
           </tr>
         </ng-template>
       </p-table>

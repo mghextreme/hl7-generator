@@ -169,8 +169,14 @@ export class HomeComponent implements OnDestroy {
     });
   }
 
+  public deleteTemplate(template: Template) {
+    this.templateService.delete(template.title);
+    this.refreshTemplates();
+  }
+
   public loadTemplate(template: Template) {
     this.hl7 = template.content;
+    this.expectedHl7 = this.hl7;
     this.parseHl7();
   }
 
@@ -206,7 +212,7 @@ export class HomeComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this.ref.close();
+    this.ref?.close();
   }
 
 }
