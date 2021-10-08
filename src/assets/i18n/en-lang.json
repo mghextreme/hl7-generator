@@ -169,11 +169,39 @@
         "2": {
           "name": "Text",
           "tags": "text"
+        },
+        "3": {
+          "name": "Coding System",
+          "tags": "coding system"
         }
       },
       "5": {
         "name": "Observation Value",
         "tags": "observation value"
+      },
+      "6": {
+        "name": "Units",
+        "tags": "units",
+        "1": {
+          "name": "Identifier",
+          "tags": "identifier"
+        },
+        "2": {
+          "name": "Text",
+          "tags": "text"
+        },
+        "3": {
+          "name": "Coding System",
+          "tags": "coding system"
+        }
+      },
+      "11": {
+        "name": "Observation Result Status",
+        "tags": "observation result status, observation status"
+      },
+      "14": {
+        "name": "Date/Time of Observation",
+        "tags": "datetime of observation, date time of observation, observation timestamp"
       }
     },
     "pid": {
