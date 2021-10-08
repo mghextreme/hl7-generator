@@ -157,6 +157,27 @@
         "tags": "message control identifier, control id"
       }
     },
+    "obr": {
+      "title": "Observation Request",
+      "3": {
+        "name": "Filler Order Number",
+        "tags": "filler order number",
+        "1": {
+          "name": "Identifier",
+          "tags": "identifier"
+        },
+        "2": {
+          "name": "Namespace ID"
+        },
+        "3": {
+          "name": "Universal ID"
+        }
+      },
+      "7": {
+        "name": "Observation Date/Time",
+        "tags": "observation datetime, observation date time, observation timestamp"
+      }
+    },
     "obx": {
       "title": "Observation/Result",
       "3": {

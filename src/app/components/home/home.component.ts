@@ -2,7 +2,7 @@ import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { Clipboard as MyClipboard } from '@angular/cdk/clipboard';
 import { AutoComplete } from 'primeng/autocomplete';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { FieldSearchResult, ISection, MrgSection, MshSection, ObxSection, PidSection, PV1Section, SectionType, Template } from 'app/models';
+import { FieldSearchResult, ISection, MrgSection, MshSection, ObrSection, ObxSection, PidSection, PV1Section, SectionType, Template } from 'app/models';
 import { FieldSearchService, MessageConfigurationService,TemplateService } from 'app/services';
 import _ from 'lodash';
 import { TranslateService } from '@ngx-translate/core';
@@ -48,6 +48,7 @@ export class HomeComponent implements OnDestroy {
     switch (type) {
       case SectionType.MRG: this.sections.push(new MrgSection(this.configService)); break;
       case SectionType.MSH: this.sections.push(new MshSection(this.configService)); break;
+      case SectionType.OBR: this.sections.push(new ObrSection(this.configService)); break;
       case SectionType.OBX: this.sections.push(new ObxSection(this.configService)); break;
       case SectionType.PID: this.sections.push(new PidSection(this.configService)); break;
       case SectionType.PV1: this.sections.push(new PV1Section(this.configService)); break;
@@ -78,6 +79,9 @@ export class HomeComponent implements OnDestroy {
             break;
           case SectionType.MSH:
             newSection = new MshSection(this.configService, b);
+            break;
+          case SectionType.OBR:
+            newSection = new ObrSection(this.configService, b);
             break;
           case SectionType.OBX:
             newSection = new ObxSection(this.configService, b);
