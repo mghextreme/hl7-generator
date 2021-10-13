@@ -32,11 +32,11 @@ export class ConfigurationComponent {
     private readonly configService: MessageConfigurationService,
     readonly translate: TranslateService
   ) {
-    this._msh_1 = configService.retrieve('MSH.1');
-    this._msh_2_1 = configService.retrieve('MSH.2.1');
-    this._msh_2_2 = configService.retrieve('MSH.2.2');
-    this._msh_2_3 = configService.retrieve('MSH.2.3');
-    this._msh_2_4 = configService.retrieve('MSH.2.4');
+    this._msh_1 = configService.fieldSeparator;
+    this._msh_2_1 = configService.componentSeparator;
+    this._msh_2_2 = configService.fieldRepeatSeparator;
+    this._msh_2_3 = configService.escapeCharacter;
+    this._msh_2_4 = configService.subComponentSeparator;
     this._msh_3 = configService.retrieve('MSH.3');
     this._msh_5 = configService.retrieve('MSH.5');
     this._pid_3_4_1 = configService.retrieve('PID.3.4.1');
@@ -58,7 +58,7 @@ export class ConfigurationComponent {
   set msh_1(value: string) {
     if (value !== this._msh_1) {
       this._msh_1 = value;
-      this.configService.store('MSH.1', this.msh_1);
+      this.configService.fieldSeparator = this.msh_1;
     }
   }
 
@@ -67,7 +67,7 @@ export class ConfigurationComponent {
     if (value === this._msh_2_1) { return; }
 
     this._msh_2_1 = value;
-    this.configService.store('MSH.2.1', this.msh_2_1);
+    this.configService.componentSeparator = this.msh_2_1;
   }
 
   get msh_2_2(): string { return this._msh_2_2; }
@@ -75,7 +75,7 @@ export class ConfigurationComponent {
     if (value === this._msh_2_2) { return; }
 
     this._msh_2_2 = value;
-    this.configService.store('MSH.2.2', this.msh_2_2);
+    this.configService.fieldRepeatSeparator = this.msh_2_2;
   }
 
   get msh_2_3(): string { return this._msh_2_3; }
@@ -83,7 +83,7 @@ export class ConfigurationComponent {
     if (value === this._msh_2_3) { return; }
 
     this._msh_2_3 = value;
-    this.configService.store('MSH.2.3', this.msh_2_3);
+    this.configService.escapeCharacter = this.msh_2_3;
   }
 
   get msh_2_4(): string { return this._msh_2_4; }
@@ -91,7 +91,7 @@ export class ConfigurationComponent {
     if (value === this._msh_2_4) { return; }
 
     this._msh_2_4 = value;
-    this.configService.store('MSH.2.4', this.msh_2_4);
+    this.configService.subComponentSeparator = this.msh_2_4;
   }
 
   get msh_3(): string { return this._msh_3; }
