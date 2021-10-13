@@ -1,17 +1,23 @@
 # HL7 Generator
 
+## Development setup
+
+To run it locally, run `npm install` to install any required packages.
+
+### Rust Cargo and Tauri
+
+If you wish to deploy it as an application, you must install [Rust Cargo](https://win.rustup.rs/x86_64) and [Tauri](https://tauri.studio/en/docs/usage/development/integration#alternatively-install-tauri-cli-as-a-cargo-subcommand).
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to [localhost:4200](http://localhost:4200/). The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to [localhost:4200](http://localhost:4200/). The app will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `npm run build` to build the project. The build artifacts will be stored in the `public/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Creating .exe file
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+> Ensure you have installed [Rust Cargo and Tauri](#rust-cargo-and-tauri) before continuing.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+After having generated the build artifacts in the `public/` folder, run `cargo tauri build` to create an `.exe` file in the `src-tauri/target/release/` folder and an installer in the `bundle/` folder within the previous.
