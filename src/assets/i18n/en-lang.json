@@ -44,6 +44,10 @@
         "title": "Empty message",
         "description": "Message has no sections"
       },
+      "mrg-1-required": {
+        "title": "MRG.1 required",
+        "description": "Prior Patient Identifier List is a mandatory field"
+      },
       "msh-none": {
         "title": "No MSH section",
         "description": "Message Header section is required"
