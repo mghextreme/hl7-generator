@@ -57,16 +57,28 @@
         "description": "Message Header should be the first section of the message"
       },
       "msh-7-required": {
-        "title": "MSH 7 required",
+        "title": "MSH.7 required",
         "description": "Date/Time of Message is a mandatory field"
       },
       "msh-9-required": {
-        "title": "MSH 9 required",
+        "title": "MSH.9 required",
         "description": "Message Type is a mandatory field"
       },
       "msh-10-required": {
-        "title": "MSH 10 required",
+        "title": "MSH.10 required",
         "description": "Message Control ID is a mandatory field"
+      },
+      "obx-3-required": {
+        "title": "OBX.3 required",
+        "description": "Observation Identifier is a mandatory field"
+      },
+      "pid-3-required": {
+        "title": "PID.3 required",
+        "description": "Patient Identifier List is a mandatory field"
+      },
+      "pid-5-required": {
+        "title": "PID.5 required",
+        "description": "Patient Name is a mandatory field"
       }
     }
   },

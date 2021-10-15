@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ISection, IValidationError, MshSection } from 'app/models';
+import { ISection, IValidationError, MshSection, ObxSection, PidSection } from 'app/models';
 import _ from 'lodash';
 
 @Injectable({
@@ -16,6 +16,8 @@ export class ValidationService {
 
     const errors: IValidationError[] = [];
     this.mshValidation(sections).forEach(x => errors.push(x));
+    this.pidValidation(sections).forEach(x => errors.push(x));
+    this.obxValidation(sections).forEach(x => errors.push(x));
 
     return errors;
   }
@@ -40,6 +42,29 @@ export class ValidationService {
     if (!!!msh.getField(7).hasValueAndExpanded()) { errorCodes.push('msh-7-required'); }
     if (!!!msh.getField(9).hasValueAndExpanded()) { errorCodes.push('msh-9-required'); }
     if (!!!msh.getField(10).hasValueAndExpanded()) { errorCodes.push('msh-10-required'); }
+
+    return this.toValidationErrors(errorCodes);
+  }
+
+  private pidValidation(sections: ISection[]): IValidationError[] {
+    const pidSections = _.filter(sections, (x => x instanceof PidSection));
+
+    const errorCodes: string[] = [];
+    pidSections.forEach(x => {
+      if (!!!x.getField(3).hasValueAndExpanded()) { errorCodes.push('pid-3-required'); }
+      if (!!!x.getField(5).hasValueAndExpanded()) { errorCodes.push('pid-5-required'); }
+    });
+
+    return this.toValidationErrors(errorCodes);
+  }
+
+  private obxValidation(sections: ISection[]): IValidationError[] {
+    const pidSections = _.filter(sections, (x => x instanceof ObxSection));
+
+    const errorCodes: string[] = [];
+    pidSections.forEach(x => {
+      if (!!!x.getField(3).hasValueAndExpanded()) { errorCodes.push('obx-3-required'); }
+    });
 
     return this.toValidationErrors(errorCodes);
   }
