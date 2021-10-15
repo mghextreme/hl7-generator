@@ -11,7 +11,7 @@ export class ValidationService {
 
   public validateMessage(sections: ISection[]): IValidationError[] {
     if (sections.length == 0) {
-      return this.toValidationError([ 'message-empty' ]);
+      return this.toValidationErrors([ 'message-empty' ]);
     }
 
     const errors: IValidationError[] = [];
@@ -24,21 +24,27 @@ export class ValidationService {
     const mshSections = _.filter(sections, (x => x instanceof MshSection));
 
     if (mshSections.length === 0) {
-      return this.toValidationError([ 'msh-none' ]);
+      return this.toValidationErrors([ 'msh-none' ]);
     }
 
     if (mshSections.length > 1) {
-      return this.toValidationError([ 'msh-multiple' ]);
+      return this.toValidationErrors([ 'msh-multiple' ]);
     }
 
+    const errorCodes: string[] = []
     if (!(sections[0] instanceof MshSection)) {
-      return this.toValidationError([ 'msh-not-first' ]);
+      errorCodes.push('msh-not-first');
     }
 
-    return [];
+    const msh = mshSections[0];
+    if (!!!msh.getField(7).hasValueAndExpanded()) { errorCodes.push('msh-7-required'); }
+    if (!!!msh.getField(9).hasValueAndExpanded()) { errorCodes.push('msh-9-required'); }
+    if (!!!msh.getField(10).hasValueAndExpanded()) { errorCodes.push('msh-10-required'); }
+
+    return this.toValidationErrors(errorCodes);
   }
 
-  private toValidationError(errorCodes: string[]): IValidationError[] {
+  private toValidationErrors(errorCodes: string[]): IValidationError[] {
     return errorCodes.map(x => { return { errorCode: x } as IValidationError });
   }
 }

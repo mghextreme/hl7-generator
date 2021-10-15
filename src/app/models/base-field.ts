@@ -17,6 +17,11 @@ export abstract class BaseField<T extends IField> implements IField {
     return this.toGeneric();
   }
 
+  public hasValueAndExpanded(): boolean {
+    return this.expanded &&
+           this.hasValue();
+  }
+
   public abstract hasValue(): boolean;
 
   public abstract setValue(value: any): void;

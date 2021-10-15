@@ -11,6 +11,8 @@ export interface IField {
 
   valueGenerator?: (field: IField) => void;
 
+  hasValueAndExpanded(): boolean;
+
   hasValue(): boolean;
 
   setValue(value: any): void;

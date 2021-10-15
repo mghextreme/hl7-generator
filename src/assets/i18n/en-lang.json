@@ -55,6 +55,18 @@
       "msh-not-first": {
         "title": "MSH section should be first",
         "description": "Message Header should be the first section of the message"
+      },
+      "msh-7-required": {
+        "title": "MSH 7 required",
+        "description": "Date/Time of Message is a mandatory field"
+      },
+      "msh-9-required": {
+        "title": "MSH 9 required",
+        "description": "Message Type is a mandatory field"
+      },
+      "msh-10-required": {
+        "title": "MSH 10 required",
+        "description": "Message Control ID is a mandatory field"
       }
     }
   },
