@@ -33,6 +33,7 @@ import { PageHeaderComponent } from './components/page-header/page-header.compon
 import { SectionComponent } from './components/section/section.component';
 import { FieldComponent } from './components/field/field.component';
 import { EditTemplate } from './components/edit-template/edit-template.component';
+import { ValidationErrorsTemplate } from './components/validation-errors-template/validation-errors-template.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '-lang.json');
@@ -45,6 +46,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     SectionComponent,
     FieldComponent,
     EditTemplate,
+    ValidationErrorsTemplate,
     ...pagesComponents
   ],
   imports: [

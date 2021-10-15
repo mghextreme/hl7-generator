@@ -1,0 +1,16 @@
+.validation-errors-template {
+  padding: 0.571em 1em;
+  overflow-x: hidden;
+
+  .error-item {
+    .number {
+      font-size: 2em;
+    }
+
+    .details {
+      h5 {
+        font-size: 1.4em;
+      }
+    }
+  }
+}

@@ -12,7 +12,8 @@
     "now": "Now",
     "load": "Load",
     "save": "Save",
-    "save-as-template": "Save as Template"
+    "save-as-template": "Save as Template",
+    "close": "Close"
   },
   "titles": {
     "sections": "Sections",
@@ -37,6 +38,7 @@
   "validation": {
     "success": "No errors found",
     "fail": "{{x}} errors found",
+    "window-title": "Validation errors",
     "errors": {
       "message-empty": {
         "title": "Empty message",

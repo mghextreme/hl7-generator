@@ -1,0 +1,14 @@
+<div class="validation-errors-template">
+  <div *ngFor="let error of errors; let i = index" class="error-item row">
+    <div class="number col-1 text-center">
+      <b>{{ i + 1 }}</b>
+    </div>
+    <div class="col details">
+      <h5>{{ 'validation.errors.' + error.errorCode + '.title' | translate }}</h5>
+      <p>{{ 'validation.errors.' + error.errorCode + '.description' | translate }}</p>
+    </div>
+  </div>
+  <div class="actions text-right">
+    <p-button icon="pi pi-times" [label]="'actions.close' | translate" (onClick)="close()" styleClass="mr-2 ui-button-secondary"></p-button>
+  </div>
+</div>

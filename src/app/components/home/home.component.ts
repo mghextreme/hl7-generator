@@ -7,6 +7,7 @@ import { FieldSearchService, MessageConfigurationService,TemplateService, Valida
 import _ from 'lodash';
 import { TranslateService } from '@ngx-translate/core';
 import { EditTemplate } from '../edit-template/edit-template.component';
+import { ValidationErrorsTemplate } from '../validation-errors-template/validation-errors-template.component';
 
 @Component({
   templateUrl: './home.component.html',
@@ -193,7 +194,18 @@ export class HomeComponent implements OnDestroy {
   }
 
   public openValidationDetails(): void {
-    alert(JSON.stringify(this.validationErrors));
+    this.ref = this.dialogService.open(ValidationErrorsTemplate, {
+      header: this.translate.instant('validation.window-title'),
+      width: '50%',
+      contentStyle: { 'max-height': '500px', 'overflow': 'auto', 'padding': '0' },
+      data: {
+        errors: this.validationErrors
+      }
+    });
+
+    this.ref.onClose.subscribe(() => {
+      this.refreshTemplates();
+    });
   }
 
   private refreshTemplates(): void {
