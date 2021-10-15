@@ -7,13 +7,15 @@
     "parse": "Parse",
     "expand": "Expand",
     "collapse": "Collapse",
+    "collapse-all": "Collapse all",
     "copy-to-clipboard": "Copy to Clipboard",
     "filter-fields": "Filter fields",
     "now": "Now",
     "load": "Load",
     "save": "Save",
     "save-as-template": "Save as Template",
-    "close": "Close"
+    "close": "Close",
+    "generate-data": "Generate data"
   },
   "titles": {
     "sections": "Sections",

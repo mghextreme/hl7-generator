@@ -14,26 +14,31 @@
       </div>
 
       <h4 class="mt-4 mb-2">{{ 'titles.sections' | translate }}</h4>
-      <div class="input-group filter px-2">
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-            <i class="pi pi-filter"></i>
-          </div>
-        </div>
-        <p-autoComplete #filterBar
-          (window:keydown.control.space)="handleFocusHotkey($event)"
-          [(ngModel)]="selection" [suggestions]="filteredItems"
-          [size]="60" [minLength]="2" [forceSelection]="true" [completeOnFocus]="true"
-          inputStyleClass="filter-bar" field="title"
-          [placeholder]="'actions.filter-fields' | translate"
-          (completeMethod)="filterItems($event)" (onSelect)="handleSelection($event)">
-          <ng-template let-item pTemplate="item">
-            <div class="filter-item">
-              <span [innerHTML]="item.id"></span>
-              <small [innerHTML]="item.title"></small>
+      <div class="d-flex">
+        <div class="input-group filter px-2 ml-auto">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="pi pi-filter"></i>
             </div>
-          </ng-template>
-        </p-autoComplete>
+          </div>
+          <p-autoComplete #filterBar
+            (window:keydown.control.space)="handleFocusHotkey($event)"
+            [(ngModel)]="selection" [suggestions]="filteredItems"
+            [size]="60" [minLength]="2" [forceSelection]="true" [completeOnFocus]="true"
+            inputStyleClass="filter-bar" field="title"
+            [placeholder]="'actions.filter-fields' | translate"
+            (completeMethod)="filterItems($event)" (onSelect)="handleSelection($event)">
+            <ng-template let-item pTemplate="item">
+              <div class="filter-item">
+                <span [innerHTML]="item.id"></span>
+                <small [innerHTML]="item.title"></small>
+              </div>
+            </ng-template>
+          </p-autoComplete>
+        </div>
+        <div class="text-right">
+          <p-button icon="pi pi-angle-double-up" [title]="'actions.collapse-all' | translate" (onClick)="collapseAllSections()" styleClass="ui-button-secondary" class="ml-auto mr-0"></p-button>
+        </div>
       </div>
       <div #sectionsPanel class="sections flex-fill">
         <div class="section" *ngFor="let item of sections">

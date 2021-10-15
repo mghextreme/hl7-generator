@@ -132,6 +132,10 @@ export class HomeComponent implements OnDestroy {
     this.runValidation();
   }
 
+  public collapseAllSections(): void {
+    this.sections.forEach(x => x.expanded = false);
+  }
+
   public filterItems(event: any) {
     this.filteredItems = this.fieldSearch.search(event.query);
   }
