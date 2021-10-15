@@ -2,8 +2,8 @@ import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { Clipboard as MyClipboard } from '@angular/cdk/clipboard';
 import { AutoComplete } from 'primeng/autocomplete';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { FieldSearchResult, ISection, MrgSection, MshSection, ObrSection, ObxSection, PidSection, PV1Section, SectionType, Template } from 'app/models';
-import { FieldSearchService, MessageConfigurationService,TemplateService } from 'app/services';
+import { FieldSearchResult, ISection, IValidationError, MrgSection, MshSection, ObrSection, ObxSection, PidSection, PV1Section, SectionType, Template } from 'app/models';
+import { FieldSearchService, MessageConfigurationService,TemplateService, ValidationService } from 'app/services';
 import _ from 'lodash';
 import { TranslateService } from '@ngx-translate/core';
 import { EditTemplate } from '../edit-template/edit-template.component';
@@ -24,6 +24,8 @@ export class HomeComponent implements OnDestroy {
   selection: FieldSearchResult;
   filteredItems: FieldSearchResult[];
 
+  validationErrors: IValidationError[];
+
   templates: Template[];
   ref: DynamicDialogRef;
 
@@ -36,12 +38,15 @@ export class HomeComponent implements OnDestroy {
     private readonly clipboard: MyClipboard,
     private readonly dialogService: DialogService,
     private readonly templateService: TemplateService,
+    private readonly validationService: ValidationService,
     readonly translate: TranslateService
   ) {
     this.selection = null;
     this.filteredItems = [];
+    this.validationErrors = [];
 
     this.refreshTemplates();
+    this.runValidation();
   }
 
   public addSection(type: string) {
@@ -103,6 +108,7 @@ export class HomeComponent implements OnDestroy {
     });
 
     this.updateFilter();
+    this.runValidation();
   }
 
   public copyHl7ToClipboard(): void {
@@ -121,6 +127,8 @@ export class HomeComponent implements OnDestroy {
   private generateHl7(): void {
     this.expectedHl7 = _.join(this.sections.map(s => s.toString() + this.configService.escapeCharacter + 'r'), '\r\n');
     this.hl7 = this.expectedHl7;
+
+    this.runValidation();
   }
 
   public filterItems(event: any) {
@@ -178,6 +186,14 @@ export class HomeComponent implements OnDestroy {
     this.hl7 = template.content;
     this.expectedHl7 = this.hl7;
     this.parseHl7();
+  }
+
+  public runValidation(): void {
+    this.validationErrors = this.validationService.validateMessage(this.sections);
+  }
+
+  public openValidationDetails(): void {
+    alert(JSON.stringify(this.validationErrors));
   }
 
   private refreshTemplates(): void {

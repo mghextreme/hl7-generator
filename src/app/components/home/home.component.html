@@ -25,7 +25,7 @@
           [(ngModel)]="selection" [suggestions]="filteredItems"
           [size]="60" [minLength]="2" [forceSelection]="true" [completeOnFocus]="true"
           inputStyleClass="filter-bar" field="title"
-          [placeholder]="'actions.filter' | translate"
+          [placeholder]="'actions.filter-fields' | translate"
           (completeMethod)="filterItems($event)" (onSelect)="handleSelection($event)">
           <ng-template let-item pTemplate="item">
             <div class="filter-item">
@@ -44,10 +44,12 @@
     <div class="col">
       <h4 class="mb-2">{{ 'titles.hl7-message' | translate }}</h4>
       <textarea pInputTextarea class="hl7-textarea form-control mb-2" autoResize="autoResize" [(ngModel)]="hl7"></textarea>
-      <div class="actions">
-        <button pButton type="button" icon="pi pi-eject" [label]="'actions.parse' | translate" (click)="parseHl7()" [disabled]="hl7 === expectedHl7" class="mr-2"></button>
-        <button pButton type="button" icon="pi pi-clone" [label]="'actions.copy-to-clipboard' | translate" (click)="copyHl7ToClipboard()" class="mr-2"></button>
-        <button pButton type="button" icon="pi pi-download" [label]="'actions.save-as-template' | translate" (click)="saveAsTemplate()" class="mr-2 ui-button-success"></button>
+      <div class="d-flex actions">
+        <p-button icon="pi pi-eject" [label]="'actions.parse' | translate" (click)="parseHl7()" [disabled]="hl7 === expectedHl7" class="mr-2"></p-button>
+        <p-button icon="pi pi-clone" [label]="'actions.copy-to-clipboard' | translate" (click)="copyHl7ToClipboard()" class="mr-2"></p-button>
+        <p-button icon="pi pi-download" [label]="'actions.save-as-template' | translate" (click)="saveAsTemplate()" class="mr-auto" styleClass="ui-button-success"></p-button>
+        <p-button *ngIf="validationErrors.length == 0" icon="pi pi-check" [label]="'validation.success' | translate" disabled="true" class="ml-auto mr-0" styleClass="ui-button-success"></p-button>
+        <p-button *ngIf="validationErrors.length > 0" icon="pi pi-times" [label]="'validation.fail' | translate: { x: validationErrors.length }" (click)="openValidationDetails()" class="ml-auto mr-0" styleClass="ui-button-danger"></p-button>
       </div>
       <h4 class="mb-2 mt-4">{{ 'titles.templates' | translate }}</h4>
       <p-table [value]="templates" [paginator]="true" [rows]="15">

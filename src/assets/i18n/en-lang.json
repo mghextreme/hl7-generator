@@ -8,7 +8,7 @@
     "expand": "Expand",
     "collapse": "Collapse",
     "copy-to-clipboard": "Copy to Clipboard",
-    "filter": "Filter",
+    "filter-fields": "Filter fields",
     "now": "Now",
     "load": "Load",
     "save": "Save",
@@ -33,6 +33,28 @@
     "content": "HL7 content",
     "add": "Add template",
     "edit": "Edit template"
+  },
+  "validation": {
+    "success": "No errors found",
+    "fail": "{{x}} errors found",
+    "errors": {
+      "message-empty": {
+        "title": "Empty message",
+        "description": "Message has no sections"
+      },
+      "msh-none": {
+        "title": "No MSH section",
+        "description": "Message Header section is required"
+      },
+      "msh-multiple": {
+        "title": "Multiple MSH sections",
+        "description": "Message should contain only a single Message Header"
+      },
+      "msh-not-first": {
+        "title": "MSH section should be first",
+        "description": "Message Header should be the first section of the message"
+      }
+    }
   },
   "sections": {
     "mrg": {
