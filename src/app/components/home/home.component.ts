@@ -220,23 +220,31 @@ export class HomeComponent implements OnDestroy {
     const section = _.find(this.sections, s => s.id === parentId);
     if (section) {
       section.expanded = true;
-      section.getField(fieldNumber).expanded = true;
+      const field = section.getField(fieldNumber);
+      field.expanded = true;
 
-      setTimeout(() => this.scrollTo(parentId, fieldNumber), 100);
-      setTimeout(() => this.focusInto(section, fieldNumber), 150);
+      setTimeout(() => this.scrollTo(parentId, field.number), 100);
+      setTimeout(() => this.focusInto(parentId, field.id), 150);
     }
   }
 
   private scrollTo(parentId: string, fieldNumber: number) {
-    let sectionEl = document.querySelector(`.pid-section[data-section-id='${parentId}']`);
-    let fieldEl = sectionEl.querySelector(`.field[data-field-number='${fieldNumber}']`);
+    const sectionEl = document.querySelector(`.pid-section[data-section-id='${parentId}']`);
+    const fieldEl = sectionEl.querySelector(`.field[data-field-number='${fieldNumber}']`);
 
-    let fieldPos = (fieldEl as any).offsetTop;
+    const fieldPos = (fieldEl as any).offsetTop;
     this.sectionsPanel.nativeElement.scrollTop = fieldPos - 20;
   }
 
-  private focusInto(section: ISection, fieldNumber: number): void {
-    // TODO
+  private focusInto(parentId: string, fieldId: string): void {
+    const sectionEl = document.querySelector(`.pid-section[data-section-id='${parentId}']`);
+    const fieldEl = sectionEl.querySelector(`.field-input[data-field-id='${fieldId}']`);
+    const focusTarget = fieldEl.querySelector('.focus-target') as HTMLElement;
+    if (focusTarget.tagName.toLowerCase() === 'input') {
+      focusTarget.focus();
+    } else {
+      focusTarget.click();
+    }
   }
 
   ngOnDestroy() {

@@ -21,13 +21,13 @@ export class ObrSection extends SectionBase {
       new MultipleField(
         this.configService,
         3,
-        'sections.obr.3',
+        'obr.3',
         [
-          new StringField(1, 'sections.obr.3.1'),
-          new StringField(2, 'sections.obr.3.2'),
-          new StringField(3, 'sections.obr.3.3')
+          new StringField(1, 'obr.3.1'),
+          new StringField(2, 'obr.3.2'),
+          new StringField(3, 'obr.3.3')
         ]),
-      new DateTimeField(7, 'sections.obr.7')
+      new DateTimeField(7, 'obr.7')
     ];
   }
 }

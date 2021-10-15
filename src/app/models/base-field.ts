@@ -10,7 +10,7 @@ export abstract class BaseField<T extends IField> implements IField {
   constructor(
     public type: FieldType,
     public number: number,
-    public i18n: string) { }
+    public id: string) { }
 
   public init(init?: Partial<T>): T {
     Object.assign(this, init);
@@ -37,6 +37,10 @@ export abstract class BaseField<T extends IField> implements IField {
   private toGeneric(): T {
     const asAny = this as any;
     return asAny as T;
+  }
+
+  public get i18n(): string {
+    return 'sections.' + this.id;
   }
 
 }

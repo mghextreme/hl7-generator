@@ -1,11 +1,13 @@
 import { FieldType } from './field-type.enum';
 
 export interface IField {
-  i18n: string;
+  id: string;
   number: number;
   type: FieldType;
   expanded: boolean;
   required: boolean;
+
+  i18n: string;
 
   init(init?: Partial<IField>): IField;
 

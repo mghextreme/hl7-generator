@@ -33,25 +33,25 @@ export class MrgSection extends SectionBase {
       new MultipleField(
         configService,
         1,
-        'sections.mrg.1',
+        'mrg.1',
         [
-          new StringField(1, 'sections.mrg.1.1'),
-          new StringField(4, 'sections.mrg.1.4', this.configService.retrieve('PID.3.4')),
-          new StringField(6, 'sections.mrg.1.6', this.configService.retrieve('PID.3.4'))
+          new StringField(1, 'mrg.1.1'),
+          new StringField(4, 'mrg.1.4', this.configService.retrieve('PID.3.4')),
+          new StringField(6, 'mrg.1.6', this.configService.retrieve('PID.3.4'))
         ]
       ),
-      new StringField(3, 'sections.mrg.3'),
-      new StringField(4, 'sections.mrg.4'),
+      new StringField(3, 'mrg.3'),
+      new StringField(4, 'mrg.4'),
       new MultipleField(
         configService,
         7,
-        'sections.mrg.7',
+        'mrg.7',
         [
-          new StringField(1, 'sections.mrg.7.1'),
-          new StringField(2, 'sections.mrg.7.2'),
-          new StringField(3, 'sections.mrg.7.3'),
-          new StringField(4, 'sections.mrg.7.4'),
-          new StringField(5, 'sections.mrg.7.5')
+          new StringField(1, 'mrg.7.1'),
+          new StringField(2, 'mrg.7.2'),
+          new StringField(3, 'mrg.7.3'),
+          new StringField(4, 'mrg.7.4'),
+          new StringField(5, 'mrg.7.5')
         ]
       ).init({ valueGenerator: (f) => {
         f.setValue([

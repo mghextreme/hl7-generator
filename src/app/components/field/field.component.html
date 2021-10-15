@@ -1,20 +1,20 @@
-<div class="field" [ngSwitch]="field.type">
+<div class="field-input" [ngSwitch]="field.type" [attr.data-field-id]="field.id">
   <div *ngSwitchCase="'string'">
-    <input pInputText [(ngModel)]="$any(field).value" type="text" (onchange)="handleChange()" [minlength]="$any(field).minLength" [maxlength]="$any(field).minLength" />
+    <input pInputText [(ngModel)]="$any(field).value" type="text" (onchange)="handleChange()" [minlength]="$any(field).minLength" [maxlength]="$any(field).minLength" class="focus-target" />
   </div>
   <div *ngSwitchCase="'date'">
-    <p-calendar [(ngModel)]="$any(field).value" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2050" (onSelect)="handleChange()" (onChange)="handleChange()" appendTo="body"></p-calendar>
+    <p-calendar [(ngModel)]="$any(field).value" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2050" (onSelect)="handleChange()" (onChange)="handleChange()" appendTo="body" inputStyleClass="focus-target"></p-calendar>
     <button pButton type="button" [label]="'actions.now' | translate" [title]="'actions.now' | translate" (click)="setNow()" class="ml-1"></button>
   </div>
   <div *ngSwitchCase="'datetime'">
-    <p-calendar [(ngModel)]="$any(field).value" [monthNavigator]="true" [yearNavigator]="true" [showTime]="true" yearRange="1900:2050" (onSelect)="handleChange()" (onChange)="handleChange()" appendTo="body"></p-calendar>
+    <p-calendar [(ngModel)]="$any(field).value" [monthNavigator]="true" [yearNavigator]="true" [showTime]="true" yearRange="1900:2050" (onSelect)="handleChange()" (onChange)="handleChange()" appendTo="body" inputStyleClass="focus-target"></p-calendar>
     <button pButton type="button" [label]="'actions.now' | translate" [title]="'actions.now' | translate" (click)="setNow()" class="ml-1"></button>
   </div>
   <div *ngSwitchCase="'multiple'">
     <div class="row row-cols-3 subfield py-1" *ngFor="let subfield of $any(field).subfields">
       <div [ngClass]="{ 'col-1': $any(field).level === 1, 'col-2': $any(field).level > 1 }"><b>{{ subfield.number }}</b></div>
       <div [ngClass]="{ 'col-4': $any(field).level === 1, 'col-6': $any(field).level > 1 }" [title]="subfield.i18n | translate">{{ subfield.i18n + '.name' | translate }}</div>
-      <div class="col">
+      <div class="col" class="focus-target">
         <field [field]="subfield" (change)="handleChange()"></field>
       </div>
     </div>

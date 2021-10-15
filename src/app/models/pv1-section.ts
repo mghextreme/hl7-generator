@@ -26,26 +26,26 @@ export class PV1Section extends SectionBase {
       new MultipleField(
         this.configService,
         3,
-        'sections.pv1.3',
+        'pv1.3',
         [
-          new StringField(1, 'sections.pv1.3.1'),
-          new StringField(2, 'sections.pv1.3.2'),
-          new StringField(3, 'sections.pv1.3.3'),
-          new StringField(4, 'sections.pv1.3.4')
+          new StringField(1, 'pv1.3.1'),
+          new StringField(2, 'pv1.3.2'),
+          new StringField(3, 'pv1.3.3'),
+          new StringField(4, 'pv1.3.4')
         ]
       ),
-      new StringField(36, 'sections.pv1.36').init({ valueGenerator: (f) => {
+      new StringField(36, 'pv1.36').init({ valueGenerator: (f) => {
         f.setValue(
           faker.random.arrayElement(
             this.configService.retrieveCollection('PV1.36')));
       }}),
-      new DateTimeField(44, 'sections.pv1.44').init({ valueGenerator: (f) => {
+      new DateTimeField(44, 'pv1.44').init({ valueGenerator: (f) => {
         const tz = configService.timezone;
         const from = moment.tz(tz).local(true).subtract(2, 'year');
         const to = moment.tz(tz).local(true).subtract(1, 'hour');
         this.getField(44).setValue(faker.date.between(from.toDate(), to.toDate()));
       }}),
-      new DateTimeField(45, 'sections.pv1.45').init({ valueGenerator: (f) => {
+      new DateTimeField(45, 'pv1.45').init({ valueGenerator: (f) => {
         const tz = configService.timezone;
         const admitField = this.getField(44);
         const admitDate = (admitField as DateTimeField).value ?? moment.tz(tz).local(true).subtract(1, 'month').toDate();

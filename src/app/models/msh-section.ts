@@ -20,7 +20,7 @@ export class MshSection extends SectionBase {
 
   protected setFields(configService: MessageConfigurationService): void {
     this.fields = [
-      new StringField(1, 'sections.msh.1').init({
+      new StringField(1, 'msh.1').init({
         required: true,
         expanded: true,
         minLength: 1,
@@ -29,12 +29,12 @@ export class MshSection extends SectionBase {
       new MultipleField(
         this.configService,
         2,
-        'sections.msh.2',
+        'msh.2',
         [
-          new StringField(1, 'sections.msh.2.1').init({ minLength: 1, maxLength: 1 }),
-          new StringField(2, 'sections.msh.2.2').init({ minLength: 1, maxLength: 1 }),
-          new StringField(3, 'sections.msh.2.3').init({ minLength: 1, maxLength: 1 }),
-          new StringField(4, 'sections.msh.2.4').init({ minLength: 1, maxLength: 1 })
+          new StringField(1, 'msh.2.1').init({ minLength: 1, maxLength: 1 }),
+          new StringField(2, 'msh.2.2').init({ minLength: 1, maxLength: 1 }),
+          new StringField(3, 'msh.2.3').init({ minLength: 1, maxLength: 1 }),
+          new StringField(4, 'msh.2.4').init({ minLength: 1, maxLength: 1 })
         ]).init({
           required: true,
           expanded: true,
@@ -45,11 +45,11 @@ export class MshSection extends SectionBase {
               field.getField(4).toString();
           }
       }),
-      new StringField(3, 'sections.msh.3'),
-      new StringField(4, 'sections.msh.4'),
-      new StringField(5, 'sections.msh.5'),
-      new StringField(6, 'sections.msh.6'),
-      new DateTimeField(7, 'sections.msh.7').init({
+      new StringField(3, 'msh.3'),
+      new StringField(4, 'msh.4'),
+      new StringField(5, 'msh.5'),
+      new StringField(6, 'msh.6'),
+      new DateTimeField(7, 'msh.7').init({
         includeSeconds: true,
         valueGenerator: (f) => {
           f.setValue(moment.tz(configService.timezone).local(true).toDate());
@@ -58,12 +58,12 @@ export class MshSection extends SectionBase {
       new MultipleField(
         this.configService,
         9,
-        'sections.msh.9',
+        'msh.9',
         [
-          new StringField(1, 'sections.msh.9.1'),
-          new StringField(2, 'sections.msh.9.2')
+          new StringField(1, 'msh.9.1'),
+          new StringField(2, 'msh.9.2')
         ]),
-      new StringField(10, 'sections.msh.10').init({ valueGenerator: (f) => {
+      new StringField(10, 'msh.10').init({ valueGenerator: (f) => {
         f.setValue(faker.datatype.uuid().replace(/-/g, ''));
       }})
     ];
