@@ -52,7 +52,12 @@
         <p-button *ngIf="validationErrors.length > 0" icon="pi pi-times" [label]="'validation.fail' | translate: { x: validationErrors.length }" (onClick)="openValidationDetails()" class="ml-auto mr-0" styleClass="ui-button-danger"></p-button>
       </div>
       <h4 class="mb-2 mt-4">{{ 'titles.templates' | translate }}</h4>
-      <p-table [value]="templates" [paginator]="true" [rows]="15">
+      <p-table #templatesTable [value]="templates" [paginator]="true" [rows]="15" [globalFilterFields]="['title']">
+        <ng-template pTemplate="caption">
+          <div class="text-left">
+            <input type="text" pInputText size="50" [placeholder]="'templates.filter' | translate" (input)="templatesTable.filterGlobal($event.target.value, 'contains')" style="width:auto">
+          </div>
+        </ng-template>
         <ng-template pTemplate="body" let-rowData>
           <tr>
             <td>{{ rowData.title }}</td>

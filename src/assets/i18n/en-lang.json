@@ -33,7 +33,8 @@
     "title": "Title",
     "content": "HL7 content",
     "add": "Add template",
-    "edit": "Edit template"
+    "edit": "Edit template",
+    "filter": "Filter templates"
   },
   "validation": {
     "success": "No errors found",
