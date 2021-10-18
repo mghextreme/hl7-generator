@@ -18,6 +18,10 @@ export class ValidationErrorsTemplate {
     this.errors = errorInput as IValidationError[];
   }
 
+  goToError(error: IValidationError) {
+    this.ref.close(error);
+  }
+
   close() {
     this.ref.close();
   }

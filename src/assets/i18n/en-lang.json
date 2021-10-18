@@ -42,6 +42,7 @@
     "success": "No errors found",
     "fail": "{{x}} errors found",
     "window-title": "Validation errors",
+    "go-to": "Go to error",
     "errors": {
       "message-empty": {
         "title": "Empty message",

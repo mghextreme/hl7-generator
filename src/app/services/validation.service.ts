@@ -11,7 +11,7 @@ export class ValidationService {
 
   public validateMessage(sections: ISection[]): IValidationError[] {
     if (sections.length == 0) {
-      return this.toValidationErrors([ 'message-empty' ]);
+      return [{ errorCode: 'message-empty' }];
     }
 
     const errors: IValidationError[] = [];
@@ -27,24 +27,45 @@ export class ValidationService {
     const mshSections = _.filter(sections, (x => x instanceof MshSection));
 
     if (mshSections.length === 0) {
-      return this.toValidationErrors([ 'msh-none' ]);
+      return [{ errorCode: 'msh-none' }];
     }
 
     if (mshSections.length > 1) {
-      return this.toValidationErrors([ 'msh-multiple' ]);
-    }
-
-    const errorCodes: string[] = []
-    if (!(sections[0] instanceof MshSection)) {
-      errorCodes.push('msh-not-first');
+      return [{ errorCode: 'msh-multiple', sectionId: mshSections[1].id }];
     }
 
     const msh = mshSections[0];
-    if (!!!msh.getField(7).hasValueAndExpanded()) { errorCodes.push('msh-7-required'); }
-    if (!!!msh.getField(9).hasValueAndExpanded()) { errorCodes.push('msh-9-required'); }
-    if (!!!msh.getField(10).hasValueAndExpanded()) { errorCodes.push('msh-10-required'); }
+    const errors: IValidationError[] = [];
 
-    return this.toValidationErrors(errorCodes);
+    if (!(sections[0] instanceof MshSection)) {
+      errors.push({ errorCode: 'msh-not-first', sectionId: msh.id });
+    }
+
+    if (!!!msh.getField(7).hasValueAndExpanded()) {
+      errors.push({
+        errorCode: 'msh-7-required',
+        sectionId: msh.id,
+        fieldNumber: 7
+      });
+    }
+
+    if (!!!msh.getField(9).hasValueAndExpanded()) {
+      errors.push({
+        errorCode: 'msh-9-required',
+        sectionId: msh.id,
+        fieldNumber: 9
+      });
+    }
+
+    if (!!!msh.getField(10).hasValueAndExpanded()) {
+      errors.push({
+        errorCode: 'msh-10-required',
+        sectionId: msh.id,
+        fieldNumber: 10
+      });
+    }
+
+    return errors;
   }
 
   private mrgValidation(sections: ISection[]): IValidationError[] {
@@ -52,12 +73,18 @@ export class ValidationService {
 
     if (mrgSections.length === 0) return [];
 
-    const errorCodes: string[] = [];
+    const errors: IValidationError[] = [];
     mrgSections.forEach(x => {
-      if (!!!x.getField(1).hasValueAndExpanded()) { errorCodes.push('mrg-1-required'); }
+      if (!!!x.getField(1).hasValueAndExpanded()) {
+        errors.push({
+          errorCode: 'mrg-1-required',
+          sectionId: x.id,
+          fieldNumber: 1
+        });
+      }
     });
 
-    return this.toValidationErrors(errorCodes);
+    return errors;
   }
 
   private obxValidation(sections: ISection[]): IValidationError[] {
@@ -65,12 +92,18 @@ export class ValidationService {
 
     if (obxSections.length === 0) return [];
 
-    const errorCodes: string[] = [];
+    const errors: IValidationError[] = [];
     obxSections.forEach(x => {
-      if (!!!x.getField(3).hasValueAndExpanded()) { errorCodes.push('obx-3-required'); }
+      if (!!!x.getField(3).hasValueAndExpanded()) {
+        errors.push({
+          errorCode: 'obx-3-required',
+          sectionId: x.id,
+          fieldNumber: 3
+        });
+      }
     });
 
-    return this.toValidationErrors(errorCodes);
+    return errors;
   }
 
   private pidValidation(sections: ISection[]): IValidationError[] {
@@ -78,16 +111,25 @@ export class ValidationService {
 
     if (pidSections.length === 0) return [];
 
-    const errorCodes: string[] = [];
+    const errors: IValidationError[] = [];
     pidSections.forEach(x => {
-      if (!!!x.getField(3).hasValueAndExpanded()) { errorCodes.push('pid-3-required'); }
-      if (!!!x.getField(5).hasValueAndExpanded()) { errorCodes.push('pid-5-required'); }
+      if (!!!x.getField(3).hasValueAndExpanded()) {
+        errors.push({
+          errorCode: 'pid-3-required',
+          sectionId: x.id,
+          fieldNumber: 3
+        });
+      }
+
+      if (!!!x.getField(5).hasValueAndExpanded()) {
+        errors.push({
+          errorCode: 'pid-5-required',
+          sectionId: x.id,
+          fieldNumber: 5
+        });
+      }
     });
 
-    return this.toValidationErrors(errorCodes);
-  }
-
-  private toValidationErrors(errorCodes: string[]): IValidationError[] {
-    return errorCodes.map(x => { return { errorCode: x } as IValidationError });
+    return errors;
   }
 }

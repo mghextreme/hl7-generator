@@ -2,15 +2,14 @@
   padding: 0.571em 1em;
   overflow-x: hidden;
 
-  .error-item {
-    .number {
-      font-size: 2em;
-    }
+  .index {
+    font-weight: bold;
+  }
 
-    .details {
-      h5 {
-        font-size: 1.4em;
-      }
+  .details {
+    h5 {
+      font-size: 1.4em;
+      margin-bottom: 0.1em !important;
     }
   }
 }

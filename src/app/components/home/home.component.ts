@@ -207,8 +207,11 @@ export class HomeComponent implements OnDestroy {
       }
     });
 
-    this.ref.onClose.subscribe(() => {
-      this.refreshTemplates();
+    this.ref.onClose.subscribe((error: IValidationError) => {
+      if (error !== undefined &&
+          error.sectionId !== undefined) {
+        this.goTo(error.sectionId, error.fieldNumber);
+      }
     });
   }
 
@@ -220,15 +223,20 @@ export class HomeComponent implements OnDestroy {
     this.fieldSearch.updateFields(this.sections);
   }
 
-  private goTo(parentId: string, fieldNumber: number) {
+  private goTo(parentId: string, fieldNumber?: number) {
     const section = _.find(this.sections, s => s.id === parentId);
     if (section) {
       section.expanded = true;
-      const field = section.getField(fieldNumber);
-      field.expanded = true;
 
-      setTimeout(() => this.scrollTo(parentId, field.number), 100);
-      setTimeout(() => this.focusInto(parentId, field.id), 150);
+      if (fieldNumber !== undefined) {
+        const field = section.getField(fieldNumber);
+        field.expanded = true;
+
+        setTimeout(() => this.scrollTo(parentId, field.number), 100);
+        setTimeout(() => this.focusInto(parentId, field.id), 150);
+      } else {
+        setTimeout(() => this.scrollTo(parentId, section.fields[0].number), 100);
+      }
     }
   }
 
