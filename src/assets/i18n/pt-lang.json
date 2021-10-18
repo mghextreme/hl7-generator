@@ -2,18 +2,361 @@
   "app-title": "Gerador HL7",
   "actions": {
     "add": "Adicionar",
-    "parse": "Interpretar"
+    "edit": "Editar",
+    "remove": "Remover",
+    "parse": "Interpretar",
+    "expand": "Expandir",
+    "collapse": "Contrair",
+    "collapse-all": "Contrair todos",
+    "copy-to-clipboard": "Copiar para Área de Transferência",
+    "filter-fields": "Filtrar campos",
+    "now": "Agora",
+    "load": "Carregar",
+    "save": "Salvar",
+    "save-as-template": "Salvar como Modela",
+    "close": "Fechar",
+    "generate-data": "Gerar dados"
   },
   "titles": {
     "sections": "Seções",
-    "hl7-message": "Mensagem HL7"
+    "hl7-message": "Mensagem HL7",
+    "configuration": "Configuração",
+    "templates": "Modelos"
+  },
+  "configuration": {
+    "stored-values": "Valores salvos",
+    "list-of-options": "Lista de opções",
+    "timezone": "Fuso-horário",
+    "fields": {
+      "timezone": "Selecionar Fuso-horário"
+    }
+  },
+  "templates": {
+    "title": "Título",
+    "content": "Conteúdo HL7",
+    "add": "Adicionar modelo",
+    "edit": "Editar modelo",
+    "filter": "Filtrar modelos"
+  },
+  "validation": {
+    "success": "Nenhum erro encontrado",
+    "fail": "{{x}} erros encontrados",
+    "window-title": "Erros de Validação",
+    "go-to": "Ir para erro",
+    "errors": {
+      "message-empty": {
+        "title": "Mensagem em branco",
+        "description": "Mensagem não tem seções"
+      },
+      "mrg-1-required": {
+        "title": "MRG.1 obrigatório",
+        "description": "Lista Anterior de Identificadores do Paciente é um campo obrigatório"
+      },
+      "msh-none": {
+        "title": "Nenhuma seção MSH",
+        "description": "Seção de Cabeçalho da Mensagem é obrigatória"
+      },
+      "msh-multiple": {
+        "title": "Múltiplas seções MSH",
+        "description": "Mensagem deve conter somente um Cabeçalho da Mensagem"
+      },
+      "msh-not-first": {
+        "title": "Seção MSH deve ser a primeira",
+        "description": "Cabeçalho da Mensagem deve ser a primeira seção na mensagem"
+      },
+      "msh-7-required": {
+        "title": "MSH.7 obrigatório",
+        "description": "Data/Hora da Mensagem é um campo obrigatório"
+      },
+      "msh-9-required": {
+        "title": "MSH.9 obrigatório",
+        "description": "Tipo de Mensagem é um campo obrigatório"
+      },
+      "msh-10-required": {
+        "title": "MSH.10 obrigatório",
+        "description": "ID de Controle de Mensagem é um campo obrigatório"
+      },
+      "obx-3-required": {
+        "title": "OBX.3 obrigatório",
+        "description": "Identificador da Observação é um campo obrigatório"
+      },
+      "pid-3-required": {
+        "title": "PID.3 obrigatório",
+        "description": "Lista de Identificadores do Paciente é um campo obrigatório"
+      },
+      "pid-5-required": {
+        "title": "PID.5 obrigatório",
+        "description": "Nome do Paciente é um campo obrigatório"
+      }
+    }
   },
   "sections": {
+    "mrg": {
+      "title": "Informações de Paciente Combinado",
+      "1": {
+        "name": "Lista Anterior de Identificadores do Paciente",
+        "1": {
+          "name": "Id"
+        },
+        "4": {
+          "name": "Autoridade de Atribuição",
+          "1": {
+            "name": "ID de Namespace"
+          },
+          "2": {
+            "name": "ID Universal"
+          }
+        },
+        "6": {
+          "name": "Hospital de Atribuição",
+          "1": {
+            "name": "ID de Namespace"
+          },
+          "2": {
+            "name": "ID Universal"
+          }
+        }
+      },
+      "3": {
+        "name": "Prior Patient Account Number"
+      },
+      "4": {
+        "name": "Prior Patient ID"
+      },
+      "7": {
+        "name": "Prior Patient Name",
+        "1": {
+          "name": "Sobrenome"
+        },
+        "2": {
+          "name": "Primeiro nome"
+        },
+        "3": {
+          "name": "Nomes do meio"
+        },
+        "4": {
+          "name": "Sufixo"
+        },
+        "5": {
+          "name": "Prefixo"
+        }
+      }
+    },
     "msh": {
-      "title": "Cabeçalho da Mensagem"
+      "title": "Cabeçalho da Mensagem",
+      "1": {
+        "name": "Separador de Campos"
+      },
+      "2": {
+        "name": "Caracteres de Formatação",
+        "1": {
+          "name": "Separador de Componentes"
+        },
+        "2": {
+          "name": "Separador de Repetição de Campo"
+        },
+        "3": {
+          "name": "Caracter de Escape"
+        },
+        "4": {
+          "name": "Separador de Sub-componente"
+        }
+      },
+      "3": {
+        "name": "Aplicação de Origem"
+      },
+      "4": {
+        "name": "Hospital de Origem"
+      },
+      "5": {
+        "name": "Aplicação de Destino"
+      },
+      "6": {
+        "name": "Hospital de Destino"
+      },
+      "7": {
+        "name": "Data/Hora da Mensagem"
+      },
+      "9": {
+        "name": "Tipo de Mensagem",
+        "1": {
+          "name": "Tipo de Mensagem"
+        },
+        "2": {
+          "name": "Evento"
+        }
+      },
+      "10": {
+        "name": "ID de Controle de Mensagem"
+      }
+    },
+    "obr": {
+      "title": "Solicitação de Observação",
+      "3": {
+        "name": "Número da Solicitação",
+        "1": {
+          "name": "Identificador"
+        },
+        "2": {
+          "name": "ID de Namespace"
+        },
+        "3": {
+          "name": "ID Universal"
+        }
+      },
+      "7": {
+        "name": "Data/Hora da Observação"
+      }
+    },
+    "obx": {
+      "title": "Observação/Resultado",
+      "3": {
+        "name": "Identificador da Observação",
+        "1": {
+          "name": "Identificador"
+        },
+        "2": {
+          "name": "Texto"
+        },
+        "3": {
+          "name": "Sistema de Codificação"
+        }
+      },
+      "5": {
+        "name": "Valor Observado"
+      },
+      "6": {
+        "name": "Unidades",
+        "1": {
+          "name": "Identificador"
+        },
+        "2": {
+          "name": "Texto"
+        },
+        "3": {
+          "name": "Sistema de Codificação"
+        }
+      },
+      "11": {
+        "name": "Status do Resultado da Observação"
+      },
+      "14": {
+        "name": "Data/Hora da Observação"
+      }
     },
     "pid": {
-      "title": "Identificação do Paciente"
+      "title": "Identificação do Paciente",
+      "2": {
+        "name": "ID do Paciente"
+      },
+      "3": {
+        "name": "Lista de Identificadores do Paciente",
+        "1": {
+          "name": "Id"
+        },
+        "4": {
+          "name": "Autoridade de Atribuição",
+          "1": {
+            "name": "ID de Namespace"
+          },
+          "2": {
+            "name": "ID Universal"
+          }
+        },
+        "6": {
+          "name": "Hospital de Atribuição",
+          "1": {
+            "name": "ID de Namespace"
+          },
+          "2": {
+            "name": "ID Universal"
+          }
+        }
+      },
+      "5": {
+        "name": "Nome do Paciente",
+        "1": {
+          "name": "Sobrenome"
+        },
+        "2": {
+          "name": "Primeiro nome"
+        },
+        "3": {
+          "name": "Nomes do meio"
+        },
+        "4": {
+          "name": "Sufixo"
+        },
+        "5": {
+          "name": "Prefixo"
+        }
+      },
+      "7": {
+        "name": "Data de Nascimento"
+      },
+      "8": {
+        "name": "Sexo"
+      },
+      "10": {
+        "name": "Raça"
+      },
+      "11": {
+        "name": "Endereço do Paciente",
+        "1": {
+          "name": "Logradouro"
+        },
+        "3": {
+          "name": "Cidade"
+        },
+        "4": {
+          "name": "Estado ou Província"
+        },
+        "5": {
+          "name": "Código Postal"
+        },
+        "6": {
+          "name": "País"
+        }
+      },
+      "16": {
+        "name": "Estado Civil"
+      },
+      "18": {
+        "name": "Número de Conta do Paciente"
+      },
+      "19": {
+        "name": "Número de Seguridade Social"
+      },
+      "22": {
+        "name": "Grupo Étnico"
+      }
+    },
+    "pv1": {
+      "title": "Visita do Paciente",
+      "3": {
+        "name": "Localização Atribuída ao Paciente",
+        "1": {
+          "name": "Ponto de Atendimento"
+        },
+        "2": {
+          "name": "Quarto"
+        },
+        "3": {
+          "name": "Cama"
+        },
+        "4": {
+          "name": "Hospital"
+        }
+      },
+      "36": {
+        "name": "Caráter de Baixa"
+      },
+      "44": {
+        "name": "Data/Hora de Admissão"
+      },
+      "45": {
+        "name": "Data/Hora de Baixa"
+      }
     }
   }
 }
