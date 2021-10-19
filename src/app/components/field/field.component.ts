@@ -21,5 +21,6 @@ export class FieldComponent {
 
   public setNow() {
     this.field.setValue(moment.tz(this.configService.timezone).local(true).toDate());
+    this.handleChange();
   }
 }
