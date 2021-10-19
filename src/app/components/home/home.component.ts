@@ -47,7 +47,9 @@ export class HomeComponent implements OnDestroy {
     this.validationErrors = [];
 
     this.refreshTemplates();
-    this.runValidation();
+
+    this.hl7 = this.configService.retrieve('hl7') ?? '';
+    this.parseHl7();
   }
 
   public addSection(type: string) {
@@ -135,6 +137,10 @@ export class HomeComponent implements OnDestroy {
 
   public handleChangeSection(): void {
     this.generateHl7();
+  }
+
+  public handleHl7Change(): void {
+    this.configService.store('hl7', this.hl7);
   }
 
   private generateHl7(): void {

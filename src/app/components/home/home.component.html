@@ -5,15 +5,15 @@
     <div class="col d-flex flex-column justify-content-start">
       <h4 class="mb-2">{{ 'actions.add' | translate }}</h4>
       <div class="add">
-        <button pButton type="button" icon="pi pi-plus" label="MRG" [title]="'sections.mrg.title' | translate" (click)="addSection('MRG')" class="mr-2"></button>
-        <button pButton type="button" icon="pi pi-plus" label="MSH" [title]="'sections.msh.title' | translate" (click)="addSection('MSH')" class="mr-2"></button>
-        <button pButton type="button" icon="pi pi-plus" label="OBR" [title]="'sections.obr.title' | translate" (click)="addSection('OBR')" class="mr-2"></button>
-        <button pButton type="button" icon="pi pi-plus" label="OBX" [title]="'sections.obx.title' | translate" (click)="addSection('OBX')" class="mr-2"></button>
-        <button pButton type="button" icon="pi pi-plus" label="ORC" [title]="'sections.orc.title' | translate" (click)="addSection('ORC')" class="mr-2"></button>
-        <button pButton type="button" icon="pi pi-plus" label="PID" [title]="'sections.pid.title' | translate" (click)="addSection('PID')" class="mr-2"></button>
-        <button pButton type="button" icon="pi pi-plus" label="PV1" [title]="'sections.pv1.title' | translate" (click)="addSection('PV1')" class="mr-2"></button>
-        <button pButton type="button" icon="pi pi-plus" label="RXE" [title]="'sections.rxe.title' | translate" (click)="addSection('RXE')" class="mr-2"></button>
-        <button pButton type="button" icon="pi pi-plus" label="RXR" [title]="'sections.rxr.title' | translate" (click)="addSection('RXR')" class="mr-2"></button>
+        <p-button icon="pi pi-plus" label="MRG" [title]="'sections.mrg.title' | translate" (onClick)="addSection('MRG')" styleClass="mr-2 mb-2"></p-button>
+        <p-button icon="pi pi-plus" label="MSH" [title]="'sections.msh.title' | translate" (onClick)="addSection('MSH')" styleClass="mr-2 mb-2"></p-button>
+        <p-button icon="pi pi-plus" label="OBR" [title]="'sections.obr.title' | translate" (onClick)="addSection('OBR')" styleClass="mr-2 mb-2"></p-button>
+        <p-button icon="pi pi-plus" label="OBX" [title]="'sections.obx.title' | translate" (onClick)="addSection('OBX')" styleClass="mr-2 mb-2"></p-button>
+        <p-button icon="pi pi-plus" label="ORC" [title]="'sections.orc.title' | translate" (onClick)="addSection('ORC')" styleClass="mr-2 mb-2"></p-button>
+        <p-button icon="pi pi-plus" label="PID" [title]="'sections.pid.title' | translate" (onClick)="addSection('PID')" styleClass="mr-2 mb-2"></p-button>
+        <p-button icon="pi pi-plus" label="PV1" [title]="'sections.pv1.title' | translate" (onClick)="addSection('PV1')" styleClass="mr-2 mb-2"></p-button>
+        <p-button icon="pi pi-plus" label="RXE" [title]="'sections.rxe.title' | translate" (onClick)="addSection('RXE')" styleClass="mr-2 mb-2"></p-button>
+        <p-button icon="pi pi-plus" label="RXR" [title]="'sections.rxr.title' | translate" (onClick)="addSection('RXR')" styleClass="mr-2 mb-2"></p-button>
       </div>
 
       <h4 class="mt-4 mb-2">{{ 'titles.sections' | translate }}</h4>
@@ -51,7 +51,7 @@
     </div>
     <div class="col">
       <h4 class="mb-2">{{ 'titles.hl7-message' | translate }}</h4>
-      <textarea pInputTextarea class="hl7-textarea form-control mb-2" autoResize="autoResize" [(ngModel)]="hl7"></textarea>
+      <textarea pInputTextarea class="hl7-textarea form-control mb-2" autoResize="autoResize" [(ngModel)]="hl7" (change)="handleHl7Change()"></textarea>
       <div class="d-flex actions">
         <p-button icon="pi pi-eject" [label]="'actions.parse' | translate" (onClick)="parseHl7()" [disabled]="hl7 === expectedHl7" class="mr-2"></p-button>
         <p-button icon="pi pi-clone" [label]="'actions.copy-to-clipboard' | translate" (onClick)="copyHl7ToClipboard()" class="mr-2"></p-button>
