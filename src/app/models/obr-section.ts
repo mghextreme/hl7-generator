@@ -20,6 +20,16 @@ export class ObrSection extends SectionBase {
 
   protected setFields(configService: MessageConfigurationService): void {
     this.fields = [
+      new StringField(1, 'obr.1'),
+      new MultipleField(
+        this.configService,
+        2,
+        'obr.2',
+        [
+          new StringField(1, 'obr.2.1'),
+          new StringField(2, 'obr.2.2'),
+          new StringField(3, 'obr.2.3')
+        ]),
       new MultipleField(
         this.configService,
         3,

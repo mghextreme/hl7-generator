@@ -20,6 +20,7 @@ export class ObxSection extends SectionBase {
 
   protected setFields(configService: MessageConfigurationService): void {
     this.fields = [
+      new StringField(1, 'obx.1'),
       new MultipleField(
         this.configService,
         3,
@@ -29,6 +30,7 @@ export class ObxSection extends SectionBase {
           new StringField(2, 'obx.3.2'),
           new StringField(3, 'obx.3.3')
         ]),
+      new StringField(4, 'obx.4'),
       new StringField(5, 'obx.5'),
       new MultipleField(
         this.configService,

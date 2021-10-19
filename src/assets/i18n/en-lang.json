@@ -282,6 +282,24 @@
     },
     "obr": {
       "title": "Observation Request",
+      "1": {
+        "name": "Set ID",
+        "tags": "set id, set identifier"
+      },
+      "2": {
+        "name": "Place Order Number",
+        "tags": "place order number",
+        "1": {
+          "name": "Identifier",
+          "tags": "identifier"
+        },
+        "2": {
+          "name": "Namespace ID"
+        },
+        "3": {
+          "name": "Universal ID"
+        }
+      },
       "3": {
         "name": "Filler Order Number",
         "tags": "filler order number",
@@ -303,6 +321,10 @@
     },
     "obx": {
       "title": "Observation/Result",
+      "1": {
+        "name": "Set ID",
+        "tags": "set id, set identifier"
+      },
       "3": {
         "name": "Observation Identifier",
         "tags": "observation identifier",
@@ -318,6 +340,10 @@
           "name": "Coding System",
           "tags": "coding system"
         }
+      },
+      "4": {
+        "name": "Observation Sub-Id",
+        "tags": "observation sub-id, observation sub-identifier"
       },
       "5": {
         "name": "Observation Value",
