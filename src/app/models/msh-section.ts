@@ -1,19 +1,21 @@
+import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
 import { SectionType } from './section-type.enum';
 import { SectionBase } from './section-base';
-import { DateTimeField, StringField } from './fields';
-import { MultipleField } from './multiple.field';
+import { DateTimeField, MultipleField, StringField } from './fields';
 import faker from 'faker';
 import moment from 'moment-timezone';
 
 export class MshSection extends SectionBase {
 
   constructor(
-    configService: MessageConfigurationService,
+    readonly configService: MessageConfigurationService,
+    readonly translate: TranslateService,
     text: string = ''
   ) {
     super(
       configService,
+      translate,
       SectionType.MSH,
       text);
   }

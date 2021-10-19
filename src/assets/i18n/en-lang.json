@@ -281,6 +281,105 @@
         "tags": "datetime of observation, date time of observation, observation timestamp"
       }
     },
+    "orc": {
+      "title": "Common Order",
+      "1": {
+        "name": "Order Control",
+        "tags": "order control",
+        "options": {
+          "AF": "AF - Order/service refill request approval",
+          "CA": "CA - Cancel order/service request",
+          "CH": "CH - Child order/service",
+          "CN": "CN - Combined result",
+          "CR": "CR - Canceled as requested",
+          "DC": "DC - Discontinue order/service request",
+          "DE": "DE - Data errors",
+          "DF": "DF - Order/service refill request denied",
+          "DR": "DR - Discontinued as requested",
+          "FU": "FU - Order/service refilled, unsolicited",
+          "HD": "HD - Hold order request",
+          "HR": "HR - On hold as requested",
+          "LI": "LI - Link order/service to patient care problem or goal",
+          "NA": "NA - Number assigned",
+          "NW": "NW - New order/service",
+          "OC": "OC - Order/service canceled",
+          "OD": "OD - Order/service discontinued",
+          "OE": "OE - Order/service released",
+          "OF": "OF - Order/service refilled as requested",
+          "OH": "OH - Order/service held",
+          "OK": "OK - Order/service accepted & OK",
+          "OR": "OR - Released as requested",
+          "PA": "PA - Parent order/service",
+          "PR": "PR - Previous Results with new order/service",
+          "RE": "RE - Observations/Performed Service to follow",
+          "RF": "RF - Refill order/service request",
+          "RL": "RL - Release previous hold",
+          "RO": "RO - Replacement order",
+          "RP": "RP - Order/service replace request",
+          "RQ": "RQ - Replaced as requested",
+          "RR": "RR - Request received",
+          "RU": "RU - Replaced unsolicited",
+          "SC": "SC - Status changed",
+          "SN": "SN - Send order/service number",
+          "SR": "SR - Response to send order/service status request",
+          "SS": "SS - Send order/service status request",
+          "UA": "UA - Unable to accept order/service",
+          "UC": "UC - Unable to cancel",
+          "UD": "UD - Unable to discontinue",
+          "UF": "UF - Unable to refill",
+          "UH": "UH - Unable to put on hold",
+          "UM": "UM - Unable to replace",
+          "UN": "UN - Unlink order/service from patient care problem or goal",
+          "UR": "UR - Unable to release",
+          "UX": "UX - Unable to change",
+          "XO": "XO - Change order/service request",
+          "XR": "XR - Changed as requested",
+          "XX": "XX - Order/service changed, unsol."
+        }
+      },
+      "2": {
+        "name": "Place Order Number",
+        "tags": "place order number",
+        "1": {
+          "name": "Identifier",
+          "tags": "identifier"
+        },
+        "2": {
+          "name": "Namespace ID"
+        },
+        "3": {
+          "name": "Universal ID"
+        }
+      },
+      "12": {
+        "name": "Ordering Provider",
+        "tags": "ordering provider",
+        "1": {
+          "name": "Family Name",
+          "tags": "last name, family name, surname"
+        },
+        "2": {
+          "name": "Given Name",
+          "tags": "given name, first name"
+        },
+        "3": {
+          "name": "Middle Names",
+          "tags": "middle names, middle initials, other names"
+        },
+        "4": {
+          "name": "Suffix",
+          "tags": "suffix"
+        },
+        "5": {
+          "name": "Prefix",
+          "tags": "prefix"
+        }
+      },
+      "15": {
+        "name": "Order Effective Date/Time",
+        "tags": "order effective date/time, order effective datetime, order effective date time"
+      }
+    },
     "pid": {
       "title": "Patient Identification",
       "2": {

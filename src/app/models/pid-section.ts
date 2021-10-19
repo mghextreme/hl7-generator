@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
 import { DateField, MultipleField, StringField } from './fields';
 import { SectionBase } from './section-base';
@@ -8,11 +9,13 @@ import moment from 'moment';
 export class PidSection extends SectionBase {
 
   constructor(
-    configService: MessageConfigurationService,
+    readonly configService: MessageConfigurationService,
+    readonly translate: TranslateService,
     text: string = ''
   ) {
     super(
       configService,
+      translate,
       SectionType.PID,
       text);
   }

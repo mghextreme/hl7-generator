@@ -2,7 +2,7 @@ import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { Clipboard as MyClipboard } from '@angular/cdk/clipboard';
 import { AutoComplete } from 'primeng/autocomplete';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { FieldSearchResult, ISection, IValidationError, MrgSection, MshSection, ObrSection, ObxSection, PidSection, PV1Section, SectionType, Template } from 'app/models';
+import { FieldSearchResult, ISection, IValidationError, MrgSection, MshSection, ObrSection, ObxSection, OrcSection, PidSection, Pv1Section, SectionType, Template } from 'app/models';
 import { FieldSearchService, MessageConfigurationService,TemplateService, ValidationService } from 'app/services';
 import _ from 'lodash';
 import { TranslateService } from '@ngx-translate/core';
@@ -52,12 +52,13 @@ export class HomeComponent implements OnDestroy {
 
   public addSection(type: string) {
     switch (type) {
-      case SectionType.MRG: this.sections.push(new MrgSection(this.configService)); break;
-      case SectionType.MSH: this.sections.push(new MshSection(this.configService)); break;
-      case SectionType.OBR: this.sections.push(new ObrSection(this.configService)); break;
-      case SectionType.OBX: this.sections.push(new ObxSection(this.configService)); break;
-      case SectionType.PID: this.sections.push(new PidSection(this.configService)); break;
-      case SectionType.PV1: this.sections.push(new PV1Section(this.configService)); break;
+      case SectionType.MRG: this.sections.push(new MrgSection(this.configService, this.translate)); break;
+      case SectionType.MSH: this.sections.push(new MshSection(this.configService, this.translate)); break;
+      case SectionType.OBR: this.sections.push(new ObrSection(this.configService, this.translate)); break;
+      case SectionType.OBX: this.sections.push(new ObxSection(this.configService, this.translate)); break;
+      case SectionType.ORC: this.sections.push(new OrcSection(this.configService, this.translate)); break;
+      case SectionType.PID: this.sections.push(new PidSection(this.configService, this.translate)); break;
+      case SectionType.PV1: this.sections.push(new Pv1Section(this.configService, this.translate)); break;
     }
 
     this.updateFilter();
@@ -81,22 +82,25 @@ export class HomeComponent implements OnDestroy {
 
         switch (type) {
           case SectionType.MRG:
-            newSection = new MrgSection(this.configService, b);
+            newSection = new MrgSection(this.configService, this.translate, b);
             break;
           case SectionType.MSH:
-            newSection = new MshSection(this.configService, b);
+            newSection = new MshSection(this.configService, this.translate, b);
             break;
           case SectionType.OBR:
-            newSection = new ObrSection(this.configService, b);
+            newSection = new ObrSection(this.configService, this.translate, b);
             break;
           case SectionType.OBX:
-            newSection = new ObxSection(this.configService, b);
+            newSection = new ObxSection(this.configService, this.translate, b);
+            break;
+          case SectionType.ORC:
+            newSection = new OrcSection(this.configService, this.translate, b);
             break;
           case SectionType.PID:
-            newSection = new PidSection(this.configService, b);
+            newSection = new PidSection(this.configService, this.translate, b);
             break;
           case SectionType.PV1:
-            newSection = new PV1Section(this.configService, b);
+            newSection = new Pv1Section(this.configService, this.translate, b);
             break;
           default: return;
         }

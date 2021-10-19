@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
 import { DateTimeField, MultipleField, StringField } from './fields';
 import { SectionBase } from './section-base';
@@ -5,14 +6,16 @@ import { SectionType } from './section-type.enum';
 import faker from 'faker';
 import moment from 'moment-timezone';
 
-export class PV1Section extends SectionBase {
+export class Pv1Section extends SectionBase {
 
   constructor(
-    configService: MessageConfigurationService,
+    readonly configService: MessageConfigurationService,
+    readonly translate: TranslateService,
     text: string = ''
   ) {
     super(
       configService,
+      translate,
       SectionType.PV1,
       text);
   }

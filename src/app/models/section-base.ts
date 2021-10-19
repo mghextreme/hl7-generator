@@ -1,4 +1,5 @@
 import { MessageConfigurationService } from 'app/services';
+import { TranslateService } from '@ngx-translate/core';
 import { IField } from './fields';
 import { SectionType } from './section-type.enum';
 import { ISection } from './section.interface';
@@ -12,6 +13,7 @@ export abstract class SectionBase implements ISection {
 
   constructor(
     protected readonly configService: MessageConfigurationService,
+    protected readonly translate: TranslateService,
     public readonly type: SectionType,
     text: string = ''
   ) {

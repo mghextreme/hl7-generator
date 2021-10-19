@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
 import { MultipleField, StringField } from './fields';
 import { SectionBase } from './section-base';
@@ -7,11 +8,13 @@ import faker from 'faker';
 export class MrgSection extends SectionBase {
 
   constructor(
-    configService: MessageConfigurationService,
+    readonly configService: MessageConfigurationService,
+    readonly translate: TranslateService,
     text: string = ''
   ) {
     super(
       configService,
+      translate,
       SectionType.MRG,
       text);
   }

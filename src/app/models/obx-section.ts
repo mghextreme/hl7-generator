@@ -1,17 +1,19 @@
+import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
-import { DateTimeField, StringField } from './fields';
-import { MultipleField } from './multiple.field';
+import { DateTimeField, MultipleField, StringField } from './fields';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
 
 export class ObxSection extends SectionBase {
 
   constructor(
-    configService: MessageConfigurationService,
+    readonly configService: MessageConfigurationService,
+    readonly translate: TranslateService,
     text: string = ''
   ) {
     super(
       configService,
+      translate,
       SectionType.OBX,
       text);
   }
