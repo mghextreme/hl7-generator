@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ISection, IValidationError, MrgSection, MshSection, ObxSection, PidSection } from 'app/models';
+import { ISection, IValidationError, MrgSection, MshSection, ObxSection, OrcSection, PidSection, RxrSection } from 'app/models';
 import _ from 'lodash';
 
 @Injectable({
@@ -18,7 +18,9 @@ export class ValidationService {
     this.mshValidation(sections).forEach(x => errors.push(x));
     this.mrgValidation(sections).forEach(x => errors.push(x));
     this.obxValidation(sections).forEach(x => errors.push(x));
+    this.orcValidation(sections).forEach(x => errors.push(x));
     this.pidValidation(sections).forEach(x => errors.push(x));
+    this.rxrValidation(sections).forEach(x => errors.push(x));
 
     return errors;
   }
@@ -65,6 +67,22 @@ export class ValidationService {
       });
     }
 
+    if (!!!msh.getField(11).hasValueAndExpanded()) {
+      errors.push({
+        errorCode: 'msh-11-required',
+        sectionId: msh.id,
+        fieldNumber: 11
+      });
+    }
+
+    if (!!!msh.getField(12).hasValueAndExpanded()) {
+      errors.push({
+        errorCode: 'msh-12-required',
+        sectionId: msh.id,
+        fieldNumber: 12
+      });
+    }
+
     return errors;
   }
 
@@ -106,6 +124,25 @@ export class ValidationService {
     return errors;
   }
 
+  private orcValidation(sections: ISection[]): IValidationError[] {
+    const orcSections = _.filter(sections, (x => x instanceof OrcSection));
+
+    if (orcSections.length === 0) return [];
+
+    const errors: IValidationError[] = [];
+    orcSections.forEach(x => {
+      if (!!!x.getField(1).hasValueAndExpanded()) {
+        errors.push({
+          errorCode: 'orc-1-required',
+          sectionId: x.id,
+          fieldNumber: 1
+        });
+      }
+    });
+
+    return errors;
+  }
+
   private pidValidation(sections: ISection[]): IValidationError[] {
     const pidSections = _.filter(sections, (x => x instanceof PidSection));
 
@@ -126,6 +163,25 @@ export class ValidationService {
           errorCode: 'pid-5-required',
           sectionId: x.id,
           fieldNumber: 5
+        });
+      }
+    });
+
+    return errors;
+  }
+
+  private rxrValidation(sections: ISection[]): IValidationError[] {
+    const rxrSections = _.filter(sections, (x => x instanceof RxrSection));
+
+    if (rxrSections.length === 0) return [];
+
+    const errors: IValidationError[] = [];
+    rxrSections.forEach(x => {
+      if (!!!x.getField(1).hasValueAndExpanded()) {
+        errors.push({
+          errorCode: 'rxr-1-required',
+          sectionId: x.id,
+          fieldNumber: 1
         });
       }
     });

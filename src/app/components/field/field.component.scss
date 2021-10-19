@@ -1,3 +1,9 @@
 p-dropdown {
   display: block;
 }
+
+::ng-deep {
+  .ui-dropdown {
+    min-width: 50%;
+  }
+}

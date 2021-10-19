@@ -5,7 +5,7 @@ import { BaseField } from './base-field';
 import { IOption } from './option.interface';
 
 export class OptionsField extends BaseField<OptionsField> {
-  value?: string;
+  value?: string = '';
   selectItems: SelectItem[];
 
   constructor(
@@ -19,18 +19,20 @@ export class OptionsField extends BaseField<OptionsField> {
       number,
       i18n);
 
-      this.selectItems = options.map(x => {
-        return {
-          label: translate.instant(x.i18n),
-          value: x.value
-        } as SelectItem
-      });
-      this.value = null;
+    this.verifyOptions();
+    this.selectItems = options.map(x => {
+      return {
+        label: translate.instant(x.i18n),
+        value: x.value
+      } as SelectItem
+    });
+    this.setDefaultValue();
   }
 
   public hasValue(): boolean {
     return this.value !== undefined &&
-           this.value !== null;
+           this.value !== null &&
+           this.value !== '';
   }
 
   public setValue(value: any): void {
@@ -39,7 +41,7 @@ export class OptionsField extends BaseField<OptionsField> {
       if (selectedOption !== undefined) {
         this.value = selectedOption.value;
       } else {
-        this.value = null;
+        this.setDefaultValue();
       }
     }
 
@@ -50,5 +52,16 @@ export class OptionsField extends BaseField<OptionsField> {
 
   public toString(): string {
     return this.value.toString();
+  }
+
+  private verifyOptions(): void {
+    const emptyOption = this.options.find(x => x.value === '');
+    if (emptyOption === undefined) {
+      this.options.unshift({ value: '', i18n: 'actions.select-option' });
+    }
+  }
+
+  private setDefaultValue(): void {
+    this.value = '';
   }
 }

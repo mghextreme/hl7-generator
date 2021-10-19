@@ -5,6 +5,8 @@ import { SectionBase } from './section-base';
 import { DateTimeField, MultipleField, StringField } from './fields';
 import faker from 'faker';
 import moment from 'moment-timezone';
+import { OptionsField } from './options.field';
+import { IOption } from './option.interface';
 
 export class MshSection extends SectionBase {
 
@@ -67,7 +69,24 @@ export class MshSection extends SectionBase {
         ]),
       new StringField(10, 'msh.10').init({ valueGenerator: (f) => {
         f.setValue(faker.datatype.uuid().replace(/-/g, ''));
-      }})
+      }}),
+      new MultipleField(
+        this.configService,
+        11,
+        'msh.11',
+        [
+          new OptionsField(this.translate, 1, 'msh.11.1', MshSection.msh_11_1_options),
+          new OptionsField(this.translate, 2, 'msh.11.2', MshSection.msh_11_2_options)
+        ]),
+      new MultipleField(
+        this.configService,
+        12,
+        'msh.12',
+        [
+          new OptionsField(this.translate, 1, 'msh.12.1', MshSection.msh_12_1_options),
+          new StringField(2, 'msh.12.2'),
+          new StringField(3, 'msh.12.3')
+        ]),
     ];
   }
 
@@ -138,4 +157,34 @@ export class MshSection extends SectionBase {
     this.getField(7).generate();
     this.getField(10).generate();
   }
+
+  private static msh_11_1_options: IOption[] = [
+    { value: 'P', i18n: 'sections.msh.11.1.options.P' },
+    { value: 'D', i18n: 'sections.msh.11.1.options.D' },
+    { value: 'T', i18n: 'sections.msh.11.1.options.T' }
+  ];
+
+  private static msh_11_2_options: IOption[] = [
+    { value: '', i18n: 'sections.msh.11.2.options.empty' },
+    { value: 'A', i18n: 'sections.msh.11.2.options.A' },
+    { value: 'I', i18n: 'sections.msh.11.2.options.I' },
+    { value: 'R', i18n: 'sections.msh.11.2.options.R' },
+    { value: 'T', i18n: 'sections.msh.11.2.options.T' }
+  ];
+
+  private static msh_12_1_options: IOption[] = [
+    { value: '2.0', i18n: 'sections.msh.12.1.options.2_0' },
+    { value: '2.0D', i18n: 'sections.msh.12.1.options.2_0D' },
+    { value: '2.1', i18n: 'sections.msh.12.1.options.2_1' },
+    { value: '2.2', i18n: 'sections.msh.12.1.options.2_2' },
+    { value: '2.3', i18n: 'sections.msh.12.1.options.2_3' },
+    { value: '2.3.1', i18n: 'sections.msh.12.1.options.2_3_1' },
+    { value: '2.4', i18n: 'sections.msh.12.1.options.2_4' },
+    { value: '2.5', i18n: 'sections.msh.12.1.options.2_5' },
+    { value: '2.5.1', i18n: 'sections.msh.12.1.options.2_5_1' },
+    { value: '2.6', i18n: 'sections.msh.12.1.options.2_6' },
+    { value: '2.7', i18n: 'sections.msh.12.1.options.2_7' },
+    { value: '2.7.1', i18n: 'sections.msh.12.1.options.2_7_1' },
+    { value: '2.8', i18n: 'sections.msh.12.1.options.2_8' }
+  ];
 }

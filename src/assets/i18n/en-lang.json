@@ -15,7 +15,8 @@
     "save": "Save",
     "save-as-template": "Save as Template",
     "close": "Close",
-    "generate-data": "Generate data"
+    "generate-data": "Generate data",
+    "select-option": "Select option"
   },
   "titles": {
     "sections": "Sections",
@@ -76,9 +77,21 @@
         "title": "MSH.10 required",
         "description": "Message Control ID is a mandatory field"
       },
+      "msh-11-required": {
+        "title": "MSH.11 required",
+        "description": "Processing ID is a mandatory field"
+      },
+      "msh-12-required": {
+        "title": "MSH.12 required",
+        "description": "Version ID is a mandatory field"
+      },
       "obx-3-required": {
         "title": "OBX.3 required",
         "description": "Observation Identifier is a mandatory field"
+      },
+      "orc-1-required": {
+        "title": "ORC.1 required",
+        "description": "Order Control is a mandatory field"
       },
       "pid-3-required": {
         "title": "PID.3 required",
@@ -87,6 +100,10 @@
       "pid-5-required": {
         "title": "PID.5 required",
         "description": "Patient Name is a mandatory field"
+      },
+      "rxr-1-required": {
+        "title": "RXR.1 required",
+        "description": "Route is a mandatory field"
       }
     }
   },
@@ -211,6 +228,56 @@
       "10": {
         "name": "Message Control ID",
         "tags": "message control identifier, control id"
+      },
+      "11": {
+        "name": "Processing ID",
+        "tags": "processing id, processing identifier",
+        "1": {
+          "name": "Processing ID",
+          "options": {
+            "D": "D - Debugging",
+            "P": "P - Production",
+            "T": "T - Training"
+          }
+        },
+        "2": {
+          "name": "Processing Mode",
+          "options": {
+            "empty": "Not present (the default, meaning current processing)",
+            "A": "A - Archive",
+            "I": "I - Initial load",
+            "R": "R - Restore from archive",
+            "T": "T - Current processing, transmitted at intervals (scheduled or on demand)"
+          }
+        }
+      },
+      "12": {
+        "name": "Version ID",
+        "tags": "version id, version identifier",
+        "1": {
+          "name": "Version ID",
+          "options": {
+            "2_0": "Release 2.0",
+            "2_0D": "Demo 2.0",
+            "2_1": "Release 2.1",
+            "2_2": "Release 2.2",
+            "2_3": "Release 2.3",
+            "2_3_1": "Release 2.3.1",
+            "2_4": "Release 2.4",
+            "2_5": "Release 2.5",
+            "2_5_1": "Release 2.5.1",
+            "2_6": "Release 2.6",
+            "2_7": "Release 2.7",
+            "2_7_1": "Release 2.7.1",
+            "2_8": "Release 2.8"
+          }
+        },
+        "2": {
+          "name": "Internationalization Code"
+        },
+        "3": {
+          "name": "International Version Id"
+        }
       }
     },
     "obr": {
