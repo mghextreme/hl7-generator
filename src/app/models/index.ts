@@ -7,6 +7,7 @@ export * from './option.interface';
 export * from './orc-section';
 export * from './pid-section';
 export * from './pv1-section';
+export * from './rxe-section';
 export * from './rxr-section';
 export * from './section-base';
 export * from './section-type.enum';

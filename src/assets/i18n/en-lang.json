@@ -593,6 +593,91 @@
         "tags": "discharge date time, discharge datetime, discharge date"
       }
     },
+    "rxe": {
+      "title": "Pharmacy/Treatment Encoded Order",
+      "1": {
+        "name": "Quantity/Timing",
+        "tags": "quantity, timing, quantity and timing",
+        "1": {
+          "name": "Quantity",
+          "1": {
+            "name": "Quantity"
+          },
+          "2": {
+            "name": "Units"
+          }
+        },
+        "2": {
+          "name": "Interval",
+          "1": {
+            "name": "Repeat Pattern"
+          },
+          "2": {
+            "name": "Explicit Time Interval"
+          }
+        },
+        "3": {
+          "name": "Duration"
+        },
+        "4": {
+          "name": "Start Date/Time"
+        },
+        "5": {
+          "name": "End Date/Time"
+        },
+        "6": {
+          "name": "Priority"
+        }
+      },
+      "2": {
+        "name": "Give Code",
+        "tags": "give code",
+        "1": {
+          "name": "Identifier",
+          "tags": "identifier"
+        },
+        "2": {
+          "name": "Text",
+          "tags": "text"
+        },
+        "3": {
+          "name": "Coding System",
+          "tags": "coding system"
+        },
+        "4": {
+          "name": "Alternate Identifier",
+          "tags": "alternate identifier"
+        },
+        "5": {
+          "name": "Alternate Text",
+          "tags": "alternate text"
+        }
+      },
+      "3": {
+        "name": "Give Amount - Minimum",
+        "tags": "minimum give amount"
+      },
+      "4": {
+        "name": "Give Amount - Maximum",
+        "tags": "maximum give amount"
+      },
+      "5": {
+        "name": "Give Units",
+        "tags": "give units",
+        "1": {
+          "name": "Identifier",
+          "tags": "identifier"
+        },
+        "2": {
+          "name": "Text",
+          "tags": "text"
+        },
+        "3": {
+          "name": "Coding System",
+          "tags": "coding system"
+        }
+      }
+    },
     "rxr": {
       "title": "Pharmacy/Treatment Route",
       "1": {

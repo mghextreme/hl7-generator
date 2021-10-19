@@ -6,5 +6,6 @@ export enum SectionType {
   ORC = 'ORC',
   PID = 'PID',
   PV1 = 'PV1',
+  RXE = 'RXE',
   RXR = 'RXR'
 }
