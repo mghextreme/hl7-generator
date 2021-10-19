@@ -525,6 +525,62 @@
         "name": "Discharge Date/Time",
         "tags": "discharge date time, discharge datetime, discharge date"
       }
+    },
+    "rxr": {
+      "title": "Pharmacy/Treatment Route",
+      "1": {
+        "name": "Route",
+        "tags": "route",
+        "options": {
+          "AP": "AP - Apply Externally",
+          "B": "B - Buccal",
+          "DT": "DT - Dental",
+          "EP": "EP - Epidural",
+          "ET": "ET - Endotrachial Tube",
+          "GTT": "GTT - Gastrostomy Tube",
+          "GU": "GU - GU Irrigant",
+          "IA": "IA - Intra-arterial",
+          "IB": "IB - Intrabursal",
+          "IC": "IC - Intracardiac",
+          "ICV": "ICV - Intracervical (uterus)",
+          "ID": "ID - Intradermal",
+          "IH": "IH - Inhalation",
+          "IHA": "IHA - Intrahepatic Artery",
+          "IM": "IM - Intramuscular",
+          "IMR": "IMR - Immerse (Soak) Body Part",
+          "IN": "IN - Intranasal",
+          "IO": "IO - Intraocular",
+          "IP": "IP - Intraperitoneal",
+          "IS": "IS - Intrasynovial",
+          "IT": "IT - Intrathecal",
+          "IU": "IU - Intrauterine",
+          "IV": "IV - Intravenous",
+          "MM": "MM - Mucous Membrane",
+          "MTH": "MTH - Mouth/Throat",
+          "NG": "NG - Nasogastric",
+          "NP": "NP - Nasal Prongs",
+          "NS": "NS - Nasal",
+          "NT": "NT - Nasotrachial Tube",
+          "OP": "OP - Ophthalmic",
+          "OT": "OT - Otic",
+          "OTH": "OTH - Other/Miscellaneous",
+          "PF": "PF - Perfusion",
+          "PO": "PO - Oral",
+          "PR": "PR - Rectal",
+          "RM": "RM - Rebreather Mask",
+          "SC": "SC - Subcutaneous",
+          "SD": "SD - Soaked Dressing",
+          "SL": "SL - Sublingual",
+          "TD": "TD - Transdermal",
+          "TL": "TL - Translingual",
+          "TP": "TP - Topical",
+          "TRA": "TRA - Tracheostomy",
+          "UR": "UR - Urethral",
+          "VG": "VG - Vaginal",
+          "VM": "VM - Ventimask",
+          "WND": "WND - Wound"
+        }
+      }
     }
   }
 }

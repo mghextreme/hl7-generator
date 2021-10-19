@@ -2,7 +2,7 @@ import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { Clipboard as MyClipboard } from '@angular/cdk/clipboard';
 import { AutoComplete } from 'primeng/autocomplete';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { FieldSearchResult, ISection, IValidationError, MrgSection, MshSection, ObrSection, ObxSection, OrcSection, PidSection, Pv1Section, SectionType, Template } from 'app/models';
+import { FieldSearchResult, ISection, IValidationError, MrgSection, MshSection, ObrSection, ObxSection, OrcSection, PidSection, Pv1Section, RxrSection, SectionType, Template } from 'app/models';
 import { FieldSearchService, MessageConfigurationService,TemplateService, ValidationService } from 'app/services';
 import _ from 'lodash';
 import { TranslateService } from '@ngx-translate/core';
@@ -59,6 +59,7 @@ export class HomeComponent implements OnDestroy {
       case SectionType.ORC: this.sections.push(new OrcSection(this.configService, this.translate)); break;
       case SectionType.PID: this.sections.push(new PidSection(this.configService, this.translate)); break;
       case SectionType.PV1: this.sections.push(new Pv1Section(this.configService, this.translate)); break;
+      case SectionType.RXR: this.sections.push(new RxrSection(this.configService, this.translate)); break;
     }
 
     this.updateFilter();
@@ -101,6 +102,9 @@ export class HomeComponent implements OnDestroy {
             break;
           case SectionType.PV1:
             newSection = new Pv1Section(this.configService, this.translate, b);
+            break;
+          case SectionType.RXR:
+            newSection = new RxrSection(this.configService, this.translate, b);
             break;
           default: return;
         }
