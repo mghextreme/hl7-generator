@@ -44,7 +44,8 @@ export class RxeSection extends SectionBase {
           new StringField(3, 'rxe.1.3'),
           new DateTimeField(4, 'rxe.1.4'),
           new DateTimeField(5, 'rxe.1.5'),
-          new StringField(6, 'rxe.1.6')
+          new StringField(6, 'rxe.1.6'),
+          new StringField(7, 'rxe.1.7')
         ]),
       new MultipleField(
         this.configService,
