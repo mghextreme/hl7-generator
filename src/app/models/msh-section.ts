@@ -74,7 +74,7 @@ export class MshSection extends SectionBase {
         11,
         'msh.11',
         [
-          new OptionsField(this.translate, 1, 'msh.11.1', MshSection.msh_11_1_options),
+          new OptionsField(this.translate, 1, 'msh.11.1', MshSection.msh_11_1_options).init({ editable: false }),
           new OptionsField(this.translate, 2, 'msh.11.2', MshSection.msh_11_2_options)
         ]),
       new MultipleField(
@@ -82,7 +82,7 @@ export class MshSection extends SectionBase {
         12,
         'msh.12',
         [
-          new OptionsField(this.translate, 1, 'msh.12.1', MshSection.msh_12_1_options),
+          new OptionsField(this.translate, 1, 'msh.12.1', MshSection.msh_12_1_options).init({ editable: false }),
           new StringField(2, 'msh.12.2'),
           new StringField(3, 'msh.12.3')
         ]),

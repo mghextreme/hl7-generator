@@ -11,7 +11,7 @@
     <button pButton type="button" [label]="'actions.now' | translate" [title]="'actions.now' | translate" (click)="setNow()" class="ml-1"></button>
   </div>
   <div *ngSwitchCase="'options'">
-    <p-dropdown [options]="$any(field).selectItems" [(ngModel)]="$any(field).value" filter="true" (onChange)="handleChange()"></p-dropdown>
+    <p-dropdown [options]="$any(field).selectItems" [(ngModel)]="$any(field).value" [editable]="$any(field).editable" filter="true" (onChange)="handleChange()"></p-dropdown>
   </div>
   <div *ngSwitchCase="'multiple'">
     <div class="row row-cols-3 subfield py-1" *ngFor="let subfield of $any(field).subfields">

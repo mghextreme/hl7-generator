@@ -7,6 +7,7 @@ import { IOption } from './option.interface';
 export class OptionsField extends BaseField<OptionsField> {
   value?: string = '';
   selectItems: SelectItem[];
+  editable = true;
 
   constructor(
     private readonly translate: TranslateService,
@@ -28,7 +29,7 @@ export class OptionsField extends BaseField<OptionsField> {
         value: x.value
       } as SelectItem
     });
-    this.setDefaultValue();
+    this.setCustomOrDefaultValue();
   }
 
   public hasValue(): boolean {
@@ -39,11 +40,11 @@ export class OptionsField extends BaseField<OptionsField> {
 
   public setValue(value: any): void {
     if (value instanceof String || typeof(value) === 'string') {
-      const selectedOption = this.options.find((x) => x.value == value);
+      const selectedOption = this.options.find((x) => x.value === value);
       if (selectedOption !== undefined) {
         this.value = selectedOption.value;
       } else {
-        this.setDefaultValue();
+        this.setCustomOrDefaultValue(value as string);
       }
     }
 
@@ -63,7 +64,7 @@ export class OptionsField extends BaseField<OptionsField> {
     }
   }
 
-  private setDefaultValue(): void {
-    this.value = '';
+  private setCustomOrDefaultValue(value?: string): void {
+    this.value = this.editable && value !== undefined ? value : '';
   }
 }
