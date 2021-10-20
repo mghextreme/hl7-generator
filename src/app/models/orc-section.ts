@@ -1,6 +1,6 @@
 import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
-import { DateTimeField, MultipleField, OptionsField, StringField } from './fields';
+import { DateTimeField, EiCustomField, OptionsField, XcnCustomField } from './fields';
 import { IOption } from './option.interface';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
@@ -8,8 +8,8 @@ import { SectionType } from './section-type.enum';
 export class OrcSection extends SectionBase {
 
   constructor(
-    readonly configService: MessageConfigurationService,
-    readonly translate: TranslateService,
+    configService: MessageConfigurationService,
+    translate: TranslateService,
     text: string = ''
   ) {
     super(
@@ -19,35 +19,15 @@ export class OrcSection extends SectionBase {
       text);
   }
 
-  protected setFields(configService: MessageConfigurationService): void {
+  protected setFields(): void {
     this.fields = [
       new OptionsField(
         this.translate,
         1,
         'orc.1',
         OrcSection.orc_1_options),
-      new MultipleField(
-        this.configService,
-        2,
-        'orc.2',
-        [
-          new StringField(1, 'orc.2.1'),
-          new StringField(2, 'orc.2.2'),
-          new StringField(3, 'orc.2.3')
-        ]
-      ),
-      new MultipleField(
-        this.configService,
-        12,
-        'orc.12',
-        [
-          new StringField(1, 'orc.12.1'),
-          new StringField(2, 'orc.12.2'),
-          new StringField(3, 'orc.12.3'),
-          new StringField(4, 'orc.12.4'),
-          new StringField(5, 'orc.12.5')
-        ]
-      ),
+      new EiCustomField(this.configService, 2, 'orc.2'),
+      new XcnCustomField(this.configService, 12, 'orc.12'),
       new DateTimeField(15, 'orc.15')
     ];
   }

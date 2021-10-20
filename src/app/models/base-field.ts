@@ -5,12 +5,22 @@ export abstract class BaseField<T extends IField> implements IField {
   expanded: boolean;
   required: boolean;
 
+  private _i18n: string;
+
   valueGenerator?: (field: T) => void;
 
   constructor(
     public type: FieldType,
     public number: number,
-    public id: string) { }
+    public id: string,
+    i18n?: string
+  ) {
+    this._i18n = i18n !== undefined ? i18n : 'sections.' + this.id;
+  }
+
+  public get i18n(): string {
+    return this._i18n;
+  }
 
   public init(init?: Partial<T>): T {
     Object.assign(this, init);
@@ -37,10 +47,6 @@ export abstract class BaseField<T extends IField> implements IField {
   private toGeneric(): T {
     const asAny = this as any;
     return asAny as T;
-  }
-
-  public get i18n(): string {
-    return 'sections.' + this.id;
   }
 
 }

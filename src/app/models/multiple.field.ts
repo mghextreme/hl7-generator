@@ -6,17 +6,18 @@ import { BaseField } from './base-field';
 
 export class MultipleField extends BaseField<MultipleField> {
 
-  level = 1;
-
   constructor(
     private readonly configService: MessageConfigurationService,
     number: number,
-    i18n: string,
-    private subfields: IField[]
+    id: string,
+    private subfields: IField[],
+    i18n?: string,
+    public level = 1
   ) {
     super(
       FieldType.Multiple,
       number,
+      id,
       i18n);
   }
 

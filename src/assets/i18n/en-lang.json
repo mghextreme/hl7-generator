@@ -112,31 +112,7 @@
       "title": "Merge patient information",
       "1": {
         "name": "Prior Patient Identifier List",
-        "tags": "prior pid, prior identifier, prior patient id, prior patient identifier, previous pid, previous identifier, previous patient id, previous patient identifier",
-        "1": {
-          "name": "Id",
-          "tags": "id"
-        },
-        "4": {
-          "name": "Assigning Authority",
-          "tags": "assigning authority",
-          "1": {
-            "name": "Namespace ID"
-          },
-          "2": {
-            "name": "Universal ID"
-          }
-        },
-        "6": {
-          "name": "Assigning Facility",
-          "tags": "assigning facility",
-          "1": {
-            "name": "Namespace ID"
-          },
-          "2": {
-            "name": "Universal ID"
-          }
-        }
+        "tags": "prior pid, prior identifier, prior patient id, prior patient identifier, previous pid, previous identifier, previous patient id, previous patient identifier"
       },
       "3": {
         "name": "Prior Patient Account Number",
@@ -148,27 +124,7 @@
       },
       "7": {
         "name": "Prior Patient Name",
-        "tags": "previous patient name, prior patient name",
-        "1": {
-          "name": "Family Name",
-          "tags": "last name, family name, surname"
-        },
-        "2": {
-          "name": "Given Name",
-          "tags": "given name, first name"
-        },
-        "3": {
-          "name": "Middle Names",
-          "tags": "middle names, middle initials, other names"
-        },
-        "4": {
-          "name": "Suffix",
-          "tags": "suffix"
-        },
-        "5": {
-          "name": "Prefix",
-          "tags": "prefix"
-        }
+        "tags": "previous patient name, prior patient name"
       }
     },
     "msh": {
@@ -288,31 +244,11 @@
       },
       "2": {
         "name": "Place Order Number",
-        "tags": "place order number",
-        "1": {
-          "name": "Identifier",
-          "tags": "identifier"
-        },
-        "2": {
-          "name": "Namespace ID"
-        },
-        "3": {
-          "name": "Universal ID"
-        }
+        "tags": "place order number"
       },
       "3": {
         "name": "Filler Order Number",
-        "tags": "filler order number",
-        "1": {
-          "name": "Identifier",
-          "tags": "identifier"
-        },
-        "2": {
-          "name": "Namespace ID"
-        },
-        "3": {
-          "name": "Universal ID"
-        }
+        "tags": "filler order number"
       },
       "7": {
         "name": "Observation Date/Time",
@@ -327,19 +263,7 @@
       },
       "3": {
         "name": "Observation Identifier",
-        "tags": "observation identifier",
-        "1": {
-          "name": "Identifier",
-          "tags": "identifier"
-        },
-        "2": {
-          "name": "Text",
-          "tags": "text"
-        },
-        "3": {
-          "name": "Coding System",
-          "tags": "coding system"
-        }
+        "tags": "observation identifier"
       },
       "4": {
         "name": "Observation Sub-Id",
@@ -351,19 +275,7 @@
       },
       "6": {
         "name": "Units",
-        "tags": "units",
-        "1": {
-          "name": "Identifier",
-          "tags": "identifier"
-        },
-        "2": {
-          "name": "Text",
-          "tags": "text"
-        },
-        "3": {
-          "name": "Coding System",
-          "tags": "coding system"
-        }
+        "tags": "units"
       },
       "11": {
         "name": "Observation Result Status",
@@ -432,41 +344,11 @@
       },
       "2": {
         "name": "Place Order Number",
-        "tags": "place order number",
-        "1": {
-          "name": "Identifier",
-          "tags": "identifier"
-        },
-        "2": {
-          "name": "Namespace ID"
-        },
-        "3": {
-          "name": "Universal ID"
-        }
+        "tags": "place order number"
       },
       "12": {
         "name": "Ordering Provider",
-        "tags": "ordering provider",
-        "1": {
-          "name": "Family Name",
-          "tags": "last name, family name, surname"
-        },
-        "2": {
-          "name": "Given Name",
-          "tags": "given name, first name"
-        },
-        "3": {
-          "name": "Middle Names",
-          "tags": "middle names, middle initials, other names"
-        },
-        "4": {
-          "name": "Suffix",
-          "tags": "suffix"
-        },
-        "5": {
-          "name": "Prefix",
-          "tags": "prefix"
-        }
+        "tags": "ordering provider"
       },
       "15": {
         "name": "Order Effective Date/Time",
@@ -481,55 +363,15 @@
       },
       "3": {
         "name": "Patient Identifier List",
-        "tags": "pid, identifier, patient id, patient identifier",
-        "1": {
-          "name": "Id",
-          "tags": "id"
-        },
-        "4": {
-          "name": "Assigning Authority",
-          "tags": "assigning authority",
-          "1": {
-            "name": "Namespace ID"
-          },
-          "2": {
-            "name": "Universal ID"
-          }
-        },
-        "6": {
-          "name": "Assigning Facility",
-          "tags": "assigning facility",
-          "1": {
-            "name": "Namespace ID"
-          },
-          "2": {
-            "name": "Universal ID"
-          }
-        }
+        "tags": "pid, identifier, patient id, patient identifier"
+      },
+      "4": {
+        "name": "Alternate Patient ID",
+        "tags": "alternate patient id"
       },
       "5": {
         "name": "Patient Name",
-        "tags": "patient name",
-        "1": {
-          "name": "Family Name",
-          "tags": "last name, family name, surname"
-        },
-        "2": {
-          "name": "Given Name",
-          "tags": "given name, first name"
-        },
-        "3": {
-          "name": "Middle Names",
-          "tags": "middle names, middle initials, other names"
-        },
-        "4": {
-          "name": "Suffix",
-          "tags": "suffix"
-        },
-        "5": {
-          "name": "Prefix",
-          "tags": "prefix"
-        }
+        "tags": "patient name"
       },
       "7": {
         "name": "Date of Birth",
@@ -545,27 +387,7 @@
       },
       "11": {
         "name": "Patient Address",
-        "tags": "patient address",
-        "1": {
-          "name": "Street",
-          "tags": "street, road"
-        },
-        "3": {
-          "name": "City",
-          "tags": "city"
-        },
-        "4": {
-          "name": "State or Province",
-          "tags": "state, province"
-        },
-        "5": {
-          "name": "Zip or Postal Code",
-          "tags": "zip code, postal code"
-        },
-        "6": {
-          "name": "Country",
-          "tags": "country, nation"
-        }
+        "tags": "patient address"
       },
       "16": {
         "name": "Marital Status",
@@ -588,23 +410,7 @@
       "title": "Patient visit",
       "3": {
         "name": "Assigned Patient Location",
-        "tags": "assigned patient location, unit, room, bed",
-        "1": {
-          "name": "Point of Care",
-          "tags": "point of care, unit"
-        },
-        "2": {
-          "name": "Room",
-          "tags": "room"
-        },
-        "3": {
-          "name": "Bed",
-          "tags": "bed"
-        },
-        "4": {
-          "name": "Facility",
-          "tags": "facility, hospital"
-        }
+        "tags": "assigned patient location, unit, room, bed"
       },
       "36": {
         "name": "Discharge Disposition",
@@ -660,27 +466,7 @@
       },
       "2": {
         "name": "Give Code",
-        "tags": "give code",
-        "1": {
-          "name": "Identifier",
-          "tags": "identifier"
-        },
-        "2": {
-          "name": "Text",
-          "tags": "text"
-        },
-        "3": {
-          "name": "Coding System",
-          "tags": "coding system"
-        },
-        "4": {
-          "name": "Alternate Identifier",
-          "tags": "alternate identifier"
-        },
-        "5": {
-          "name": "Alternate Text",
-          "tags": "alternate text"
-        }
+        "tags": "give code"
       },
       "3": {
         "name": "Give Amount - Minimum",
@@ -761,6 +547,131 @@
           "VM": "VM - Ventimask",
           "WND": "WND - Wound"
         }
+      }
+    }
+  },
+  "data-types": {
+    "ce": {
+      "name": "Coded Element",
+      "1": {
+        "name": "Identifier"
+      },
+      "2": {
+        "name": "Text"
+      },
+      "3": {
+        "name": "Coding System"
+      },
+      "4": {
+        "name": "Alternate Identifier"
+      },
+      "5": {
+        "name": "Alternate Text"
+      },
+      "6": {
+        "name": "Alternate Coding System"
+      }
+    },
+    "cx": {
+      "name": "Extended Composite ID With Check Digit",
+      "1": {
+        "name": "Id"
+      },
+      "4": {
+        "name": "Assigning Authority"
+      },
+      "6": {
+        "name": "Assigning Facility"
+      }
+    },
+    "ei": {
+      "name": "Entity Identifier",
+      "1": {
+        "name": "Identifier"
+      },
+      "2": {
+        "name": "Namespace ID"
+      },
+      "3": {
+        "name": "Universal ID"
+      }
+    },
+    "hd": {
+      "name": "Hierarchic Designator",
+      "1": {
+        "name": "Namespace Id"
+      },
+      "2": {
+        "name": "Universal Id"
+      }
+    },
+    "pl": {
+      "name": "Person Location",
+      "1": {
+        "name": "Point of Care"
+      },
+      "2": {
+        "name": "Room"
+      },
+      "3": {
+        "name": "Bed"
+      },
+      "4": {
+        "name": "Facility"
+      }
+    },
+    "xad": {
+      "name": "Extended Address",
+      "1": {
+        "name": "Street"
+      },
+      "3": {
+        "name": "City"
+      },
+      "4": {
+        "name": "State or Province"
+      },
+      "5": {
+        "name": "Zip or Postal Code"
+      },
+      "6": {
+        "name": "Country"
+      }
+    },
+    "xcn": {
+      "name": "Extended Composite ID Number And Name For Persons",
+      "1": {
+        "name": "Family Name"
+      },
+      "2": {
+        "name": "Given Name"
+      },
+      "3": {
+        "name": "Middle Names"
+      },
+      "4": {
+        "name": "Suffix"
+      },
+      "5": {
+        "name": "Prefix"
+      }
+    },
+    "xpn": {
+      "name": "Extended Person Name",
+      "1": {
+        "name": "Family Name"
+      },
+      "2": {
+        "name": "Given Name"
+      },
+      "3": {
+        "name": "Middle Names"
+      },
+      "4": {
+        "name": "Suffix"
+      },
+      "5": {
+        "name": "Prefix"
       }
     }
   }

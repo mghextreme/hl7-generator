@@ -8,11 +8,13 @@ export class DateTimeField extends BaseField<DateTimeField> {
 
   constructor(
     number: number,
-    i18n: string
+    id: string,
+    i18n?: string
   ) {
     super(
       FieldType.DateTime,
       number,
+      id,
       i18n);
 
       this.value = new Date(new Date().setSeconds(0));

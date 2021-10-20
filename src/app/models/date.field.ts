@@ -7,11 +7,13 @@ export class DateField extends BaseField<DateField> {
 
   constructor(
     number: number,
-    i18n: string
+    id: string,
+    i18n?: string
   ) {
     super(
       FieldType.Date,
       number,
+      id,
       i18n);
 
     this.value = new Date();

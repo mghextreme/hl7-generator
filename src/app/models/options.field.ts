@@ -9,14 +9,16 @@ export class OptionsField extends BaseField<OptionsField> {
   selectItems: SelectItem[];
 
   constructor(
-    readonly translate: TranslateService,
+    private readonly translate: TranslateService,
     number: number,
-    i18n: string,
-    private readonly options: IOption[]
+    id: string,
+    private readonly options: IOption[],
+    i18n?: string
   ) {
     super(
       FieldType.Options,
       number,
+      id,
       i18n);
 
     this.verifyOptions();

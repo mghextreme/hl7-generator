@@ -1,14 +1,14 @@
 import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
-import { DateTimeField, MultipleField, StringField } from './fields';
+import { DateTimeField, EiCustomField, StringField } from './fields';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
 
 export class ObrSection extends SectionBase {
 
   constructor(
-    readonly configService: MessageConfigurationService,
-    readonly translate: TranslateService,
+    configService: MessageConfigurationService,
+    translate: TranslateService,
     text: string = ''
   ) {
     super(
@@ -18,27 +18,11 @@ export class ObrSection extends SectionBase {
       text);
   }
 
-  protected setFields(configService: MessageConfigurationService): void {
+  protected setFields(): void {
     this.fields = [
       new StringField(1, 'obr.1'),
-      new MultipleField(
-        this.configService,
-        2,
-        'obr.2',
-        [
-          new StringField(1, 'obr.2.1'),
-          new StringField(2, 'obr.2.2'),
-          new StringField(3, 'obr.2.3')
-        ]),
-      new MultipleField(
-        this.configService,
-        3,
-        'obr.3',
-        [
-          new StringField(1, 'obr.3.1'),
-          new StringField(2, 'obr.3.2'),
-          new StringField(3, 'obr.3.3')
-        ]),
+      new EiCustomField(this.configService, 2, 'obr.2'),
+      new EiCustomField(this.configService, 3, 'obr.3'),
       new DateTimeField(7, 'obr.7')
     ];
   }

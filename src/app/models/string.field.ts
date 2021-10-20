@@ -9,12 +9,14 @@ export class StringField extends BaseField<StringField> {
 
   constructor(
     number: number,
-    i18n: string,
-    readonly defaultValue: string = ''
+    id: string,
+    readonly defaultValue: string = '',
+    i18n?: string
   ) {
     super(
       FieldType.String,
       number,
+      id,
       i18n);
 
     if (defaultValue !== undefined &&

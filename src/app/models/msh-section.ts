@@ -2,17 +2,16 @@ import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
 import { SectionType } from './section-type.enum';
 import { SectionBase } from './section-base';
-import { DateTimeField, MultipleField, StringField } from './fields';
+import { DateTimeField, HdCustomField, MultipleField, OptionsField, StringField } from './fields';
 import faker from 'faker';
 import moment from 'moment-timezone';
-import { OptionsField } from './options.field';
 import { IOption } from './option.interface';
 
 export class MshSection extends SectionBase {
 
   constructor(
-    readonly configService: MessageConfigurationService,
-    readonly translate: TranslateService,
+    configService: MessageConfigurationService,
+    translate: TranslateService,
     text: string = ''
   ) {
     super(
@@ -22,7 +21,7 @@ export class MshSection extends SectionBase {
       text);
   }
 
-  protected setFields(configService: MessageConfigurationService): void {
+  protected setFields(): void {
     this.fields = [
       new StringField(1, 'msh.1').init({
         required: true,
@@ -49,14 +48,14 @@ export class MshSection extends SectionBase {
               field.getField(4).toString();
           }
       }),
-      new StringField(3, 'msh.3'),
-      new StringField(4, 'msh.4'),
-      new StringField(5, 'msh.5'),
-      new StringField(6, 'msh.6'),
+      new HdCustomField(this.configService, 3, 'msh.3'),
+      new HdCustomField(this.configService, 4, 'msh.4'),
+      new HdCustomField(this.configService, 5, 'msh.5'),
+      new HdCustomField(this.configService, 6, 'msh.6'),
       new DateTimeField(7, 'msh.7').init({
         includeSeconds: true,
         valueGenerator: (f) => {
-          f.setValue(moment.tz(configService.timezone).local(true).toDate());
+          f.setValue(moment.tz(this.configService.timezone).local(true).toDate());
         }
       }),
       new MultipleField(

@@ -21,12 +21,12 @@ export abstract class SectionBase implements ISection {
     this.type = type;
     this.expanded = true;
 
-    this.setFields(this.configService);
+    this.setFields();
 
     this.parse(text);
   }
 
-  protected abstract setFields(configService: MessageConfigurationService): void;
+  protected abstract setFields(): void;
 
   public getField(number: number): IField {
     return _.find(this.fields, f => f.number === number);

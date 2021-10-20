@@ -1,14 +1,14 @@
 import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
-import { DateTimeField, MultipleField, StringField } from './fields';
+import { CeCustomField, DateTimeField, MultipleField, StringField } from './fields';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
 
 export class RxeSection extends SectionBase {
 
   constructor(
-    readonly configService: MessageConfigurationService,
-    readonly translate: TranslateService,
+    configService: MessageConfigurationService,
+    translate: TranslateService,
     text: string = ''
   ) {
     super(
@@ -18,7 +18,7 @@ export class RxeSection extends SectionBase {
       text);
   }
 
-  protected setFields(configService: MessageConfigurationService): void {
+  protected setFields(): void {
     this.fields = [
       new MultipleField(
         this.configService,
@@ -47,17 +47,7 @@ export class RxeSection extends SectionBase {
           new StringField(6, 'rxe.1.6'),
           new StringField(7, 'rxe.1.7')
         ]),
-      new MultipleField(
-        this.configService,
-        2,
-        'rxe.2',
-        [
-          new StringField(1, 'rxe.2.1'),
-          new StringField(2, 'rxe.2.2'),
-          new StringField(3, 'rxe.2.3'),
-          new StringField(4, 'rxe.2.4'),
-          new StringField(5, 'rxe.2.5')
-        ]),
+      new CeCustomField(this.configService, 2, 'rxe.2'),
       new StringField(3, 'rxe.3'),
       new StringField(4, 'rxe.4'),
       new MultipleField(

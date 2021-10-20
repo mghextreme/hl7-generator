@@ -1,6 +1,6 @@
 import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
-import { MultipleField, StringField } from './fields';
+import { CxCustomField, MultipleField, StringField, XpnCustomField } from './fields';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
 import faker from 'faker';
@@ -8,8 +8,8 @@ import faker from 'faker';
 export class MrgSection extends SectionBase {
 
   constructor(
-    readonly configService: MessageConfigurationService,
-    readonly translate: TranslateService,
+    configService: MessageConfigurationService,
+    translate: TranslateService,
     text: string = ''
   ) {
     super(
@@ -31,32 +31,12 @@ export class MrgSection extends SectionBase {
     this.getField(4).setValue('ID-' + uniq);
   }
 
-  protected setFields(configService: MessageConfigurationService) {
+  protected setFields() {
     this.fields = [
-      new MultipleField(
-        configService,
-        1,
-        'mrg.1',
-        [
-          new StringField(1, 'mrg.1.1'),
-          new StringField(4, 'mrg.1.4', this.configService.retrieve('PID.3.4')),
-          new StringField(6, 'mrg.1.6', this.configService.retrieve('PID.3.4'))
-        ]
-      ),
-      new StringField(3, 'mrg.3'),
-      new StringField(4, 'mrg.4'),
-      new MultipleField(
-        configService,
-        7,
-        'mrg.7',
-        [
-          new StringField(1, 'mrg.7.1'),
-          new StringField(2, 'mrg.7.2'),
-          new StringField(3, 'mrg.7.3'),
-          new StringField(4, 'mrg.7.4'),
-          new StringField(5, 'mrg.7.5')
-        ]
-      ).init({ valueGenerator: (f) => {
+      new CxCustomField(this.configService, 1, 'mrg.1'),
+      new CxCustomField(this.configService, 3, 'mrg.3'),
+      new CxCustomField(this.configService, 4, 'mrg.4'),
+      new XpnCustomField(this.configService, 7, 'mrg.7').init({ valueGenerator: (f) => {
         f.setValue([
           faker.name.lastName(),
           faker.name.firstName(),

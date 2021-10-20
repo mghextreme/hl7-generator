@@ -8,8 +8,8 @@ import { SectionType } from './section-type.enum';
 export class RxrSection extends SectionBase {
 
   constructor(
-    readonly configService: MessageConfigurationService,
-    readonly translate: TranslateService,
+    configService: MessageConfigurationService,
+    translate: TranslateService,
     text: string = ''
   ) {
     super(
@@ -19,7 +19,7 @@ export class RxrSection extends SectionBase {
       text);
   }
 
-  protected setFields(configService: MessageConfigurationService): void {
+  protected setFields(): void {
     this.fields = [
       new OptionsField(
         this.translate,
