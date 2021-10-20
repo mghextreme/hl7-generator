@@ -49,7 +49,7 @@ export class HomeComponent implements OnDestroy {
     this.refreshTemplates();
 
     this.hl7 = this.configService.retrieve('hl7') ?? '';
-    this.parseHl7();
+    setTimeout(() => this.parseHl7(), 1);
   }
 
   public addSection(type: string) {
