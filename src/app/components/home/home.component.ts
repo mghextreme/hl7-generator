@@ -147,6 +147,7 @@ export class HomeComponent implements OnDestroy {
     this.expectedHl7 = _.join(this.sections.map(s => s.toString() + this.configService.escapeCharacter + 'r'), '\r\n');
     this.hl7 = this.expectedHl7;
 
+    this.handleHl7Change();
     this.runValidation();
   }
 
