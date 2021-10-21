@@ -5,6 +5,7 @@ import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
 import faker from 'faker';
 import moment from 'moment-timezone';
+import { PlCustomField } from './pl.custom.field';
 
 export class Pv1Section extends SectionBase {
 
@@ -26,17 +27,7 @@ export class Pv1Section extends SectionBase {
 
   protected setFields(): void {
     this.fields = [
-      new MultipleField(
-        this.configService,
-        3,
-        'pv1.3',
-        [
-          new StringField(1, 'pv1.3.1'),
-          new StringField(2, 'pv1.3.2'),
-          new StringField(3, 'pv1.3.3'),
-          new StringField(4, 'pv1.3.4')
-        ]
-      ),
+      new PlCustomField(this.configService, 3, 'pv1.3'),
       new StringField(36, 'pv1.36').init({ valueGenerator: (f) => {
         f.setValue(
           faker.random.arrayElement(
