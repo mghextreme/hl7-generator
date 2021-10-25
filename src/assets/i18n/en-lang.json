@@ -429,40 +429,7 @@
       "title": "Pharmacy/Treatment Encoded Order",
       "1": {
         "name": "Quantity/Timing",
-        "tags": "quantity, timing, quantity and timing",
-        "1": {
-          "name": "Quantity",
-          "1": {
-            "name": "Quantity"
-          },
-          "2": {
-            "name": "Units"
-          }
-        },
-        "2": {
-          "name": "Interval",
-          "1": {
-            "name": "Repeat Pattern"
-          },
-          "2": {
-            "name": "Explicit Time Interval"
-          }
-        },
-        "3": {
-          "name": "Duration"
-        },
-        "4": {
-          "name": "Start Date/Time"
-        },
-        "5": {
-          "name": "End Date/Time"
-        },
-        "6": {
-          "name": "Priority"
-        },
-        "7": {
-          "name": "Condition"
-        }
+        "tags": "quantity, timing, quantity and timing"
       },
       "2": {
         "name": "Give Code",
@@ -478,19 +445,7 @@
       },
       "5": {
         "name": "Give Units",
-        "tags": "give units",
-        "1": {
-          "name": "Identifier",
-          "tags": "identifier"
-        },
-        "2": {
-          "name": "Text",
-          "tags": "text"
-        },
-        "3": {
-          "name": "Coding System",
-          "tags": "coding system"
-        }
+        "tags": "give units"
       }
     },
     "rxr": {
@@ -618,6 +573,42 @@
       },
       "4": {
         "name": "Facility"
+      }
+    },
+    "tq": {
+      "name": "Timing Quantity",
+      "1": {
+        "name": "Quantity",
+        "1": {
+          "name": "Quantity"
+        },
+        "2": {
+          "name": "Units"
+        }
+      },
+      "2": {
+        "name": "Interval",
+        "1": {
+          "name": "Repeat Pattern"
+        },
+        "2": {
+          "name": "Explicit Time Interval"
+        }
+      },
+      "3": {
+        "name": "Duration"
+      },
+      "4": {
+        "name": "Start Date/Time"
+      },
+      "5": {
+        "name": "End Date/Time"
+      },
+      "6": {
+        "name": "Priority"
+      },
+      "7": {
+        "name": "Condition"
       }
     },
     "xad": {
