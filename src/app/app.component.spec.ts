@@ -1,9 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
-import { DialogModule } from 'primeng/dialog';
-import { MenuModule } from 'primeng/menu';
-import { TreeTableModule } from 'primeng/treetable';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { ConfirmationService } from 'primeng';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
 import { ListboxModule } from 'primeng/listbox';
@@ -12,12 +14,15 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
 import { SplitButtonModule } from 'primeng/splitbutton';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { AutoCompleteModule } from 'primeng/autocomplete';
+import { CalendarModule } from 'primeng/calendar';
+import { ChipsModule } from 'primeng/chips';
+import { InputTextModule } from 'primeng/inputtext';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { AppComponent } from './app.component';
 import { pagesComponents } from './app.routes';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateLoaderMock } from './testing/translate-loader-mock';
+import { MessageConfigurationService } from './services';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -30,24 +35,32 @@ describe('AppComponent', () => {
           },
         }),
         RouterTestingModule,
+        ClipboardModule,
+        CommonModule,
         FormsModule,
-        DropdownModule,
-        DialogModule,
-        MenuModule,
-        TreeTableModule,
-        TableModule,
-        ListboxModule,
+        HttpClientModule,
+        AutoCompleteModule,
+        ButtonModule,
+        CalendarModule,
+        ChipsModule,
+        SplitButtonModule,
         InputSwitchModule,
+        InputTextModule,
         InputNumberModule,
         CheckboxModule,
-        ButtonModule,
-        SplitButtonModule,
-        ConfirmDialogModule,
-        AutoCompleteModule
+        ListboxModule,
+        DropdownModule,
+        DynamicDialogModule,
+        TableModule,
       ],
       declarations: [
         AppComponent,
         ...pagesComponents
+      ],
+      providers: [
+        ConfirmationService,
+        DialogService,
+        MessageConfigurationService
       ],
     }).compileComponents();
   }));

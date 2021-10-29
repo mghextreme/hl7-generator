@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateLoaderMock } from 'app/testing/translate-loader-mock';
+import { DialogService } from 'primeng/dynamicdialog';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -19,7 +20,10 @@ describe('HomeComponent', () => {
         }),
         RouterModule.forRoot([])
       ],
-      declarations: [ HomeComponent ]
+      declarations: [ HomeComponent ],
+      providers:[
+        DialogService
+      ]
     })
     .compileComponents();
   }));

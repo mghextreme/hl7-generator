@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { SectionComponent } from './section.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateLoaderMock } from 'app/testing/translate-loader-mock';
+import { ISection, PidSection, SectionType } from 'app/models';
 
 describe('SectionComponent', () => {
   let component: SectionComponent;
@@ -27,6 +28,12 @@ describe('SectionComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SectionComponent);
     component = fixture.componentInstance;
+    component.section = {
+      expanded: true,
+      fields: [],
+      id: 'section.test',
+      type: SectionType.PID
+    } as ISection;
     fixture.detectChanges();
   });
 
