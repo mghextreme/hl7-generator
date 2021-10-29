@@ -28,20 +28,19 @@ export abstract class SectionBase implements ISection {
 
   protected abstract setFields(): void;
 
-  public getField(number: number): IField {
-    return _.find(this.fields, f => f.number === number);
+  public getField(fieldNumber: number): IField {
+    return _.find(this.fields, f => f.fieldNumber === fieldNumber);
   }
 
   public toString(): string {
     let result = this.type.toString();
     let lastIndex = 0;
 
-    for (let i = 0; i < this.fields.length; i++) {
-      const cur = this.fields[i];
+    for (const cur of this.fields) {
       if (cur.expanded &&
           cur.hasValue()) {
-          result += this.configService.fieldSeparator.repeat(cur.number - lastIndex);
-          lastIndex = cur.number;
+          result += this.configService.fieldSeparator.repeat(cur.fieldNumber - lastIndex);
+          lastIndex = cur.fieldNumber;
 
           result += cur.toString();
       }

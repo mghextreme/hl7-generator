@@ -21,7 +21,7 @@ describe('HomeComponent', () => {
         RouterModule.forRoot([])
       ],
       declarations: [ HomeComponent ],
-      providers:[
+      providers: [
         DialogService
       ]
     })

@@ -25,7 +25,7 @@ export class TemplateService {
 
   add(template: Template): void {
     this._templates.push(template);
-    this._templates = this._templates.sort((a, b) => { return a.title > b.title ? 1 : -1; });
+    this._templates = this._templates.sort((a, b) => a.title > b.title ? 1 : -1);
 
     this.saveTemplates();
   }

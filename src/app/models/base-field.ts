@@ -11,7 +11,7 @@ export abstract class BaseField<T extends IField> implements IField {
 
   constructor(
     public type: FieldType,
-    public number: number,
+    public fieldNumber: number,
     public id: string,
     i18n?: string
   ) {

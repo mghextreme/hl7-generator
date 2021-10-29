@@ -7,17 +7,17 @@ export class DateTimeField extends BaseField<DateTimeField> {
   includeSeconds = false;
 
   constructor(
-    number: number,
+    fieldNumber: number,
     id: string,
     i18n?: string
   ) {
     super(
       FieldType.DateTime,
-      number,
+      fieldNumber,
       id,
       i18n);
 
-      this.value = new Date(new Date().setSeconds(0));
+    this.value = new Date(new Date().setSeconds(0));
   }
 
   public hasValue(): boolean {

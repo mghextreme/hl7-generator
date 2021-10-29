@@ -23,8 +23,8 @@ export class FieldSearchService {
         const newField = new FieldSearchResult({
           parentId: section.id,
           parentTitle: this.translate.instant('sections.' + section.type.toLowerCase() + '.title'),
-          fieldNumber: field.number,
-          id: section.type + '.' + field.number,
+          fieldNumber: field.fieldNumber,
+          id: section.type + '.' + field.fieldNumber,
           title: this.translate.instant(field.i18n + '.name'),
           tags: this.translate.instant(field.i18n + '.tags')
         });

@@ -8,14 +8,14 @@ export class StringField extends BaseField<StringField> {
   maxLength?: number;
 
   constructor(
-    number: number,
+    fieldNumber: number,
     id: string,
     readonly defaultValue: string = '',
     i18n?: string
   ) {
     super(
       FieldType.String,
-      number,
+      fieldNumber,
       id,
       i18n);
 

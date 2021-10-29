@@ -12,7 +12,7 @@ export class MessageConfigurationService {
   private _fieldRepeatSeparator;
   private _escapeCharacter;
 
-  constructor(){
+  constructor() {
     this._timezone = this.retrieve('timezone') ?? 'UTC';
     this._fieldSeparator = this.retrieve('MSH.1') ?? '|';
     this._componentSeparator = this.retrieve('MSH.2.1') ?? '^';

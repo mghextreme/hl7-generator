@@ -6,7 +6,7 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
   templateUrl: './validation-errors-template.component.html',
   styleUrls: ['./validation-errors-template.component.scss']
 })
-export class ValidationErrorsTemplate {
+export class ValidationErrorsTemplateComponent {
 
   errors: IValidationError[];
 

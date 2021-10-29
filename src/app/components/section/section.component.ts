@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ISection } from 'app/models';
 
 @Component({
-  selector: 'section',
+  selector: 'app-section',
   templateUrl: './section.component.html',
   styleUrls: ['./section.component.scss']
 })
@@ -44,16 +44,16 @@ export class SectionComponent {
     this.section.expanded = false;
   }
 
-  public handleAddField(number: number) {
-    const field = this.section.getField(number);
+  public handleAddField(fieldNumber: number) {
+    const field = this.section.getField(fieldNumber);
     if (field) {
       field.expanded = true;
     }
     this.change.emit();
   }
 
-  public handleRemoveField(number: number) {
-    const fields = this.section.fields.filter(f => f.number === number);
+  public handleRemoveField(fieldNumber: number) {
+    const fields = this.section.fields.filter(f => f.fieldNumber === fieldNumber);
     fields.forEach(f => f.expanded = false);
     this.change.emit();
   }

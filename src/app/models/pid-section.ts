@@ -39,12 +39,12 @@ export class PidSection extends SectionBase {
           faker.name.lastName(),
           faker.name.firstName(),
           faker.datatype.boolean() ? faker.name.firstName() : '',
-          faker.datatype.number(8) === 1 ? faker.name.suffix() : ''])
+          faker.datatype.number(8) === 1 ? faker.name.suffix() : '']);
       }}),
       new DateField(7, 'pid.7').init({ valueGenerator: (f) => {
         const tz = this.configService.timezone;
         f.setValue(
-          faker.date.past(75, moment.tz(tz).local(true).subtract(5, 'year').toDate()))
+          faker.date.past(75, moment.tz(tz).local(true).subtract(5, 'year').toDate()));
       }}),
       new StringField(8, 'pid.8').init({ valueGenerator: (f) => {
         f.setValue(

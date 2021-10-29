@@ -4,7 +4,7 @@ import { MessageConfigurationService } from 'app/services';
 import moment from 'moment-timezone';
 
 @Component({
-  selector: 'field',
+  selector: 'app-field',
   templateUrl: './field.component.html',
   styleUrls: ['./field.component.scss']
 })

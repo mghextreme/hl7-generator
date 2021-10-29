@@ -41,7 +41,7 @@ export class MrgSection extends SectionBase {
           faker.name.lastName(),
           faker.name.firstName(),
           faker.datatype.boolean() ? faker.name.firstName() : '',
-          faker.datatype.number(8) === 1 ? faker.name.suffix() : ''])
+          faker.datatype.number(8) === 1 ? faker.name.suffix() : '']);
       }})
     ];
   }

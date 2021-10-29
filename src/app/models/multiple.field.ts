@@ -8,7 +8,7 @@ export class MultipleField extends BaseField<MultipleField> {
 
   constructor(
     private readonly configService: MessageConfigurationService,
-    number: number,
+    fieldNumber: number,
     id: string,
     private subfields: IField[],
     i18n?: string,
@@ -16,7 +16,7 @@ export class MultipleField extends BaseField<MultipleField> {
   ) {
     super(
       FieldType.Multiple,
-      number,
+      fieldNumber,
       id,
       i18n);
   }
@@ -25,8 +25,8 @@ export class MultipleField extends BaseField<MultipleField> {
     return _.some(this.subfields, f => f.hasValue());
   }
 
-  public getField(number: number): IField {
-    return _.find(this.subfields, f => f.number === number);
+  public getField(fieldNumber: number): IField {
+    return _.find(this.subfields, f => f.fieldNumber === fieldNumber);
   }
 
   public setValue(value: any): void {
@@ -50,13 +50,12 @@ export class MultipleField extends BaseField<MultipleField> {
     let result = '';
     let lastIndex = 1;
 
-    let separator = this.getSplitCharacter();
+    const separator = this.getSplitCharacter();
 
-    for (let i = 0; i < field.subfields.length; i++) {
-      const cur = field.subfields[i];
+    for (const cur of field.subfields) {
       if (cur.hasValue()) {
-          result += separator.repeat(cur.number - lastIndex);
-          lastIndex = cur.number;
+          result += separator.repeat(cur.fieldNumber - lastIndex);
+          lastIndex = cur.fieldNumber;
 
           result += cur.toString();
       }

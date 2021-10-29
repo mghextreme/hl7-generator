@@ -2,16 +2,16 @@ import { FieldType } from './field-type.enum';
 
 export interface IField {
   id: string;
-  number: number;
+  fieldNumber: number;
   type: FieldType;
   expanded: boolean;
   required: boolean;
 
   i18n: string;
 
-  init(init?: Partial<IField>): IField;
-
   valueGenerator?: (field: IField) => void;
+
+  init(init?: Partial<IField>): IField;
 
   hasValueAndExpanded(): boolean;
 

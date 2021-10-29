@@ -4,7 +4,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { IValidationError } from 'app/models';
 import { TranslateLoaderMock } from 'app/testing/translate-loader-mock';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { ValidationErrorsTemplate } from './validation-errors-template.component';
+import { ValidationErrorsTemplateComponent } from './validation-errors-template.component';
 
 class DynamicDialogConfigMock extends DynamicDialogConfig {
   data = {
@@ -19,8 +19,8 @@ class DynamicDialogConfigMock extends DynamicDialogConfig {
 }
 
 describe('ValidationErrorsTemplate', () => {
-  let component: ValidationErrorsTemplate;
-  let fixture: ComponentFixture<ValidationErrorsTemplate>;
+  let component: ValidationErrorsTemplateComponent;
+  let fixture: ComponentFixture<ValidationErrorsTemplateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -33,8 +33,8 @@ describe('ValidationErrorsTemplate', () => {
         }),
         RouterModule.forRoot([])
       ],
-      declarations: [ ValidationErrorsTemplate ],
-      providers:[
+      declarations: [ ValidationErrorsTemplateComponent ],
+      providers: [
         DynamicDialogRef,
         { provide: DynamicDialogConfig, useValue: new DynamicDialogConfigMock() }
       ]
@@ -43,7 +43,7 @@ describe('ValidationErrorsTemplate', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ValidationErrorsTemplate);
+    fixture = TestBed.createComponent(ValidationErrorsTemplateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -29,7 +29,7 @@ describe('FieldComponent', () => {
     fixture = TestBed.createComponent(FieldComponent);
     component = fixture.componentInstance;
     component.field = {
-      number: 1,
+      fieldNumber: 1,
       id: 'field.test',
       i18n: 'field.test.label',
       required: false,

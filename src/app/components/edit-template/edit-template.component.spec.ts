@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateLoaderMock } from 'app/testing/translate-loader-mock';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { EditTemplate } from './edit-template.component';
+import { EditTemplateComponent } from './edit-template.component';
 
 class DynamicDialogConfigMock extends DynamicDialogConfig {
   data = {
@@ -13,8 +13,8 @@ class DynamicDialogConfigMock extends DynamicDialogConfig {
 }
 
 describe('EditTemplate', () => {
-  let component: EditTemplate;
-  let fixture: ComponentFixture<EditTemplate>;
+  let component: EditTemplateComponent;
+  let fixture: ComponentFixture<EditTemplateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -27,8 +27,8 @@ describe('EditTemplate', () => {
         }),
         RouterModule.forRoot([])
       ],
-      declarations: [ EditTemplate ],
-      providers:[
+      declarations: [ EditTemplateComponent ],
+      providers: [
         DynamicDialogRef,
         { provide: DynamicDialogConfig, useValue: new DynamicDialogConfigMock() }
       ]
@@ -38,7 +38,7 @@ describe('EditTemplate', () => {
 
   beforeEach(() => {
     console.log(1);
-    fixture = TestBed.createComponent(EditTemplate);
+    fixture = TestBed.createComponent(EditTemplateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

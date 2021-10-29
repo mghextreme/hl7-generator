@@ -11,14 +11,14 @@ export class OptionsField extends BaseField<OptionsField> {
 
   constructor(
     private readonly translate: TranslateService,
-    number: number,
+    fieldNumber: number,
     id: string,
     private readonly options: IOption[],
     i18n?: string
   ) {
     super(
       FieldType.Options,
-      number,
+      fieldNumber,
       id,
       i18n);
 
@@ -27,7 +27,7 @@ export class OptionsField extends BaseField<OptionsField> {
       return {
         label: translate.instant(x.i18n),
         value: x.value
-      } as SelectItem
+      } as SelectItem;
     });
     this.setCustomOrDefaultValue();
   }

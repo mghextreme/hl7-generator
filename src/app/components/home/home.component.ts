@@ -3,11 +3,11 @@ import { Clipboard as MyClipboard } from '@angular/cdk/clipboard';
 import { AutoComplete } from 'primeng/autocomplete';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { FieldSearchResult, ISection, IValidationError, MrgSection, MshSection, ObrSection, ObxSection, OrcSection, PidSection, Pv1Section, RxeSection, RxrSection, SectionType, Template } from 'app/models';
-import { FieldSearchService, MessageConfigurationService,TemplateService, ValidationService } from 'app/services';
+import { FieldSearchService, MessageConfigurationService, TemplateService, ValidationService } from 'app/services';
 import _ from 'lodash';
 import { TranslateService } from '@ngx-translate/core';
-import { EditTemplate } from '../edit-template/edit-template.component';
-import { ValidationErrorsTemplate } from '../validation-errors-template/validation-errors-template.component';
+import { EditTemplateComponent } from '../edit-template/edit-template.component';
+import { ValidationErrorsTemplateComponent } from '../validation-errors-template/validation-errors-template.component';
 
 @Component({
   templateUrl: './home.component.html',
@@ -116,8 +116,7 @@ export class HomeComponent implements OnDestroy {
         }
 
         this.sections.push(newSection);
-      }
-      catch (err) {
+      } catch (err) {
         console.error(err);
       }
     });
@@ -169,10 +168,10 @@ export class HomeComponent implements OnDestroy {
   }
 
   public saveAsTemplate() {
-    this.ref = this.dialogService.open(EditTemplate, {
+    this.ref = this.dialogService.open(EditTemplateComponent, {
       header: this.translate.instant('templates.add'),
       width: '50%',
-      contentStyle: { 'max-height': '500px', 'overflow': 'auto', 'padding': '0' },
+      contentStyle: { 'max-height': '500px', 'padding': '0' },
       data: {
         isNew: true,
         hl7: this.hl7
@@ -185,10 +184,10 @@ export class HomeComponent implements OnDestroy {
   }
 
   public editTemplate(template: Template) {
-    this.ref = this.dialogService.open(EditTemplate, {
+    this.ref = this.dialogService.open(EditTemplateComponent, {
       header: this.translate.instant('templates.edit'),
       width: '50%',
-      contentStyle: { 'max-height': '500px', 'overflow': 'auto', 'padding': '0' },
+      contentStyle: { 'max-height': '500px', 'padding': '0' },
       data: {
         isNew: false,
         title: template.title,
@@ -217,10 +216,10 @@ export class HomeComponent implements OnDestroy {
   }
 
   public openValidationDetails(): void {
-    this.ref = this.dialogService.open(ValidationErrorsTemplate, {
+    this.ref = this.dialogService.open(ValidationErrorsTemplateComponent, {
       header: this.translate.instant('validation.window-title'),
       width: '50%',
-      contentStyle: { 'max-height': '500px', 'overflow': 'auto', 'padding': '0' },
+      contentStyle: { 'max-height': '500px', 'padding': '0' },
       data: {
         errors: this.validationErrors
       }
@@ -251,10 +250,10 @@ export class HomeComponent implements OnDestroy {
         const field = section.getField(fieldNumber);
         field.expanded = true;
 
-        setTimeout(() => this.scrollTo(parentId, field.number), 100);
+        setTimeout(() => this.scrollTo(parentId, field.fieldNumber), 100);
         setTimeout(() => this.focusInto(parentId, field.id), 150);
       } else {
-        setTimeout(() => this.scrollTo(parentId, section.fields[0].number), 100);
+        setTimeout(() => this.scrollTo(parentId, section.fields[0].fieldNumber), 100);
       }
     }
   }

@@ -8,7 +8,7 @@ export interface ISection {
 
   fields: IField[];
 
-  getField(number: number): IField;
+  getField(fieldNumber: number): IField;
 
   toString(): string;
 

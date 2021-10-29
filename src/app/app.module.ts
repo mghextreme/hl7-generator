@@ -32,8 +32,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { SectionComponent } from './components/section/section.component';
 import { FieldComponent } from './components/field/field.component';
-import { EditTemplate } from './components/edit-template/edit-template.component';
-import { ValidationErrorsTemplate } from './components/validation-errors-template/validation-errors-template.component';
+import { EditTemplateComponent } from './components/edit-template/edit-template.component';
+import { ValidationErrorsTemplateComponent } from './components/validation-errors-template/validation-errors-template.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '-lang.json');
@@ -45,8 +45,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     PageHeaderComponent,
     SectionComponent,
     FieldComponent,
-    EditTemplate,
-    ValidationErrorsTemplate,
+    EditTemplateComponent,
+    ValidationErrorsTemplateComponent,
     ...pagesComponents
   ],
   imports: [

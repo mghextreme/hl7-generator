@@ -185,7 +185,7 @@ export class ConfigurationComponent {
   get timezonesList(): SelectItem[] {
     return moment.tz
       .names()
-      .map((tz: string) => { return { label: tz, value: tz }});
+      .map((tz: string) => { return { label: tz, value: tz }; });
   }
 
 }

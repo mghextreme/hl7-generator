@@ -9,14 +9,14 @@ export class TqCustomField extends MultipleField {
 
   constructor(
     configService: MessageConfigurationService,
-    number: number,
+    fieldNumber: number,
     id: string,
     i18n?: string,
     level = 1
   ) {
     super(
       configService,
-      number,
+      fieldNumber,
       id,
       [
         new MultipleField(

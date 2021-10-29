@@ -10,7 +10,7 @@ export class ValidationService {
   constructor() { }
 
   public validateMessage(sections: ISection[]): IValidationError[] {
-    if (sections.length == 0) {
+    if (sections.length === 0) {
       return [{ errorCode: 'message-empty' }];
     }
 
@@ -89,7 +89,9 @@ export class ValidationService {
   private mrgValidation(sections: ISection[]): IValidationError[] {
     const mrgSections = _.filter(sections, (x => x instanceof MrgSection));
 
-    if (mrgSections.length === 0) return [];
+    if (mrgSections.length === 0) {
+      return [];
+    }
 
     const errors: IValidationError[] = [];
     mrgSections.forEach(x => {
@@ -108,7 +110,9 @@ export class ValidationService {
   private obxValidation(sections: ISection[]): IValidationError[] {
     const obxSections = _.filter(sections, (x => x instanceof ObxSection));
 
-    if (obxSections.length === 0) return [];
+    if (obxSections.length === 0) {
+      return [];
+    }
 
     const errors: IValidationError[] = [];
     obxSections.forEach(x => {
@@ -127,7 +131,9 @@ export class ValidationService {
   private orcValidation(sections: ISection[]): IValidationError[] {
     const orcSections = _.filter(sections, (x => x instanceof OrcSection));
 
-    if (orcSections.length === 0) return [];
+    if (orcSections.length === 0) {
+      return [];
+    }
 
     const errors: IValidationError[] = [];
     orcSections.forEach(x => {
@@ -146,7 +152,9 @@ export class ValidationService {
   private pidValidation(sections: ISection[]): IValidationError[] {
     const pidSections = _.filter(sections, (x => x instanceof PidSection));
 
-    if (pidSections.length === 0) return [];
+    if (pidSections.length === 0) {
+      return [];
+    }
 
     const errors: IValidationError[] = [];
     pidSections.forEach(x => {
@@ -173,7 +181,9 @@ export class ValidationService {
   private rxrValidation(sections: ISection[]): IValidationError[] {
     const rxrSections = _.filter(sections, (x => x instanceof RxrSection));
 
-    if (rxrSections.length === 0) return [];
+    if (rxrSections.length === 0) {
+      return [];
+    }
 
     const errors: IValidationError[] = [];
     rxrSections.forEach(x => {

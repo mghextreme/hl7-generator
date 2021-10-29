@@ -7,7 +7,7 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
   templateUrl: './edit-template.component.html',
   styleUrls: ['./edit-template.component.scss']
 })
-export class EditTemplate {
+export class EditTemplateComponent {
 
   isNew: boolean;
   template: Template;
@@ -22,7 +22,7 @@ export class EditTemplate {
 
     const title = config.data.title ?? '';
     const hl7 = config.data.hl7 ?? '';
-    this.originalTemplate = { title: title, content: hl7 };
+    this.originalTemplate = { title, content: hl7 };
     this.template = this.originalTemplate;
   }
 

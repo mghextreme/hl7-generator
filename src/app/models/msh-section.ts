@@ -99,8 +99,8 @@ export class MshSection extends SectionBase {
       const cur = this.fields[i];
       if (cur.expanded &&
           cur.hasValue()) {
-          result += this.configService.fieldSeparator.repeat(cur.number - lastIndex);
-          lastIndex = cur.number;
+          result += this.configService.fieldSeparator.repeat(cur.fieldNumber - lastIndex);
+          lastIndex = cur.fieldNumber;
 
           result += cur.toString();
       }

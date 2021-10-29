@@ -15,10 +15,10 @@
   </div>
   <div *ngSwitchCase="'multiple'">
     <div class="row row-cols-3 subfield py-1" *ngFor="let subfield of $any(field).subfields">
-      <div [ngClass]="{ 'col-1': $any(field).level === 1, 'col-2': $any(field).level > 1 }"><b>{{ subfield.number }}</b></div>
+      <div [ngClass]="{ 'col-1': $any(field).level === 1, 'col-2': $any(field).level > 1 }"><b>{{ subfield.fieldNumber }}</b></div>
       <div [ngClass]="{ 'col-4': $any(field).level === 1, 'col-6': $any(field).level > 1 }" [title]="subfield.i18n | translate">{{ subfield.i18n + '.name' | translate }}</div>
       <div class="col" class="focus-target">
-        <field [field]="subfield" (change)="handleChange()"></field>
+        <app-field [field]="subfield" (change)="handleChange()"></app-field>
       </div>
     </div>
   </div>
