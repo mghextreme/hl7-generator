@@ -1,4 +1,4 @@
-import { DateField } from './date.field';
+import { DateField, FieldType } from './fields';
 
 describe('DateField', () => {
 
@@ -12,6 +12,7 @@ describe('DateField', () => {
   });
 
   it('constructor - set default', () => {
+    expect(model.type).toEqual(FieldType.Date);
     expect(model.hasValue()).toBeTruthy();
     expect(model.value).toBeDefined();
     expect(model.fieldNumber).toEqual(NUMBER);

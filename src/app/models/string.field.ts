@@ -23,6 +23,8 @@ export class StringField extends BaseField<StringField> {
         defaultValue !== null &&
         defaultValue.length > 0) {
       this.value = this.defaultValue;
+    } else {
+      this.value = '';
     }
   }
 

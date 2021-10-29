@@ -1,4 +1,4 @@
-import { DateTimeField } from './datetime.field';
+import { DateTimeField, FieldType } from './fields';
 
 describe('DateTimeField', () => {
 
@@ -12,6 +12,7 @@ describe('DateTimeField', () => {
   });
 
   it('constructor - set default', () => {
+    expect(model.type).toEqual(FieldType.DateTime);
     expect(model.hasValue()).toBeTruthy();
     expect(model.value).toBeDefined();
     expect(model.fieldNumber).toEqual(NUMBER);

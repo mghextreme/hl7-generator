@@ -1,4 +1,4 @@
-import { StringField } from './string.field';
+import { FieldType, StringField } from './fields';
 
 describe('StringField', () => {
 
@@ -12,8 +12,9 @@ describe('StringField', () => {
   });
 
   it('constructor - set default', () => {
+    expect(model.type).toEqual(FieldType.String);
     expect(model.hasValue()).toBeFalsy();
-    expect(model.value).toBeUndefined();
+    expect(model.value).toEqual('');
     expect(model.fieldNumber).toEqual(NUMBER);
     expect(model.id).toEqual(ID);
     expect(model.i18n).toEqual('sections.' + ID);
