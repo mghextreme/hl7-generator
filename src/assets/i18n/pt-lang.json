@@ -15,7 +15,8 @@
     "save": "Salvar",
     "save-as-template": "Salvar como Modela",
     "close": "Fechar",
-    "generate-data": "Gerar dados"
+    "generate-data": "Gerar dados",
+    "select-option": "Selecionar opção"
   },
   "titles": {
     "sections": "Seções",
@@ -76,9 +77,21 @@
         "title": "MSH.10 obrigatório",
         "description": "ID de Controle de Mensagem é um campo obrigatório"
       },
+      "msh-11-required": {
+        "title": "MSH.11 obrigatório",
+        "description": "ID de Processamento é um campo obrigatório"
+      },
+      "msh-12-required": {
+        "title": "MSH.12 obrigatório",
+        "description": "ID de Versão é um campo obrigatório"
+      },
       "obx-3-required": {
         "title": "OBX.3 obrigatório",
         "description": "Identificador da Observação é um campo obrigatório"
+      },
+      "orc-1-required": {
+        "title": "ORC.1 obrigatório",
+        "description": "Controle de Solicitação é um campo obrigatório"
       },
       "pid-3-required": {
         "title": "PID.3 obrigatório",
@@ -87,6 +100,10 @@
       "pid-5-required": {
         "title": "PID.5 obrigatório",
         "description": "Nome do Paciente é um campo obrigatório"
+      },
+      "rxr-1-required": {
+        "title": "RXR.1 obrigatório",
+        "description": "Rota é um campo obrigatório"
       }
     }
   },
@@ -94,52 +111,16 @@
     "mrg": {
       "title": "Informações de Paciente Combinado",
       "1": {
-        "name": "Lista Anterior de Identificadores do Paciente",
-        "1": {
-          "name": "Id"
-        },
-        "4": {
-          "name": "Autoridade de Atribuição",
-          "1": {
-            "name": "ID de Namespace"
-          },
-          "2": {
-            "name": "ID Universal"
-          }
-        },
-        "6": {
-          "name": "Hospital de Atribuição",
-          "1": {
-            "name": "ID de Namespace"
-          },
-          "2": {
-            "name": "ID Universal"
-          }
-        }
+        "name": "Lista de Identificadores Anterior do Paciente"
       },
       "3": {
-        "name": "Prior Patient Account Number"
+        "name": "Número de Conta Anterior do Paciente"
       },
       "4": {
-        "name": "Prior Patient ID"
+        "name": "ID Anterior do Paciente"
       },
       "7": {
-        "name": "Prior Patient Name",
-        "1": {
-          "name": "Sobrenome"
-        },
-        "2": {
-          "name": "Primeiro nome"
-        },
-        "3": {
-          "name": "Nomes do meio"
-        },
-        "4": {
-          "name": "Sufixo"
-        },
-        "5": {
-          "name": "Prefixo"
-        }
+        "name": "Nome Anterior do Paciente"
       }
     },
     "msh": {
@@ -188,21 +169,66 @@
       },
       "10": {
         "name": "ID de Controle de Mensagem"
+      },
+      "11": {
+        "name": "ID de Processamento",
+        "1": {
+          "name": "ID de Processamento",
+          "options": {
+            "D": "D - Depuração",
+            "P": "P - Produção",
+            "T": "T - Treinamento"
+          }
+        },
+        "2": {
+          "name": "Modo de Processamento",
+          "options": {
+            "empty": "Não especificado (padrão, indica processamento corrente)",
+            "A": "A - Arquivo",
+            "I": "I - Carga Inicial",
+            "R": "R - Restaurar do Arquivo",
+            "T": "T - Processamento corrente, transmitido em intervalos (agendado ou sob-demanda)"
+          }
+        }
+      },
+      "12": {
+        "name": "ID de Versão",
+        "1": {
+          "name": "ID de Versão",
+          "options": {
+            "2_0": "Release 2.0",
+            "2_0D": "Demo 2.0",
+            "2_1": "Release 2.1",
+            "2_2": "Release 2.2",
+            "2_3": "Release 2.3",
+            "2_3_1": "Release 2.3.1",
+            "2_4": "Release 2.4",
+            "2_5": "Release 2.5",
+            "2_5_1": "Release 2.5.1",
+            "2_6": "Release 2.6",
+            "2_7": "Release 2.7",
+            "2_7_1": "Release 2.7.1",
+            "2_8": "Release 2.8"
+          }
+        },
+        "2": {
+          "name": "Código de Internacionalização"
+        },
+        "3": {
+          "name": "ID Internacional de Versão"
+        }
       }
     },
     "obr": {
       "title": "Solicitação de Observação",
+      "1": {
+        "name": "ID do Conjunto"
+      },
+      "2": {
+        "name": "Número Local da Solicitação"
+      },
       "3": {
-        "name": "Número da Solicitação",
-        "1": {
-          "name": "Identificador"
-        },
-        "2": {
-          "name": "ID de Namespace"
-        },
-        "3": {
-          "name": "ID Universal"
-        }
+        "name": "Número da Solicitação"
       },
       "7": {
         "name": "Data/Hora da Observação"
@@ -210,32 +236,20 @@
     },
     "obx": {
       "title": "Observação/Resultado",
+      "1": {
+        "name": "ID do Conjunto"
+      },
       "3": {
-        "name": "Identificador da Observação",
-        "1": {
-          "name": "Identificador"
-        },
-        "2": {
-          "name": "Texto"
-        },
-        "3": {
-          "name": "Sistema de Codificação"
-        }
+        "name": "Identificador da Observação"
+      },
+      "4": {
+        "name": "Sub-Identificador da Observação"
       },
       "5": {
         "name": "Valor Observado"
       },
       "6": {
-        "name": "Unidades",
-        "1": {
-          "name": "Identificador"
-        },
-        "2": {
-          "name": "Texto"
-        },
-        "3": {
-          "name": "Sistema de Codificação"
-        }
+        "name": "Unidades"
       },
       "11": {
         "name": "Status do Resultado da Observação"
@@ -244,52 +258,84 @@
         "name": "Data/Hora da Observação"
       }
     },
+    "orc": {
+      "title": "Solicitação Comum",
+      "1": {
+        "name": "Controle de Solicitação",
+        "options": {
+          "AF": "AF - Aprovação de repreenchimento de ordem de serviço",
+          "CA": "CA - Solicitação de cancelamento de ordem de serviço",
+          "CH": "CH - Ordem de serviço filha",
+          "CN": "CN - Resultado combinado",
+          "CR": "CR - Cancelado, conforme solicitado",
+          "DC": "DC - Solicitação para descontinuar ordem de serviço",
+          "DE": "DE - Erros de dados",
+          "DF": "DF - Solicitação de repreenchimento de ordem de serviço negada",
+          "DR": "DR - Solicitação descontinuada",
+          "FU": "FU - Ordem de serviço repreenchida, não solicitada",
+          "HD": "HD - Suspender ordem de serviço",
+          "HR": "HR - Suspenso, conforme solicitado",
+          "LI": "LI - Vincular ordem de serviço a problema de atendimento ou objetivo de paciente",
+          "NA": "NA - Número atribuído",
+          "NW": "NW - Nova ordem de serviço",
+          "OC": "OC - Ordem de serviço canceleda",
+          "OD": "OD - Ordem de serviço descontinuada",
+          "OE": "OE - Ordem de serviço liberada",
+          "OF": "OF - Ordem de serviço repreenchida, conforme solicitado",
+          "OH": "OH - Ordem de serviço suspensa",
+          "OK": "OK - Ordem de serviço aceita e ok",
+          "OR": "OR - Liberado, conforme solicitado",
+          "PA": "PA - Ordem de serviço pai",
+          "PR": "PR - Resultados Anteriores com nova ordem de serviço",
+          "RE": "RE - Observação/Execução de Serviço em seguida",
+          "RF": "RF - Repreenchimento de ordem de serviço solicitada",
+          "RL": "RL - Liberar previamente suspenso",
+          "RO": "RO - Solicitação de substituição",
+          "RP": "RP - Substituição de ordem de serviço solicitada",
+          "RQ": "RQ - Substituído, conforme solicitado",
+          "RR": "RR - Solicitação recebida",
+          "RU": "RU - Substituição não solicitada",
+          "SC": "SC - Alteração de Status",
+          "SN": "SN - Enviar número de ordem de serviço",
+          "SR": "SR - Resposta para envio de solicitação de status de ordem de serviço",
+          "SS": "SS - Solicitação de status de ordem de serviço",
+          "UA": "UA - Incapaz de accept ordem de serviço",
+          "UC": "UC - Incapaz de cancelar",
+          "UD": "UD - Incapaz de descontinuar",
+          "UF": "UF - Incapaz de repreencher",
+          "UH": "UH - Incapaz de suspender",
+          "UM": "UM - Incapaz de substituir",
+          "UN": "UN - Desvincular ordem de serviço de problema de atendimento ou objetivo de paciente",
+          "UR": "UR - Incapaz de liberar",
+          "UX": "UX - Incapaz de alterar",
+          "XO": "XO - Alterar solicitação de ordem de serviço",
+          "XR": "XR - Alterado, conforme solicitado",
+          "XX": "XX - Ordem de serviço alterada, não solicitada."
+        }
+      },
+      "2": {
+        "name": "Número Local da Solicitação"
+      },
+      "12": {
+        "name": "Provedor da Solicitação"
+      },
+      "15": {
+        "name": "Data/Hora Efetiva da Solicitação"
+      }
+    },
     "pid": {
       "title": "Identificação do Paciente",
       "2": {
         "name": "ID do Paciente"
       },
       "3": {
-        "name": "Lista de Identificadores do Paciente",
-        "1": {
-          "name": "Id"
-        },
-        "4": {
-          "name": "Autoridade de Atribuição",
-          "1": {
-            "name": "ID de Namespace"
-          },
-          "2": {
-            "name": "ID Universal"
-          }
-        },
-        "6": {
-          "name": "Hospital de Atribuição",
-          "1": {
-            "name": "ID de Namespace"
-          },
-          "2": {
-            "name": "ID Universal"
-          }
-        }
+        "name": "Lista de Identificadores do Paciente"
+      },
+      "4": {
+        "name": "ID Alternativo do Paciente"
       },
       "5": {
-        "name": "Nome do Paciente",
-        "1": {
-          "name": "Sobrenome"
-        },
-        "2": {
-          "name": "Primeiro nome"
-        },
-        "3": {
-          "name": "Nomes do meio"
-        },
-        "4": {
-          "name": "Sufixo"
-        },
-        "5": {
-          "name": "Prefixo"
-        }
+        "name": "Nome do Paciente"
       },
       "7": {
         "name": "Data de Nascimento"
@@ -301,22 +347,7 @@
         "name": "Raça"
       },
       "11": {
-        "name": "Endereço do Paciente",
-        "1": {
-          "name": "Logradouro"
-        },
-        "3": {
-          "name": "Cidade"
-        },
-        "4": {
-          "name": "Estado ou Província"
-        },
-        "5": {
-          "name": "Código Postal"
-        },
-        "6": {
-          "name": "País"
-        }
+        "name": "Endereço do Paciente"
       },
       "16": {
         "name": "Estado Civil"
@@ -334,19 +365,7 @@
     "pv1": {
       "title": "Visita do Paciente",
       "3": {
-        "name": "Localização Atribuída ao Paciente",
-        "1": {
-          "name": "Ponto de Atendimento"
-        },
-        "2": {
-          "name": "Quarto"
-        },
-        "3": {
-          "name": "Cama"
-        },
-        "4": {
-          "name": "Hospital"
-        }
+        "name": "Localização Atribuída ao Paciente"
       },
       "36": {
         "name": "Caráter de Baixa"
@@ -356,6 +375,240 @@
       },
       "45": {
         "name": "Data/Hora de Baixa"
+      }
+    },
+    "rxe": {
+      "title": "Solicitação Farmaceutica/de Tratamento",
+      "1": {
+        "name": "Quantidade/Tempo"
+      },
+      "2": {
+        "name": "Código Administrada"
+      },
+      "3": {
+        "name": "Quantidade Administrada - Mínimo"
+      },
+      "4": {
+        "name": "Quantidade Administrada - Máximo"
+      },
+      "5": {
+        "name": "Unidade Administrada"
+      }
+    },
+    "rxr": {
+      "title": "Rota Farmaceutica/de Tratamento",
+      "1": {
+        "name": "Rota",
+        "options": {
+          "AP": "AP - Aplicar Externamente",
+          "B": "B - Bucal",
+          "DT": "DT - Dental",
+          "EP": "EP - Epidural",
+          "ET": "ET - Endotrachial Tube",
+          "GTT": "GTT - Gastrostomy Tube",
+          "GU": "GU - GU Irrigant",
+          "IA": "IA - Intra-arterial",
+          "IB": "IB - Intrabursal",
+          "IC": "IC - Intracardíaco",
+          "ICV": "ICV - Intracervical (útero)",
+          "ID": "ID - Intradermal",
+          "IH": "IH - Inalação",
+          "IHA": "IHA - Intrahepatic Artery",
+          "IM": "IM - Intramuscular",
+          "IMR": "IMR - Immerse (Soak) Body Part",
+          "IN": "IN - Intranasal",
+          "IO": "IO - Intraocular",
+          "IP": "IP - Intraperitoneal",
+          "IS": "IS - Intrasynovial",
+          "IT": "IT - Intrathecal",
+          "IU": "IU - Intrauterine",
+          "IV": "IV - Intravenoso",
+          "MM": "MM - Membrana Mucosa",
+          "MTH": "MTH - Boca/Gerganta",
+          "NG": "NG - Nasogastric",
+          "NP": "NP - Nasal Prongs",
+          "NS": "NS - Nasal",
+          "NT": "NT - Nasotrachial Tube",
+          "OP": "OP - Ophthalmic",
+          "OT": "OT - Otic",
+          "OTH": "OTH - Outro",
+          "PF": "PF - Perfusion",
+          "PO": "PO - Oral",
+          "PR": "PR - Retal",
+          "RM": "RM - Rebreather Mask",
+          "SC": "SC - Subcutáneo",
+          "SD": "SD - Soaked Dressing",
+          "SL": "SL - Sublingual",
+          "TD": "TD - Transdermal",
+          "TL": "TL - Translingual",
+          "TP": "TP - Topical",
+          "TRA": "TRA - Traqueostomia",
+          "UR": "UR - Uretral",
+          "VG": "VG - Vaginal",
+          "VM": "VM - Ventimask",
+          "WND": "WND - Ferida"
+        }
+      }
+    }
+  },
+  "data-types": {
+    "ce": {
+      "name": "Elemento Codificado",
+      "1": {
+        "name": "Identificador"
+      },
+      "2": {
+        "name": "Texto"
+      },
+      "3": {
+        "name": "Sistema de Codificação"
+      },
+      "4": {
+        "name": "Identificador Alternativo"
+      },
+      "5": {
+        "name": "Texto Alternativo"
+      },
+      "6": {
+        "name": "Sistema de Codificação Alternativo"
+      }
+    },
+    "cx": {
+      "name": "ID Composto Extendido com Dígito Verificador",
+      "1": {
+        "name": "Id"
+      },
+      "4": {
+        "name": "Autoridade Atribuída"
+      },
+      "6": {
+        "name": "Instalação Atribuída"
+      }
+    },
+    "ei": {
+      "name": "Identificador de Entidade",
+      "1": {
+        "name": "Identificador"
+      },
+      "2": {
+        "name": "ID de Namespace"
+      },
+      "3": {
+        "name": "ID Universal"
+      }
+    },
+    "hd": {
+      "name": "Designador de Hierarquia",
+      "1": {
+        "name": "Id de Namespace"
+      },
+      "2": {
+        "name": "Id Universal"
+      }
+    },
+    "pl": {
+      "name": "Localização de Pessoa",
+      "1": {
+        "name": "Ponto de Atendimento"
+      },
+      "2": {
+        "name": "Quarto"
+      },
+      "3": {
+        "name": "Cama"
+      },
+      "4": {
+        "name": "Instalação"
+      }
+    },
+    "tq": {
+      "name": "Quantidade por Tempo",
+      "1": {
+        "name": "Quantidade",
+        "1": {
+          "name": "Quantidade"
+        },
+        "2": {
+          "name": "Unidades"
+        }
+      },
+      "2": {
+        "name": "Intervalo",
+        "1": {
+          "name": "Padrão de Repetição"
+        },
+        "2": {
+          "name": "Intervalo de Tempo Explícito"
+        }
+      },
+      "3": {
+        "name": "Duração"
+      },
+      "4": {
+        "name": "Data/Hora de Início"
+      },
+      "5": {
+        "name": "Data/Hora de Fim"
+      },
+      "6": {
+        "name": "Prioridade"
+      },
+      "7": {
+        "name": "Condição"
+      }
+    },
+    "xad": {
+      "name": "Endereço Extendido",
+      "1": {
+        "name": "Logradouro"
+      },
+      "3": {
+        "name": "Cidade"
+      },
+      "4": {
+        "name": "Estado ou Província"
+      },
+      "5": {
+        "name": "Código Postal"
+      },
+      "6": {
+        "name": "País"
+      }
+    },
+    "xcn": {
+      "name": "ID Numérico Composto Extendido e Nome para Pessoas",
+      "1": {
+        "name": "Sobrenome"
+      },
+      "2": {
+        "name": "Primeiro Nome"
+      },
+      "3": {
+        "name": "Nomes do Meio"
+      },
+      "4": {
+        "name": "Sufixo"
+      },
+      "5": {
+        "name": "Prefixo"
+      }
+    },
+    "xpn": {
+      "name": "Nome de Pessoa Extendido",
+      "1": {
+        "name": "Sobrenome"
+      },
+      "2": {
+        "name": "Primeiro Nome"
+      },
+      "3": {
+        "name": "Nomes do Meio"
+      },
+      "4": {
+        "name": "Sufixo"
+      },
+      "5": {
+        "name": "Prefixo"
       }
     }
   }
