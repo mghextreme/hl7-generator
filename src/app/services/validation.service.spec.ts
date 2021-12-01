@@ -48,6 +48,7 @@ describe('ValidationService', () => {
 
     const error = errors[0];
     expect(error.errorCode).toEqual('message-empty');
+    expect(error.sectionId).toBeUndefined();
   });
 
   it('msh none', inject(
@@ -60,6 +61,7 @@ describe('ValidationService', () => {
 
       const error = errors[0];
       expect(error.errorCode).toEqual('msh-none');
+      expect(error.sectionId).toBeUndefined();
     })
   );
 
@@ -76,6 +78,8 @@ ${DEFAULT_MSH}`;
 
       const error = errors[0];
       expect(error.errorCode).toEqual('msh-multiple');
+      expect(error.sectionId).toEqual(sections[1].id);
+      expect(error.fieldNumber).toBeUndefined();
     })
   );
 
@@ -92,6 +96,8 @@ ${DEFAULT_MSH}`;
 
       const error = errors[0];
       expect(error.errorCode).toEqual('msh-not-first');
+      expect(error.sectionId).toEqual(sections[1].id);
+      expect(error.fieldNumber).toBeUndefined();
     })
   );
 
@@ -105,6 +111,8 @@ ${DEFAULT_MSH}`;
 
       const error = errors[0];
       expect(error.errorCode).toEqual('msh-7-required');
+      expect(error.sectionId).toEqual(sections[0].id);
+      expect(error.fieldNumber).toEqual(7);
     })
   );
 
@@ -118,6 +126,8 @@ ${DEFAULT_MSH}`;
 
       const error = errors[0];
       expect(error.errorCode).toEqual('msh-9-required');
+      expect(error.sectionId).toEqual(sections[0].id);
+      expect(error.fieldNumber).toEqual(9);
     })
   );
 
@@ -131,6 +141,8 @@ ${DEFAULT_MSH}`;
 
       const error = errors[0];
       expect(error.errorCode).toEqual('msh-10-required');
+      expect(error.sectionId).toEqual(sections[0].id);
+      expect(error.fieldNumber).toEqual(10);
     })
   );
 
@@ -144,6 +156,8 @@ ${DEFAULT_MSH}`;
 
       const error = errors[0];
       expect(error.errorCode).toEqual('msh-11-required');
+      expect(error.sectionId).toEqual(sections[0].id);
+      expect(error.fieldNumber).toEqual(11);
     })
   );
 
@@ -157,6 +171,98 @@ ${DEFAULT_MSH}`;
 
       const error = errors[0];
       expect(error.errorCode).toEqual('msh-12-required');
+      expect(error.sectionId).toEqual(sections[0].id);
+      expect(error.fieldNumber).toEqual(12);
+    })
+  );
+
+  it('mrg.1 required', inject(
+    [MessageConfigurationService, TranslateService],
+    (configService: MessageConfigurationService, translate: TranslateService) => {
+      const hl7 =
+`${DEFAULT_MSH}
+MRG|`;
+      const sections = Hl7MessageUtils.parse(configService, translate, hl7);
+      const errors = service.validateMessage(sections);
+      expect(errors).toBeDefined();
+      expect(errors.length).toEqual(1);
+
+      const error = errors[0];
+      expect(error.errorCode).toEqual('mrg-1-required');
+      expect(error.sectionId).toEqual(sections[1].id);
+      expect(error.fieldNumber).toEqual(1);
+    })
+  );
+
+  it('obx.3 required', inject(
+    [MessageConfigurationService, TranslateService],
+    (configService: MessageConfigurationService, translate: TranslateService) => {
+      const hl7 =
+`${DEFAULT_MSH}
+OBX|`;
+      const sections = Hl7MessageUtils.parse(configService, translate, hl7);
+      const errors = service.validateMessage(sections);
+      expect(errors).toBeDefined();
+      expect(errors.length).toEqual(1);
+
+      const error = errors[0];
+      expect(error.errorCode).toEqual('obx-3-required');
+      expect(error.sectionId).toEqual(sections[1].id);
+      expect(error.fieldNumber).toEqual(3);
+    })
+  );
+
+  it('orc.1 required', inject(
+    [MessageConfigurationService, TranslateService],
+    (configService: MessageConfigurationService, translate: TranslateService) => {
+      const hl7 =
+`${DEFAULT_MSH}
+ORC|`;
+      const sections = Hl7MessageUtils.parse(configService, translate, hl7);
+      const errors = service.validateMessage(sections);
+      expect(errors).toBeDefined();
+      expect(errors.length).toEqual(1);
+
+      const error = errors[0];
+      expect(error.errorCode).toEqual('orc-1-required');
+      expect(error.sectionId).toEqual(sections[1].id);
+      expect(error.fieldNumber).toEqual(1);
+    })
+  );
+
+  it('pid.3 required', inject(
+    [MessageConfigurationService, TranslateService],
+    (configService: MessageConfigurationService, translate: TranslateService) => {
+      const hl7 =
+`${DEFAULT_MSH}
+PID|||||Bond^James|`;
+      const sections = Hl7MessageUtils.parse(configService, translate, hl7);
+      const errors = service.validateMessage(sections);
+      expect(errors).toBeDefined();
+      expect(errors.length).toEqual(1);
+
+      const error = errors[0];
+      expect(error.errorCode).toEqual('pid-3-required');
+      expect(error.sectionId).toEqual(sections[1].id);
+      expect(error.fieldNumber).toEqual(3);
+    })
+  );
+
+  it('pid.5 required', inject(
+    [MessageConfigurationService, TranslateService],
+    (configService: MessageConfigurationService, translate: TranslateService) => {
+      const hl7 =
+`${DEFAULT_MSH}
+PID|||PID_123|`;
+      const sections = Hl7MessageUtils.parse(configService, translate, hl7);
+      const errors = service.validateMessage(sections);
+      expect(errors).toBeDefined();
+      expect(errors.length).toEqual(1);
+
+      const error = errors[0];
+      expect(error.errorCode).toEqual('pid-5-required');
+      expect(error.sectionId).toEqual(sections[1].id);
+      expect(error.fieldNumber).toEqual(5);
     })
   );
 });
