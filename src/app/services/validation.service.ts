@@ -10,7 +10,9 @@ export class ValidationService {
   constructor() { }
 
   public validateMessage(sections: ISection[]): IValidationError[] {
-    if (sections.length === 0) {
+    if (sections === null ||
+      sections === undefined ||
+      sections.length === 0) {
       return [{ errorCode: 'message-empty' }];
     }
 
