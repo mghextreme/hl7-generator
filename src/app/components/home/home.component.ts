@@ -8,6 +8,7 @@ import _ from 'lodash';
 import { TranslateService } from '@ngx-translate/core';
 import { EditTemplateComponent } from '../edit-template/edit-template.component';
 import { ValidationErrorsTemplateComponent } from '../validation-errors-template/validation-errors-template.component';
+import { Hl7MessageUtils } from 'app/utils';
 
 @Component({
   templateUrl: './home.component.html',
@@ -53,73 +54,16 @@ export class HomeComponent implements OnDestroy {
   }
 
   public addSection(type: string) {
-    switch (type) {
-      case SectionType.MRG: this.sections.push(new MrgSection(this.configService, this.translate)); break;
-      case SectionType.MSH: this.sections.push(new MshSection(this.configService, this.translate)); break;
-      case SectionType.OBR: this.sections.push(new ObrSection(this.configService, this.translate)); break;
-      case SectionType.OBX: this.sections.push(new ObxSection(this.configService, this.translate)); break;
-      case SectionType.ORC: this.sections.push(new OrcSection(this.configService, this.translate)); break;
-      case SectionType.PID: this.sections.push(new PidSection(this.configService, this.translate)); break;
-      case SectionType.PV1: this.sections.push(new Pv1Section(this.configService, this.translate)); break;
-      case SectionType.RXE: this.sections.push(new RxeSection(this.configService, this.translate)); break;
-      case SectionType.RXR: this.sections.push(new RxrSection(this.configService, this.translate)); break;
+    const newSection = Hl7MessageUtils.newSection(this.configService, this.translate, type);
+    if (newSection) {
+      this.sections.push(newSection);
+      this.updateFilter();
+      this.generateHl7();
     }
-
-    this.updateFilter();
-    this.generateHl7();
   }
 
   public parseHl7(): void {
-    this.sections = [];
-
-    const bits = this.hl7.split('\n');
-    bits.forEach(b => {
-      b = b.trim();
-
-      if (b.endsWith('\\r')) {
-        b = b.substring(0, b.length - 2);
-      }
-
-      try {
-        const type = b.substring(0, 3);
-        let newSection: ISection;
-
-        switch (type) {
-          case SectionType.MRG:
-            newSection = new MrgSection(this.configService, this.translate, b);
-            break;
-          case SectionType.MSH:
-            newSection = new MshSection(this.configService, this.translate, b);
-            break;
-          case SectionType.OBR:
-            newSection = new ObrSection(this.configService, this.translate, b);
-            break;
-          case SectionType.OBX:
-            newSection = new ObxSection(this.configService, this.translate, b);
-            break;
-          case SectionType.ORC:
-            newSection = new OrcSection(this.configService, this.translate, b);
-            break;
-          case SectionType.PID:
-            newSection = new PidSection(this.configService, this.translate, b);
-            break;
-          case SectionType.PV1:
-            newSection = new Pv1Section(this.configService, this.translate, b);
-            break;
-          case SectionType.RXE:
-            newSection = new RxeSection(this.configService, this.translate, b);
-            break;
-          case SectionType.RXR:
-            newSection = new RxrSection(this.configService, this.translate, b);
-            break;
-          default: return;
-        }
-
-        this.sections.push(newSection);
-      } catch (err) {
-        console.error(err);
-      }
-    });
+    this.sections = Hl7MessageUtils.parse(this.configService, this.translate, this.hl7);
 
     this.updateFilter();
     this.runValidation();
