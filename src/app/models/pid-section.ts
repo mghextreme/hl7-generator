@@ -1,6 +1,6 @@
 import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
-import { CeCustomField, CxCustomField, DateField, MultipleField, StringField, XadCustomField, XpnCustomField } from './fields';
+import { CeCustomField, CxCustomField, DateField, MultipleField, NumericField, StringField, XadCustomField, XpnCustomField } from './fields';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
 import faker from 'faker';
@@ -31,6 +31,7 @@ export class PidSection extends SectionBase {
 
   protected setFields() {
     this.fields = [
+      new NumericField(1, 'pid.1'),
       new CxCustomField(this.configService, 2, 'pid.2'),
       new CxCustomField(this.configService, 3, 'pid.3'),
       new CxCustomField(this.configService, 4, 'pid.4'),

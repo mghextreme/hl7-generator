@@ -1,6 +1,6 @@
 import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
-import { DateTimeField, MultipleField, StringField } from './fields';
+import { DateTimeField, NumericField, StringField } from './fields';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
 import faker from 'faker';
@@ -27,6 +27,7 @@ export class Pv1Section extends SectionBase {
 
   protected setFields(): void {
     this.fields = [
+      new NumericField(1, 'pv1.1'),
       new PlCustomField(this.configService, 3, 'pv1.3'),
       new StringField(36, 'pv1.36').init({ valueGenerator: (f) => {
         f.setValue(

@@ -217,6 +217,9 @@
         "3": {
           "name": "ID Internacional de Versão"
         }
+      },
+      "13": {
+        "name": "Número Sequencial"
       }
     },
     "obr": {
@@ -325,6 +328,9 @@
     },
     "pid": {
       "title": "Identificação do Paciente",
+      "1": {
+        "name": "ID do Conjunto"
+      },
       "2": {
         "name": "ID do Paciente"
       },
@@ -364,6 +370,9 @@
     },
     "pv1": {
       "title": "Visita do Paciente",
+      "1": {
+        "name": "ID do Conjunto"
+      },
       "3": {
         "name": "Localização Atribuída ao Paciente"
       },

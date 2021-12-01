@@ -2,7 +2,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
 import { SectionType } from './section-type.enum';
 import { SectionBase } from './section-base';
-import { DateTimeField, HdCustomField, MultipleField, OptionsField, StringField } from './fields';
+import { DateTimeField, HdCustomField, MultipleField, NumericField, OptionsField, StringField } from './fields';
 import faker from 'faker';
 import moment from 'moment-timezone';
 import { IOption } from './option.interface';
@@ -86,6 +86,7 @@ export class MshSection extends SectionBase {
           new StringField(2, 'msh.12.2'),
           new StringField(3, 'msh.12.3')
         ]),
+      new NumericField(13, 'msh.13')
     ];
   }
 

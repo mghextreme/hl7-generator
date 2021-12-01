@@ -1,6 +1,7 @@
 import { MessageConfigurationService } from 'app/services';
 import { DateTimeField } from './datetime.field';
 import { MultipleField } from './multiple.field';
+import { NumericField } from './numeric.field';
 import { StringField } from './string.field';
 
 export class TqCustomField extends MultipleField {
@@ -24,7 +25,7 @@ export class TqCustomField extends MultipleField {
           1,
           id,
           [
-            new StringField(1, id + '.1.1', '', TqCustomField.i18n + '.1.1'),
+            new NumericField(1, id + '.1.1', TqCustomField.i18n + '.1.1'),
             new StringField(2, id + '.1.2', '', TqCustomField.i18n + '.1.2')
           ],
           TqCustomField.i18n + '.1',

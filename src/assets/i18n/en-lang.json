@@ -234,6 +234,10 @@
         "3": {
           "name": "International Version Id"
         }
+      },
+      "13": {
+        "name": "Sequence Number",
+        "tags": "sequence number"
       }
     },
     "obr": {
@@ -357,6 +361,10 @@
     },
     "pid": {
       "title": "Patient Identification",
+      "1": {
+        "name": "Set ID",
+        "tags": "set id"
+      },
       "2": {
         "name": "Patient ID",
         "tags": "patient id"
@@ -408,6 +416,10 @@
     },
     "pv1": {
       "title": "Patient visit",
+      "1": {
+        "name": "Set ID",
+        "tags": "set id"
+      },
       "3": {
         "name": "Assigned Patient Location",
         "tags": "assigned patient location, unit, room, bed"

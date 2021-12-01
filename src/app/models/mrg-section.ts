@@ -1,6 +1,6 @@
 import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
-import { CxCustomField, MultipleField, StringField, XpnCustomField } from './fields';
+import { CxCustomField, XpnCustomField } from './fields';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
 import faker from 'faker';
