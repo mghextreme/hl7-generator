@@ -7,6 +7,7 @@ export * from './field-type.enum';
 export * from './field.interface';
 export * from './hd.custom.field';
 export * from './multiple.field';
+export * from './numeric.field';
 export * from './options.field';
 export * from './pl.custom.field';
 export * from './string.field';
