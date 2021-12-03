@@ -53,6 +53,10 @@ export class HomeComponent implements OnDestroy {
     setTimeout(() => this.parseHl7(), 1);
   }
 
+  public segmentsList(): string[] {
+    return Object.keys(SectionType);
+  }
+
   public addSection(type: string) {
     const newSection = Hl7MessageUtils.newSection(this.configService, this.translate, type);
     if (newSection) {

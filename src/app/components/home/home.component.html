@@ -5,15 +5,14 @@
     <div class="col d-flex flex-column justify-content-start">
       <h4 class="mb-2">{{ 'actions.add' | translate }}</h4>
       <div class="add">
-        <p-button icon="pi pi-plus" label="MRG" [title]="'sections.mrg.title' | translate" (onClick)="addSection('MRG')" styleClass="mr-2 mb-2"></p-button>
-        <p-button icon="pi pi-plus" label="MSH" [title]="'sections.msh.title' | translate" (onClick)="addSection('MSH')" styleClass="mr-2 mb-2"></p-button>
-        <p-button icon="pi pi-plus" label="OBR" [title]="'sections.obr.title' | translate" (onClick)="addSection('OBR')" styleClass="mr-2 mb-2"></p-button>
-        <p-button icon="pi pi-plus" label="OBX" [title]="'sections.obx.title' | translate" (onClick)="addSection('OBX')" styleClass="mr-2 mb-2"></p-button>
-        <p-button icon="pi pi-plus" label="ORC" [title]="'sections.orc.title' | translate" (onClick)="addSection('ORC')" styleClass="mr-2 mb-2"></p-button>
-        <p-button icon="pi pi-plus" label="PID" [title]="'sections.pid.title' | translate" (onClick)="addSection('PID')" styleClass="mr-2 mb-2"></p-button>
-        <p-button icon="pi pi-plus" label="PV1" [title]="'sections.pv1.title' | translate" (onClick)="addSection('PV1')" styleClass="mr-2 mb-2"></p-button>
-        <p-button icon="pi pi-plus" label="RXE" [title]="'sections.rxe.title' | translate" (onClick)="addSection('RXE')" styleClass="mr-2 mb-2"></p-button>
-        <p-button icon="pi pi-plus" label="RXR" [title]="'sections.rxr.title' | translate" (onClick)="addSection('RXR')" styleClass="mr-2 mb-2"></p-button>
+        <p-button
+          *ngFor="let segment of segmentsList()"
+          icon="pi pi-plus"
+          [label]="segment"
+          [title]="'sections.' + segment.toLowerCase() + '.title' | translate"
+          (onClick)="addSection(segment)"
+          styleClass="mr-2 mb-2">
+        </p-button>
       </div>
 
       <h4 class="mt-4 mb-2">{{ 'titles.sections' | translate }}</h4>
