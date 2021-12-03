@@ -108,6 +108,27 @@
     }
   },
   "sections": {
+    "al1": {
+      "title": "Informações de Alergia do Paciente",
+      "1": {
+        "name": "ID do Conjunto"
+      },
+      "2": {
+        "name": "Código de Tipo do Alérgeno"
+      },
+      "3": {
+        "name": "Código/Descrição do Alérgeno"
+      },
+      "4": {
+        "name": "Código de Severidade do Alérgeno"
+      },
+      "5": {
+        "name": "Código de Reação do Alérgeno"
+      },
+      "6": {
+        "name": "Data de Identificação"
+      }
+    },
     "evn": {
       "title": "Tipo de Evento",
       "1": {

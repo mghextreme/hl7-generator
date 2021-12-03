@@ -108,6 +108,33 @@
     }
   },
   "sections": {
+    "al1": {
+      "title": "Patient Allergy Information",
+      "1": {
+        "name": "Set ID",
+        "tags": "set id"
+      },
+      "2": {
+        "name": "Allergen Type Code",
+        "tags": "allergen type code"
+      },
+      "3": {
+        "name": "Allergen Code/Mnemonic/Description",
+        "tags": "allergen code, allergen mnemonic, allergen description"
+      },
+      "4": {
+        "name": "Allergy Severity Code",
+        "tags": "allergy severity code"
+      },
+      "5": {
+        "name": "Allergy Reaction Code",
+        "tags": "allergy reaction code"
+      },
+      "6": {
+        "name": "Identification Date",
+        "tags": "identification date"
+      }
+    },
     "evn": {
       "title": "Event Type",
       "1": {
