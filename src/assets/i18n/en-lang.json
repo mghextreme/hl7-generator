@@ -135,6 +135,29 @@
         "tags": "identification date"
       }
     },
+    "dg1": {
+      "title": "Diagnosis",
+      "1": {
+        "name": "Set ID",
+        "tags": "set id"
+      },
+      "3": {
+        "name": "Diagnosis Code",
+        "tags": "diagnosis code"
+      },
+      "4": {
+        "name": "Diagnosis Description",
+        "tags": "diagnosis description"
+      },
+      "5": {
+        "name": "Diagnosis Date/Time",
+        "tags": "diagnosis date/time, diagnosis date, diagnosis time, diagnosis timestamp"
+      },
+      "6": {
+        "name": "Diagnosis Type",
+        "tags": "diagnosis type"
+      }
+    },
     "evn": {
       "title": "Event Type",
       "1": {

@@ -1,4 +1,5 @@
 export * from './al1-section';
+export * from './dg1-section';
 export * from './evn-section';
 export * from './field-search-result';
 export * from './mrg-section';

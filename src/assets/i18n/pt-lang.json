@@ -129,6 +129,24 @@
         "name": "Data de Identificação"
       }
     },
+    "dg1": {
+      "title": "Diagnóstico",
+      "1": {
+        "name": "ID do Conjunto"
+      },
+      "3": {
+        "name": "Código de Diagnóstico"
+      },
+      "4": {
+        "name": "Descrição de Diagnóstico"
+      },
+      "5": {
+        "name": "Data/Hora de Diagnóstico"
+      },
+      "6": {
+        "name": "Tipo de Diagnóstico"
+      }
+    },
     "evn": {
       "title": "Tipo de Evento",
       "1": {
