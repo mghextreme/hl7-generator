@@ -297,6 +297,42 @@
         "name": "Conjunto de Caracteres"
       }
     },
+    "nk1": {
+      "title": "Descendentes / Parentes",
+      "1": {
+        "name": "ID do Conjunto"
+      },
+      "2": {
+        "name": "Nome"
+      },
+      "3": {
+        "name": "Parentesco"
+      },
+      "4": {
+        "name": "Endereço"
+      },
+      "5": {
+        "name": "Número de Telefone"
+      },
+      "8": {
+        "name": "Data de Início"
+      },
+      "9": {
+        "name": "Data de Fim"
+      },
+      "13": {
+        "name": "Nome da Organização"
+      },
+      "14": {
+        "name": "Estado Civil"
+      },
+      "15": {
+        "name": "Sexo"
+      },
+      "16": {
+        "name": "Data de Nascimento"
+      }
+    },
     "obr": {
       "title": "Solicitação de Observação",
       "1": {
@@ -772,6 +808,24 @@
       },
       "5": {
         "name": "Prefixo"
+      }
+    },
+    "xtn": {
+      "name": "Número de Telecomunicação Extendido",
+      "1": {
+        "name": "Número de Telefone"
+      },
+      "2": {
+        "name": "Código de Uso de Telecomunicação"
+      },
+      "3": {
+        "name": "Tipo de Equipamento de Telecomunicação"
+      },
+      "4": {
+        "name": "Endereço de E-mail"
+      },
+      "5": {
+        "name": "Código de País"
       }
     }
   }

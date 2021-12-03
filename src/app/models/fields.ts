@@ -15,3 +15,4 @@ export * from './tq.custom.field';
 export * from './xad.custom.field';
 export * from './xcn.custom.field';
 export * from './xpn.custom.field';
+export * from './xtn.custom.field';

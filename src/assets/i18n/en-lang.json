@@ -335,6 +335,53 @@
         "tags": "character set"
       }
     },
+    "nk1": {
+      "title": "Next of Kin / Associated Parties",
+      "1": {
+        "name": "Set ID",
+        "tags": "set id"
+      },
+      "2": {
+        "name": "NK Name",
+        "tags": "nk name, next of kin name"
+      },
+      "3": {
+        "name": "Relationship",
+        "tags": "relationship"
+      },
+      "4": {
+        "name": "Address",
+        "tags": "address"
+      },
+      "5": {
+        "name": "Phone Number",
+        "tags": "phone number"
+      },
+      "8": {
+        "name": "Start Date",
+        "tags": "start date"
+      },
+      "9": {
+        "name": "End Date",
+        "tags": "end date"
+      },
+      "13": {
+        "name": "Organization Name",
+        "tags": "organization name"
+      },
+      "14": {
+        "name": "Marital Status",
+        "tags": "marital status"
+      },
+      "15": {
+        "name": "Administrative Sex",
+        "tags": "administrative sex, gender"
+      },
+      "16": {
+        "name": "Date/Time Of Birth",
+        "tags": "datetime of birth, birthday"
+      }
+    },
     "obr": {
       "title": "Observation Request",
       "1": {
@@ -876,6 +923,24 @@
       },
       "5": {
         "name": "Prefix"
+      }
+    },
+    "xtn": {
+      "name": "Extended Telecommunication Number",
+      "1": {
+        "name": "Telephone Number"
+      },
+      "2": {
+        "name": "Telecommunication Use Code"
+      },
+      "3": {
+        "name": "Telecommunication Equipment Type"
+      },
+      "4": {
+        "name": "Email Address"
+      },
+      "5": {
+        "name": "Country Code"
       }
     }
   }

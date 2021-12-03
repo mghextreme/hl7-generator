@@ -4,6 +4,7 @@ export * from './evn-section';
 export * from './field-search-result';
 export * from './mrg-section';
 export * from './msh-section';
+export * from './nk1-section';
 export * from './obr-section';
 export * from './obx-section';
 export * from './option.interface';
