@@ -54,7 +54,7 @@ describe('ValidationService', () => {
   it('msh none', inject(
     [MessageConfigurationService, TranslateService],
     (configService: MessageConfigurationService, translate: TranslateService) => {
-      const sections = Hl7MessageUtils.parse(configService, translate, 'OXR|');
+      const sections = Hl7MessageUtils.parse(configService, translate, 'AL1|');
       const errors = service.validateMessage(sections);
       expect(errors).toBeDefined();
       expect(errors.length).toEqual(1);
@@ -83,11 +83,11 @@ ${DEFAULT_MSH}`;
     })
   );
 
-  it('msh multiple', inject(
+  it('msh not first', inject(
     [MessageConfigurationService, TranslateService],
     (configService: MessageConfigurationService, translate: TranslateService) => {
       const hl7 =
-`OXR|
+`AL1|
 ${DEFAULT_MSH}`;
       const sections = Hl7MessageUtils.parse(configService, translate, hl7);
       const errors = service.validateMessage(sections);

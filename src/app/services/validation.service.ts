@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ISection, IValidationError, MrgSection, MshSection, ObxSection, OrcSection, PidSection, RxrSection } from 'app/models';
+import { ISection, IValidationError, MshSection, SectionType } from 'app/models';
 import _ from 'lodash';
 
 @Injectable({
@@ -28,7 +28,7 @@ export class ValidationService {
   }
 
   private mshValidation(sections: ISection[]): IValidationError[] {
-    const mshSections = _.filter(sections, (x => x instanceof MshSection));
+    const mshSections = _.filter(sections, (x => x.type === SectionType.MSH));
 
     if (mshSections.length === 0) {
       return [{ errorCode: 'msh-none' }];
@@ -89,7 +89,7 @@ export class ValidationService {
   }
 
   private mrgValidation(sections: ISection[]): IValidationError[] {
-    const mrgSections = _.filter(sections, (x => x instanceof MrgSection));
+    const mrgSections = _.filter(sections, (x => x.type === SectionType.MRG));
 
     if (mrgSections.length === 0) {
       return [];
@@ -110,7 +110,7 @@ export class ValidationService {
   }
 
   private obxValidation(sections: ISection[]): IValidationError[] {
-    const obxSections = _.filter(sections, (x => x instanceof ObxSection));
+    const obxSections = _.filter(sections, (x => x.type === SectionType.OBX));
 
     if (obxSections.length === 0) {
       return [];
@@ -131,7 +131,7 @@ export class ValidationService {
   }
 
   private orcValidation(sections: ISection[]): IValidationError[] {
-    const orcSections = _.filter(sections, (x => x instanceof OrcSection));
+    const orcSections = _.filter(sections, (x => x.type === SectionType.ORC));
 
     if (orcSections.length === 0) {
       return [];
@@ -152,7 +152,7 @@ export class ValidationService {
   }
 
   private pidValidation(sections: ISection[]): IValidationError[] {
-    const pidSections = _.filter(sections, (x => x instanceof PidSection));
+    const pidSections = _.filter(sections, (x => x.type === SectionType.PID));
 
     if (pidSections.length === 0) {
       return [];
@@ -181,7 +181,7 @@ export class ValidationService {
   }
 
   private rxrValidation(sections: ISection[]): IValidationError[] {
-    const rxrSections = _.filter(sections, (x => x instanceof RxrSection));
+    const rxrSections = _.filter(sections, (x => x.type === SectionType.RXR));
 
     if (rxrSections.length === 0) {
       return [];
