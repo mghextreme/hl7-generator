@@ -21,7 +21,9 @@ export class Hl7MessageUtils {
       try {
         const type = b.substring(0, 3);
         const newSection = this.newSection(configService, translate, type, b);
-        sections.push(newSection);
+        if (newSection) {
+          sections.push(newSection);
+        }
       } catch (err) {
         console.error(err);
       }
