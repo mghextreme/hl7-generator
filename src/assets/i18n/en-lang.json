@@ -108,6 +108,21 @@
     }
   },
   "sections": {
+    "evn": {
+      "title": "Event Type",
+      "1": {
+        "name": "Event Type Code",
+        "tags": "event type code"
+      },
+      "2": {
+        "name": "Recorded Date/Time",
+        "tags": "recorded datetime, recorded date, recorded time"
+      },
+      "6": {
+        "name": "Event Occurred",
+        "tags": "event occurred"
+      }
+    },
     "mrg": {
       "title": "Merge patient information",
       "1": {
@@ -719,6 +734,9 @@
       },
       "6": {
         "name": "Country"
+      },
+      "7": {
+        "name": "Address Type"
       }
     },
     "xcn": {

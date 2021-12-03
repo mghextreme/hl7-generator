@@ -108,6 +108,18 @@
     }
   },
   "sections": {
+    "evn": {
+      "title": "Tipo de Evento",
+      "1": {
+        "name": "Código de Tipo de Evento"
+      },
+      "2": {
+        "name": "Data/Hora Gravados"
+      },
+      "6": {
+        "name": "Evento Ocorrido"
+      }
+    },
     "mrg": {
       "title": "Informações de Paciente Combinado",
       "1": {
@@ -646,6 +658,9 @@
       },
       "6": {
         "name": "País"
+      },
+      "7": {
+        "name": "Tipo de Endereço"
       }
     },
     "xcn": {

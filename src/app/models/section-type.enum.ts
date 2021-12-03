@@ -1,4 +1,5 @@
 export enum SectionType {
+  EVN = 'EVN',
   MRG = 'MRG',
   MSH = 'MSH',
   OBR = 'OBR',

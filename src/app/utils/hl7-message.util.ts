@@ -1,5 +1,5 @@
 import { TranslateService } from '@ngx-translate/core';
-import { ISection, MrgSection, MshSection, ObrSection, ObxSection, OrcSection, PidSection, Pv1Section, RxeSection, RxrSection, SectionType } from 'app/models';
+import { EvnSection, ISection, MrgSection, MshSection, ObrSection, ObxSection, OrcSection, PidSection, Pv1Section, RxeSection, RxrSection, SectionType } from 'app/models';
 import { MessageConfigurationService } from 'app/services';
 
 export class Hl7MessageUtils {
@@ -39,6 +39,8 @@ export class Hl7MessageUtils {
     text: string = ''
   ): ISection {
     switch (type) {
+      case SectionType.EVN:
+        return new EvnSection(configService, translate, text);
       case SectionType.MRG:
         return new MrgSection(configService, translate, text);
       case SectionType.MSH:
