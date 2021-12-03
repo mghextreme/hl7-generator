@@ -21,6 +21,7 @@ export class CxCustomField extends MultipleField {
       [
         new StringField(1, id + '.1', '', CxCustomField.i18n + '.1'),
         new HdCustomField(configService, 4, id + '.4', CxCustomField.i18n + '.4', level + 1),
+        new StringField(5, id + '.5', '', CxCustomField.i18n + '.5'),
         new HdCustomField(configService, 6, id + '.6', CxCustomField.i18n + '.6', level + 1)
       ],
       i18n,

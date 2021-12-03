@@ -238,6 +238,24 @@
       "13": {
         "name": "Sequence Number",
         "tags": "sequence number"
+      },
+      "14": {
+        "name": "Continuation Pointer",
+        "tags": "continuation pointer"
+      },
+      "15": {
+        "name": "Accept Acknowledgment Type",
+        "tags": "accept acknowledgment type",
+        "options": {
+          "AL": "AL - Always",
+          "ER": "ER - Error/reject conditions only",
+          "NE": "NE - Never",
+          "SU": "SU - Successful completion only"
+        }
+      },
+      "16": {
+        "name": "Application Acknowledgment Type",
+        "tags": "application acknowledgment type"
       }
     },
     "obr": {
@@ -381,6 +399,10 @@
         "name": "Patient Name",
         "tags": "patient name"
       },
+      "6": {
+        "name": "Mother's Maiden Name",
+        "tags": "mothers maiden name"
+      },
       "7": {
         "name": "Date of Birth",
         "tags": "birth, date of birth, birthdate"
@@ -397,9 +419,21 @@
         "name": "Patient Address",
         "tags": "patient address"
       },
+      "12": {
+        "name": "Country Code",
+        "tags": "country code"
+      },
+      "15": {
+        "name": "Primary Language",
+        "tags": "primary language"
+      },
       "16": {
         "name": "Marital Status",
         "tags": "marital status"
+      },
+      "17": {
+        "name": "Religion",
+        "tags": "religion"
       },
       "18": {
         "name": "Patient Account Number",
@@ -412,6 +446,14 @@
       "22": {
         "name": "Ethnic Group",
         "tags": "ethnic group, ethnicity"
+      },
+      "24": {
+        "name": "Multiple Birth Indicator",
+        "tags": "multiple birth indicator"
+      },
+      "25": {
+        "name": "Birth Order",
+        "tags": "birth order"
       }
     },
     "pv1": {
@@ -420,9 +462,40 @@
         "name": "Set ID",
         "tags": "set id"
       },
+      "2": {
+        "name": "Patient Class",
+        "tags": "patient class"
+      },
       "3": {
         "name": "Assigned Patient Location",
         "tags": "assigned patient location, unit, room, bed"
+      },
+      "7": {
+        "name": "Attending Doctor",
+        "tags": "attending doctor"
+      },
+      "10": {
+        "name": "Hospital Service",
+        "tags": "hospital service",
+        "options": {
+          "CAR": "CAR - Cardiac Service",
+          "MED": "MED - Medical Service",
+          "PUL": "PUL - Pulmonary Service",
+          "SUR": "SUR - Surgical Service",
+          "URO": "URO - Urology Service"
+        }
+      },
+      "14": {
+        "name": "Admit Source",
+        "tags": "admit source"
+      },
+      "15": {
+        "name": "Ambulatory Status",
+        "tags": "ambulatory status"
+      },
+      "19": {
+        "name": "Visit Number",
+        "tags": "visit number"
       },
       "36": {
         "name": "Discharge Disposition",
@@ -546,6 +619,9 @@
       },
       "4": {
         "name": "Assigning Authority"
+      },
+      "5": {
+        "name": "Identifier Type Code"
       },
       "6": {
         "name": "Assigning Facility"

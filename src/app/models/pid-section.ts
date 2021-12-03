@@ -42,6 +42,13 @@ export class PidSection extends SectionBase {
           faker.datatype.boolean() ? faker.name.firstName() : '',
           faker.datatype.number(8) === 1 ? faker.name.suffix() : '']);
       }}),
+      new XpnCustomField(this.configService, 6, 'pid.6').init({ valueGenerator: (f) => {
+        f.setValue([
+          faker.name.lastName(),
+          faker.name.firstName(1),
+          faker.datatype.boolean() ? faker.name.firstName(1) : '',
+          faker.datatype.number(8) === 1 ? faker.name.suffix() : '']);
+      }}),
       new DateField(7, 'pid.7').init({ valueGenerator: (f) => {
         const tz = this.configService.timezone;
         f.setValue(
@@ -64,11 +71,14 @@ export class PidSection extends SectionBase {
           faker.address.state(),
           faker.address.zipCode()]);
       }}),
+      new StringField(12, 'pid.12'),
+      new CeCustomField(this.configService, 15, 'pid.15'),
       new CeCustomField(this.configService, 16, 'pid.16').init({ valueGenerator: (f) => {
         f.setValue(
           faker.random.arrayElement(
             this.configService.retrieveCollection('PID.16')));
       }}),
+      new CeCustomField(this.configService, 17, 'pid.17'),
       new CxCustomField(this.configService, 18, 'pid.18'),
       new StringField(19, 'pid.19').init({ valueGenerator: (f) => {
         f.setValue(faker.finance.routingNumber());
@@ -77,7 +87,9 @@ export class PidSection extends SectionBase {
         f.setValue(
           faker.random.arrayElement(
             this.configService.retrieveCollection('PID.22')));
-      }})
+      }}),
+      new StringField(24, 'pid.24').init({ maxLength: 1 }),
+      new NumericField(25, 'pid.25'),
     ];
   }
 }

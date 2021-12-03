@@ -220,6 +220,21 @@
       },
       "13": {
         "name": "Número Sequencial"
+      },
+      "14": {
+        "name": "Ponteiro de Continuação"
+      },
+      "15": {
+        "name": "Tipos de Reconhecimento Aceitos",
+        "options": {
+          "AL": "AL - Sempre",
+          "ER": "ER - Somente quando houver erro/rejeição",
+          "NE": "NE - Nunca",
+          "SU": "SU - Somente quando concluído com sucesso"
+        }
+      },
+      "16": {
+        "name": "Tipo de Reconhecimento pela Aplicação"
       }
     },
     "obr": {
@@ -343,6 +358,9 @@
       "5": {
         "name": "Nome do Paciente"
       },
+      "6": {
+        "name": "Nome de Solteiro da Mãe"
+      },
       "7": {
         "name": "Data de Nascimento"
       },
@@ -355,8 +373,17 @@
       "11": {
         "name": "Endereço do Paciente"
       },
+      "12": {
+        "name": "Código de País"
+      },
+      "15": {
+        "name": "Língua Primária"
+      },
       "16": {
         "name": "Estado Civil"
+      },
+      "17": {
+        "name": "Religião"
       },
       "18": {
         "name": "Número de Conta do Paciente"
@@ -366,6 +393,12 @@
       },
       "22": {
         "name": "Grupo Étnico"
+      },
+      "24": {
+        "name": "Indicador de Nascimento Múltiplo"
+      },
+      "25": {
+        "name": "Ordem de Nascimento"
       }
     },
     "pv1": {
@@ -373,8 +406,33 @@
       "1": {
         "name": "ID do Conjunto"
       },
+      "2": {
+        "name": "Classe do Paciente"
+      },
       "3": {
         "name": "Localização Atribuída ao Paciente"
+      },
+      "7": {
+        "name": "Médico de Atendimento"
+      },
+      "10": {
+        "name": "Serviço Hospitalar",
+        "options": {
+          "CAR": "CAR - Serviço Cardíaco",
+          "MED": "MED - Serviço Médico",
+          "PUL": "PUL - Serviço Pulmonar",
+          "SUR": "SUR - Serviço Cirúrgico",
+          "URO": "URO - Serviço Urologista"
+        }
+      },
+      "14": {
+        "name": "Origem de Admissão"
+      },
+      "15": {
+        "name": "Estado Ambulatório"
+      },
+      "19": {
+        "name": "Número de Visita"
       },
       "36": {
         "name": "Caráter de Baixa"
@@ -489,6 +547,9 @@
       },
       "4": {
         "name": "Autoridade Atribuída"
+      },
+      "5": {
+        "name": "Código de Tipo do Identificador"
       },
       "6": {
         "name": "Instalação Atribuída"

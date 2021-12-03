@@ -86,7 +86,10 @@ export class MshSection extends SectionBase {
           new StringField(2, 'msh.12.2'),
           new StringField(3, 'msh.12.3')
         ]),
-      new NumericField(13, 'msh.13')
+      new NumericField(13, 'msh.13'),
+      new StringField(14, 'msh.14'),
+      new OptionsField(this.translate, 15, 'msh.15', MshSection.msh_15_options),
+      new OptionsField(this.translate, 16, 'msh.16', MshSection.msh_15_options),
     ];
   }
 
@@ -186,5 +189,12 @@ export class MshSection extends SectionBase {
     { value: '2.7', i18n: 'sections.msh.12.1.options.2_7' },
     { value: '2.7.1', i18n: 'sections.msh.12.1.options.2_7_1' },
     { value: '2.8', i18n: 'sections.msh.12.1.options.2_8' }
+  ];
+
+  private static msh_15_options: IOption[] = [
+    { value: 'AL', i18n: 'sections.msh.15.options.AL' },
+    { value: 'ER', i18n: 'sections.msh.15.options.ER' },
+    { value: 'NE', i18n: 'sections.msh.15.options.NE' },
+    { value: 'SU', i18n: 'sections.msh.15.options.SU' }
   ];
 }
