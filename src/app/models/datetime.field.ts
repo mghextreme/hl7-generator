@@ -29,7 +29,11 @@ export class DateTimeField extends BaseField<DateTimeField> {
     if (value instanceof Date) {
       this.value = value;
     } else if (value instanceof String || typeof(value) === 'string') {
-      this.value = moment(value.toString().padEnd(14, '0'), 'YYYYMMDDhhmmss').toDate();
+      if (value.length > 0) {
+        this.value = moment(value.padEnd(14, '0'), 'YYYYMMDDhhmmss').toDate();
+      } else {
+        this.value = null;
+      }
     }
 
     if (this.hasValue()) {

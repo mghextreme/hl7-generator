@@ -28,7 +28,11 @@ export class DateField extends BaseField<DateField> {
     if (value instanceof Date) {
       this.value = value;
     } else if (value instanceof String || typeof(value) === 'string') {
-      this.value = moment(value.toString(), 'YYYYMMDD').toDate();
+      if (value.length > 0) {
+        this.value = moment(value.toString(), 'YYYYMMDD').toDate();
+      } else {
+        this.value = null;
+      }
     }
 
     if (this.hasValue()) {
