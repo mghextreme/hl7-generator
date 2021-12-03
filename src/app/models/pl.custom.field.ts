@@ -20,7 +20,8 @@ export class PlCustomField extends MultipleField {
       [
         new StringField(1, id + '.1', '', PlCustomField.i18n + '.1'),
         new StringField(2, id + '.2', '', PlCustomField.i18n + '.2'),
-        new StringField(3, id + '.3', '', PlCustomField.i18n + '.3')
+        new StringField(3, id + '.3', '', PlCustomField.i18n + '.3'),
+        new StringField(4, id + '.4', '', PlCustomField.i18n + '.4')
       ],
       i18n,
       level);

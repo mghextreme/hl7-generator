@@ -302,6 +302,14 @@
       "16": {
         "name": "Application Acknowledgment Type",
         "tags": "application acknowledgment type"
+      },
+      "17": {
+        "name": "Country Code",
+        "tags": "country code"
+      },
+      "18": {
+        "name": "Character Set",
+        "tags": "character set"
       }
     },
     "obr": {
@@ -318,9 +326,17 @@
         "name": "Filler Order Number",
         "tags": "filler order number"
       },
+      "4": {
+        "name": "Universal Service Identifier",
+        "tags": "universal service identifier"
+      },
       "7": {
         "name": "Observation Date/Time",
         "tags": "observation datetime, observation date time, observation timestamp"
+      },
+      "14": {
+        "name": "Specimen Received Date/Time",
+        "tags": "speciman received datetime, speciman received date time, speciman received timestamp"
       }
     },
     "obx": {
@@ -328,6 +344,10 @@
       "1": {
         "name": "Set ID",
         "tags": "set id, set identifier"
+      },
+      "2": {
+        "name": "Value Type",
+        "tags": "value type"
       },
       "3": {
         "name": "Observation Identifier",
@@ -414,9 +434,32 @@
         "name": "Place Order Number",
         "tags": "place order number"
       },
+      "3": {
+        "name": "Filler Order Number",
+        "tags": "filler order number"
+      },
+      "6": {
+        "name": "Response Flag",
+        "tags": "response flag",
+        "options": {
+          "D": "D - Same as R, also other associated segments",
+          "E": "E - Report exceptions only",
+          "F": "F - Same as D, plus confirmations explicitly",
+          "N": "N - Only the MSA segment is returned",
+          "R": "R - Same as E, also Replacement and Parent-Child"
+        }
+      },
+      "9": {
+        "name": "Date/Time of Transaction",
+        "tags": "date/time of transaction"
+      },
       "12": {
         "name": "Ordering Provider",
         "tags": "ordering provider"
+      },
+      "13": {
+        "name": "Enterer's Location",
+        "tags": "enterers Location"
       },
       "15": {
         "name": "Order Effective Date/Time",
@@ -546,6 +589,10 @@
       "36": {
         "name": "Discharge Disposition",
         "tags": "discharge disposition, discharge location"
+      },
+      "38": {
+        "name": "Diet Type",
+        "tags": "diet type"
       },
       "44": {
         "name": "Admit Date/Time",
@@ -769,18 +816,24 @@
     "xcn": {
       "name": "Extended Composite ID Number And Name For Persons",
       "1": {
-        "name": "Family Name"
+        "name": "Id Number"
       },
       "2": {
-        "name": "Given Name"
+        "name": "Family Name"
       },
       "3": {
-        "name": "Middle Names"
+        "name": "Given Name"
       },
       "4": {
-        "name": "Suffix"
+        "name": "Middle Names"
       },
       "5": {
+        "name": "Suffix"
+      },
+      "6": {
+        "name": "Suffix"
+      },
+      "7": {
         "name": "Prefix"
       }
     },

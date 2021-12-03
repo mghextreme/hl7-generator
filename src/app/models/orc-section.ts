@@ -1,6 +1,6 @@
 import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
-import { DateTimeField, EiCustomField, OptionsField, XcnCustomField } from './fields';
+import { DateTimeField, EiCustomField, OptionsField, PlCustomField, XcnCustomField } from './fields';
 import { IOption } from './option.interface';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
@@ -21,13 +21,13 @@ export class OrcSection extends SectionBase {
 
   protected setFields(): void {
     this.fields = [
-      new OptionsField(
-        this.translate,
-        1,
-        'orc.1',
-        OrcSection.orc_1_options),
+      new OptionsField(this.translate, 1, 'orc.1', OrcSection.orc_1_options),
       new EiCustomField(this.configService, 2, 'orc.2'),
+      new EiCustomField(this.configService, 3, 'orc.3'),
+      new OptionsField(this.translate, 6, 'orc.6', OrcSection.orc_6_options).init({ editable: false }),
+      new DateTimeField(9, 'orc.9').init({ includeSeconds: true }),
       new XcnCustomField(this.configService, 12, 'orc.12'),
+      new PlCustomField(this.configService, 13, 'orc.13'),
       new DateTimeField(15, 'orc.15')
     ];
   }
@@ -81,5 +81,13 @@ export class OrcSection extends SectionBase {
     { value: 'XO', i18n: 'sections.orc.1.options.XO' },
     { value: 'XR', i18n: 'sections.orc.1.options.XR' },
     { value: 'XX', i18n: 'sections.orc.1.options.XX' }
+  ];
+
+  private static orc_6_options: IOption[] = [
+    { value: 'D', i18n: 'sections.orc.6.options.D' },
+    { value: 'E', i18n: 'sections.orc.6.options.E' },
+    { value: 'F', i18n: 'sections.orc.6.options.F' },
+    { value: 'N', i18n: 'sections.orc.6.options.N' },
+    { value: 'R', i18n: 'sections.orc.6.options.R' },
   ];
 }

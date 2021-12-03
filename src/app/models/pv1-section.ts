@@ -46,18 +46,24 @@ export class Pv1Section extends SectionBase {
             this.configService.retrieveCollection('PV1.36')));
       }}),
       new CeCustomField(this.configService, 38, 'pv1.38'),
-      new DateTimeField(44, 'pv1.44').init({ valueGenerator: (f) => {
-        const tz = this.configService.timezone;
-        const from = moment.tz(tz).local(true).subtract(2, 'year');
-        const to = moment.tz(tz).local(true).subtract(1, 'hour');
-        this.getField(44).setValue(faker.date.between(from.toDate(), to.toDate()));
-      }}),
-      new DateTimeField(45, 'pv1.45').init({ valueGenerator: (f) => {
-        const tz = this.configService.timezone;
-        const admitField = this.getField(44);
-        const admitDate = (admitField as DateTimeField).value ?? moment.tz(tz).local(true).subtract(1, 'month').toDate();
-        f.setValue(faker.date.between(admitDate, moment.tz(tz).local(true).toDate()));
-      }})
+      new DateTimeField(44, 'pv1.44').init({
+        includeSeconds: true,
+        valueGenerator: (f) => {
+          const tz = this.configService.timezone;
+          const from = moment.tz(tz).local(true).subtract(2, 'year');
+          const to = moment.tz(tz).local(true).subtract(1, 'hour');
+          this.getField(44).setValue(faker.date.between(from.toDate(), to.toDate()));
+        }
+      }),
+      new DateTimeField(45, 'pv1.45').init({
+        includeSeconds: true,
+        valueGenerator: (f) => {
+          const tz = this.configService.timezone;
+          const admitField = this.getField(44);
+          const admitDate = (admitField as DateTimeField).value ?? moment.tz(tz).local(true).subtract(1, 'month').toDate();
+          f.setValue(faker.date.between(admitDate, moment.tz(tz).local(true).toDate()));
+        }
+      })
     ];
   }
 

@@ -6,7 +6,7 @@
       type="text"
       (onchange)="handleChange()"
       [minlength]="$any(field).minLength"
-      [maxlength]="$any(field).minLength"
+      [maxlength]="$any(field).maxLength"
       class="focus-target" />
   </div>
   <div *ngSwitchCase="'number'">

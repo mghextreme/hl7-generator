@@ -91,6 +91,8 @@ export class MshSection extends SectionBase {
       new StringField(14, 'msh.14'),
       new OptionsField(this.translate, 15, 'msh.15', MshSection.msh_15_options),
       new OptionsField(this.translate, 16, 'msh.16', MshSection.msh_15_options),
+      new StringField(17, 'msh.17').init({ maxLength: 3 }),
+      new StringField(18, 'msh.18').init({ maxLength: 16 })
     ];
   }
 

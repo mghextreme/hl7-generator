@@ -1,6 +1,6 @@
 import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
-import { CeCustomField, CxCustomField, DateField, MultipleField, NumericField, StringField, XadCustomField, XpnCustomField } from './fields';
+import { CeCustomField, CxCustomField, DateTimeField, MultipleField, NumericField, StringField, XadCustomField, XpnCustomField } from './fields';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
 import faker from 'faker';
@@ -49,11 +49,14 @@ export class PidSection extends SectionBase {
           faker.datatype.boolean() ? faker.name.firstName(1) : '',
           faker.datatype.number(8) === 1 ? faker.name.suffix() : '']);
       }}),
-      new DateField(7, 'pid.7').init({ valueGenerator: (f) => {
-        const tz = this.configService.timezone;
-        f.setValue(
-          faker.date.past(75, moment.tz(tz).local(true).subtract(5, 'year').toDate()));
-      }}),
+      new DateTimeField(7, 'pid.7').init({
+        includeSeconds: true,
+          valueGenerator: (f) => {
+          const tz = this.configService.timezone;
+          f.setValue(
+            faker.date.past(75, moment.tz(tz).local(true).subtract(5, 'year').toDate()));
+        }
+      }),
       new StringField(8, 'pid.8').init({ valueGenerator: (f) => {
         f.setValue(
           faker.random.arrayElement(

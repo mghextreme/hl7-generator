@@ -22,7 +22,9 @@ export class XcnCustomField extends MultipleField {
         new StringField(2, id + '.2', '', XcnCustomField.i18n + '.2'),
         new StringField(3, id + '.3', '', XcnCustomField.i18n + '.3'),
         new StringField(4, id + '.4', '', XcnCustomField.i18n + '.4'),
-        new StringField(5, id + '.5', '', XcnCustomField.i18n + '.5')
+        new StringField(5, id + '.5', '', XcnCustomField.i18n + '.5'),
+        new StringField(6, id + '.6', '', XcnCustomField.i18n + '.6'),
+        new StringField(7, id + '.7', '', XcnCustomField.i18n + '.7')
       ],
       i18n,
       level);

@@ -271,6 +271,12 @@
       },
       "16": {
         "name": "Tipo de Reconhecimento pela Aplicação"
+      },
+      "17": {
+        "name": "Código de País"
+      },
+      "18": {
+        "name": "Conjunto de Caracteres"
       }
     },
     "obr": {
@@ -284,14 +290,23 @@
       "3": {
         "name": "Número da Solicitação"
       },
+      "4": {
+        "name": "Identificador Universal de Serviço"
+      },
       "7": {
         "name": "Data/Hora da Observação"
+      },
+      "14": {
+        "name": "Data/Hora de Amostra Recebida"
       }
     },
     "obx": {
       "title": "Observação/Resultado",
       "1": {
         "name": "ID do Conjunto"
+      },
+      "2": {
+        "name": "Tipo de Valor"
       },
       "3": {
         "name": "Identificador da Observação"
@@ -370,8 +385,20 @@
       "2": {
         "name": "Número Local da Solicitação"
       },
+      "3": {
+        "name": "Número da Solicitação"
+      },
+      "6": {
+        "name": "Flag de Resposta"
+      },
+      "9": {
+        "name": "Data/Hora da Transação"
+      },
       "12": {
         "name": "Provedor da Solicitação"
+      },
+      "13": {
+        "name": "Localização de Quem gerou Entrada"
       },
       "15": {
         "name": "Data/Hora Efetiva da Solicitação"
@@ -472,6 +499,9 @@
       },
       "36": {
         "name": "Caráter de Baixa"
+      },
+      "38": {
+        "name": "Tipo de Dieta"
       },
       "44": {
         "name": "Data/Hora de Admissão"
@@ -687,19 +717,25 @@
     "xcn": {
       "name": "ID Numérico Composto Extendido e Nome para Pessoas",
       "1": {
-        "name": "Sobrenome"
+        "name": "ID"
       },
       "2": {
-        "name": "Primeiro Nome"
+        "name": "Sobrenome"
       },
       "3": {
-        "name": "Nomes do Meio"
+        "name": "Primeiro Nome"
       },
       "4": {
-        "name": "Sufixo"
+        "name": "Nomes do Meio"
       },
       "5": {
+        "name": "Sufixo"
+      },
+      "6": {
         "name": "Prefixo"
+      },
+      "7": {
+        "name": "Gradação"
       }
     },
     "xpn": {
