@@ -442,8 +442,14 @@
       "3": {
         "name": "Número da Solicitação"
       },
+      "5": {
+        "name": "Estado da Solicitação"
+      },
       "6": {
         "name": "Flag de Resposta"
+      },
+      "7": {
+        "name": "Quantidade/Tempo"
       },
       "9": {
         "name": "Data/Hora da Transação"
@@ -580,61 +586,42 @@
       },
       "5": {
         "name": "Unidade Administrada"
+      },
+      "7": {
+        "name": "Instruções de Administração do Provedor"
+      },
+      "14": {
+        "name": "ID Verificador do Fornecedor do Tratamento"
+      },
+      "20": {
+        "name": "Necessidade Revisão Humana"
+      },
+      "23": {
+        "name": "Quantidade Proporcional de Fornecimento"
+      },
+      "24": {
+        "name": "Unidades Proporcionais de Fornecimento"
+      },
+      "27": {
+        "name": "Instruções de Fornecimento"
       }
     },
     "rxr": {
-      "title": "Rota Farmaceutica/de Tratamento",
+      "title": "Rota Farmacêutica/de Tratamento",
       "1": {
-        "name": "Rota",
-        "options": {
-          "AP": "AP - Aplicar Externamente",
-          "B": "B - Bucal",
-          "DT": "DT - Dental",
-          "EP": "EP - Epidural",
-          "ET": "ET - Endotrachial Tube",
-          "GTT": "GTT - Gastrostomy Tube",
-          "GU": "GU - GU Irrigant",
-          "IA": "IA - Intra-arterial",
-          "IB": "IB - Intrabursal",
-          "IC": "IC - Intracardíaco",
-          "ICV": "ICV - Intracervical (útero)",
-          "ID": "ID - Intradermal",
-          "IH": "IH - Inalação",
-          "IHA": "IHA - Intrahepatic Artery",
-          "IM": "IM - Intramuscular",
-          "IMR": "IMR - Immerse (Soak) Body Part",
-          "IN": "IN - Intranasal",
-          "IO": "IO - Intraocular",
-          "IP": "IP - Intraperitoneal",
-          "IS": "IS - Intrasynovial",
-          "IT": "IT - Intrathecal",
-          "IU": "IU - Intrauterine",
-          "IV": "IV - Intravenoso",
-          "MM": "MM - Membrana Mucosa",
-          "MTH": "MTH - Boca/Gerganta",
-          "NG": "NG - Nasogastric",
-          "NP": "NP - Nasal Prongs",
-          "NS": "NS - Nasal",
-          "NT": "NT - Nasotrachial Tube",
-          "OP": "OP - Ophthalmic",
-          "OT": "OT - Otic",
-          "OTH": "OTH - Outro",
-          "PF": "PF - Perfusion",
-          "PO": "PO - Oral",
-          "PR": "PR - Retal",
-          "RM": "RM - Rebreather Mask",
-          "SC": "SC - Subcutáneo",
-          "SD": "SD - Soaked Dressing",
-          "SL": "SL - Sublingual",
-          "TD": "TD - Transdermal",
-          "TL": "TL - Translingual",
-          "TP": "TP - Topical",
-          "TRA": "TRA - Traqueostomia",
-          "UR": "UR - Uretral",
-          "VG": "VG - Vaginal",
-          "VM": "VM - Ventimask",
-          "WND": "WND - Ferida"
-        }
+        "name": "Rota"
+      },
+      "2": {
+        "name": "Local de Administração"
+      },
+      "3": {
+        "name": "Dispositivo de Administração"
+      },
+      "4": {
+        "name": "Método de Administração"
+      },
+      "5": {
+        "name": "Instruções de Rota"
       }
     }
   },
@@ -694,6 +681,9 @@
       },
       "2": {
         "name": "Id Universal"
+      },
+      "3": {
+        "name": "Tipo de Id Universal"
       }
     },
     "pl": {
@@ -745,6 +735,9 @@
       },
       "7": {
         "name": "Condição"
+      },
+      "12": {
+        "name": "Total de Ocorrências"
       }
     },
     "xad": {

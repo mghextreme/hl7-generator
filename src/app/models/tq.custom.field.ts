@@ -41,10 +41,11 @@ export class TqCustomField extends MultipleField {
           TqCustomField.i18n + '.2',
           level + 1),
         new StringField(3, id + '.3', '', TqCustomField.i18n + '.3'),
-        new DateTimeField(4, id + '.4', TqCustomField.i18n + '.4'),
-        new DateTimeField(5, id + '.5', TqCustomField.i18n + '.5'),
+        new DateTimeField(4, id + '.4', TqCustomField.i18n + '.4').init({ includeSeconds: true }),
+        new DateTimeField(5, id + '.5', TqCustomField.i18n + '.5').init({ includeSeconds: true }),
         new StringField(6, id + '.6', '', TqCustomField.i18n + '.6'),
-        new StringField(7, id + '.7', '', TqCustomField.i18n + '.7')
+        new StringField(7, id + '.7', '', TqCustomField.i18n + '.7'),
+        new NumericField(12, id + '.12', TqCustomField.i18n + '.12'),
       ],
       i18n,
       level);

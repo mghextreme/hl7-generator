@@ -508,6 +508,21 @@
         "name": "Filler Order Number",
         "tags": "filler order number"
       },
+      "5": {
+        "name": "Order Status",
+        "tags": "order status",
+        "options": {
+          "A": "A - Some, but not all, results available",
+          "CA": "CA - Order was canceled",
+          "CM": "CM - Order is completed",
+          "DC": "DC - Order was discontinued",
+          "ER": "ER - Error, order not found",
+          "HD": "HD - Order is on hold",
+          "IP": "IP - In process, unspecified",
+          "RP": "RP - Order has been replaced",
+          "SC": "SC - In process, scheduled"
+        }
+      },
       "6": {
         "name": "Response Flag",
         "tags": "response flag",
@@ -518,6 +533,10 @@
           "N": "N - Only the MSA segment is returned",
           "R": "R - Same as E, also Replacement and Parent-Child"
         }
+      },
+      "7": {
+        "name": "Quantity/Timing",
+        "tags": "quantity, timing"
       },
       "9": {
         "name": "Date/Time of Transaction",
@@ -694,62 +713,53 @@
       "5": {
         "name": "Give Units",
         "tags": "give units"
+      },
+      "7": {
+        "name": "Provider's Administration Instructions",
+        "tags": "provider's administration instructions"
+      },
+      "14": {
+        "name": "Pharmacist/Treatment Supplier's Verifier ID",
+        "tags": "pharmacist suppliers verifier identifier"
+      },
+      "20": {
+        "name": "Needs Human Review",
+        "tags": "needs human review"
+      },
+      "23": {
+        "name": "Give Rate Amount",
+        "tags": "give rate amount"
+      },
+      "24": {
+        "name": "Give Rate Units",
+        "tags": "give rate units"
+      },
+      "27": {
+        "name": "Give Indication",
+        "tags": "give indication"
       }
     },
     "rxr": {
       "title": "Pharmacy/Treatment Route",
       "1": {
         "name": "Route",
-        "tags": "route",
-        "options": {
-          "AP": "AP - Apply Externally",
-          "B": "B - Buccal",
-          "DT": "DT - Dental",
-          "EP": "EP - Epidural",
-          "ET": "ET - Endotrachial Tube",
-          "GTT": "GTT - Gastrostomy Tube",
-          "GU": "GU - GU Irrigant",
-          "IA": "IA - Intra-arterial",
-          "IB": "IB - Intrabursal",
-          "IC": "IC - Intracardiac",
-          "ICV": "ICV - Intracervical (uterus)",
-          "ID": "ID - Intradermal",
-          "IH": "IH - Inhalation",
-          "IHA": "IHA - Intrahepatic Artery",
-          "IM": "IM - Intramuscular",
-          "IMR": "IMR - Immerse (Soak) Body Part",
-          "IN": "IN - Intranasal",
-          "IO": "IO - Intraocular",
-          "IP": "IP - Intraperitoneal",
-          "IS": "IS - Intrasynovial",
-          "IT": "IT - Intrathecal",
-          "IU": "IU - Intrauterine",
-          "IV": "IV - Intravenous",
-          "MM": "MM - Mucous Membrane",
-          "MTH": "MTH - Mouth/Throat",
-          "NG": "NG - Nasogastric",
-          "NP": "NP - Nasal Prongs",
-          "NS": "NS - Nasal",
-          "NT": "NT - Nasotrachial Tube",
-          "OP": "OP - Ophthalmic",
-          "OT": "OT - Otic",
-          "OTH": "OTH - Other/Miscellaneous",
-          "PF": "PF - Perfusion",
-          "PO": "PO - Oral",
-          "PR": "PR - Rectal",
-          "RM": "RM - Rebreather Mask",
-          "SC": "SC - Subcutaneous",
-          "SD": "SD - Soaked Dressing",
-          "SL": "SL - Sublingual",
-          "TD": "TD - Transdermal",
-          "TL": "TL - Translingual",
-          "TP": "TP - Topical",
-          "TRA": "TRA - Tracheostomy",
-          "UR": "UR - Urethral",
-          "VG": "VG - Vaginal",
-          "VM": "VM - Ventimask",
-          "WND": "WND - Wound"
-        }
+        "tags": "route"
+      },
+      "2": {
+        "name": "Administration Site",
+        "tags": "administration site"
+      },
+      "3": {
+        "name": "Administration Device",
+        "tags": "administration device"
+      },
+      "4": {
+        "name": "Administration Method",
+        "tags": "administration method"
+      },
+      "5": {
+        "name": "Routing Instruction",
+        "tags": "routing instruction"
       }
     }
   },
@@ -809,6 +819,9 @@
       },
       "2": {
         "name": "Universal Id"
+      },
+      "3": {
+        "name": "Universal Id Type"
       }
     },
     "pl": {
@@ -860,6 +873,9 @@
       },
       "7": {
         "name": "Condition"
+      },
+      "12": {
+        "name": "Total Occurences"
       }
     },
     "xad": {
