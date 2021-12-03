@@ -59,11 +59,26 @@
     </p-dropdown>
   </div>
   <div *ngSwitchCase="'multiple'">
-    <div class="row row-cols-3 subfield py-1" *ngFor="let subfield of $any(field).subfields">
-      <div [ngClass]="{ 'col-1': $any(field).level === 1, 'col-2': $any(field).level > 1 }"><b>{{ subfield.fieldNumber }}</b></div>
-      <div [ngClass]="{ 'col-4': $any(field).level === 1, 'col-6': $any(field).level > 1 }" [title]="subfield.i18n | translate">{{ subfield.i18n + '.name' | translate }}</div>
-      <div class="col" class="focus-target">
-        <app-field [field]="subfield" (change)="handleChange()"></app-field>
+    <div class="row">
+      <div class="col-auto">
+        <button *ngIf="!$any(field).showSubFields" pButton type="button" icon="pi pi-plus" [title]="'action.expand' | translate" (click)="$any(field).toggleSubFieldsDisplay()" class="ui-button-success"></button>
+        <button *ngIf="$any(field).showSubFields" pButton type="button" icon="pi pi-chevron-up" [title]="'action.collapse' | translate" (click)="$any(field).toggleSubFieldsDisplay()" class="ui-button-secondary"></button>
+      </div>
+      <div class="col">
+        <input
+          *ngIf="!$any(field).showSubFields"
+          pInputText
+          [(ngModel)]="$any(field).value"
+          type="text"
+          (onchange)="handleChange()"
+          class="focus-target" />
+        <div *ngFor="let subfield of ($any(field).showSubFields ? $any(field).subfields : [])" class="row row-cols-3 subfield py-1">
+          <div [ngClass]="{ 'col-1': $any(field).level === 1, 'col-2': $any(field).level > 1 }"><b>{{ subfield.fieldNumber }}</b></div>
+          <div [ngClass]="{ 'col-4': $any(field).level === 1, 'col-6': $any(field).level > 1 }" [title]="subfield.i18n | translate">{{ subfield.i18n + '.name' | translate }}</div>
+          <div class="col" class="focus-target">
+            <app-field [field]="subfield" (change)="handleChange()"></app-field>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -6,6 +6,8 @@ import { BaseField } from './base-field';
 
 export class MultipleField extends BaseField<MultipleField> {
 
+  showSubFields = false;
+
   constructor(
     private readonly configService: MessageConfigurationService,
     fieldNumber: number,
@@ -19,6 +21,17 @@ export class MultipleField extends BaseField<MultipleField> {
       fieldNumber,
       id,
       i18n);
+  }
+
+  public get value(): string {
+    return this.toString();
+  }
+  public set value(text: string) {
+    this.setValue(text);
+  }
+
+  public toggleSubFieldsDisplay(): void {
+    this.showSubFields = !this.showSubFields;
   }
 
   public hasValue(): boolean {
@@ -39,6 +52,8 @@ export class MultipleField extends BaseField<MultipleField> {
 
     if (this.hasValue()) {
       this.expanded = true;
+
+      this.updateSubFieldsDisplay();
     }
   }
 
@@ -78,5 +93,9 @@ export class MultipleField extends BaseField<MultipleField> {
         field.setValue(values[i]);
       }
     }
+  }
+
+  private updateSubFieldsDisplay(): void {
+    this.showSubFields = this.showSubFields || _.some(this.subfields, s => s.fieldNumber > 1 && s.hasValue());
   }
 }
