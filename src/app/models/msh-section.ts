@@ -64,7 +64,8 @@ export class MshSection extends SectionBase {
         'msh.9',
         [
           new StringField(1, 'msh.9.1'),
-          new StringField(2, 'msh.9.2')
+          new StringField(2, 'msh.9.2'),
+          new StringField(3, 'msh.9.3')
         ]),
       new StringField(10, 'msh.10').init({ valueGenerator: (f) => {
         f.setValue(faker.datatype.uuid().replace(/-/g, ''));

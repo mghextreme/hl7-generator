@@ -179,6 +179,10 @@
         "2": {
           "name": "Trigger Event",
           "tags": "trigger event, message event"
+        },
+        "3": {
+          "name": "Message Structure",
+          "tags": "message structure"
         }
       },
       "10": {
