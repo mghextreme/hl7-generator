@@ -1,6 +1,6 @@
 import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
-import { CeCustomField, CxCustomField, DateTimeField, MultipleField, NumericField, StringField, XadCustomField, XpnCustomField } from './fields';
+import { CeCustomField, CxCustomField, DateTimeField, MultipleField, NumericField, RepeatField, StringField, XadCustomField, XpnCustomField } from './fields';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
 import faker from 'faker';
@@ -33,9 +33,9 @@ export class PidSection extends SectionBase {
     this.fields = [
       new NumericField(1, 'pid.1'),
       new CxCustomField(this.configService, 2, 'pid.2'),
-      new CxCustomField(this.configService, 3, 'pid.3').init({ required: true }),
-      new CxCustomField(this.configService, 4, 'pid.4'),
-      new XpnCustomField(this.configService, 5, 'pid.5').init({
+      new RepeatField(this.configService, new CxCustomField(this.configService, 3, 'pid.3').init({ required: true })),
+      new RepeatField(this.configService, new CxCustomField(this.configService, 4, 'pid.4')),
+      new RepeatField(this.configService, new XpnCustomField(this.configService, 5, 'pid.5').init({
         required: true,
         valueGenerator: (f) => {
           f.setValue([
@@ -44,14 +44,14 @@ export class PidSection extends SectionBase {
             faker.datatype.boolean() ? faker.name.firstName() : '',
             faker.datatype.number(8) === 1 ? faker.name.suffix() : '']);
         }
-      }),
-      new XpnCustomField(this.configService, 6, 'pid.6').init({ valueGenerator: (f) => {
+      })),
+      new RepeatField(this.configService, new XpnCustomField(this.configService, 6, 'pid.6').init({ valueGenerator: (f) => {
         f.setValue([
           faker.name.lastName(),
           faker.name.firstName(1),
           faker.datatype.boolean() ? faker.name.firstName(1) : '',
           faker.datatype.number(8) === 1 ? faker.name.suffix() : '']);
-      }}),
+      }})),
       new DateTimeField(7, 'pid.7').init({
         includeSeconds: true,
           valueGenerator: (f) => {
@@ -65,18 +65,18 @@ export class PidSection extends SectionBase {
           faker.random.arrayElement(
             this.configService.retrieveCollection('PID.8')));
       }}),
-      new CeCustomField(this.configService, 10, 'pid.10').init({ valueGenerator: (f) => {
+      new RepeatField(this.configService, new CeCustomField(this.configService, 10, 'pid.10').init({ valueGenerator: (f) => {
         f.setValue(
           faker.random.arrayElement(
             this.configService.retrieveCollection('PID.10')));
-      }}),
-      new XadCustomField(this.configService, 11, 'pid.11').init({ valueGenerator: (f) => {
+      }})),
+      new RepeatField(this.configService, new XadCustomField(this.configService, 11, 'pid.11').init({ valueGenerator: (f) => {
         f.setValue([
           faker.address.streetAddress(), ,
           faker.address.cityName(),
           faker.address.state(),
           faker.address.zipCode()]);
-      }}),
+      }})),
       new StringField(12, 'pid.12'),
       new CeCustomField(this.configService, 15, 'pid.15'),
       new CeCustomField(this.configService, 16, 'pid.16').init({ valueGenerator: (f) => {
@@ -89,11 +89,11 @@ export class PidSection extends SectionBase {
       new StringField(19, 'pid.19').init({ valueGenerator: (f) => {
         f.setValue(faker.finance.routingNumber());
       }}),
-      new CeCustomField(this.configService, 22, 'pid.22').init({ valueGenerator: (f) => {
+      new RepeatField(this.configService, new CeCustomField(this.configService, 22, 'pid.22').init({ valueGenerator: (f) => {
         f.setValue(
           faker.random.arrayElement(
             this.configService.retrieveCollection('PID.22')));
-      }}),
+      }})),
       new StringField(24, 'pid.24').init({ maxLength: 1 }),
       new NumericField(25, 'pid.25'),
     ];

@@ -23,7 +23,7 @@ export class ObrSection extends SectionBase {
       new NumericField(1, 'obr.1'),
       new EiCustomField(this.configService, 2, 'obr.2'),
       new EiCustomField(this.configService, 3, 'obr.3'),
-      new CeCustomField(this.configService, 4, 'obr.4'),
+      new CeCustomField(this.configService, 4, 'obr.4').init({ required: true }),
       new DateTimeField(7, 'obr.7').init({ includeSeconds: true }),
       new DateTimeField(14, 'obr.14').init({ includeSeconds: true })
     ];

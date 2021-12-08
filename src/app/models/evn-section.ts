@@ -23,6 +23,7 @@ export class EvnSection extends SectionBase {
     this.fields = [
       new StringField(1, 'evn.1').init({ maxLength: 3 }),
       new DateTimeField(2, 'evn.2').init({
+        required: true,
         includeSeconds: true,
         valueGenerator: (f) => {
           f.setValue(moment.tz(this.configService.timezone).local(true).toDate())

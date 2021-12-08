@@ -1,6 +1,6 @@
 import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
-import { CxCustomField, XpnCustomField } from './fields';
+import { CxCustomField, RepeatField, XpnCustomField } from './fields';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
 import faker from 'faker';
@@ -33,16 +33,16 @@ export class MrgSection extends SectionBase {
 
   protected setFields() {
     this.fields = [
-      new CxCustomField(this.configService, 1, 'mrg.1').init({ required: true }),
+      new RepeatField(this.configService, new CxCustomField(this.configService, 1, 'mrg.1').init({ required: true })),
       new CxCustomField(this.configService, 3, 'mrg.3'),
       new CxCustomField(this.configService, 4, 'mrg.4'),
-      new XpnCustomField(this.configService, 7, 'mrg.7').init({ valueGenerator: (f) => {
+      new RepeatField(this.configService, new XpnCustomField(this.configService, 7, 'mrg.7').init({ valueGenerator: (f) => {
         f.setValue([
           faker.name.lastName(),
           faker.name.firstName(),
           faker.datatype.boolean() ? faker.name.firstName() : '',
           faker.datatype.number(8) === 1 ? faker.name.suffix() : '']);
-      }})
+      }}))
     ];
   }
 }

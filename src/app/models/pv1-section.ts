@@ -1,6 +1,6 @@
 import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
-import { DateTimeField, NumericField, StringField } from './fields';
+import { DateTimeField, NumericField, RepeatField, StringField } from './fields';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
 import faker from 'faker';
@@ -33,12 +33,12 @@ export class Pv1Section extends SectionBase {
   protected setFields(): void {
     this.fields = [
       new NumericField(1, 'pv1.1'),
-      new StringField(2, 'pv1.2').init({ maxLength: 1 }),
+      new StringField(2, 'pv1.2').init({ required: true, maxLength: 1 }),
       new PlCustomField(this.configService, 3, 'pv1.3'),
-      new XcnCustomField(this.configService, 7, 'pv1.7'),
+      new RepeatField(this.configService, new XcnCustomField(this.configService, 7, 'pv1.7')),
       new OptionsField(this.translate, 10, 'pv1.10', Pv1Section.pv1_10_options),
       new StringField(14, 'pv1.14'),
-      new StringField(15, 'pv1.15'),
+      new RepeatField(this.configService, new StringField(15, 'pv1.15')),
       new CxCustomField(this.configService, 19, 'pv1.19'),
       new StringField(36, 'pv1.36').init({ valueGenerator: (f) => {
         f.setValue(
@@ -55,7 +55,7 @@ export class Pv1Section extends SectionBase {
           this.getField(44).setValue(faker.date.between(from.toDate(), to.toDate()));
         }
       }),
-      new DateTimeField(45, 'pv1.45').init({
+      new RepeatField(this.configService, new DateTimeField(45, 'pv1.45').init({
         includeSeconds: true,
         valueGenerator: (f) => {
           const tz = this.configService.timezone;
@@ -63,7 +63,7 @@ export class Pv1Section extends SectionBase {
           const admitDate = (admitField as DateTimeField).value ?? moment.tz(tz).local(true).subtract(1, 'month').toDate();
           f.setValue(faker.date.between(admitDate, moment.tz(tz).local(true).toDate()));
         }
-      })
+      }))
     ];
   }
 

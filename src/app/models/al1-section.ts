@@ -21,9 +21,9 @@ export class Al1Section extends SectionBase {
 
   protected setFields(): void {
     this.fields = [
-      new CeCustomField(this.configService, 1, 'al1.1'),
+      new CeCustomField(this.configService, 1, 'al1.1').init({ required: true }),
       new CeCustomField(this.configService, 2, 'al1.2'),
-      new CeCustomField(this.configService, 3, 'al1.3'),
+      new CeCustomField(this.configService, 3, 'al1.3').init({ required: true }),
       new CeCustomField(this.configService, 4, 'al1.4'),
       new StringField(5, 'al1.5'),
       new DateField(6, 'al1.6'),

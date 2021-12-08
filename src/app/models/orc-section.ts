@@ -1,6 +1,6 @@
 import { TranslateService } from '@ngx-translate/core';
 import { MessageConfigurationService } from 'app/services';
-import { DateTimeField, EiCustomField, OptionsField, PlCustomField, TqCustomField, XcnCustomField } from './fields';
+import { DateTimeField, EiCustomField, OptionsField, PlCustomField, RepeatField, TqCustomField, XcnCustomField } from './fields';
 import { IOption } from './option.interface';
 import { SectionBase } from './section-base';
 import { SectionType } from './section-type.enum';
@@ -26,9 +26,9 @@ export class OrcSection extends SectionBase {
       new EiCustomField(this.configService, 3, 'orc.3'),
       new OptionsField(this.translate, 5, 'orc.5', OrcSection.orc_5_options),
       new OptionsField(this.translate, 6, 'orc.6', OrcSection.orc_6_options).init({ editable: false }),
-      new TqCustomField(this.configService, 7, 'orc.7'),
+      new RepeatField(this.configService, new TqCustomField(this.configService, 7, 'orc.7')),
       new DateTimeField(9, 'orc.9').init({ includeSeconds: true }),
-      new XcnCustomField(this.configService, 12, 'orc.12'),
+      new RepeatField(this.configService, new XcnCustomField(this.configService, 12, 'orc.12')),
       new PlCustomField(this.configService, 13, 'orc.13'),
       new DateTimeField(15, 'orc.15')
     ];
