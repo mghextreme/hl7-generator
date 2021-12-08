@@ -566,7 +566,11 @@
         "name": "ID Verificador do Fornecedor do Tratamento"
       },
       "20": {
-        "name": "Necessidade Revisão Humana"
+        "name": "Necessidade Revisão Humana",
+        "options": {
+          "Y": "Y - Sim",
+          "N": "N - Não"
+        }
       },
       "23": {
         "name": "Quantidade Proporcional de Fornecimento"

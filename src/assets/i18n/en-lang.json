@@ -696,7 +696,11 @@
       },
       "20": {
         "name": "Needs Human Review",
-        "tags": "needs human review"
+        "tags": "needs human review",
+        "options": {
+          "Y": "Y - Yes",
+          "N": "N - No"
+        }
       },
       "23": {
         "name": "Give Rate Amount",
