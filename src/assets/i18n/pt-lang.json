@@ -16,7 +16,8 @@
     "save-as-template": "Salvar como Modela",
     "close": "Fechar",
     "generate-data": "Gerar dados",
-    "select-option": "Selecionar opção"
+    "select-option": "Selecionar opção",
+    "repeat": "Repetir"
   },
   "titles": {
     "sections": "Seções",

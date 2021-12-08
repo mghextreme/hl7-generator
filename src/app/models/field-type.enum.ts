@@ -4,5 +4,6 @@ export enum FieldType {
   Date = 'date',
   DateTime = 'datetime',
   Options = 'options',
-  Multiple = 'multiple'
+  Multiple = 'multiple',
+  Repeat = 'repeat'
 }

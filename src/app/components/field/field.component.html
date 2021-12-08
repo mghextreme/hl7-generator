@@ -80,5 +80,15 @@
       </div>
     </div>
   </div>
+  <div *ngSwitchCase="'repeat'">
+    <div *ngFor="let subfield of $any(field).subfields" class="mb-2">
+      <app-field [field]="subfield" (change)="handleChange()"></app-field>
+    </div>
+    <div class="repeat-buttons">
+      <label class="mr-2">{{ 'actions.repeat' | translate }}</label>
+      <button pButton type="button" icon="pi pi-minus" [title]="'action.remove' | translate" (click)="$any(field).removeSubfield();handleChange()" class="ui-button-danger mr-1"></button>
+      <button pButton type="button" icon="pi pi-plus" [title]="'action.add' | translate" (click)="$any(field).addSubfield();handleChange()" class="ui-button-success mr-1"></button>
+    </div>
+  </div>
   <div *ngSwitchDefault>(unidentified type)</div>
 </div>

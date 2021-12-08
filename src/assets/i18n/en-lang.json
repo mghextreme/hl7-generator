@@ -16,7 +16,8 @@
     "save-as-template": "Save as Template",
     "close": "Close",
     "generate-data": "Generate data",
-    "select-option": "Select option"
+    "select-option": "Select option",
+    "repeat": "Repeat"
   },
   "titles": {
     "sections": "Sections",

@@ -10,6 +10,7 @@ export * from './multiple.field';
 export * from './numeric.field';
 export * from './options.field';
 export * from './pl.custom.field';
+export * from './repeat.field';
 export * from './string.field';
 export * from './tq.custom.field';
 export * from './xad.custom.field';

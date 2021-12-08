@@ -2,9 +2,9 @@ import { FieldType } from './field-type.enum';
 import { IField } from './field.interface';
 
 export abstract class BaseField<T extends IField> implements IField {
-  expanded: boolean;
-  collapsable: boolean;
-  required: boolean;
+  expanded: boolean = false;
+  collapsable: boolean = true;
+  required: boolean = false;
 
   private _i18n: string;
 

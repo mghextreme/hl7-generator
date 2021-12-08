@@ -2,6 +2,12 @@ p-dropdown {
   display: block;
 }
 
+.repeat-buttons {
+  button {
+    font-size: 0.65em;
+  }
+}
+
 ::ng-deep {
   .ui-dropdown {
     min-width: 50%;
