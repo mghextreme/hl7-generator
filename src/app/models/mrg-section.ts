@@ -33,7 +33,7 @@ export class MrgSection extends SectionBase {
 
   protected setFields() {
     this.fields = [
-      new CxCustomField(this.configService, 1, 'mrg.1'),
+      new CxCustomField(this.configService, 1, 'mrg.1').init({ required: true }),
       new CxCustomField(this.configService, 3, 'mrg.3'),
       new CxCustomField(this.configService, 4, 'mrg.4'),
       new XpnCustomField(this.configService, 7, 'mrg.7').init({ valueGenerator: (f) => {

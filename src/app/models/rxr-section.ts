@@ -20,7 +20,7 @@ export class RxrSection extends SectionBase {
 
   protected setFields(): void {
     this.fields = [
-      new CeCustomField(this.configService, 1, 'rxr.1'),
+      new CeCustomField(this.configService, 1, 'rxr.1').init({ required: true }),
       new CeCustomField(this.configService, 2, 'rxr.2'),
       new CeCustomField(this.configService, 3, 'rxr.3'),
       new CeCustomField(this.configService, 4, 'rxr.4'),

@@ -65,45 +65,17 @@
         "title": "MSH section should be first",
         "description": "Message Header should be the first section of the message"
       },
-      "msh-7-required": {
-        "title": "MSH.7 required",
-        "description": "Date/Time of Message is a mandatory field"
+      "field-required": {
+        "title": "{{x}} required",
+        "description": "{{x}} is a mandatory field"
       },
-      "msh-9-required": {
-        "title": "MSH.9 required",
-        "description": "Message Type is a mandatory field"
+      "field-string-length-greater-than-max": {
+        "title": "{{x}} is too lengthy",
+        "description": "{{x}} content length is greater than the maximum accepted by the field"
       },
-      "msh-10-required": {
-        "title": "MSH.10 required",
-        "description": "Message Control ID is a mandatory field"
-      },
-      "msh-11-required": {
-        "title": "MSH.11 required",
-        "description": "Processing ID is a mandatory field"
-      },
-      "msh-12-required": {
-        "title": "MSH.12 required",
-        "description": "Version ID is a mandatory field"
-      },
-      "obx-3-required": {
-        "title": "OBX.3 required",
-        "description": "Observation Identifier is a mandatory field"
-      },
-      "orc-1-required": {
-        "title": "ORC.1 required",
-        "description": "Order Control is a mandatory field"
-      },
-      "pid-3-required": {
-        "title": "PID.3 required",
-        "description": "Patient Identifier List is a mandatory field"
-      },
-      "pid-5-required": {
-        "title": "PID.5 required",
-        "description": "Patient Name is a mandatory field"
-      },
-      "rxr-1-required": {
-        "title": "RXR.1 required",
-        "description": "Route is a mandatory field"
+      "field-string-length-lower-than-min": {
+        "title": "{{x}} is too short",
+        "description": "{{x}} content length is lower than the minimum required by the field"
       }
     }
   },

@@ -33,15 +33,18 @@ export class PidSection extends SectionBase {
     this.fields = [
       new NumericField(1, 'pid.1'),
       new CxCustomField(this.configService, 2, 'pid.2'),
-      new CxCustomField(this.configService, 3, 'pid.3'),
+      new CxCustomField(this.configService, 3, 'pid.3').init({ required: true }),
       new CxCustomField(this.configService, 4, 'pid.4'),
-      new XpnCustomField(this.configService, 5, 'pid.5').init({ valueGenerator: (f) => {
-        f.setValue([
-          faker.name.lastName(),
-          faker.name.firstName(),
-          faker.datatype.boolean() ? faker.name.firstName() : '',
-          faker.datatype.number(8) === 1 ? faker.name.suffix() : '']);
-      }}),
+      new XpnCustomField(this.configService, 5, 'pid.5').init({
+        required: true,
+        valueGenerator: (f) => {
+          f.setValue([
+            faker.name.lastName(),
+            faker.name.firstName(),
+            faker.datatype.boolean() ? faker.name.firstName() : '',
+            faker.datatype.number(8) === 1 ? faker.name.suffix() : '']);
+        }
+      }),
       new XpnCustomField(this.configService, 6, 'pid.6').init({ valueGenerator: (f) => {
         f.setValue([
           faker.name.lastName(),

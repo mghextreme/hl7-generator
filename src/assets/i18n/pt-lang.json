@@ -65,45 +65,17 @@
         "title": "Seção MSH deve ser a primeira",
         "description": "Cabeçalho da Mensagem deve ser a primeira seção na mensagem"
       },
-      "msh-7-required": {
-        "title": "MSH.7 obrigatório",
-        "description": "Data/Hora da Mensagem é um campo obrigatório"
+      "field-required": {
+        "title": "{{x}} obrigatório",
+        "description": "{{x}} é um campo obrigatório"
       },
-      "msh-9-required": {
-        "title": "MSH.9 obrigatório",
-        "description": "Tipo de Mensagem é um campo obrigatório"
+      "field-string-length-greater-than-max": {
+        "title": "{{x}} é muito longo",
+        "description": "Conteúdo de {{x}} é maior do que o máximo aceito no campo"
       },
-      "msh-10-required": {
-        "title": "MSH.10 obrigatório",
-        "description": "ID de Controle de Mensagem é um campo obrigatório"
-      },
-      "msh-11-required": {
-        "title": "MSH.11 obrigatório",
-        "description": "ID de Processamento é um campo obrigatório"
-      },
-      "msh-12-required": {
-        "title": "MSH.12 obrigatório",
-        "description": "ID de Versão é um campo obrigatório"
-      },
-      "obx-3-required": {
-        "title": "OBX.3 obrigatório",
-        "description": "Identificador da Observação é um campo obrigatório"
-      },
-      "orc-1-required": {
-        "title": "ORC.1 obrigatório",
-        "description": "Controle de Solicitação é um campo obrigatório"
-      },
-      "pid-3-required": {
-        "title": "PID.3 obrigatório",
-        "description": "Lista de Identificadores do Paciente é um campo obrigatório"
-      },
-      "pid-5-required": {
-        "title": "PID.5 obrigatório",
-        "description": "Nome do Paciente é um campo obrigatório"
-      },
-      "rxr-1-required": {
-        "title": "RXR.1 obrigatório",
-        "description": "Rota é um campo obrigatório"
+      "field-string-length-lower-than-min": {
+        "title": "{{x}} é muito curto",
+        "description": "Conteúdo de {{x}} é menor do que o mínimo exigido no campo"
       }
     }
   },

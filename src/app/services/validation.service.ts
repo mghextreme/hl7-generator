@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { ISection, IValidationError, MshSection, SectionType } from 'app/models';
+import { FieldType } from 'app/models/field-type.enum';
+import { StringField } from 'app/models/string.field';
 import _ from 'lodash';
 
 @Injectable({
@@ -7,7 +10,9 @@ import _ from 'lodash';
 })
 export class ValidationService {
 
-  constructor() { }
+  constructor(
+    private readonly translate: TranslateService
+  ) { }
 
   public validateMessage(sections: ISection[]): IValidationError[] {
     if (sections === null ||
@@ -18,11 +23,9 @@ export class ValidationService {
 
     const errors: IValidationError[] = [];
     this.mshValidation(sections).forEach(x => errors.push(x));
-    this.mrgValidation(sections).forEach(x => errors.push(x));
-    this.obxValidation(sections).forEach(x => errors.push(x));
-    this.orcValidation(sections).forEach(x => errors.push(x));
-    this.pidValidation(sections).forEach(x => errors.push(x));
-    this.rxrValidation(sections).forEach(x => errors.push(x));
+    sections.forEach(s => {
+      this.validateFields(s).forEach(e => errors.push(e));
+    })
 
     return errors;
   }
@@ -45,159 +48,53 @@ export class ValidationService {
       errors.push({ errorCode: 'msh-not-first', sectionId: msh.id });
     }
 
-    if (!!!msh.getField(7).hasValueAndExpanded()) {
-      errors.push({
-        errorCode: 'msh-7-required',
-        sectionId: msh.id,
-        fieldNumber: 7
-      });
-    }
-
-    if (!!!msh.getField(9).hasValueAndExpanded()) {
-      errors.push({
-        errorCode: 'msh-9-required',
-        sectionId: msh.id,
-        fieldNumber: 9
-      });
-    }
-
-    if (!!!msh.getField(10).hasValueAndExpanded()) {
-      errors.push({
-        errorCode: 'msh-10-required',
-        sectionId: msh.id,
-        fieldNumber: 10
-      });
-    }
-
-    if (!!!msh.getField(11).hasValueAndExpanded()) {
-      errors.push({
-        errorCode: 'msh-11-required',
-        sectionId: msh.id,
-        fieldNumber: 11
-      });
-    }
-
-    if (!!!msh.getField(12).hasValueAndExpanded()) {
-      errors.push({
-        errorCode: 'msh-12-required',
-        sectionId: msh.id,
-        fieldNumber: 12
-      });
-    }
-
     return errors;
   }
 
-  private mrgValidation(sections: ISection[]): IValidationError[] {
-    const mrgSections = _.filter(sections, (x => x.type === SectionType.MRG));
-
-    if (mrgSections.length === 0) {
-      return [];
-    }
-
-    const errors: IValidationError[] = [];
-    mrgSections.forEach(x => {
-      if (!!!x.getField(1).hasValueAndExpanded()) {
+  private validateFields(section: ISection): IValidationError[] {
+    var errors: IValidationError[] = [];
+    section.fields.forEach(f => {
+      if (f.required && !f.hasValueAndExpanded()) {
         errors.push({
-          errorCode: 'mrg-1-required',
-          sectionId: x.id,
-          fieldNumber: 1
+          errorCode: 'field-required',
+          sectionId: section.id,
+          fieldNumber: f.fieldNumber,
+          fieldId: this.getFieldId(section.type, f.fieldNumber),
+          fieldName: this.getFieldName(section.type, f.fieldNumber)
         });
+      }
+
+      if (f.type === FieldType.String && f instanceof StringField) {
+        if (f.hasValue()) {
+          if (f.value.length > f.maxLength) {
+            errors.push({
+              errorCode: 'field-string-length-greater-than-max',
+              sectionId: section.id,
+              fieldNumber: f.fieldNumber,
+              fieldId: this.getFieldId(section.type, f.fieldNumber),
+              fieldName: this.getFieldName(section.type, f.fieldNumber)
+            });
+          } else if (f.value.length < f.minLength) {
+            errors.push({
+              errorCode: 'field-string-length-lower-than-min',
+              sectionId: section.id,
+              fieldNumber: f.fieldNumber,
+              fieldId: this.getFieldId(section.type, f.fieldNumber),
+              fieldName: this.getFieldName(section.type, f.fieldNumber)
+            });
+          }
+        }
       }
     });
 
     return errors;
   }
 
-  private obxValidation(sections: ISection[]): IValidationError[] {
-    const obxSections = _.filter(sections, (x => x.type === SectionType.OBX));
-
-    if (obxSections.length === 0) {
-      return [];
-    }
-
-    const errors: IValidationError[] = [];
-    obxSections.forEach(x => {
-      if (!!!x.getField(3).hasValueAndExpanded()) {
-        errors.push({
-          errorCode: 'obx-3-required',
-          sectionId: x.id,
-          fieldNumber: 3
-        });
-      }
-    });
-
-    return errors;
+  private getFieldId(type: SectionType, fieldNumber: number): string {
+    return type.toString() + '.' + fieldNumber.toString();
   }
 
-  private orcValidation(sections: ISection[]): IValidationError[] {
-    const orcSections = _.filter(sections, (x => x.type === SectionType.ORC));
-
-    if (orcSections.length === 0) {
-      return [];
-    }
-
-    const errors: IValidationError[] = [];
-    orcSections.forEach(x => {
-      if (!!!x.getField(1).hasValueAndExpanded()) {
-        errors.push({
-          errorCode: 'orc-1-required',
-          sectionId: x.id,
-          fieldNumber: 1
-        });
-      }
-    });
-
-    return errors;
-  }
-
-  private pidValidation(sections: ISection[]): IValidationError[] {
-    const pidSections = _.filter(sections, (x => x.type === SectionType.PID));
-
-    if (pidSections.length === 0) {
-      return [];
-    }
-
-    const errors: IValidationError[] = [];
-    pidSections.forEach(x => {
-      if (!!!x.getField(3).hasValueAndExpanded()) {
-        errors.push({
-          errorCode: 'pid-3-required',
-          sectionId: x.id,
-          fieldNumber: 3
-        });
-      }
-
-      if (!!!x.getField(5).hasValueAndExpanded()) {
-        errors.push({
-          errorCode: 'pid-5-required',
-          sectionId: x.id,
-          fieldNumber: 5
-        });
-      }
-    });
-
-    return errors;
-  }
-
-  private rxrValidation(sections: ISection[]): IValidationError[] {
-    const rxrSections = _.filter(sections, (x => x.type === SectionType.RXR));
-
-    if (rxrSections.length === 0) {
-      return [];
-    }
-
-    const errors: IValidationError[] = [];
-    rxrSections.forEach(x => {
-      if (!!!x.getField(1).hasValueAndExpanded()) {
-        errors.push({
-          errorCode: 'rxr-1-required',
-          sectionId: x.id,
-          fieldNumber: 1
-        });
-      }
-    });
-
-    return errors;
+  private getFieldName(type: SectionType, fieldNumber: number): string {
+    return this.translate.instant('sections.' + type.toString().toLowerCase() + '.' + fieldNumber.toString() + '.name')
   }
 }

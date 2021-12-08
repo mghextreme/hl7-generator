@@ -5,6 +5,7 @@ export interface IField {
   fieldNumber: number;
   type: FieldType;
   expanded: boolean;
+  collapsable: boolean;
   required: boolean;
 
   i18n: string;

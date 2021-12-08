@@ -3,6 +3,7 @@ import { IField } from './field.interface';
 
 export abstract class BaseField<T extends IField> implements IField {
   expanded: boolean;
+  collapsable: boolean;
   required: boolean;
 
   private _i18n: string;

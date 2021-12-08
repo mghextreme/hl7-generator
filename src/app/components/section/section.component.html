@@ -10,7 +10,7 @@
     <div class="field" *ngFor="let field of section.fields" [attr.data-field-number]="field.fieldNumber">
       <div class="header p-1">
         <button *ngIf="!field.expanded" pButton type="button" icon="pi pi-plus" [title]="'action.add' | translate" (click)="handleAddField(field.fieldNumber)" class="ui-button-success mr-1"></button>
-        <button *ngIf="field.expanded" pButton type="button" icon="pi pi-chevron-up" [title]="'action.remove' | translate" (click)="handleRemoveField(field.fieldNumber)" class="ui-button-secondary mr-1" [disabled]="field.required"></button>
+        <button *ngIf="field.expanded" pButton type="button" icon="pi pi-chevron-up" [title]="'action.remove' | translate" (click)="handleRemoveField(field.fieldNumber)" class="ui-button-secondary mr-1" [disabled]="!field.collapsable"></button>
         <button pButton type="button" icon="pi pi-refresh" [title]="'action.generate-data' | translate" (click)="handleGenerateFieldData(field.fieldNumber)" class="generate-field ui-button-warning mr-3" [disabled]="!field.valueGenerator"></button>
         <span class="tag mr-2">{{ section.type }}.{{ field.fieldNumber }}</span>
         <span class="name">{{ field.i18n + '.name' | translate }}</span>

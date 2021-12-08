@@ -21,7 +21,7 @@ export class OrcSection extends SectionBase {
 
   protected setFields(): void {
     this.fields = [
-      new OptionsField(this.translate, 1, 'orc.1', OrcSection.orc_1_options),
+      new OptionsField(this.translate, 1, 'orc.1', OrcSection.orc_1_options).init({ required: true }),
       new EiCustomField(this.configService, 2, 'orc.2'),
       new EiCustomField(this.configService, 3, 'orc.3'),
       new OptionsField(this.translate, 5, 'orc.5', OrcSection.orc_5_options),

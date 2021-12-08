@@ -22,7 +22,7 @@ export class ObxSection extends SectionBase {
     this.fields = [
       new NumericField(1, 'obx.1'),
       new StringField(2, 'obx.2'),
-      new CeCustomField(this.configService, 3, 'obx.3'),
+      new CeCustomField(this.configService, 3, 'obx.3').init({ required: true }),
       new StringField(4, 'obx.4'),
       new StringField(5, 'obx.5'),
       new CeCustomField(this.configService, 6, 'obx.6'),

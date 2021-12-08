@@ -4,8 +4,8 @@
       <tr>
         <td width="60" class="index text-center">{{ rowIndex + 1 }}</td>
         <td class="details">
-          <h5>{{ 'validation.errors.' + rowData.errorCode + '.title' | translate }}</h5>
-          <p>{{ 'validation.errors.' + rowData.errorCode + '.description' | translate }}</p>
+          <h5>{{ 'validation.errors.' + rowData.errorCode + '.title' | translate: { x: rowData.fieldId } }}</h5>
+          <p>{{ 'validation.errors.' + rowData.errorCode + '.description' | translate: { x: rowData.fieldName } }}</p>
         </td>
         <td width="58">
           <p-button *ngIf="rowData.sectionId" icon="pi pi-external-link" [title]="'validation.go-to' | translate" (onClick)="goToError(rowData)" styleClass="ui-button-primary"></p-button>

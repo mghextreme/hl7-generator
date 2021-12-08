@@ -24,6 +24,7 @@ export class MshSection extends SectionBase {
   protected setFields(): void {
     this.fields = [
       new StringField(1, 'msh.1').init({
+        collapsable: false,
         required: true,
         expanded: true,
         minLength: 1,
@@ -39,6 +40,7 @@ export class MshSection extends SectionBase {
           new StringField(3, 'msh.2.3').init({ minLength: 1, maxLength: 1 }),
           new StringField(4, 'msh.2.4').init({ minLength: 1, maxLength: 1 })
         ]).init({
+          collapsable: false,
           required: true,
           expanded: true,
           customToString: (field: MultipleField): string => {
@@ -53,6 +55,7 @@ export class MshSection extends SectionBase {
       new HdCustomField(this.configService, 5, 'msh.5'),
       new HdCustomField(this.configService, 6, 'msh.6'),
       new DateTimeField(7, 'msh.7').init({
+        required: true,
         includeSeconds: true,
         valueGenerator: (f) => {
           f.setValue(moment.tz(this.configService.timezone).local(true).toDate());
@@ -66,10 +69,13 @@ export class MshSection extends SectionBase {
           new StringField(1, 'msh.9.1'),
           new StringField(2, 'msh.9.2'),
           new StringField(3, 'msh.9.3')
-        ]),
-      new StringField(10, 'msh.10').init({ valueGenerator: (f) => {
-        f.setValue(faker.datatype.uuid().replace(/-/g, ''));
-      }}),
+        ]).init({ required: true }),
+      new StringField(10, 'msh.10').init({
+        required: true,
+        valueGenerator: (f) => {
+          f.setValue(faker.datatype.uuid().replace(/-/g, ''));
+        }
+      }),
       new MultipleField(
         this.configService,
         11,
@@ -77,7 +83,7 @@ export class MshSection extends SectionBase {
         [
           new OptionsField(this.translate, 1, 'msh.11.1', MshSection.msh_11_1_options).init({ editable: false }),
           new OptionsField(this.translate, 2, 'msh.11.2', MshSection.msh_11_2_options)
-        ]),
+        ]).init({ required: true }),
       new MultipleField(
         this.configService,
         12,
@@ -86,7 +92,7 @@ export class MshSection extends SectionBase {
           new OptionsField(this.translate, 1, 'msh.12.1', MshSection.msh_12_1_options).init({ editable: false }),
           new StringField(2, 'msh.12.2'),
           new StringField(3, 'msh.12.3')
-        ]),
+        ]).init({ required: true }),
       new NumericField(13, 'msh.13'),
       new StringField(14, 'msh.14'),
       new OptionsField(this.translate, 15, 'msh.15', MshSection.msh_15_options),
