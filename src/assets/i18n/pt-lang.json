@@ -639,6 +639,15 @@
         "name": "Instalação Atribuída"
       }
     },
+    "dr": {
+      "name": "Intervalo de Data/Hora",
+      "1": {
+        "name": "Data/Hora de Início do Intervalo"
+      },
+      "2": {
+        "name": "Data/Hora de Fim do Intervalo"
+      }
+    },
     "ei": {
       "name": "Identificador de Entidade",
       "1": {
@@ -760,6 +769,9 @@
       },
       "7": {
         "name": "Gradação"
+      },
+      "17": {
+        "name": "Intervalo de Validade do Nome"
       }
     },
     "xpn": {

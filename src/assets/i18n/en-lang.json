@@ -777,6 +777,15 @@
         "name": "Assigning Facility"
       }
     },
+    "dr": {
+      "name": "Date/Time Range",
+      "1": {
+        "name": "Range Start Date/Time"
+      },
+      "2": {
+        "name": "Range End Date/Time"
+      }
+    },
     "ei": {
       "name": "Entity Identifier",
       "1": {
@@ -898,6 +907,9 @@
       },
       "7": {
         "name": "Prefix"
+      },
+      "17": {
+        "name": "Name Validity Range"
       }
     },
     "xpn": {

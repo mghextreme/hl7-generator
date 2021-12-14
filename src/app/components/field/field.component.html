@@ -39,12 +39,29 @@
       [monthNavigator]="true"
       [yearNavigator]="true"
       [showTime]="true"
+      [showSeconds]="$any(field).includeSeconds"
       yearRange="1900:2050"
+      hourFormat="24"
       (onSelect)="handleChange()"
       (onChange)="handleChange()"
       appendTo="body"
       inputStyleClass="focus-target">
     </p-calendar>
+    <input
+      *ngIf="$any(field).displayExtension"
+      pInputText
+      [(ngModel)]="$any(field).fractionValue"
+      type="text"
+      (onchange)="handleChange()"
+      class="ml-1 short" />
+    <input
+      *ngIf="$any(field).displayExtension"
+      pInputText
+      [(ngModel)]="$any(field).timeZoneValue"
+      type="text"
+      (onchange)="handleChange()"
+      class="ml-1 short" />
+    <button pButton type="button" icon="pi pi-globe" [title]="'actions.expand' | translate" (click)="$any(field).toggleExpansion();handleChange()" class="ml-1 ui-button-success"></button>
     <button pButton type="button" [label]="'actions.now' | translate" [title]="'actions.now' | translate" (click)="setNow()" class="ml-1"></button>
   </div>
   <div *ngSwitchCase="'options'">

@@ -2,6 +2,7 @@ export * from './ce.custom.field';
 export * from './cx.custom.field';
 export * from './date.field';
 export * from './datetime.field';
+export * from './dr.custom.field';
 export * from './ei.custom.field';
 export * from './field-type.enum';
 export * from './field.interface';
