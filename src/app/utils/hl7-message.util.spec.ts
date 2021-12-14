@@ -25,6 +25,72 @@ describe('Hl7MessageUtils', () => {
     .compileComponents();
   }));
 
+  it('new AL1 section', inject(
+    [MessageConfigurationService, TranslateService],
+    (configService: MessageConfigurationService, translate: TranslateService) => {
+      const newSection = Hl7MessageUtils.newSection(configService, translate, 'AL1');
+      expect(newSection).toBeDefined();
+      expect(newSection.type).toEqual(SectionType.AL1);
+      expect(newSection.toString()).toEqual('AL1|');
+    }
+  ));
+
+  it('parse AL1 section', inject(
+    [MessageConfigurationService, TranslateService],
+    (configService: MessageConfigurationService, translate: TranslateService) => {
+      const hl7 = Hl7MessageUtils.parse(configService, translate, 'AL1|a sample message|');
+      expect(hl7).toBeDefined();
+      expect(hl7.length).toEqual(1);
+
+      const section = hl7[0];
+      expect(section.type).toEqual(SectionType.AL1);
+    }
+  ));
+
+  it('new DG1 section', inject(
+    [MessageConfigurationService, TranslateService],
+    (configService: MessageConfigurationService, translate: TranslateService) => {
+      const newSection = Hl7MessageUtils.newSection(configService, translate, 'DG1');
+      expect(newSection).toBeDefined();
+      expect(newSection.type).toEqual(SectionType.DG1);
+      expect(newSection.toString()).toEqual('DG1|');
+    }
+  ));
+
+  it('parse DG1 section', inject(
+    [MessageConfigurationService, TranslateService],
+    (configService: MessageConfigurationService, translate: TranslateService) => {
+      const hl7 = Hl7MessageUtils.parse(configService, translate, 'DG1|a sample message|');
+      expect(hl7).toBeDefined();
+      expect(hl7.length).toEqual(1);
+
+      const section = hl7[0];
+      expect(section.type).toEqual(SectionType.DG1);
+    }
+  ));
+
+  it('new EVN section', inject(
+    [MessageConfigurationService, TranslateService],
+    (configService: MessageConfigurationService, translate: TranslateService) => {
+      const newSection = Hl7MessageUtils.newSection(configService, translate, 'EVN');
+      expect(newSection).toBeDefined();
+      expect(newSection.type).toEqual(SectionType.EVN);
+      expect(newSection.toString()).toEqual('EVN|');
+    }
+  ));
+
+  it('parse EVN section', inject(
+    [MessageConfigurationService, TranslateService],
+    (configService: MessageConfigurationService, translate: TranslateService) => {
+      const hl7 = Hl7MessageUtils.parse(configService, translate, 'EVN|a sample message|');
+      expect(hl7).toBeDefined();
+      expect(hl7.length).toEqual(1);
+
+      const section = hl7[0];
+      expect(section.type).toEqual(SectionType.EVN);
+    }
+  ));
+
   it('new MRG section', inject(
     [MessageConfigurationService, TranslateService],
     (configService: MessageConfigurationService, translate: TranslateService) => {
@@ -66,6 +132,28 @@ describe('Hl7MessageUtils', () => {
 
       const section = hl7[0];
       expect(section.type).toEqual(SectionType.MSH);
+    }
+  ));
+
+  it('new NK1 section', inject(
+    [MessageConfigurationService, TranslateService],
+    (configService: MessageConfigurationService, translate: TranslateService) => {
+      const newSection = Hl7MessageUtils.newSection(configService, translate, 'NK1');
+      expect(newSection).toBeDefined();
+      expect(newSection.type).toEqual(SectionType.NK1);
+      expect(newSection.toString().startsWith('NK1|')).toBeTruthy();
+    }
+  ));
+
+  it('parse NK1 section', inject(
+    [MessageConfigurationService, TranslateService],
+    (configService: MessageConfigurationService, translate: TranslateService) => {
+      const hl7 = Hl7MessageUtils.parse(configService, translate, 'NK1|a sample message|');
+      expect(hl7).toBeDefined();
+      expect(hl7.length).toEqual(1);
+
+      const section = hl7[0];
+      expect(section.type).toEqual(SectionType.NK1);
     }
   ));
 

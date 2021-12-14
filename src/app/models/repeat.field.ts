@@ -17,6 +17,7 @@ export class RepeatField extends BaseField<RepeatField> {
       template.id,
       template.i18n);
 
+    this.required = template.required;
     this.subfields = [];
     this.addSubfield();
   }

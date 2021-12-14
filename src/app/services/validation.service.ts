@@ -25,7 +25,7 @@ export class ValidationService {
     this.mshValidation(sections).forEach(x => errors.push(x));
     sections.forEach(s => {
       this.validateFields(s).forEach(e => errors.push(e));
-    })
+    });
 
     return errors;
   }
@@ -52,7 +52,7 @@ export class ValidationService {
   }
 
   private validateFields(section: ISection): IValidationError[] {
-    var errors: IValidationError[] = [];
+    const errors: IValidationError[] = [];
     section.fields.forEach(f => {
       if (f.required && !f.hasValueAndExpanded()) {
         errors.push({
@@ -95,6 +95,6 @@ export class ValidationService {
   }
 
   private getFieldName(type: SectionType, fieldNumber: number): string {
-    return this.translate.instant('sections.' + type.toString().toLowerCase() + '.' + fieldNumber.toString() + '.name')
+    return this.translate.instant('sections.' + type.toString().toLowerCase() + '.' + fieldNumber.toString() + '.name');
   }
 }

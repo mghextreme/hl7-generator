@@ -2,7 +2,7 @@ import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { Clipboard as MyClipboard } from '@angular/cdk/clipboard';
 import { AutoComplete } from 'primeng/autocomplete';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { FieldSearchResult, ISection, IValidationError, MrgSection, MshSection, ObrSection, ObxSection, OrcSection, PidSection, Pv1Section, RxeSection, RxrSection, SectionType, Template } from 'app/models';
+import { FieldSearchResult, ISection, IValidationError, SectionType, Template } from 'app/models';
 import { FieldSearchService, MessageConfigurationService, TemplateService, ValidationService } from 'app/services';
 import _ from 'lodash';
 import { TranslateService } from '@ngx-translate/core';

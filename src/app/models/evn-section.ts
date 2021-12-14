@@ -26,13 +26,13 @@ export class EvnSection extends SectionBase {
         required: true,
         includeSeconds: true,
         valueGenerator: (f) => {
-          f.setValue(moment.tz(this.configService.timezone).local(true).toDate())
+          f.setValue(moment.tz(this.configService.timezone).local(true).toDate());
         }
       }),
       new DateTimeField(6, 'evn.6').init({
         includeSeconds: true,
         valueGenerator: (f) => {
-          f.setValue(moment.tz(this.configService.timezone).local(true).toDate())
+          f.setValue(moment.tz(this.configService.timezone).local(true).toDate());
         }
       }),
     ];

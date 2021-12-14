@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { SectionComponent } from './section.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateLoaderMock } from 'app/testing/translate-loader-mock';
-import { ISection, PidSection, SectionType } from 'app/models';
+import { ISection, SectionType } from 'app/models';
 
 describe('SectionComponent', () => {
   let component: SectionComponent;

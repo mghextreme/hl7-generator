@@ -27,9 +27,11 @@ describe('ValidationService', () => {
       ]
     })
     .compileComponents();
-
-    service = new ValidationService();
   }));
+
+  beforeEach(() => {
+    service = new ValidationService(TestBed.inject(TranslateService));
+  });
 
   it('minimum valid message', inject(
     [MessageConfigurationService, TranslateService],
@@ -54,7 +56,7 @@ describe('ValidationService', () => {
   it('msh none', inject(
     [MessageConfigurationService, TranslateService],
     (configService: MessageConfigurationService, translate: TranslateService) => {
-      const sections = Hl7MessageUtils.parse(configService, translate, 'AL1|');
+      const sections = Hl7MessageUtils.parse(configService, translate, 'AL1|SomeValue||OtherValue|');
       const errors = service.validateMessage(sections);
       expect(errors).toBeDefined();
       expect(errors.length).toEqual(1);
@@ -87,7 +89,7 @@ ${DEFAULT_MSH}`;
     [MessageConfigurationService, TranslateService],
     (configService: MessageConfigurationService, translate: TranslateService) => {
       const hl7 =
-`AL1|
+`AL1|SomeValue||OtherValue|
 ${DEFAULT_MSH}`;
       const sections = Hl7MessageUtils.parse(configService, translate, hl7);
       const errors = service.validateMessage(sections);
@@ -110,7 +112,7 @@ ${DEFAULT_MSH}`;
       expect(errors.length).toEqual(1);
 
       const error = errors[0];
-      expect(error.errorCode).toEqual('msh-7-required');
+      expect(error.errorCode).toEqual('field-required');
       expect(error.sectionId).toEqual(sections[0].id);
       expect(error.fieldNumber).toEqual(7);
     })
@@ -119,13 +121,16 @@ ${DEFAULT_MSH}`;
   it('msh.9 required', inject(
     [MessageConfigurationService, TranslateService],
     (configService: MessageConfigurationService, translate: TranslateService) => {
-      const sections = Hl7MessageUtils.parse(configService, translate, 'MSH|^~\\&|||||20211201143040|||9faba2d463104cc8872dc7128675ef32|P|2.8|');
+      const sections = Hl7MessageUtils.parse(
+        configService,
+        translate,
+        'MSH|^~\\&|||||20211201143040|||9faba2d463104cc8872dc7128675ef32|P|2.8|');
       const errors = service.validateMessage(sections);
       expect(errors).toBeDefined();
       expect(errors.length).toEqual(1);
 
       const error = errors[0];
-      expect(error.errorCode).toEqual('msh-9-required');
+      expect(error.errorCode).toEqual('field-required');
       expect(error.sectionId).toEqual(sections[0].id);
       expect(error.fieldNumber).toEqual(9);
     })
@@ -140,7 +145,7 @@ ${DEFAULT_MSH}`;
       expect(errors.length).toEqual(1);
 
       const error = errors[0];
-      expect(error.errorCode).toEqual('msh-10-required');
+      expect(error.errorCode).toEqual('field-required');
       expect(error.sectionId).toEqual(sections[0].id);
       expect(error.fieldNumber).toEqual(10);
     })
@@ -149,13 +154,16 @@ ${DEFAULT_MSH}`;
   it('msh.11 required', inject(
     [MessageConfigurationService, TranslateService],
     (configService: MessageConfigurationService, translate: TranslateService) => {
-      const sections = Hl7MessageUtils.parse(configService, translate, 'MSH|^~\\&|||||20211201143040||ADT^A01|9faba2d463104cc8872dc7128675ef32||2.8|');
+      const sections = Hl7MessageUtils.parse(
+        configService,
+        translate,
+        'MSH|^~\\&|||||20211201143040||ADT^A01|9faba2d463104cc8872dc7128675ef32||2.8|');
       const errors = service.validateMessage(sections);
       expect(errors).toBeDefined();
       expect(errors.length).toEqual(1);
 
       const error = errors[0];
-      expect(error.errorCode).toEqual('msh-11-required');
+      expect(error.errorCode).toEqual('field-required');
       expect(error.sectionId).toEqual(sections[0].id);
       expect(error.fieldNumber).toEqual(11);
     })
@@ -164,13 +172,16 @@ ${DEFAULT_MSH}`;
   it('msh.12 required', inject(
     [MessageConfigurationService, TranslateService],
     (configService: MessageConfigurationService, translate: TranslateService) => {
-      const sections = Hl7MessageUtils.parse(configService, translate, 'MSH|^~\\&|||||20211201143040||ADT^A01|9faba2d463104cc8872dc7128675ef32|P||');
+      const sections = Hl7MessageUtils.parse(
+        configService,
+        translate,
+        'MSH|^~\\&|||||20211201143040||ADT^A01|9faba2d463104cc8872dc7128675ef32|P||');
       const errors = service.validateMessage(sections);
       expect(errors).toBeDefined();
       expect(errors.length).toEqual(1);
 
       const error = errors[0];
-      expect(error.errorCode).toEqual('msh-12-required');
+      expect(error.errorCode).toEqual('field-required');
       expect(error.sectionId).toEqual(sections[0].id);
       expect(error.fieldNumber).toEqual(12);
     })
@@ -188,7 +199,7 @@ MRG|`;
       expect(errors.length).toEqual(1);
 
       const error = errors[0];
-      expect(error.errorCode).toEqual('mrg-1-required');
+      expect(error.errorCode).toEqual('field-required');
       expect(error.sectionId).toEqual(sections[1].id);
       expect(error.fieldNumber).toEqual(1);
     })
@@ -199,16 +210,34 @@ MRG|`;
     (configService: MessageConfigurationService, translate: TranslateService) => {
       const hl7 =
 `${DEFAULT_MSH}
-OBX|`;
+OBX|||||||||||SomeValue|`;
       const sections = Hl7MessageUtils.parse(configService, translate, hl7);
       const errors = service.validateMessage(sections);
       expect(errors).toBeDefined();
       expect(errors.length).toEqual(1);
 
       const error = errors[0];
-      expect(error.errorCode).toEqual('obx-3-required');
+      expect(error.errorCode).toEqual('field-required');
       expect(error.sectionId).toEqual(sections[1].id);
       expect(error.fieldNumber).toEqual(3);
+    })
+  );
+
+  it('obx.11 required', inject(
+    [MessageConfigurationService, TranslateService],
+    (configService: MessageConfigurationService, translate: TranslateService) => {
+      const hl7 =
+`${DEFAULT_MSH}
+OBX|||SomeValue|`;
+      const sections = Hl7MessageUtils.parse(configService, translate, hl7);
+      const errors = service.validateMessage(sections);
+      expect(errors).toBeDefined();
+      expect(errors.length).toEqual(1);
+
+      const error = errors[0];
+      expect(error.errorCode).toEqual('field-required');
+      expect(error.sectionId).toEqual(sections[1].id);
+      expect(error.fieldNumber).toEqual(11);
     })
   );
 
@@ -224,7 +253,7 @@ ORC|`;
       expect(errors.length).toEqual(1);
 
       const error = errors[0];
-      expect(error.errorCode).toEqual('orc-1-required');
+      expect(error.errorCode).toEqual('field-required');
       expect(error.sectionId).toEqual(sections[1].id);
       expect(error.fieldNumber).toEqual(1);
     })
@@ -242,7 +271,7 @@ PID|||||Bond^James|`;
       expect(errors.length).toEqual(1);
 
       const error = errors[0];
-      expect(error.errorCode).toEqual('pid-3-required');
+      expect(error.errorCode).toEqual('field-required');
       expect(error.sectionId).toEqual(sections[1].id);
       expect(error.fieldNumber).toEqual(3);
     })
@@ -260,7 +289,7 @@ PID|||PID_123|`;
       expect(errors.length).toEqual(1);
 
       const error = errors[0];
-      expect(error.errorCode).toEqual('pid-5-required');
+      expect(error.errorCode).toEqual('field-required');
       expect(error.sectionId).toEqual(sections[1].id);
       expect(error.fieldNumber).toEqual(5);
     })

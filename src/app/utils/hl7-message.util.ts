@@ -8,7 +8,7 @@ export class Hl7MessageUtils {
     translate: TranslateService,
     message: string
   ): ISection[] {
-    let sections: ISection[] = [];
+    const sections: ISection[] = [];
 
     const bits = message.split('\n');
     bits.forEach(b => {

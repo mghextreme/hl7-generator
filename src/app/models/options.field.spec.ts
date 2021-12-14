@@ -36,7 +36,7 @@ describe('OptionsField', () => {
 
   beforeEach(() => {
     const translate = TestBed.inject(TranslateService);
-    model = new OptionsField(translate, NUMBER, ID, options)
+    model = new OptionsField(translate, NUMBER, ID, options);
   });
 
   it('constructor - set default', () => {
