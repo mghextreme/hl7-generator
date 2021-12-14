@@ -16,7 +16,7 @@
       [min]="$any(field).acceptNegatives ? -999999999999 : 0"
       [minFractionDigits]="0"
       [maxFractionDigits]="$any(field).acceptFractions ? 20 : 0"
-      (onchange)="handleChange()"
+      (onBlur)="handleChange()"
       class="focus-target">
     </p-inputNumber>
   </div>
