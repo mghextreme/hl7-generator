@@ -45,24 +45,26 @@ browser front-end.
 It uses [Angular 9](https://angular.io/) for the front-end, [PrimeNG](https://primefaces.org/primeng/)
 for components and [Bootstrap](https://getbootstrap.com/) for UI and layout.
 
+### Install packages
+
 To run it locally, run `npm install` to install any required packages.
 
-### Rust Cargo and Tauri
+#### Rust Cargo and Tauri
 
 If you wish to deploy it as an application, you must install [Rust Cargo](https://win.rustup.rs/x86_64)
 and [Tauri](https://tauri.studio/en/docs/usage/development/integration#alternatively-install-tauri-cli-as-a-cargo-subcommand).
 
-## Development server
+### Development server
 
 Run `npm start` for a dev server. Navigate to [localhost:4200](http://localhost:4200/). The app will
 automatically reload if you change any of the source files.
 
-## Build
+### Build
 
 Run `npm run build` to build the project. The build artifacts will be stored in the `public/` directory.
 Use the `--prod` flag for a production build.
 
-## Creating .exe file
+### Creating .exe file
 
 > Ensure you have installed [Rust Cargo and Tauri](#rust-cargo-and-tauri) before continuing.
 
