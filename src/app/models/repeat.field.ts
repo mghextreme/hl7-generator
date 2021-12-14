@@ -17,8 +17,12 @@ export class RepeatField extends BaseField<RepeatField> {
       template.id,
       template.i18n);
 
-    this.required = template.required;
     this.subfields = [];
+    this.required = template.required;
+    if (template.valueGenerator) {
+      this.valueGenerator = this.generateValueForSubfields;
+    }
+
     this.addSubfield();
   }
 
@@ -62,5 +66,14 @@ export class RepeatField extends BaseField<RepeatField> {
     if (this.subfields.length > 1) {
       this.subfields.pop();
     }
+  }
+
+  private generateValueForSubfields(): void {
+    this.expanded = true;
+    this.subfields.forEach(s => {
+      if (s.valueGenerator) {
+        s.valueGenerator(s);
+      }
+    });
   }
 }
