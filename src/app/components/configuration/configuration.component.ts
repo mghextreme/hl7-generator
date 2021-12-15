@@ -25,7 +25,9 @@ export class ConfigurationComponent {
   _pid_8: string[] = [];
   _pid_10: string[] = [];
   _pid_16: string[] = [];
+  _pid_17: string[] = [];
   _pid_22: string[] = [];
+  _pv1_14: string[] = [];
   _pv1_36: string[] = [];
 
   constructor(
@@ -47,7 +49,9 @@ export class ConfigurationComponent {
     this._pid_8 = configService.retrieveCollection('PID.8');
     this._pid_10 = configService.retrieveCollection('PID.10');
     this._pid_16 = configService.retrieveCollection('PID.16');
+    this._pid_17 = configService.retrieveCollection('PID.17');
     this._pid_22 = configService.retrieveCollection('PID.22');
+    this._pv1_14 = configService.retrieveCollection('PV1.14');
     this._pv1_36 = configService.retrieveCollection('PV1.36');
   }
 
@@ -166,12 +170,28 @@ export class ConfigurationComponent {
     this.configService.storeCollection('PID.16', this._pid_16);
   }
 
+  get pid_17(): string[] { return this._pid_17; }
+  set pid_17(value: string[]) {
+    if (value === this._pid_17) { return; }
+
+    this._pid_17 = value;
+    this.configService.storeCollection('PID.17', this._pid_17);
+  }
+
   get pid_22(): string[] { return this._pid_22; }
   set pid_22(value: string[]) {
     if (value === this._pid_22) { return; }
 
     this._pid_22 = value;
     this.configService.storeCollection('PID.22', this._pid_22);
+  }
+
+  get pv1_14(): string[] { return this._pv1_14; }
+  set pv1_14(value: string[]) {
+    if (value === this._pv1_14) { return; }
+
+    this._pv1_14 = value;
+    this.configService.storeCollection('PV1.14', this._pv1_14);
   }
 
   get pv1_36(): string[] { return this._pv1_36; }

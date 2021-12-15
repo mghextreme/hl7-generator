@@ -84,7 +84,11 @@ export class PidSection extends SectionBase {
           faker.random.arrayElement(
             this.configService.retrieveCollection('PID.16')));
       }}),
-      new CeCustomField(this.configService, 17, 'pid.17'),
+      new CeCustomField(this.configService, 17, 'pid.17').init({ valueGenerator: (f) => {
+        f.setValue(
+          faker.random.arrayElement(
+            this.configService.retrieveCollection('PID.17')));
+      }}),
       new CxCustomField(this.configService, 18, 'pid.18'),
       new StringField(19, 'pid.19').init({ valueGenerator: (f) => {
         f.setValue(faker.finance.routingNumber());
