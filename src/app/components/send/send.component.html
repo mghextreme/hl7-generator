@@ -1,3 +1,13 @@
-<div id="send" class="container-fluid">
+<div id="send" class="container-fluid d-flex flex-column align-items-stretch">
   <app-page-header></app-page-header>
+
+  <div class="row">
+    <div class="col">
+      <h4 class="mb-2">{{ 'titles.hl7-message' | translate }}</h4>
+      <textarea pInputTextarea class="hl7-textarea form-control mb-2" autoResize="autoResize" [(ngModel)]="hl7" (change)="handleHl7Change()"></textarea>
+    </div>
+    <div class="col">
+
+    </div>
+  </div>
 </div>
