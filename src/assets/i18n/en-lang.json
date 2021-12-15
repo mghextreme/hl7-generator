@@ -19,6 +19,11 @@
     "select-option": "Select option",
     "repeat": "Repeat"
   },
+  "menu": {
+    "build": "Build",
+    "send": "Send",
+    "configure": "Configure"
+  },
   "titles": {
     "sections": "Sections",
     "hl7-message": "HL7 Message",

@@ -18,19 +18,15 @@ export class PageHeaderComponent {
     this.currentRoute = router.url;
   }
 
-  public handleConfigurationNavigation(): void {
-    this.router.navigate(['configuration']);
-  }
-
-  public handleHomeNavigation(): void {
-    this.router.navigate(['/']);
-  }
-
   public get isHomePage(): boolean {
     return this.currentRoute === '/';
   }
 
-  public get isConfigurationPage(): boolean {
-    return this.currentRoute === '/configuration';
+  public get isSendPage(): boolean {
+    return this.currentRoute === '/send';
+  }
+
+  public get isConfigurePage(): boolean {
+    return this.currentRoute === '/configure';
   }
 }

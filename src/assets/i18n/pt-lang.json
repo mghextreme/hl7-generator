@@ -19,6 +19,11 @@
     "select-option": "Selecionar opção",
     "repeat": "Repetir"
   },
+  "menu": {
+    "build": "Montar",
+    "send": "Enviar",
+    "configure": "Configurar"
+  },
   "titles": {
     "sections": "Seções",
     "hl7-message": "Mensagem HL7",

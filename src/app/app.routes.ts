@@ -1,10 +1,15 @@
 import { Routes } from '@angular/router';
-import { ConfigurationComponent } from './components/configuration/configuration.component';
 import { HomeComponent } from './components/home/home.component';
+import { SendComponent } from './components/send/send.component';
+import { ConfigurationComponent } from './components/configuration/configuration.component';
 
 const appRoutes: Routes = [
   {
     path: 'home',
+    redirectTo: '/'
+  },
+  {
+    path: 'build',
     redirectTo: '/'
   },
   {
@@ -13,13 +18,22 @@ const appRoutes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'send',
+    component: SendComponent
+  },
+  {
     path: 'configuration',
+    redirectTo: '/configure'
+  },
+  {
+    path: 'configure',
     component: ConfigurationComponent
   }
 ];
 
 const pagesComponents = [
   HomeComponent,
+  SendComponent,
   ConfigurationComponent
 ];
 

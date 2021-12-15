@@ -5,12 +5,17 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item px-3 configuration">
-          <p-button *ngIf="isHomePage" icon="pi pi-cog" [title]="'titles.configuration' | translate" (onClick)="handleConfigurationNavigation()"></p-button>
-          <p-button *ngIf="isConfigurationPage" icon="pi pi-chevron-left" [title]="'titles.home' | translate" (onClick)="handleHomeNavigation()"></p-button>
+      <ul class="navbar-nav flex-fill">
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="isHomePage" [routerLink]="['/']">{{ 'menu.build' | translate }}</a>
         </li>
-        <li class="nav-item px-3 lang-select">
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="isSendPage" [routerLink]="['/send']">{{ 'menu.send' | translate }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="isConfigurePage" [routerLink]="['/configure']">{{ 'menu.configure' | translate }}</a>
+        </li>
+        <li class="nav-item px-3 lang-select ml-auto mr-0">
           <select #langSelect (change)="translate.use(langSelect.value)" class="form-control">
             <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
           </select>
