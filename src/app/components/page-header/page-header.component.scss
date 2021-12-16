@@ -1,5 +1,17 @@
 ::ng-deep {
   #pageHeader {
+    i.pi {
+      display: inline-block;
+      position: relative;
+      width: 1em;
+
+      &::before {
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+      }
+    }
+
     p-button {
       button.ui-button {
         font-size: 1em;

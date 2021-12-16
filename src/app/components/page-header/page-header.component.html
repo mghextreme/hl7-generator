@@ -6,14 +6,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav flex-fill">
-        <li class="nav-item">
-          <a class="nav-link" [class.active]="isHomePage" [routerLink]="['/']">{{ 'menu.build' | translate }}</a>
+        <li class="nav-item mr-3">
+          <a class="nav-link" [class.active]="isHomePage" [routerLink]="['/']"><i class="pi pi-pencil"></i> {{ 'menu.build' | translate }}</a>
+        </li>
+        <li class="nav-item mr-3">
+          <a class="nav-link" [class.active]="isSendPage" [routerLink]="['/send']"><i class="pi pi-upload"></i> {{ 'menu.send' | translate }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [class.active]="isSendPage" [routerLink]="['/send']">{{ 'menu.send' | translate }}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [class.active]="isConfigurePage" [routerLink]="['/configure']">{{ 'menu.configure' | translate }}</a>
+          <a class="nav-link" [class.active]="isConfigurePage" [routerLink]="['/configure']"><i class="pi pi-cog"></i> {{ 'menu.configure' | translate }}</a>
         </li>
         <li class="nav-item px-3 lang-select ml-auto mr-0">
           <select #langSelect (change)="translate.use(langSelect.value)" class="form-control">
