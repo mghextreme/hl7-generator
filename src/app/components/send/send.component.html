@@ -7,7 +7,17 @@
       <textarea pInputTextarea class="hl7-textarea form-control mb-2" autoResize="autoResize" [(ngModel)]="hl7" (change)="handleHl7Change()"></textarea>
     </div>
     <div class="col">
-
+      <h4 class="mb-2">{{ 'titles.send' | translate }}</h4>
+      <div class="row">
+        <div class="col-auto">
+          <label for="method">{{ 'send.fields.method' | translate }}</label>
+          <p-dropdown [options]="methodOptions" [(ngModel)]="selectedMethod" name="method" class="short"></p-dropdown>
+        </div>
+        <div class="col">
+          <label for="method">{{ 'send.fields.endpoint' | translate }}</label>
+          <input pInputText [(ngModel)]="endpoint" type="text" name="endpoint" />
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -28,7 +28,8 @@
     "sections": "Seções",
     "hl7-message": "Mensagem HL7",
     "configuration": "Configuração",
-    "templates": "Modelos"
+    "templates": "Modelos",
+    "send": "Enviar"
   },
   "configuration": {
     "stored-values": "Valores salvos",

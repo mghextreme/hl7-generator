@@ -28,7 +28,8 @@
     "sections": "Sections",
     "hl7-message": "HL7 Message",
     "configuration": "Configuration",
-    "templates": "Templates"
+    "templates": "Templates",
+    "send": "Send"
   },
   "configuration": {
     "stored-values": "Stored Values",
@@ -952,6 +953,12 @@
       "5": {
         "name": "Country Code"
       }
+    }
+  },
+  "send": {
+    "fields": {
+      "method": "Method",
+      "endpoint": "Endpoint"
     }
   }
 }
